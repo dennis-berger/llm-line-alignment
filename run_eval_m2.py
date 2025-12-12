@@ -34,73 +34,29 @@ Metrics:
 import argparse
 import csv
 import glob
+import logging
 import os
 import sys
 from dataclasses import dataclass
+from pathlib import Path
 from typing import List
 
 from PIL import Image
 import torch
 from transformers import AutoProcessor, AutoModelForVision2Seq
 
-from metrics import (
-    wer,
-    cer,
-    normalize_whitespace,
-    line_accuracy,
-    line_accuracy_norm,
-    reverse_line_accuracy,
-    reverse_line_accuracy_norm,
+from utils.common import find_images_for_id, read_text, write_text
+from utils.evaluation import evaluate_prediction
+from utils.prompts import PROMPT_TEMPLATE_M2
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
+logger = logging.getLogger(__name__)
 
 # ---------------- Data helpers ----------------
-
-IMG_EXTS = (".jpg", ".jpeg", ".png", ".tif", ".tiff")
-
-
-def find_images_for_id(images_root: str, sample_id: str) -> List[str]:
-    """Find all images belonging to a sample ID."""
-    base = os.path.join(images_root, sample_id)
-    if not os.path.isdir(base):
-        return []
-    cand: List[str] = []
-
-    # direct files
-    for ext in IMG_EXTS:
-        cand += sorted(glob.glob(os.path.join(base, f"*{ext}")))
-
-    # common subfolders
-    for sub in ("page", "images", "img"):
-        d = os.path.join(base, sub)
-        if os.path.isdir(d):
-            for ext in IMG_EXTS:
-                cand += sorted(glob.glob(os.path.join(d, f"*{ext}")))
-
-    # last resort: recursive
-    if not cand:
-        for ext in IMG_EXTS:
-            cand += sorted(
-                glob.glob(os.path.join(base, "**", f"*{ext}"), recursive=True)
-            )
-
-    # dedup keeping order
-    seen, out = set(), []
-    for p in cand:
-        if p not in seen:
-            seen.add(p)
-            out.append(p)
-    return out
-
-
-def read_text(p: str) -> str:
-    with open(p, "r", encoding="utf-8") as f:
-        return f.read().strip()
-
-
-def write_text(p: str, t: str):
-    os.makedirs(os.path.dirname(p), exist_ok=True)
-    with open(p, "w", encoding="utf-8") as f:
-        f.write(t)
+# (Moved to utils/common.py)
 
 
 # ---------------- Qwen backend (Method 2, multi-page) ----------------
@@ -171,53 +127,7 @@ class QwenMethod2Combiner:
         - transcription is textually correct (characters),
         - HTR and image should only guide line breaks.
         """
-        base = (
-            "You see a scanned page of a historical handwritten letter.\n\n"
-            "You are given two textual versions of this page:\n"
-            "1) A CORRECT diplomatic transcription of the text (but without "
-            "   line breaks matching the layout of the page).\n"
-            "2) An automatic HTR output that already contains line breaks and "
-            "   possibly errors (wrong characters, missing parts, noisy hyphenation).\n\n"
-            "VERY IMPORTANT RULES:\n"
-            "- The CORRECT transcription is the only source of characters.\n"
-            "- You must NOT change, remove, or add any characters compared to the "
-            "  given CORRECT transcription. Do not normalize spelling or punctuation.\n"
-            "- You must NOT copy characters from the HTR output that differ from "
-            "  the CORRECT transcription.\n"
-            "- The HTR output and the image may only guide where line breaks occur.\n"
-            "- You may insert newline characters between words or inside words to "
-            "  match the visual line breaks in the image.\n"
-            "- Do NOT insert extra hyphen characters at line breaks. If a word is "
-            "  split across lines in the image or in the HTR, split it in the same "
-            "  place but using the exact spelling from the CORRECT transcription.\n"
-            "- Preserve the exact order and spelling of all characters from the "
-            "  CORRECT transcription.\n\n"
-            "Your task:\n"
-            "1. Insert newline characters into the CORRECT transcription so that the "
-            "   lines correspond as closely as possible to the layout visible in the "
-            "   image and suggested by the HTR line breaks.\n"
-            "2. Ignore any obvious recognition errors in the HTR with respect to "
-            "   the CORRECT transcription; only use the HTR to guess where line "
-            "   breaks probably occur.\n"
-            "3. Output ONLY the re-formatted CORRECT transcription with newline "
-            "   characters, no explanations or extra text.\n\n"
-            "CORRECT TRANSCRIPTION (single block, authoritative text):\n"
-            f"{transcription}\n\n"
-        )
-        if htr.strip():
-            base += (
-                "HTR OUTPUT (noisy, for line-break hints only):\n"
-                f"{htr}\n\n"
-            )
-        else:
-            base += (
-                "HTR OUTPUT: (not available for this page; rely only on the image "
-                "and the CORRECT transcription for line breaks.)\n\n"
-            )
-        base += (
-            "Now return the CORRECT transcription with line breaks inserted.\n"
-        )
-        return base
+        return PROMPT_TEMPLATE_M2.format(transcription=transcription, htr=htr)
 
     # ---------- Image helper ----------
 
@@ -441,7 +351,7 @@ def main():
 
     gt_files = sorted(glob.glob(os.path.join(gt_dir, "*.txt")))
     if not gt_files:
-        print(f"No ground-truth files found in {gt_dir}", file=sys.stderr)
+        logger.error(f"No ground-truth files found in {gt_dir}")
         sys.exit(1)
 
     rows = []
@@ -453,20 +363,18 @@ def main():
         sample_id = os.path.splitext(os.path.basename(gt_path))[0]
 
         # Image(s)
-        img_paths = find_images_for_id(images_root, sample_id)
+        img_paths = find_images_for_id(Path(images_root), sample_id)
+        img_paths = [str(p) for p in img_paths]  # Convert Path objects to strings
         if not img_paths:
-            print(f"[WARN] No images for {sample_id}; skipping.", file=sys.stderr)
+            logger.warning(f"No images for {sample_id}; skipping.")
             continue
 
         # Transcription (correct text, no line breaks)
         transcription_path = os.path.join(transcription_dir, f"{sample_id}.txt")
         if not os.path.exists(transcription_path):
-            print(
-                f"[WARN] No transcription for {sample_id} in {transcription_dir}; skipping.",
-                file=sys.stderr,
-            )
+            logger.warning(f"No transcription for {sample_id} in {transcription_dir}; skipping.")
             continue
-        transcription = read_text(transcription_path)
+        transcription = read_text(Path(transcription_path))
 
         # HTR output (noisy, used only for line breaks)
         htr_path = os.path.join(ocr_dir, f"{sample_id}.txt")
@@ -483,58 +391,46 @@ def main():
         try:
             pred = combiner.infer_line_breaks(img_paths, transcription, htr_text)
         except Exception as e:
-            print(f"[ERR] Failure for {sample_id}: {e}", file=sys.stderr)
+            logger.error(f"Failure for {sample_id}: {e}", exc_info=True)
             continue
 
-        write_text(os.path.join(args.out_dir, f"{sample_id}.txt"), pred)
+        write_text(Path(args.out_dir) / f"{sample_id}.txt", pred)
 
         # ----- Evaluation -----
-        gt = read_text(gt_path)
+        gt = read_text(Path(gt_path))
+        
+        result = evaluate_prediction(gt, pred, sample_id)
+        
+        rows.append([
+            result['id'],
+            result['len_gt'],
+            result['len_pred'],
+            result['wer'],
+            result['cer'],
+            result['wer_whitespace_normalized'],
+            result['cer_whitespace_normalized'],
+            result['line_accuracy'],
+            result['line_accuracy_whitespace_normalized'],
+            result['line_accuracy_reverse'],
+            result['line_accuracy_whitespace_normalized_reverse'],
+        ])
 
-        # token-level metrics
-        w = wer(gt, pred)
-        c = cer(gt, pred)
-        wn = wer(normalize_whitespace(gt), normalize_whitespace(pred))
-        cn = cer(normalize_whitespace(gt), normalize_whitespace(pred))
-
-        # line-level metrics (Bullinger-style analogue)
-        la = line_accuracy(gt, pred)
-        lan = line_accuracy_norm(gt, pred)
-        rla = reverse_line_accuracy(gt, pred)
-        rlan = reverse_line_accuracy_norm(gt, pred)
-
-        rows.append(
-            [
-                sample_id,
-                len(gt),
-                len(pred),
-                w,
-                c,
-                wn,
-                cn,
-                la,
-                lan,
-                rla,
-                rlan,
-            ]
-        )
-
-        sum_w += w
-        sum_c += c
-        sum_wn += wn
-        sum_cn += cn
-        sum_la += la
-        sum_lan += lan
-        sum_rla += rla
-        sum_rlan += rlan
+        sum_w += result['wer']
+        sum_c += result['cer']
+        sum_wn += result['wer_whitespace_normalized']
+        sum_cn += result['cer_whitespace_normalized']
+        sum_la += result['line_accuracy']
+        sum_lan += result['line_accuracy_whitespace_normalized']
+        sum_rla += result['line_accuracy_reverse']
+        sum_rlan += result['line_accuracy_whitespace_normalized_reverse']
         n += 1
 
-        print(
+        logger.info(
             f"[OK] {sample_id}: "
-            f"WER={w:.3f} CER={c:.3f} "
-            f"(norm WER={wn:.3f} CER={cn:.3f}) "
-            f"LineAcc={la:.3f} LineAcc_norm={lan:.3f} "
-            f"RevLineAcc={rla:.3f} RevLineAcc_norm={rlan:.3f}"
+            f"WER={result['wer']:.3f} CER={result['cer']:.3f} "
+            f"(norm WER={result['wer_whitespace_normalized']:.3f} CER={result['cer_whitespace_normalized']:.3f}) "
+            f"LineAcc={result['line_accuracy']:.3f} LineAcc_norm={result['line_accuracy_whitespace_normalized']:.3f} "
+            f"RevLineAcc={result['line_accuracy_reverse']:.3f} RevLineAcc_norm={result['line_accuracy_whitespace_normalized_reverse']:.3f}"
         )
 
     # ----- Write CSV (+ macro average) -----
@@ -575,7 +471,7 @@ def main():
                 ]
             )
 
-    print(f"\nWrote {args.eval_csv} with {n} samples.")
+    logger.info(f"Wrote {args.eval_csv} with {n} samples.")
 
 
 if __name__ == "__main__":
