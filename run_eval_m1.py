@@ -3,15 +3,15 @@
 """
 Method 1: Bullinger with Qwen3-VL (image(s) + transcription):
 
-- Walk data_val/gt/*.txt to get IDs (ground-truth line-broken text).
+- Walk datasets/bullinger_handwritten/gt/*.txt to get IDs (ground-truth line-broken text).
 - For each ID:
-  - Load page image(s) from data_val/images/<ID>/**.
+  - Load page image(s) from datasets/bullinger_handwritten/images/<ID>/**.
   - Load the CORRECT transcription (no line breaks) from
-    data_val/transcription/<ID>.txt.
+    datasets/bullinger_handwritten/transcription/<ID>.txt.
   - Split the transcription across pages (heuristic, by character length).
 - For each page i: send (image_i, chunk_i) to Qwen to only insert line breaks.
 - Concatenate all page-level outputs → prediction for that letter.
-- Evaluate vs data_val/gt/<ID>.txt:
+- Evaluate vs datasets/bullinger_handwritten/gt/<ID>.txt:
     - WER / CER (raw + whitespace-normalized)
     - line-level accuracy (forward + reverse, raw + normalized)
 - Write predictions_m1/<ID>.txt and evaluation_qwen_m1.csv.

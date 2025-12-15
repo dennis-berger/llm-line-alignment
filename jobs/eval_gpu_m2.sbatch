@@ -41,7 +41,7 @@ which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 python run_eval_m2.py \
-  --data-dir data_val \
+  --data-dir datasets/bullinger_handwritten \
   --hf-model "$MODEL" \
   --hf-device cuda \
   --out-dir predictions_m2 \

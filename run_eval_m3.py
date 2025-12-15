@@ -15,9 +15,9 @@ Goal:
 
 - Output: letter-level prediction with line breaks; evaluate vs gt/<ID>.txt.
 
-Assumed folder structure under --data-dir (default: data_val):
+Assumed folder structure under --data-dir (default: datasets/bullinger_handwritten):
 
-    data_val/
+    datasets/bullinger_handwritten/
         gt/              # ground-truth line-broken letters, <ID>.txt
         transcription/   # correct letter-level transcriptions: <ID>.txt
         ocr/             # HTR outputs: <ID>.txt  (noisy, line-broken)

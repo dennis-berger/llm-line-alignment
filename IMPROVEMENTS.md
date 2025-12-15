@@ -67,7 +67,7 @@ All scripts work exactly as before, with improved logging output:
 
 ```bash
 # Method 1 example
-python run_eval_m1.py --data-dir data_val --out-dir predictions_m1
+python run_eval_m1.py --data-dir datasets/bullinger_handwritten --out-dir predictions_m1
 
 # Now you'll see structured logs like:
 # 2024-12-12 10:30:15 - __main__ - INFO - [OK] 0001: WER=0.123 CER=0.045 ...

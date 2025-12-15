@@ -39,10 +39,10 @@ which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 python run_eval_m1.py \
-  --data-dir easy_hist_dataset \
+  --data-dir datasets/easy_historical \
   --out-dir easy_hist_predictions_m1 \
   --eval-csv easy_hist_eval_qwen_m1.csv \
-  --hf-device cuda
+  --hf-device cuda \
   --hf-model "$MODEL" \
   --max-new-tokens 800
 

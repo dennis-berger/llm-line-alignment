@@ -14,7 +14,7 @@ Assumes filenames like:
     10317.tif
 
 Usage:
-    python copy_pages_to_images.py easy_hist_dataset
+    python copy_pages_to_images.py datasets/easy_historical
 """
 
 import os

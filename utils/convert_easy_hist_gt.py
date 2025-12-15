@@ -7,7 +7,7 @@ Convert the "270-01 ..." encoded GT format into:
 - transcription/<page_id>.txt  (single block, no line breaks)
 
 Usage:
-  python convert_easy_hist_gt.py raw_gt.txt easy_hist_dataset
+  python convert_easy_hist_gt.py raw_gt.txt datasets/easy_historical
 """
 
 import os
@@ -153,6 +153,6 @@ def main(raw_gt_path: str, out_root: str) -> None:
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: python convert_easy_hist_gt.py raw_gt.txt easy_hist_dataset", file=sys.stderr)
+        print("Usage: python convert_easy_hist_gt.py raw_gt.txt datasets/easy_historical", file=sys.stderr)
         sys.exit(1)
     main(sys.argv[1], sys.argv[2])

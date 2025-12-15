@@ -2,8 +2,8 @@
 # run_eval_qwen.py
 """
 Bullinger MWE with Qwen3-VL:
-- Walk data_val/gt/*.txt to get IDs
-- Collect images in data_val/images/<ID>/** (supports multi-page)
+- Walk datasets/bullinger_handwritten/gt/*.txt to get IDs
+- Collect images in datasets/bullinger_handwritten/images/<ID>/** (supports multi-page)
 - Transcribe with Qwen/Qwen3-VL-8B-Instruct (vision-language)
 - Write predictions/<ID>.txt
 - Compute WER/CER and line-level accuracy (forward + reverse, raw + normalized)
@@ -156,7 +156,7 @@ class QwenTranscriber:
 # ---------------- Main ----------------
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data-dir", default="data_val", help="folder containing gt/ and images/")
+    ap.add_argument("--data-dir", default="datasets/bullinger_handwritten", help="folder containing gt/ and images/")
     ap.add_argument("--out-dir", default="predictions", help="where to write predictions")
     ap.add_argument("--eval-csv", default="evaluation_qwen.csv", help="output CSV path")
     ap.add_argument("--hf-model", default="Qwen/Qwen3-VL-8B-Instruct")

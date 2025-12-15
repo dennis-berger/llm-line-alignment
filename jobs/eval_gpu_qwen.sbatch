@@ -71,7 +71,7 @@ python -c "import sys, os; print(sys.version); print('PYTORCH_CUDA_ALLOC_CONF=',
 
 # Run
 python run_eval_qwen.py \
-  --data-dir data_val \
+  --data-dir datasets/bullinger_handwritten \
   --hf-model "$MODEL" \
   --hf-device cuda \
   --eval-csv evaluation_qwen.csv \

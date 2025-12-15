@@ -2,8 +2,8 @@
 # run_eval.py
 """
 Minimal pipeline for Bullinger MWE:
-- Walk data_val/gt/*.txt to get IDs
-- Find images in data_val/images/<ID>/
+- Walk datasets/bullinger_handwritten/gt/*.txt to get IDs
+- Find images in datasets/bullinger_handwritten/images/<ID>/
 - Transcribe with Hugging Face TrOCR (or Tesseract)
 - Write predictions to predictions/<ID>.txt
 - Compute WER/CER and line-level accuracy (forward + reverse) and write evaluation.csv
@@ -13,7 +13,7 @@ Backends:
   - tesseract: uses pytesseract + system tesseract
 
 Examples:
-  python run_eval.py --data-dir data_val                 # default hf_trocr
+  python run_eval.py --data-dir datasets/bullinger_handwritten                 # default hf_trocr
   python run_eval.py --backend hf_trocr --hf-model microsoft/trocr-base-handwritten
   python run_eval.py --backend tesseract
 """
@@ -174,7 +174,7 @@ class Transcriber:
 # ---------------- Main ----------------
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data-dir", default="data_val")
+    ap.add_argument("--data-dir", default="datasets/bullinger_handwritten")
     ap.add_argument("--out-dir", default="predictions")
     ap.add_argument("--backend", choices=["hf_trocr", "tesseract"], default="hf_trocr")
     ap.add_argument("--hf-model", default="microsoft/trocr-base-handwritten",
