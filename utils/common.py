@@ -33,24 +33,28 @@ def find_images_for_id(images_root: Path, sample_id: str) -> list[Path]:
     return sorted(image_files)
 
 
-def read_text(path: Path) -> str:
+def read_text(path: Path | str) -> str:
     """Read text file content.
     
     Args:
-        path: Path to text file
+        path: Path to text file (Path object or string)
         
     Returns:
         File content as string
     """
+    if isinstance(path, str):
+        path = Path(path)
     return path.read_text(encoding='utf-8')
 
 
-def write_text(path: Path, text: str) -> None:
+def write_text(path: Path | str, text: str) -> None:
     """Write text to file.
     
     Args:
-        path: Path to output file
+        path: Path to output file (Path object or string)
         text: Text content to write
     """
+    if isinstance(path, str):
+        path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding='utf-8')

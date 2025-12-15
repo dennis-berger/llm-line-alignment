@@ -379,7 +379,7 @@ def main():
         # HTR output (noisy, used only for line breaks)
         htr_path = os.path.join(ocr_dir, f"{sample_id}.txt")
         if os.path.exists(htr_path):
-            htr_text = read_text(htr_path)
+            htr_text = read_text(Path(htr_path))
         else:
             print(
                 f"[WARN] No HTR/ocr file for {sample_id} in {ocr_dir}; falling back to image+transcription only.",
