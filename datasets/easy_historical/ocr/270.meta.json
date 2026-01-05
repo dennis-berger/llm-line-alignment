@@ -1,0 +1,13 @@
+{
+  "id": "270",
+  "dataset": "easy_historical",
+  "segmenter": "kraken",
+  "recognizer": "trocr",
+  "recognizer_model": "microsoft/trocr-base-handwritten",
+  "num_pages": 1,
+  "num_lines": 32,
+  "timestamp_utc": "2026-01-05T11:14:30.987065+00:00",
+  "cache_root": "outputs/cache/easy_historical/lines",
+  "ocr_path": "datasets/easy_historical/ocr/270.txt",
+  "transcription_path": "datasets/easy_historical/transcription/270.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "0001",
+  "dataset": "bullinger_print",
+  "segmenter": "kraken",
+  "recognizer": "trocr",
+  "recognizer_model": "microsoft/trocr-base-printed",
+  "num_pages": 1,
+  "num_lines": 0,
+  "timestamp_utc": "2026-01-05T11:08:50.056060+00:00",
+  "cache_root": "outputs/cache/bullinger_print/lines",
+  "ocr_path": "datasets/bullinger_print/ocr/0001.txt",
+  "transcription_path": "datasets/bullinger_print/transcription/0001.txt"
+}

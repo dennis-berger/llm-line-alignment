@@ -1,0 +1,13 @@
+{
+  "id": "a01-000u",
+  "dataset": "IAM_handwritten",
+  "segmenter": "kraken",
+  "recognizer": "trocr",
+  "recognizer_model": "microsoft/trocr-base-handwritten",
+  "num_pages": 1,
+  "num_lines": 7,
+  "timestamp_utc": "2026-01-05T11:16:39.592210+00:00",
+  "cache_root": "outputs/cache/IAM_handwritten/lines",
+  "ocr_path": "datasets/IAM_handwritten/ocr/a01-000u.txt",
+  "transcription_path": "datasets/IAM_handwritten/transcription/a01-000u.txt"
+}
