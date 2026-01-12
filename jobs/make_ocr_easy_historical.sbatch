@@ -36,6 +36,12 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
+# Install kraken if not present
+if ! python -c "import kraken" 2>/dev/null; then
+  echo "Installing kraken..."
+  pip install kraken
+fi
+
 # Generate OCR for easy_historical dataset
 python scripts/make_ocr_outputs.py \
   --dataset easy_historical \
