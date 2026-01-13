@@ -27,14 +27,13 @@ set -euo pipefail
 echo "=== Submitting All Evaluation Jobs ==="
 date
 
-# Ensure we're in the project root (parent of jobs/)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
-cd "$PROJECT_ROOT"
+# SLURM sets SLURM_SUBMIT_DIR to where the job was submitted from
+# Navigate to project root (assuming submission from project root)
+cd "$SLURM_SUBMIT_DIR"
 echo "Working directory: $PWD"
 
 # Use absolute paths for job submissions
-JOBS_DIR="$PROJECT_ROOT/jobs"
+JOBS_DIR="$PWD/jobs"
 
 # Track submitted job IDs
 declare -a job_ids
