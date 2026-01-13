@@ -33,6 +33,9 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 echo "Working directory: $PWD"
 
+# Use absolute paths for job submissions
+JOBS_DIR="$PROJECT_ROOT/jobs"
+
 # Track submitted job IDs
 declare -a job_ids
 
@@ -40,41 +43,41 @@ declare -a job_ids
 # Dataset: bullinger_handwritten (Base dataset)
 # ------------------------------------------------------------------------------
 echo "Submitting bullinger_handwritten jobs..."
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m1.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m2.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m3.sbatch))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m1.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m2.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m3.sbatch"))
 
 # ------------------------------------------------------------------------------
 # Dataset: bullinger_print
 # ------------------------------------------------------------------------------
 echo "Submitting bullinger_print jobs..."
-job_ids+=($(sbatch --parsable jobs/eval_gpu_qwen_m1_print.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m2_bullinger_print.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m3_bullinger_print.sbatch))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_qwen_m1_print.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m2_bullinger_print.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m3_bullinger_print.sbatch"))
 
 # ------------------------------------------------------------------------------
 # Dataset: easy_historical
 # ------------------------------------------------------------------------------
 echo "Submitting easy_historical jobs..."
-job_ids+=($(sbatch --parsable jobs/eval_gpu_qwen_m1_easy-historical.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m2_easy_historical.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m3_easy_historical.sbatch))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_qwen_m1_easy-historical.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m2_easy_historical.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m3_easy_historical.sbatch"))
 
 # ------------------------------------------------------------------------------
 # Dataset: IAM_handwritten
 # ------------------------------------------------------------------------------
 echo "Submitting IAM_handwritten jobs..."
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m1_iam_handwritten.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m2_iam_handwritten.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m3_iam_handwritten.sbatch))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m1_iam_handwritten.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m2_iam_handwritten.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m3_iam_handwritten.sbatch"))
 
 # ------------------------------------------------------------------------------
 # Dataset: IAM_print
 # ------------------------------------------------------------------------------
 echo "Submitting IAM_print jobs..."
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m1_iam_print.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m2_iam_print.sbatch))
-job_ids+=($(sbatch --parsable jobs/eval_gpu_m3_iam_print.sbatch))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m1_iam_print.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m2_iam_print.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval_gpu_m3_iam_print.sbatch"))
 
 # ------------------------------------------------------------------------------
 # Summary
