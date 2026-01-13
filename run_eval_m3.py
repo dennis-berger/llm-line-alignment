@@ -287,6 +287,8 @@ def main():
     n = 0
     sum_w = sum_c = sum_wn = sum_cn = 0.0
     sum_la = sum_lan = sum_rla = sum_rlan = 0.0
+    sum_elp = sum_elr = sum_elf1 = 0.0
+    sum_elp_norm = sum_elr_norm = sum_elf1_norm = 0.0
 
     for gt_path in gt_files:
         sample_id = os.path.splitext(os.path.basename(gt_path))[0]
@@ -331,6 +333,12 @@ def main():
             result['line_accuracy_whitespace_normalized'],
             result['line_accuracy_reverse'],
             result['line_accuracy_whitespace_normalized_reverse'],
+            result['exact_line_precision'],
+            result['exact_line_recall'],
+            result['exact_line_f1'],
+            result['exact_line_precision_norm'],
+            result['exact_line_recall_norm'],
+            result['exact_line_f1_norm'],
         ])
 
         sum_w += result['wer']
@@ -341,6 +349,12 @@ def main():
         sum_lan += result['line_accuracy_whitespace_normalized']
         sum_rla += result['line_accuracy_reverse']
         sum_rlan += result['line_accuracy_whitespace_normalized_reverse']
+        sum_elp += result['exact_line_precision']
+        sum_elr += result['exact_line_recall']
+        sum_elf1 += result['exact_line_f1']
+        sum_elp_norm += result['exact_line_precision_norm']
+        sum_elr_norm += result['exact_line_recall_norm']
+        sum_elf1_norm += result['exact_line_f1_norm']
         n += 1
 
         logger.info(
@@ -348,7 +362,8 @@ def main():
             f"WER={result['wer']:.3f} CER={result['cer']:.3f} "
             f"(norm WER={result['wer_whitespace_normalized']:.3f} CER={result['cer_whitespace_normalized']:.3f}) "
             f"LineAcc={result['line_accuracy']:.3f} LineAcc_norm={result['line_accuracy_whitespace_normalized']:.3f} "
-            f"RevLineAcc={result['line_accuracy_reverse']:.3f} RevLineAcc_norm={result['line_accuracy_whitespace_normalized_reverse']:.3f}"
+            f"RevLineAcc={result['line_accuracy_reverse']:.3f} RevLineAcc_norm={result['line_accuracy_whitespace_normalized_reverse']:.3f} "
+            f"ExactLineP={result['exact_line_precision']:.3f} ExactLineR={result['exact_line_recall']:.3f} ExactLineF1={result['exact_line_f1']:.3f}"
         )
 
     # ----- Write CSV (+ macro average) -----
@@ -368,6 +383,12 @@ def main():
                 "line_acc_norm",
                 "rev_line_acc",
                 "rev_line_acc_norm",
+                "exact_line_precision",
+                "exact_line_recall",
+                "exact_line_f1",
+                "exact_line_precision_norm",
+                "exact_line_recall_norm",
+                "exact_line_f1_norm",
             ]
         )
         wtr.writerows(rows)
@@ -386,6 +407,12 @@ def main():
                     sum_lan / n,
                     sum_rla / n,
                     sum_rlan / n,
+                    sum_elp / n,
+                    sum_elr / n,
+                    sum_elf1 / n,
+                    sum_elp_norm / n,
+                    sum_elr_norm / n,
+                    sum_elf1_norm / n,
                 ]
             )
 

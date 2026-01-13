@@ -1,5 +1,6 @@
 # metrics.py
-from typing import List
+from typing import List, Dict
+from collections import Counter
 
 def _lev(a: List[str], b: List[str]) -> int:
     """Levenshtein distance on sequences a, b."""
@@ -152,3 +153,100 @@ def line_accuracy_norm(ref: str, hyp: str) -> float:
         if r == h:
             correct += 1
     return correct / n
+
+
+# -------- Exact line matching with precision/recall/F1 --------
+
+def exact_line_prf(gt_lines: List[str], pred_lines: List[str]) -> Dict[str, float]:
+    """
+    Compute exact line matching metrics: precision, recall, and F1.
+    
+    This metric counts how many lines are exactly correct, regardless of line ordering
+    or line count differences, without double-counting matches.
+    
+    Matching strategy:
+    - Lines are matched using exact string equality (after normalization)
+    - Uses Counter-based matching: for each unique line text, matches the minimum
+      of its count in GT and predictions (equivalent to maximum bipartite matching)
+    - Each line can be matched at most once
+    
+    Metrics computed (micro-averaged when aggregated across samples):
+    - exact_line_precision (ELP) = (# matched lines) / (# predicted lines)
+    - exact_line_recall (ELR) = (# matched lines) / (# ground-truth lines)
+    - exact_line_f1 (ELF1) = harmonic mean of precision and recall
+    
+    Args:
+        gt_lines: List of ground-truth line strings (already normalized)
+        pred_lines: List of predicted line strings (already normalized)
+        
+    Returns:
+        Dictionary with keys: exact_line_precision, exact_line_recall, exact_line_f1
+        
+    Edge cases:
+        - Empty predictions: precision = 0.0
+        - Empty ground truth: recall = 0.0
+        - F1 = 0.0 if both precision and recall are 0
+        
+    Example:
+        gt = ["Dear Anna,", "thank you for your", "detailed feedback."]
+        pred = ["Dear Anna,", "thank you", "for your", "detailed feedback."]
+        # Matches: "Dear Anna," and "detailed feedback." = 2 matches
+        # Precision = 2/4 = 0.5, Recall = 2/3 ≈ 0.667, F1 = 0.571
+    """
+    # Count occurrences of each unique line
+    gt_counter = Counter(gt_lines)
+    pred_counter = Counter(pred_lines)
+    
+    # For each unique line, match the minimum count between GT and predictions
+    # This ensures no double-counting and is equivalent to maximum bipartite matching
+    all_lines = set(gt_counter.keys()) | set(pred_counter.keys())
+    matches = sum(min(gt_counter[line], pred_counter[line]) for line in all_lines)
+    
+    total_pred = len(pred_lines)
+    total_gt = len(gt_lines)
+    
+    # Compute precision: avoid division by zero
+    if total_pred == 0:
+        precision = 0.0
+    else:
+        precision = matches / total_pred
+    
+    # Compute recall: avoid division by zero
+    if total_gt == 0:
+        recall = 0.0
+    else:
+        recall = matches / total_gt
+    
+    # Compute F1: harmonic mean, handle zero case
+    if precision + recall == 0:
+        f1 = 0.0
+    else:
+        f1 = 2 * precision * recall / (precision + recall)
+    
+    return {
+        "exact_line_precision": precision,
+        "exact_line_recall": recall,
+        "exact_line_f1": f1,
+    }
+
+
+def exact_line_prf_from_text(ref: str, hyp: str, normalize: bool = False) -> Dict[str, float]:
+    """
+    Compute exact line matching metrics from full text strings.
+    
+    Args:
+        ref: Ground truth text with line breaks
+        hyp: Predicted text with line breaks
+        normalize: If True, normalize whitespace within each line before matching
+        
+    Returns:
+        Dictionary with exact_line_precision, exact_line_recall, exact_line_f1
+    """
+    ref_lines = _split_lines(ref)
+    hyp_lines = _split_lines(hyp)
+    
+    if normalize:
+        ref_lines = [normalize_whitespace(line) for line in ref_lines]
+        hyp_lines = [normalize_whitespace(line) for line in hyp_lines]
+    
+    return exact_line_prf(ref_lines, hyp_lines)
