@@ -30,9 +30,6 @@ date
 # Navigate to project root
 cd "$(dirname "$0")/.."
 
-# Create logs directory if it doesn't exist
-mkdir -p logs
-
 # Track submitted job IDs
 declare -a job_ids
 
