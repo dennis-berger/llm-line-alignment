@@ -27,8 +27,11 @@ set -euo pipefail
 echo "=== Submitting All Evaluation Jobs ==="
 date
 
-# Navigate to project root
-cd "$(dirname "$0")/.."
+# Ensure we're in the project root (parent of jobs/)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+cd "$PROJECT_ROOT"
+echo "Working directory: $PWD"
 
 # Track submitted job IDs
 declare -a job_ids
