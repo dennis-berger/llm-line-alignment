@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=bull_qwen_m1_print
+#SBATCH --job-name=iam_handwritten_m3
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --error=logs/%x_%j.err
 #SBATCH --time=02:00:00
@@ -16,10 +16,10 @@ hostname
 nvidia-smi || true
 echo "============"
 
-# Conda
+# Make conda available
 [ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
 if ! command -v conda >/dev/null 2>&1; then
-  echo "ERROR: 'conda' not found."
+  echo "ERROR: 'conda' not found. Load your conda module or install Miniconda."
   exit 1
 fi
 eval "$(conda shell.bash hook)"
@@ -30,20 +30,22 @@ export HF_HOME="$PWD/.hf"
 export TRANSFORMERS_CACHE="$HF_HOME/transformers"
 mkdir -p "$TRANSFORMERS_CACHE"
 
+# Reduce CUDA fragmentation
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
+# Prefer local snapshot if present, else hub
 MODEL="./.hf/Qwen3-VL-8B-Instruct"
 [ -d "$MODEL" ] || MODEL="Qwen/Qwen3-VL-8B-Instruct"
 
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
-python run_eval_m1.py \
-  --data-dir datasets/easy_historical \
-  --out-dir easy_hist_predictions_m1 \
-  --eval-csv easy_hist_eval_qwen_m1.csv \
-  --hf-device cuda \
+python run_eval_m3.py \
+  --data-dir datasets/IAM_handwritten \
   --hf-model "$MODEL" \
+  --hf-device cuda \
+  --out-dir iam_handwritten_predictions_m3 \
+  --eval-csv iam_handwritten_eval_m3.csv \
   --max-new-tokens 800
 
 echo "Done."

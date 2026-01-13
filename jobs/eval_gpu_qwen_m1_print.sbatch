@@ -6,7 +6,7 @@
 #SBATCH --partition=GPU
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=6
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 
 set -euo pipefail
 set -x
