@@ -46,9 +46,9 @@ from typing import List
 import torch
 from transformers import AutoProcessor, AutoModelForVision2Seq
 
-from utils.common import read_text, write_text
+from utils.common import read_text, write_text, select_few_shot_examples
 from utils.evaluation import evaluate_prediction
-from utils.prompts import PROMPT_TEMPLATE_M3
+from utils.prompts import PROMPT_TEMPLATE_M3, format_few_shot_examples_m3
 
 logging.basicConfig(
     level=logging.INFO,
@@ -68,6 +68,7 @@ class QwenCfg:
     model_id: str = "Qwen/Qwen3-VL-8B-Instruct"
     device: str = "auto"  # "auto" | "cuda" | "cpu"
     max_new_tokens: int = 800
+    few_shot_examples: list = None
 
 
 class QwenMethod3Combiner:
@@ -93,6 +94,7 @@ class QwenMethod3Combiner:
         self.processor = AutoProcessor.from_pretrained(
             cfg.model_id, trust_remote_code=True
         )
+        self.few_shot_examples = cfg.few_shot_examples or []
 
         load_kwargs = dict(trust_remote_code=True)
         if self.device == "cuda":
@@ -131,7 +133,8 @@ class QwenMethod3Combiner:
         - HTR should only guide line breaks.
         - No image is available.
         """
-        return PROMPT_TEMPLATE_M3.format(transcription=transcription, htr=htr)
+        examples_str = format_few_shot_examples_m3(self.few_shot_examples)
+        return PROMPT_TEMPLATE_M3.format(examples=examples_str, transcription=transcription, htr=htr)
 
     # ---------- Core generation ----------
 
@@ -261,14 +264,45 @@ def main():
             "Defaults to <data-dir>/ocr"
         ),
     )
+    ap.add_argument("--n-shots", type=int, default=0,
+                    help="Number of few-shot examples (0 = zero-shot)")
+    ap.add_argument("--shots-dataset-scope", default="same", choices=["same", "cross"],
+                    help="Use examples from 'same' dataset or 'cross' dataset")
+    ap.add_argument("--shots-seed", type=int, default=None,
+                    help="Random seed for selecting few-shot examples (optional)")
     args = ap.parse_args()
 
+    # Determine output filenames based on n_shots
+    shot_suffix = f"_{args.n_shots}shot" if args.n_shots > 0 else "_0shot"
+    if args.out_dir == "predictions_m3":
+        args.out_dir = f"predictions_m3{shot_suffix}"
+    if args.eval_csv == "evaluation_qwen_m3.csv":
+        args.eval_csv = f"evaluation_qwen_m3{shot_suffix}.csv"
+    
+    # Load few-shot examples if requested
+    few_shot_examples = []
+    if args.n_shots > 0:
+        logger.info(f"Loading {args.n_shots} few-shot examples from {args.data_dir}...")
+        # We'll collect all test IDs first, then select examples excluding them
+        gt_dir_path = Path(args.data_dir) / "gt"
+        test_ids = [p.stem for p in sorted(gt_dir_path.glob("*.txt"))]
+        
+        few_shot_examples = select_few_shot_examples(
+            data_dir=Path(args.data_dir),
+            n_shots=args.n_shots,
+            exclude_ids=test_ids,  # Will be updated per sample in the loop
+            method="m3",
+            seed=args.shots_seed,
+        )
+        logger.info(f"Loaded {len(few_shot_examples)} few-shot examples")
+    
     # Instantiate backend
     combiner = QwenMethod3Combiner(
         QwenCfg(
             model_id=args.hf_model,
             device=args.hf_device,
             max_new_tokens=args.max_new_tokens,
+            few_shot_examples=few_shot_examples,
         )
     )
 

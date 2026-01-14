@@ -31,9 +31,9 @@ from PIL import Image
 import torch
 from transformers import AutoProcessor, AutoModelForVision2Seq
 
-from utils.common import find_images_for_id, read_text, write_text
+from utils.common import find_images_for_id, read_text, write_text, select_few_shot_examples
 from utils.evaluation import evaluate_prediction
-from utils.prompts import PROMPT_TEMPLATE_M1
+from utils.prompts import PROMPT_TEMPLATE_M1, format_few_shot_examples_m1
 
 logging.basicConfig(
     level=logging.INFO,
@@ -51,6 +51,7 @@ class QwenCfg:
     model_id: str = "Qwen/Qwen3-VL-8B-Instruct"
     device: str = "auto"   # "auto" | "cuda" | "cpu"
     max_new_tokens: int = 800
+    few_shot_examples: list = None
 
 class QwenLineBreaker:
     """
@@ -66,6 +67,7 @@ class QwenLineBreaker:
     def __init__(self, cfg: QwenCfg):
         self.device = "cuda" if (cfg.device in ("auto", "cuda") and torch.cuda.is_available()) else "cpu"
         self.processor = AutoProcessor.from_pretrained(cfg.model_id, trust_remote_code=True)
+        self.few_shot_examples = cfg.few_shot_examples or []
 
         load_kwargs = dict(trust_remote_code=True)
         if self.device == "cuda":
@@ -96,7 +98,8 @@ class QwenLineBreaker:
         Build an instruction prompt that explains that the transcription is correct
         and the model must only insert newline characters.
         """
-        return PROMPT_TEMPLATE_M1.format(transcription=transcription)
+        examples_str = format_few_shot_examples_m1(self.few_shot_examples)
+        return PROMPT_TEMPLATE_M1.format(examples=examples_str, transcription=transcription)
 
 
     # ---------- Image helper ----------
@@ -170,21 +173,41 @@ class QwenLineBreaker:
     def _generate_one(self, img: Image.Image, transcription: str) -> str:
         """
         Single-page call: image + transcription chunk -> line-broken chunk.
+        Includes few-shot examples if available.
         """
         prompt = self._build_prompt(transcription)
+        
+        # Build message content with few-shot examples
+        content = []
+        all_images = []
+        
+        # Add few-shot examples first (if any)
+        for ex in self.few_shot_examples:
+            if ex.image_paths:
+                # Add first page image from example
+                ex_img = Image.open(ex.image_paths[0]).convert("RGB")
+                ex_img = self._downscale(ex_img, max_side=1280)
+                content.append({"type": "image", "image": ex_img})
+                all_images.append(ex_img)
+        
+        # Add current test image
+        content.append({"type": "image", "image": img})
+        all_images.append(img)
+        
+        # Add text prompt
+        content.append({"type": "text", "text": prompt})
+        
         messages = [{
             "role": "user",
-            "content": [
-                {"type": "image", "image": img},
-                {"type": "text",  "text": prompt},
-            ],
+            "content": content,
         }]
+        
         text = self.processor.apply_chat_template(
             messages,
             add_generation_prompt=True,
             tokenize=False,
         )
-        inputs = self.processor(text=[text], images=[img], return_tensors="pt")
+        inputs = self.processor(text=[text], images=all_images, return_tensors="pt")
         if self.device == "cuda":
             inputs = {k: v.to("cuda") for k, v in inputs.items()}
 
@@ -259,13 +282,44 @@ def main():
     ap.add_argument("--transcription-dir", default=None,
                     help="Folder containing transcription/<ID>.txt (no line breaks). "
                          "Defaults to <data-dir>/transcription")
+    ap.add_argument("--n-shots", type=int, default=0,
+                    help="Number of few-shot examples (0 = zero-shot)")
+    ap.add_argument("--shots-dataset-scope", default="same", choices=["same", "cross"],
+                    help="Use examples from 'same' dataset or 'cross' dataset")
+    ap.add_argument("--shots-seed", type=int, default=None,
+                    help="Random seed for selecting few-shot examples (optional)")
     args = ap.parse_args()
 
+    # Determine output filenames based on n_shots
+    shot_suffix = f"_{args.n_shots}shot" if args.n_shots > 0 else "_0shot"
+    if args.out_dir == "predictions_m1":
+        args.out_dir = f"predictions_m1{shot_suffix}"
+    if args.eval_csv == "evaluation_qwen_m1.csv":
+        args.eval_csv = f"evaluation_qwen_m1{shot_suffix}.csv"
+    
+    # Load few-shot examples if requested
+    few_shot_examples = []
+    if args.n_shots > 0:
+        logger.info(f"Loading {args.n_shots} few-shot examples from {args.data_dir}...")
+        # We'll collect all test IDs first, then select examples excluding them
+        gt_dir = Path(args.data_dir) / "gt"
+        test_ids = [p.stem for p in sorted(gt_dir.glob("*.txt"))]
+        
+        few_shot_examples = select_few_shot_examples(
+            data_dir=Path(args.data_dir),
+            n_shots=args.n_shots,
+            exclude_ids=test_ids,  # Will be updated per sample in the loop
+            method="m1",
+            seed=args.shots_seed,
+        )
+        logger.info(f"Loaded {len(few_shot_examples)} few-shot examples")
+    
     # Instantiate backend
     line_breaker = QwenLineBreaker(QwenCfg(
         model_id=args.hf_model,
         device=args.hf_device,
         max_new_tokens=args.max_new_tokens,
+        few_shot_examples=few_shot_examples,
     ))
 
     gt_dir = os.path.join(args.data_dir, "gt")

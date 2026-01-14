@@ -1,85 +1,222 @@
-# FAITH Cluster Jobs
+# SLURM Job Files for Line Alignment Evaluation
 
-These Slurm job scripts run the evaluation experiments on the **FAITH HPC cluster** at Uni Fribourg.
+This directory contains SLURM batch jobs for running line alignment evaluations on the cluster with various methods, datasets, and few-shot configurations.
 
-## Available Job Scripts
+## Directory Structure
 
-### Bullinger Handwritten Dataset (All Methods)
-- `eval_gpu_m1.sbatch` - Method 1: Images + Transcription
-- `eval_gpu_m2.sbatch` - Method 2: Images + Transcription + HTR/OCR
-- `eval_gpu_m3.sbatch` - Method 3: Transcription + HTR/OCR (no images)
-
-### Bullinger Print Dataset (Method 1 Only)
-- `eval_gpu_qwen_m1_print.sbatch` - Method 1: Images + Transcription
-
-### Easy Historical Dataset (Method 1 Only)
-- `eval_gpu_qwen_m1_easy-historical.sbatch` - Method 1: Images + Transcription
-
-### Legacy Scripts
-- `eval_gpu_qwen.sbatch` - Original Qwen evaluation script (use M1/M2/M3 scripts instead)
-
-**Note:** Method 2 and 3 require an `ocr/` folder with HTR outputs. Currently, only `bullinger_handwritten` has this data.
+```
+jobs/
+├── README.md                     # This file
+├── orchestrators/                # Master submission scripts
+│   ├── eval_all_0shot.sbatch    # Submit all zero-shot jobs (15 jobs)
+│   └── eval_all_1shot.sbatch    # Submit all 1-shot jobs (13 jobs)
+├── eval/                         # Evaluation jobs organized by method
+│   ├── m1/                       # Method 1: Image + Transcription
+│   │   ├── bullinger_handwritten_0shot.sbatch
+│   │   ├── bullinger_handwritten_1shot.sbatch
+│   │   ├── bullinger_print_0shot.sbatch
+│   │   ├── easy_historical_0shot.sbatch
+│   │   ├── iam_handwritten_0shot.sbatch
+│   │   ├── iam_handwritten_1shot.sbatch
+│   │   ├── iam_print_0shot.sbatch
+│   │   └── iam_print_1shot.sbatch
+│   ├── m2/                       # Method 2: Image + Transcription + HTR
+│   │   ├── bullinger_handwritten_0shot.sbatch
+│   │   ├── bullinger_handwritten_1shot.sbatch
+│   │   ├── bullinger_print_0shot.sbatch
+│   │   ├── bullinger_print_1shot.sbatch
+│   │   ├── easy_historical_0shot.sbatch
+│   │   ├── easy_historical_1shot.sbatch
+│   │   ├── iam_handwritten_0shot.sbatch
+│   │   ├── iam_handwritten_1shot.sbatch
+│   │   ├── iam_print_0shot.sbatch
+│   │   └── iam_print_1shot.sbatch
+│   └── m3/                       # Method 3: Transcription + HTR (no images)
+│       ├── bullinger_handwritten_0shot.sbatch
+│       ├── bullinger_handwritten_1shot.sbatch
+│       ├── bullinger_print_0shot.sbatch
+│       ├── bullinger_print_1shot.sbatch
+│       ├── easy_historical_0shot.sbatch
+│       ├── easy_historical_1shot.sbatch
+│       ├── iam_handwritten_0shot.sbatch
+│       ├── iam_handwritten_1shot.sbatch
+│       ├── iam_print_0shot.sbatch
+│       └── iam_print_1shot.sbatch
+└── preprocessing/                # OCR/HTR generation jobs
+    ├── make_ocr_easy_historical.sbatch
+    ├── make_ocr_iam_handwritten.sbatch
+    └── make_ocr_iam_print.sbatch
+```
 
 ## Quick Start
 
-See `../EVALUATION_QUICKSTART.md` for the fastest way to run all evaluations.
+### Submit All Jobs (Recommended)
 
-## Usage
-
-### Logging into the Faith Cluster
-
-Before submitting jobs, connect to the cluster login node:
+**Zero-shot evaluation (all 15 jobs):**
 ```bash
-ssh bergerd@diufrd200.unifr.ch
+sbatch jobs/orchestrators/eval_all_0shot.sbatch
 ```
 
-### Submit All Jobs at Once
+**1-shot evaluation (all 13 jobs):**
 ```bash
-cd ~/projects/bullinger-line-alignment-mwe
-mkdir -p logs
-
-sbatch jobs/eval_gpu_m1.sbatch
-sbatch jobs/eval_gpu_m2.sbatch
-sbatch jobs/eval_gpu_m3.sbatch
-sbatch jobs/eval_gpu_qwen_m1_print.sbatch
-sbatch jobs/eval_gpu_qwen_m1_easy-historical.sbatch
+sbatch jobs/orchestrators/eval_all_1shot.sbatch
 ```
 
-### Monitor Jobs
+### Submit Individual Jobs
+
+**Single method/dataset combination:**
 ```bash
-# Check queue status
+sbatch jobs/eval/m1/bullinger_handwritten_0shot.sbatch
+sbatch jobs/eval/m2/iam_handwritten_1shot.sbatch
+sbatch jobs/eval/m3/easy_historical_0shot.sbatch
+```
+
+**All jobs for one method:**
+```bash
+for job in jobs/eval/m2/*_0shot.sbatch; do sbatch "$job"; done
+```
+
+**All jobs for one dataset:**
+```bash
+sbatch jobs/eval/m1/iam_print_1shot.sbatch
+sbatch jobs/eval/m2/iam_print_1shot.sbatch
+sbatch jobs/eval/m3/iam_print_1shot.sbatch
+```
+
+## Methods Overview
+
+### Method 1 (M1): Image + Transcription
+- **Input:** Page image(s) + correct transcription (no line breaks)
+- **Task:** Insert line breaks based on visual layout
+- **Datasets:** 5 (all datasets)
+
+### Method 2 (M2): Image + Transcription + HTR
+- **Input:** Page image(s) + correct transcription + HTR output
+- **Task:** Use HTR line breaks as hints while preserving correct text
+- **Datasets:** 5 (all datasets)
+
+### Method 3 (M3): Transcription + HTR (text-only)
+- **Input:** Correct transcription + HTR output (no images)
+- **Task:** Transfer line breaks from HTR to transcription
+- **Datasets:** 5 (all datasets)
+
+## Few-Shot Configuration
+
+### Zero-Shot (0-shot)
+- No examples provided to the model
+- Default behavior for all `*_0shot.sbatch` files
+
+### 1-Shot
+- 1 example randomly selected from the same dataset
+- Fixed seed (42) for reproducibility
+- Automatically excludes test samples from example pool
+
+### Future: 2-shot, 3-shot, etc.
+To create additional few-shot configurations:
+1. Copy `*_1shot.sbatch` files
+2. Change filename to `*_2shot.sbatch`
+3. Update `--n-shots 2` parameter
+4. Create corresponding orchestrator in `orchestrators/`
+
+## Monitoring Jobs
+
+**Check job status:**
+```bash
 squeue -u $USER
-
-# Watch queue continuously (Ctrl+C to exit)
-watch -n 5 'squeue -u $USER'
-
-# Follow a specific job's output
-tail -f logs/bullinger_qwen_m1_*.out
 ```
 
-### Copy Results to Local Machine
-
-After jobs complete, copy results from the cluster:
-
+**Watch job output in real-time:**
 ```bash
-# On your local machine
-cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Uni/Master_Thesis/bullinger-line-alignment-mwe
-
-# Create results directory
-mkdir -p results_$(date +%Y%m%d)
-cd results_$(date +%Y%m%d)
-
-# Copy all evaluation CSV files
-scp bergerd@diufrd200.unifr.ch:~/projects/bullinger-line-alignment-mwe/*.csv .
-
-# Copy all prediction directories
-scp -r bergerd@diufrd200.unifr.ch:~/projects/bullinger-line-alignment-mwe/predictions_m* .
-scp -r bergerd@diufrd200.unifr.ch:~/projects/bullinger-line-alignment-mwe/bullinger_print_predictions_m1 .
-scp -r bergerd@diufrd200.unifr.ch:~/projects/bullinger-line-alignment-mwe/easy_hist_predictions_m1 .
+tail -f logs/bullinger_m1_1shot_<job_id>.out
+tail -f logs/bullinger_m1_1shot_<job_id>.err
 ```
 
-## Documentation
+**Cancel jobs:**
+```bash
+# Cancel specific job
+scancel <job_id>
 
-For detailed documentation of the Faith HPC Cluster visit: https://diuf-doc.unifr.ch/books/faith-hpc-cluster
+# Cancel all your jobs
+scancel -u $USER
 
-For a comprehensive evaluation plan with all steps, see: `../EVALUATION_PLAN.md`
+# Cancel all 1-shot jobs
+scancel -u $USER -n "*_1shot"
+
+# Cancel all jobs for a method
+scancel -u $USER -n "bullinger_*"
+```
+
+## Output Files
+
+Results are automatically organized by shot count:
+
+### Zero-Shot Outputs
+- Predictions: `predictions_m1_0shot/`, `predictions_m2_0shot/`, `predictions_m3_0shot/`
+- CSV results: `evaluation_qwen_m1_0shot.csv`, etc.
+
+### 1-Shot Outputs
+- Predictions: `predictions_m1_1shot/`, `predictions_m2_1shot/`, `predictions_m3_1shot/`
+- CSV results: `evaluation_qwen_m1_1shot.csv`, etc.
+
+### Dataset-Specific Naming
+Some jobs use dataset-specific output naming:
+- `bullinger_print_predictions_m1/`
+- `iam_handwritten_eval_m2.csv`
+
+## Resource Allocation
+
+All evaluation jobs use:
+- **GPU:** 1 GPU (any available)
+- **Memory:** 64GB RAM
+- **CPUs:** 6 cores
+- **Time:** 2 hours
+- **Partition:** GPU
+
+Orchestrator jobs use minimal resources (1GB RAM, 10 minutes).
+
+## Key Parameters
+
+All jobs use:
+- `--hf-model` - Qwen3-VL-8B-Instruct (local or HuggingFace)
+- `--hf-device cuda` - Use GPU acceleration
+- `--max-new-tokens 800` - Maximum output length
+
+Few-shot specific:
+- `--n-shots N` - Number of examples (0, 1, 2, ...)
+- `--shots-seed 42` - Random seed for reproducibility
+- `--shots-dataset-scope same` - Use examples from same dataset (default)
+
+## Troubleshooting
+
+**Job fails immediately:**
+- Check logs in `logs/<job_name>_<job_id>.err`
+- Verify conda environment is activated
+- Check GPU availability with `nvidia-smi`
+
+**Out of memory:**
+- Reduce `--max-new-tokens`
+- Check if 4-bit quantization is working (bitsandbytes)
+- Some nodes have less VRAM (32GB vs 48GB)
+
+**Model not found:**
+- Ensure Qwen3-VL-8B-Instruct is downloaded to `.hf/Qwen3-VL-8B-Instruct/`
+- Or rely on automatic download from HuggingFace (slower first run)
+
+**Few-shot examples not loading:**
+- Verify dataset has gt/, transcription/, and ocr/ directories
+- Check that dataset has enough samples (need at least 2: 1 test + 1 example)
+
+## Adding New Datasets
+
+To add a new dataset:
+1. Create job files following the naming pattern: `{dataset}_{nshot}.sbatch`
+2. Place in appropriate method directory: `eval/m1/`, `eval/m2/`, or `eval/m3/`
+3. Update orchestrator scripts to include new dataset
+4. Ensure dataset directory structure matches expectations:
+   ```
+   datasets/{dataset}/
+   ├── gt/              # Ground truth with line breaks
+   ├── images/          # Page images (for M1/M2)
+   ├── transcription/   # Correct text without line breaks
+   └── ocr/             # HTR output (for M2/M3)
+   ```

@@ -10,7 +10,7 @@ Your task:
 5. DO NOT change, add, or remove any characters - only insert newlines
 6. Return ONLY the portion of text visible on this page with correct line breaks
 
-Transcription:
+{examples}Transcription:
 {transcription}
 
 Return the text visible on this page with line breaks matching the image. Each visual line should be on a separate line. Do not add explanations."""
@@ -28,7 +28,7 @@ Your task:
 - DO NOT change any characters in the correct transcription - only insert newlines
 - Return ONLY the portion of text visible on this page
 
-Correct transcription:
+{examples}Correct transcription:
 {transcription}
 
 HTR/OCR output with line breaks:
@@ -46,10 +46,81 @@ Your task:
 - DO NOT change any characters in the correct transcription - only insert newlines
 - Handle cases where HTR/OCR has character errors by finding the best alignment
 
-Correct transcription:
+{examples}Correct transcription:
 {transcription}
 
 HTR/OCR output with line breaks:
 {htr}
 
 Return the correct transcription with line breaks matching the HTR/OCR structure. Do not add explanations."""
+
+
+def format_few_shot_examples_m1(examples) -> str:
+    """Format few-shot examples for Method 1 (images + transcription).
+    
+    Args:
+        examples: List of FewShotExample objects
+        
+    Returns:
+        Formatted example string to insert into prompt
+    """
+    if not examples:
+        return ""
+    
+    formatted = "Here are some examples:\n\n"
+    
+    for i, ex in enumerate(examples, 1):
+        formatted += f"Example {i}:\n"
+        formatted += f"Transcription:\n{ex.transcription}\n\n"
+        formatted += f"Output with line breaks:\n{ex.gt_text}\n\n"
+    
+    formatted += "Now, apply the same approach to the following:\n\n"
+    return formatted
+
+
+def format_few_shot_examples_m2(examples) -> str:
+    """Format few-shot examples for Method 2 (images + transcription + HTR).
+    
+    Args:
+        examples: List of FewShotExample objects
+        
+    Returns:
+        Formatted example string to insert into prompt
+    """
+    if not examples:
+        return ""
+    
+    formatted = "Here are some examples:\n\n"
+    
+    for i, ex in enumerate(examples, 1):
+        formatted += f"Example {i}:\n"
+        formatted += f"Correct transcription:\n{ex.transcription}\n\n"
+        formatted += f"HTR/OCR output with line breaks:\n{ex.ocr_text}\n\n"
+        formatted += f"Output with correct line breaks:\n{ex.gt_text}\n\n"
+    
+    formatted += "Now, apply the same approach to the following:\n\n"
+    return formatted
+
+
+def format_few_shot_examples_m3(examples) -> str:
+    """Format few-shot examples for Method 3 (transcription + HTR, no images).
+    
+    Args:
+        examples: List of FewShotExample objects
+        
+    Returns:
+        Formatted example string to insert into prompt
+    """
+    if not examples:
+        return ""
+    
+    formatted = "Here are some examples:\n\n"
+    
+    for i, ex in enumerate(examples, 1):
+        formatted += f"Example {i}:\n"
+        formatted += f"Correct transcription:\n{ex.transcription}\n\n"
+        formatted += f"HTR/OCR output with line breaks:\n{ex.ocr_text}\n\n"
+        formatted += f"Output with correct line breaks:\n{ex.gt_text}\n\n"
+    
+    formatted += "Now, apply the same approach to the following:\n\n"
+    return formatted
