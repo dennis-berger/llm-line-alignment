@@ -46,4 +46,6 @@ python run_eval_m1.py \
   --hf-device cuda \
   --n-shots 1 \
   --shots-seed 42 \
+  --out-dir iam_handwritten_predictions_m1_1shot \
+  --eval-csv iam_handwritten_eval_m1_1shot.csv \
   --max-new-tokens 800

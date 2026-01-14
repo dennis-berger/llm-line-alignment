@@ -44,8 +44,9 @@ python run_eval_m3.py \
   --data-dir datasets/bullinger_handwritten \
   --hf-model "$MODEL" \
   --hf-device cuda \
-  --out-dir predictions_m3 \
-  --eval-csv evaluation_qwen_m3.csv \
+  --n-shots 0 \
+  --out-dir bullinger_handwritten_predictions_m3_0shot \
+  --eval-csv bullinger_handwritten_eval_m3_0shot.csv \
   --max-new-tokens 800
 
 echo "Done."

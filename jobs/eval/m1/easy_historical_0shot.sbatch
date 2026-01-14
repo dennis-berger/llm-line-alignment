@@ -40,10 +40,11 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 python run_eval_m1.py \
   --data-dir datasets/easy_historical \
-  --out-dir easy_hist_predictions_m1 \
-  --eval-csv easy_hist_eval_qwen_m1.csv \
   --hf-device cuda \
   --hf-model "$MODEL" \
+  --n-shots 0 \
+  --out-dir easy_historical_predictions_m1_0shot \
+  --eval-csv easy_historical_eval_m1_0shot.csv \
   --max-new-tokens 800
 
 echo "Done."

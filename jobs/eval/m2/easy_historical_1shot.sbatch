@@ -46,4 +46,6 @@ python run_eval_m2.py \
   --hf-device cuda \
   --n-shots 1 \
   --shots-seed 42 \
+  --out-dir easy_historical_predictions_m2_1shot \
+  --eval-csv easy_historical_eval_m2_1shot.csv \
   --max-new-tokens 800

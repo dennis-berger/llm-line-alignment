@@ -44,8 +44,9 @@ python run_eval_m2.py \
   --data-dir datasets/bullinger_handwritten \
   --hf-model "$MODEL" \
   --hf-device cuda \
-  --out-dir predictions_m2 \
-  --eval-csv evaluation_qwen_m2.csv \
+  --n-shots 0 \
+  --out-dir bullinger_handwritten_predictions_m2_0shot \
+  --eval-csv bullinger_handwritten_eval_m2_0shot.csv \
   --max-new-tokens 800
 
 echo "Done."

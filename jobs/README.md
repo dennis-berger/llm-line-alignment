@@ -148,20 +148,28 @@ scancel -u $USER -n "bullinger_*"
 
 ## Output Files
 
-Results are automatically organized by shot count:
+Results are saved with dataset-specific naming for easy comparison:
 
-### Zero-Shot Outputs
-- Predictions: `predictions_m1_0shot/`, `predictions_m2_0shot/`, `predictions_m3_0shot/`
-- CSV results: `evaluation_qwen_m1_0shot.csv`, etc.
+**Naming Pattern:**
+- CSV: `{dataset}_eval_{method}_{nshot}.csv`
+- Predictions: `{dataset}_predictions_{method}_{nshot}/`
 
-### 1-Shot Outputs
-- Predictions: `predictions_m1_1shot/`, `predictions_m2_1shot/`, `predictions_m3_1shot/`
-- CSV results: `evaluation_qwen_m1_1shot.csv`, etc.
+**Examples:**
 
-### Dataset-Specific Naming
-Some jobs use dataset-specific output naming:
-- `bullinger_print_predictions_m1/`
-- `iam_handwritten_eval_m2.csv`
+### Zero-Shot (0-shot)
+- `bullinger_handwritten_eval_m1_0shot.csv` + `bullinger_handwritten_predictions_m1_0shot/`
+- `iam_print_eval_m2_0shot.csv` + `iam_print_predictions_m2_0shot/`
+- `easy_historical_eval_m3_0shot.csv` + `easy_historical_predictions_m3_0shot/`
+
+### 1-Shot
+- `bullinger_handwritten_eval_m1_1shot.csv` + `bullinger_handwritten_predictions_m1_1shot/`
+- `iam_handwritten_eval_m2_1shot.csv` + `iam_handwritten_predictions_m2_1shot/`
+- `bullinger_print_eval_m3_1shot.csv` + `bullinger_print_predictions_m3_1shot/`
+
+This makes it easy to compare:
+- **Across shots**: `iam_print_eval_m2_0shot.csv` vs `iam_print_eval_m2_1shot.csv`
+- **Across methods**: `bullinger_handwritten_eval_m1_1shot.csv` vs `bullinger_handwritten_eval_m2_1shot.csv`
+- **Across datasets**: `iam_print_eval_m2_1shot.csv` vs `easy_historical_eval_m2_1shot.csv`
 
 ## Resource Allocation
 

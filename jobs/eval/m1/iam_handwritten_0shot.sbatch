@@ -44,6 +44,7 @@ python run_eval_m1.py \
   --data-dir datasets/IAM_handwritten \
   --hf-model "$MODEL" \
   --hf-device cuda \
-  --out-dir predictions_m1_iam_handwritten \
-  --eval-csv evaluation_m1_iam_handwritten.csv \
+  --n-shots 0 \
+  --out-dir iam_handwritten_predictions_m1_0shot \
+  --eval-csv iam_handwritten_eval_m1_0shot.csv \
   --max-new-tokens 800

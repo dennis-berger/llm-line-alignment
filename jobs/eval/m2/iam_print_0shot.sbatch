@@ -44,8 +44,9 @@ python run_eval_m2.py \
   --data-dir datasets/IAM_print \
   --hf-model "$MODEL" \
   --hf-device cuda \
-  --out-dir iam_print_predictions_m2 \
-  --eval-csv iam_print_eval_m2.csv \
+  --n-shots 0 \
+  --out-dir iam_print_predictions_m2_0shot \
+  --eval-csv iam_print_eval_m2_0shot.csv \
   --max-new-tokens 800
 
 echo "Done."

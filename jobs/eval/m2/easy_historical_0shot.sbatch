@@ -44,8 +44,9 @@ python run_eval_m2.py \
   --data-dir datasets/easy_historical \
   --hf-model "$MODEL" \
   --hf-device cuda \
-  --out-dir easy_hist_predictions_m2 \
-  --eval-csv easy_hist_eval_m2.csv \
+  --n-shots 0 \
+  --out-dir easy_historical_predictions_m2_0shot \
+  --eval-csv easy_historical_eval_m2_0shot.csv \
   --max-new-tokens 800
 
 echo "Done."

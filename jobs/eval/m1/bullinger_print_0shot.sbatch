@@ -40,10 +40,11 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 python run_eval_m1.py \
   --data-dir datasets/bullinger_print \
-  --out-dir bullinger_print_predictions_m1 \
-  --eval-csv bullinger_print_eval_qwen_m1.csv \
   --hf-model "$MODEL" \
   --hf-device cuda \
+  --n-shots 0 \
+  --out-dir bullinger_print_predictions_m1_0shot \
+  --eval-csv bullinger_print_eval_m1_0shot.csv \
   --max-new-tokens 800
 
 echo "Done."

@@ -46,4 +46,6 @@ python run_eval_m3.py \
   --hf-device cuda \
   --n-shots 1 \
   --shots-seed 42 \
+  --out-dir bullinger_print_predictions_m3_1shot \
+  --eval-csv bullinger_print_eval_m3_1shot.csv \
   --max-new-tokens 800
