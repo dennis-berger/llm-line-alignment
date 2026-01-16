@@ -279,30 +279,13 @@ def main():
     if args.eval_csv == "evaluation_qwen_m3.csv":
         args.eval_csv = f"evaluation_qwen_m3{shot_suffix}.csv"
     
-    # Load few-shot examples if requested
-    few_shot_examples = []
-    if args.n_shots > 0:
-        logger.info(f"Loading {args.n_shots} few-shot examples from {args.data_dir}...")
-        # We'll collect all test IDs first, then select examples excluding them
-        gt_dir_path = Path(args.data_dir) / "gt"
-        test_ids = [p.stem for p in sorted(gt_dir_path.glob("*.txt"))]
-        
-        few_shot_examples = select_few_shot_examples(
-            data_dir=Path(args.data_dir),
-            n_shots=args.n_shots,
-            exclude_ids=test_ids,  # Will be updated per sample in the loop
-            method="m3",
-            seed=args.shots_seed,
-        )
-        logger.info(f"Loaded {len(few_shot_examples)} few-shot examples")
-    
-    # Instantiate backend
+    # Instantiate backend (few-shot examples will be set per sample)
     combiner = QwenMethod3Combiner(
         QwenCfg(
             model_id=args.hf_model,
             device=args.hf_device,
             max_new_tokens=args.max_new_tokens,
-            few_shot_examples=few_shot_examples,
+            few_shot_examples=[],
         )
     )
 
@@ -327,6 +310,17 @@ def main():
     for gt_path in gt_files:
         sample_id = os.path.splitext(os.path.basename(gt_path))[0]
 
+        # Load few-shot examples for this specific sample
+        if args.n_shots > 0:
+            few_shot_examples = select_few_shot_examples(
+                data_dir=Path(args.data_dir),
+                n_shots=args.n_shots,
+                exclude_ids=[sample_id],  # Exclude only the current sample
+                method="m3",
+                seed=args.shots_seed,
+            )
+            combiner.few_shot_examples = few_shot_examples
+        
         # Transcription (correct text, no line breaks)
         transcription_path = os.path.join(transcription_dir, f"{sample_id}.txt")
         if not os.path.exists(transcription_path):

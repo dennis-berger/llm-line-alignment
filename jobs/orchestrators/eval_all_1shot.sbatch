@@ -10,7 +10,7 @@
 # ==============================================================================
 # Central Orchestration Job: Submit All 1-Shot Dataset-Method Combinations
 # ==============================================================================
-# This job submits all 13 evaluation jobs with 1-shot few-shot prompting.
+# This job submits all 15 evaluation jobs with 1-shot few-shot prompting.
 # The cluster scheduler will handle GPU resource allocation automatically.
 #
 # Usage:
@@ -37,10 +37,12 @@ JOBS_DIR="$PWD/jobs"
 declare -a job_ids
 
 # ------------------------------------------------------------------------------
-# Method 1: Image + Transcription (3 datasets)
+# Method 1: Image + Transcription (5 datasets)
 # ------------------------------------------------------------------------------
 echo "Submitting Method 1 (1-shot) jobs..."
 job_ids+=($(sbatch --parsable "$JOBS_DIR/eval/m1/bullinger_handwritten_1shot.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval/m1/bullinger_print_1shot.sbatch"))
+job_ids+=($(sbatch --parsable "$JOBS_DIR/eval/m1/easy_historical_1shot.sbatch"))
 job_ids+=($(sbatch --parsable "$JOBS_DIR/eval/m1/iam_handwritten_1shot.sbatch"))
 job_ids+=($(sbatch --parsable "$JOBS_DIR/eval/m1/iam_print_1shot.sbatch"))
 
