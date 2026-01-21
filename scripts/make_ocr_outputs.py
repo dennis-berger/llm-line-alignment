@@ -66,6 +66,7 @@ def main():
         "easy_historical",
         "IAM_handwritten",
         "IAM_print",
+        "children_handwritten",
     ], default="bullinger_handwritten")
     ap.add_argument("--data-dir", default=None, help="Root containing gt/, images/, transcription/. Defaults to datasets/<dataset>.")
     ap.add_argument("--ids", default=None, help="Comma-separated IDs or path to a file with one ID per line.")

@@ -86,6 +86,10 @@ DATASET_DEFAULTS = {
         "default_segmenter": "kraken",
         "default_recognizer": "trocr_printed",
     },
+    "children_handwritten": {
+        "default_segmenter": "kraken",
+        "default_recognizer": "trocr_handwritten",
+    },
 }
 
 
