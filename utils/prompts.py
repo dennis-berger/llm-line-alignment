@@ -18,14 +18,15 @@ Return the text visible on this page with line breaks matching the image. Each v
 PROMPT_TEMPLATE_M2 = """You see a scanned page with text (either handwritten or printed). You have:
 1. The page image showing the actual line breaks
 2. The correct transcription (accurate text but no line breaks)
-3. HTR/OCR output (may have character errors but shows approximate line breaks)
+3. HTR/OCR output (may have character errors but shows line breaks)
 
 Your task:
-- Look at the image to see where each line of text ends
-- Use the HTR/OCR line breaks as hints for alignment
-- Insert line breaks into the CORRECT transcription at positions matching the visual lines on the page
-- Each visual line in the image should become one line in your output
-- DO NOT change any characters in the correct transcription - only insert newlines
+- Align the correct transcription with the HTR/OCR output to find where line breaks should go
+- The HTR/OCR output shows the correct LINE STRUCTURE - use this as your primary guide for where to insert line breaks
+- Verify the line breaks against the page image when possible
+- Insert line breaks into the CORRECT transcription at the positions indicated by the HTR/OCR structure
+- Each line in the HTR/OCR should correspond to one line in your output
+- DO NOT change any characters in the correct transcription - only insert newlines at line break positions
 - Return ONLY the portion of text visible on this page
 
 {examples}Correct transcription:
@@ -34,7 +35,7 @@ Your task:
 HTR/OCR output with line breaks:
 {htr}
 
-Return the text visible on this page with correct line breaks matching the image. Each visual line should be on a separate line. Do not add explanations."""
+Return the correct transcription with line breaks matching the HTR/OCR structure. Each visual line should be on a separate line. Do not add explanations."""
 
 PROMPT_TEMPLATE_M3 = """You have:
 1. A correct transcription of text (accurate but no line breaks)
