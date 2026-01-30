@@ -32,8 +32,9 @@ mkdir -p "$TRANSFORMERS_CACHE"
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-MODEL="./.hf/Qwen3-VL-8B-Instruct"
-[ -d "$MODEL" ] || MODEL="Qwen/Qwen3-VL-8B-Instruct"
+MODEL="${MODEL_LOCAL:-./.hf/Qwen3-VL-8B-Instruct}"
+[ -d "$MODEL" ] || MODEL="${MODEL_NAME:-Qwen/Qwen3-VL-8B-Instruct}"
+MODEL_SUFFIX="${MODEL_SUFFIX:-qwen3-vl-8b-instruct}"
 
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
@@ -43,8 +44,8 @@ python run_eval_m1.py \
   --hf-device cuda \
   --hf-model "$MODEL" \
   --n-shots 0 \
-  --out-dir easy_historical_predictions_m1_0shot \
-  --eval-csv easy_historical_eval_m1_0shot.csv \
+  --out-dir easy_historical_predictions_m1_0shot_${MODEL_SUFFIX} \
+  --eval-csv easy_historical_eval_m1_0shot_${MODEL_SUFFIX}.csv \
   --max-new-tokens 800
 
 echo "Done."
