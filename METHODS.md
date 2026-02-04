@@ -8,14 +8,6 @@ Three methods (M1, M2, M3) for inserting line breaks into clean transcriptions. 
 
 **Task:** Insert line breaks by analyzing visual layout
 
-**Strengths:**
-- Direct visual evidence
-- No dependency on OCR
-
-**Weaknesses:**
-- VLM may hallucinate or skip text
-- Requires quality page images
-
 **Usage:**
 ```bash
 python run_eval_m1.py
@@ -26,15 +18,6 @@ python run_eval_m1.py
 **Inputs:** Page images + correct transcription + HTR output (with line breaks)
 
 **Task:** Use HTR line structure as primary guide, verify with image
-
-**Strengths:**
-- HTR provides explicit line positions
-- Image verification prevents errors
-- Most constrained (typically best performance)
-
-**Weaknesses:**
-- Requires pre-generated HTR
-- HTR errors can propagate
 
 **Usage:**
 ```bash
@@ -47,28 +30,10 @@ python run_eval_m2.py
 
 **Task:** Align texts and transfer line breaks from HTR to transcription
 
-**Strengths:**
-- No images needed (faster, less memory)
-- Pure text alignment
-
-**Weaknesses:**
-- No visual verification
-- Fully dependent on HTR quality
-
 **Usage:**
 ```bash
 python run_eval_m3.py
 ```
-
-## Comparison
-
-| Feature | M1 | M2 | M3 |
-|---------|----|----|-----|
-| **Images** | ✅ | ✅ | ❌ |
-| **HTR** | ❌ | ✅ | ✅ |
-| **Complexity** | Low | Medium | Low |
-| **Speed** | Slower | Slower | Faster |
-| **Typical Performance** | Medium | High | Variable |
 
 ## Few-Shot Learning
 
@@ -97,20 +62,6 @@ All methods must:
 1. Never change characters (only insert `\n`)
 2. Preserve text order
 3. Handle edge cases (empty lines, Unicode, etc.)
-
-## Configuration
-
-**Default model:** `Qwen/Qwen2-VL-7B-Instruct`
-
-**Generation:**
-- max_new_tokens = 2048
-- temperature = 0.0 (deterministic)
-- do_sample = False
-
-**Hardware:**
-- M1/M2: ~16GB GPU
-- M3: ~12GB GPU
-- CPU mode available (slow)
 
 ## Related Documentation
 
