@@ -1,6 +1,6 @@
 # OCR/HTR Generation Pipeline
 
-This pipeline produces `ocr/<id>.txt` for all datasets so Method 2 can run uniformly.
+This pipeline produces `ocr/<id>.txt` for all datasets so Method 2 and 3 can run uniformly.
 
 ## What it does
 - Segments each page image into line crops (Kraken by default, caching crops).
