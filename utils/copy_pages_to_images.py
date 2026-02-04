@@ -1,17 +1,9 @@
 #!/usr/bin/env python3
 """
-copy_pages_to_images.py
-
 Copies all page images from:
     <dataset_root>/pages/
 to:
     <dataset_root>/images/<page_id>/<page_id>.<ext>
-
-Assumes filenames like:
-    270.jpg
-    270.png
-    271.jpeg
-    10317.tif
 
 Usage:
     python copy_pages_to_images.py datasets/easy_historical

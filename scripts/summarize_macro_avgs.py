@@ -9,7 +9,7 @@ Output:
 
 It infers dataset + method from the filename using common patterns found in this project.
 If inference fails, it still includes the file, but uses a conservative fallback.
-python scripts/summarize_macro_avgs.py --in-dir "/Users/dennisberger/Library/Mobile Documents/com~apple~CloudDocs/Uni/Master_Thesis/predictions/2026_01_14_evalualation_all_methods/1shot" --glob "*.csv"
+python scripts/summarize_macro_avgs.py --in-dir <pathToDest> --glob <csfFileLocation>
 
 """
 

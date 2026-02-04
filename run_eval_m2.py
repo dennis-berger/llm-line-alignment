@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# run_eval_qwen_m2.py
+# run_eval_m2.py
 """
-Method 2: Bullinger with Qwen3-VL (image(s) + correct transcription + HTR):
+Method 2: VLM with images, correct transcription, and HTR:
 
 Goal:
 - Combine three inputs per letter:
@@ -12,9 +12,9 @@ Goal:
   use the image and HTR *only* to infer line breaks/layout.
 - Output: letter-level prediction with line breaks; evaluate vs gt/<ID>.txt.
 
-Assumed folder structure under --data-dir (default: datasets/bullinger_handwritten):
+Assumed folder structure under --data-dir:
 
-    datasets/bullinger_handwritten/
+    <dataset_dir>/
         gt/              # ground-truth line-broken letters, <ID>.txt
         images/          # page images per letter: images/<ID>/**.jpg|png|tif...
         transcription/   # correct letter-level transcriptions: <ID>.txt
@@ -23,7 +23,7 @@ Assumed folder structure under --data-dir (default: datasets/bullinger_handwritt
 Outputs:
 
     predictions_m2/<ID>.txt
-    evaluation_qwen_m2.csv
+    evaluation_m2.csv
 
 Metrics:
 
@@ -59,19 +59,19 @@ logger = logging.getLogger(__name__)
 # (Moved to utils/common.py)
 
 
-# ---------------- Qwen backend (Method 2, multi-page) ----------------
+# ---------------- VLM backend (Method 2, multi-page) ----------------
 
 @dataclass
-class QwenCfg:
+class VLMConfig:
     model_id: str = "Qwen/Qwen3-VL-8B-Instruct"
     device: str = "auto"   # "auto" | "cuda" | "cpu"
     max_new_tokens: int = 800
     few_shot_examples: list = None
 
 
-class QwenMethod2Combiner:
+class VLMMethod2Combiner:
     """
-    Use Qwen3-VL to insert line breaks into a correct transcription
+    Use a Vision-Language Model to insert line breaks into a correct transcription
     based on:
         - one or more page images
         - the noisy HTR output for the same letter
@@ -82,7 +82,7 @@ class QwenMethod2Combiner:
         - The model must not change/add/remove characters from the transcription.
     """
 
-    def __init__(self, cfg: QwenCfg):
+    def __init__(self, cfg: VLMConfig):
         self.device = (
             "cuda"
             if (cfg.device in ("auto", "cuda") and torch.cuda.is_available())
@@ -276,11 +276,11 @@ class QwenMethod2Combiner:
 
         - Split transcription into N page chunks.
         - Split HTR into N page chunks.
-        - For each page i, run Qwen on (image_i, transcription_i, htr_i).
+        - For each page i, run the model on (image_i, transcription_i, htr_i).
         - Concatenate all page-level outputs into one prediction.
         """
         if not image_paths:
-            raise ValueError("No image paths provided to QwenMethod2Combiner.")
+            raise ValueError("No image paths provided to VLMMethod2Combiner.")
 
         num_pages = len(image_paths)
         trans_chunks = self._split_text_across_pages(transcription, num_pages)
@@ -310,7 +310,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument(
         "--data-dir",
-        default="datasets/bullinger_handwritten",
+        default=None,
+        required=True,
         help="Folder containing gt/, images/, transcription/, ocr/",
     )
     ap.add_argument(
@@ -320,7 +321,7 @@ def main():
     )
     ap.add_argument(
         "--eval-csv",
-        default="evaluation_qwen_m2.csv",
+        default="evaluation_m2.csv",
         help="Output CSV path",
     )
     ap.add_argument(
@@ -365,12 +366,12 @@ def main():
     shot_suffix = f"_{args.n_shots}shot" if args.n_shots > 0 else "_0shot"
     if args.out_dir == "predictions_m2":
         args.out_dir = f"predictions_m2{shot_suffix}"
-    if args.eval_csv == "evaluation_qwen_m2.csv":
-        args.eval_csv = f"evaluation_qwen_m2{shot_suffix}.csv"
+    if args.eval_csv == "evaluation_m2.csv":
+        args.eval_csv = f"evaluation_m2{shot_suffix}.csv"
     
     # Instantiate backend (few-shot examples will be set per sample)
-    combiner = QwenMethod2Combiner(
-        QwenCfg(
+    combiner = VLMMethod2Combiner(
+        VLMConfig(
             model_id=args.hf_model,
             device=args.hf_device,
             max_new_tokens=args.max_new_tokens,

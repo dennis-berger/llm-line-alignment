@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# run_eval_qwen.py
 """
 Bullinger MWE with Qwen3-VL:
 - Walk datasets/bullinger_handwritten/gt/*.txt to get IDs

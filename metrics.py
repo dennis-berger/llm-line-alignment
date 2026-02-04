@@ -41,7 +41,7 @@ def normalize_whitespace(s: str) -> str:
     """Collapse all whitespace runs to single spaces."""
     return " ".join(s.split())
 
-# -------- Line-level accuracy (Bullinger-style) --------
+# -------- Line-level accuracy --------
 
 def _split_lines(s: str) -> List[str]:
     # keep line order, strip trailing/leading whitespace per line
@@ -186,12 +186,6 @@ def exact_line_prf(gt_lines: List[str], pred_lines: List[str]) -> Dict[str, floa
         - Empty predictions: precision = 0.0
         - Empty ground truth: recall = 0.0
         - F1 = 0.0 if both precision and recall are 0
-        
-    Example:
-        gt = ["Dear Anna,", "thank you for your", "detailed feedback."]
-        pred = ["Dear Anna,", "thank you", "for your", "detailed feedback."]
-        # Matches: "Dear Anna," and "detailed feedback." = 2 matches
-        # Precision = 2/4 = 0.5, Recall = 2/3 ≈ 0.667, F1 = 0.571
     """
     # Count occurrences of each unique line
     gt_counter = Counter(gt_lines)

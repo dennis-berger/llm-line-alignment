@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
-# run_eval_qwen_m1.py
+# run_eval_m1.py
 """
-Method 1: Bullinger with Qwen3-VL (image(s) + transcription):
+Method 1: VLM with images and transcription:
 
-- Walk datasets/bullinger_handwritten/gt/*.txt to get IDs (ground-truth line-broken text).
+- Walk <dataset>/gt/*.txt to get IDs (ground-truth line-broken text).
 - For each ID:
-  - Load page image(s) from datasets/bullinger_handwritten/images/<ID>/**.
+  - Load page image(s) from <dataset>/images/<ID>/**.
   - Load the CORRECT transcription (no line breaks) from
-    datasets/bullinger_handwritten/transcription/<ID>.txt.
+    <dataset>/transcription/<ID>.txt.
   - Split the transcription across pages (heuristic, by character length).
-- For each page i: send (image_i, chunk_i) to Qwen to only insert line breaks.
+- For each page i: send (image_i, chunk_i) to the model to only insert line breaks.
 - Concatenate all page-level outputs → prediction for that letter.
-- Evaluate vs datasets/bullinger_handwritten/gt/<ID>.txt:
+- Evaluate vs <dataset>/gt/<ID>.txt:
     - WER / CER (raw + whitespace-normalized)
     - line-level accuracy (forward + reverse, raw + normalized)
-- Write predictions_m1/<ID>.txt and evaluation_qwen_m1.csv.
+- Write predictions_m1/<ID>.txt and evaluation_m1.csv.
 """
 
 import argparse
@@ -41,21 +41,18 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ---------------- Data helpers ----------------
-# (Moved to utils/common.py)
-
-# ---------------- Qwen backend (Method 1, multi-page) ----------------
+# ---------------- VLM backend (Method 1, multi-page) ----------------
 
 @dataclass
-class QwenCfg:
+class VLMConfig:
     model_id: str = "Qwen/Qwen3-VL-8B-Instruct"
     device: str = "auto"   # "auto" | "cuda" | "cpu"
     max_new_tokens: int = 800
     few_shot_examples: list = None
 
-class QwenLineBreaker:
+class VLMLineBreaker:
     """
-    Use Qwen3-VL to insert line breaks into a given correct transcription
+    Use a Vision-Language Model to insert line breaks into a given correct transcription
     based on the visual layout of a multi-page letter.
 
     - We have one transcription string for the whole letter.
@@ -240,11 +237,11 @@ class QwenLineBreaker:
         Method 1 core: use all page images.
 
         - Split the full transcription into N page chunks.
-        - For each page i, run Qwen on (image_i, chunk_i).
+        - For each page i, run the model on (image_i, chunk_i).
         - Concatenate all page-level outputs into one prediction.
         """
         if not image_paths:
-            raise ValueError("No image paths provided to QwenLineBreaker.")
+            raise ValueError("No image paths provided to VLMLineBreaker.")
 
         num_pages = len(image_paths)
         chunks = self._split_transcription_across_pages(transcription, num_pages)
@@ -270,11 +267,11 @@ class QwenLineBreaker:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data-dir", default="data_val",
+    ap.add_argument("--data-dir", default=None, required=True,
                     help="Folder containing gt/, images/, transcription/")
     ap.add_argument("--out-dir", default="predictions_m1",
                     help="Where to write predictions")
-    ap.add_argument("--eval-csv", default="evaluation_qwen_m1.csv",
+    ap.add_argument("--eval-csv", default="evaluation_m1.csv",
                     help="Output CSV path")
     ap.add_argument("--hf-model", default="Qwen/Qwen3-VL-8B-Instruct")
     ap.add_argument("--hf-device", default="auto", choices=["auto", "cuda", "cpu"])
@@ -294,11 +291,11 @@ def main():
     shot_suffix = f"_{args.n_shots}shot" if args.n_shots > 0 else "_0shot"
     if args.out_dir == "predictions_m1":
         args.out_dir = f"predictions_m1{shot_suffix}"
-    if args.eval_csv == "evaluation_qwen_m1.csv":
-        args.eval_csv = f"evaluation_qwen_m1{shot_suffix}.csv"
+    if args.eval_csv == "evaluation_m1.csv":
+        args.eval_csv = f"evaluation_m1{shot_suffix}.csv"
     
     # Instantiate backend (few-shot examples will be set per sample)
-    line_breaker = QwenLineBreaker(QwenCfg(
+    line_breaker = VLMLineBreaker(VLMConfig(
         model_id=args.hf_model,
         device=args.hf_device,
         max_new_tokens=args.max_new_tokens,

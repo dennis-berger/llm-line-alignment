@@ -6,14 +6,14 @@ from metrics import exact_line_prf, exact_line_prf_from_text, normalize_whitespa
 class TestExactLinePRF:
     """Test cases for exact_line_prf function."""
     
-    def test_example_from_discussion(self):
-        """Test case A: Example from user discussion."""
-        gt = ["Dear Anna,", "thank you for your", "detailed feedback."]
-        pred = ["Dear Anna,", "thank you", "for your", "detailed feedback."]
+    def test_line_break_variation(self):
+        """Test case A: Lines split differently between GT and prediction."""
+        gt = ["Hello there,", "thank you for your", "detailed response."]
+        pred = ["Hello there,", "thank you", "for your", "detailed response."]
         
         result = exact_line_prf(gt, pred)
         
-        # Expected: matches = 2 ("Dear Anna," and "detailed feedback.")
+        # Expected: matches = 2 ("Hello there," and "detailed response.")
         # precision = 2/4 = 0.5
         # recall = 2/3 = 0.666...
         # f1 = 2 * 0.5 * 0.666... / (0.5 + 0.666...) = 0.571...
@@ -165,8 +165,8 @@ class TestExactLinePRFFromText:
     
     def test_from_text_basic(self):
         """Test basic text-to-lines conversion."""
-        gt = "Dear Anna,\nthank you for your\ndetailed feedback."
-        pred = "Dear Anna,\nthank you\nfor your\ndetailed feedback."
+        gt = "Dear John,\nthank you for your\ndetailed feedback."
+        pred = "Dear John,\nthank you\nfor your\ndetailed feedback."
         
         result = exact_line_prf_from_text(gt, pred, normalize=False)
         

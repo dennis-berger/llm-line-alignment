@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# run_eval_qwen_m3.py
+# run_eval_m3.py
 """
-Method 3: Bullinger with Qwen3-VL (HTR + correct transcription, no images)
+Method 3: HTR + correct transcription, no images
 
 Goal:
 - Combine two inputs per letter:
@@ -10,22 +10,15 @@ Goal:
 
 - Prompt the LLM to:
     * Use ONLY the transcription text for characters.
-    * Use the HTR *only* to infer where line breaks should go.
+    * Use the HTR only to infer where line breaks should go.
     * NOT use or assume any image input.
 
 - Output: letter-level prediction with line breaks; evaluate vs gt/<ID>.txt.
 
-Assumed folder structure under --data-dir (default: datasets/bullinger_handwritten):
-
-    datasets/bullinger_handwritten/
-        gt/              # ground-truth line-broken letters, <ID>.txt
-        transcription/   # correct letter-level transcriptions: <ID>.txt
-        ocr/             # HTR outputs: <ID>.txt  (noisy, line-broken)
-
 Outputs:
 
     predictions_m3/<ID>.txt
-    evaluation_qwen_m3.csv
+    evaluation_m3.csv
 
 Metrics:
 
@@ -60,20 +53,20 @@ logger = logging.getLogger(__name__)
 # (Moved to utils/common.py)
 
 
-# ---------------- Qwen backend (Method 3, text-only) ----------------
+# ---------------- VLM backend (Method 3, text-only) ----------------
 
 
 @dataclass
-class QwenCfg:
+class VLMConfig:
     model_id: str = "Qwen/Qwen3-VL-8B-Instruct"
     device: str = "auto"  # "auto" | "cuda" | "cpu"
     max_new_tokens: int = 800
     few_shot_examples: list = None
 
 
-class QwenMethod3Combiner:
+class VLMMethod3Combiner:
     """
-    Use Qwen3-VL to insert line breaks into a correct transcription
+    Use a Vision-Language Model to insert line breaks into a correct transcription
     based on ONLY:
         - the correct transcription (no line breaks)
         - the noisy HTR output (with line breaks, errors)
@@ -85,7 +78,7 @@ class QwenMethod3Combiner:
         - No images are used in Method 3.
     """
 
-    def __init__(self, cfg: QwenCfg):
+    def __init__(self, cfg: VLMConfig):
         self.device = (
             "cuda"
             if (cfg.device in ("auto", "cuda") and torch.cuda.is_available())
@@ -221,7 +214,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument(
         "--data-dir",
-        default="data_val",
+        default=None,
+        required=True,
         help="Folder containing gt/, transcription/, ocr/",
     )
     ap.add_argument(
@@ -231,7 +225,7 @@ def main():
     )
     ap.add_argument(
         "--eval-csv",
-        default="evaluation_qwen_m3.csv",
+        default="evaluation_m3.csv",
         help="Output CSV path",
     )
     ap.add_argument(
@@ -276,12 +270,12 @@ def main():
     shot_suffix = f"_{args.n_shots}shot" if args.n_shots > 0 else "_0shot"
     if args.out_dir == "predictions_m3":
         args.out_dir = f"predictions_m3{shot_suffix}"
-    if args.eval_csv == "evaluation_qwen_m3.csv":
-        args.eval_csv = f"evaluation_qwen_m3{shot_suffix}.csv"
+    if args.eval_csv == "evaluation_m3.csv":
+        args.eval_csv = f"evaluation_m3{shot_suffix}.csv"
     
     # Instantiate backend (few-shot examples will be set per sample)
-    combiner = QwenMethod3Combiner(
-        QwenCfg(
+    combiner = VLMMethod3Combiner(
+        VLMConfig(
             model_id=args.hf_model,
             device=args.hf_device,
             max_new_tokens=args.max_new_tokens,
