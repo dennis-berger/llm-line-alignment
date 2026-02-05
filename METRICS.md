@@ -7,6 +7,7 @@ All metrics are computed both with raw text and with normalized text (whitespace
 ### Word Error Rate (WER)
 
 **Formula:**
+
 $$\text{WER} = \frac{\text{Levenshtein}(\text{ref}_\text{words}, \text{hyp}_\text{words})}{\max(1, |\text{ref}_\text{words}|)}$$
 
 **Calculation:**
@@ -26,6 +27,7 @@ $$\text{WER} = \frac{\text{Levenshtein}(\text{ref}_\text{words}, \text{hyp}_\tex
 ### Character Error Rate (CER)
 
 **Formula:**
+
 $$\text{CER} = \frac{\text{Levenshtein}(\text{ref}_\text{chars}, \text{hyp}_\text{chars})}{\max(1, |\text{ref}_\text{chars}|)}$$
 
 **Calculation:**
@@ -47,6 +49,7 @@ $$\text{CER} = \frac{\text{Levenshtein}(\text{ref}_\text{chars}, \text{hyp}_\tex
 ### Line Accuracy (Forward)
 
 **Formula:**
+
 $$\text{Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_i = \text{hyp}_i]}{n}$$
 
 where $n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$
@@ -72,6 +75,7 @@ where $n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$
 ### Line Accuracy (Reverse)
 
 **Formula:**
+
 $$\text{Reverse Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_{-i} = \text{hyp}_{-i}]}{n}$$
 
 where $n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$ and negative indexing aligns from the last line
@@ -104,13 +108,21 @@ Uses Counter-based matching (equivalent to maximum bipartite matching):
 
 **Formulas:**
 
-$$\text{matches} = \sum_{\ell \in \text{all unique lines}} \min(\text{count}_\text{GT}(\ell), \text{count}_\text{pred}(\ell))$$
+$$
+\text{matches} = \sum_{\ell \in \text{all unique lines}} \min(\text{count}_\text{GT}(\ell), \text{count}_\text{pred}(\ell))
+$$
 
-$$\text{Exact Line Precision (ELP)} = \frac{\text{matches}}{|\text{pred}_\text{lines}|}$$
+$$
+\text{Exact Line Precision (ELP)} = \frac{\text{matches}}{|\text{pred}_\text{lines}|}
+$$
 
-$$\text{Exact Line Recall (ELR)} = \frac{\text{matches}}{|\text{GT}_\text{lines}|}$$
+$$
+\text{Exact Line Recall (ELR)} = \frac{\text{matches}}{|\text{GT}_\text{lines}|}
+$$
 
-$$\text{Exact Line F1 (ELF1)} = \frac{2 \times \text{ELP} \times \text{ELR}}{\text{ELP} + \text{ELR}}$$
+$$
+\text{Exact Line F1 (ELF1)} = \frac{2 \times \text{ELP} \times \text{ELR}}{\text{ELP} + \text{ELR}}
+$$
 
 **Calculation Example:**
 ```
