@@ -58,12 +58,12 @@ All metrics are computed both with raw text and with normalized text (whitespace
 \text{Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_i = \text{hyp}_i]}{n}
 ```
 
-where $n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$
+where `n = max(|ref_lines|, |hyp_lines|)`
 
 **Calculation:**
 1. Split reference and hypothesis into lines
-2. For each position $i$ from start to end:
-   - Compare line $i$ of reference with line $i$ of hypothesis
+2. For each position `i` from start to end:
+   - Compare line `i` of reference with line `i` of hypothesis
    - If one side has fewer lines, treat missing lines as empty strings
    - Count as correct only if lines match exactly
 3. Divide correct matches by total positions
@@ -86,11 +86,11 @@ where $n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$
 \text{Reverse Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_{-i} = \text{hyp}_{-i}]}{n}
 ```
 
-where $n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$ and negative indexing aligns from the last line.
+where `n = max(|ref_lines|, |hyp_lines|)` and negative indexing aligns from the last line.
 
 **Calculation:**
 1. Split reference and hypothesis into lines
-2. For each position $i$ from end to start (reverse order):
+2. For each position `i` from end to start (reverse order):
    - Compare line from the end of reference with line from the end of hypothesis
    - If one side has fewer lines, treat missing lines as empty strings
    - Count as correct only if lines match exactly
