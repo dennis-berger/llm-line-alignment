@@ -53,7 +53,9 @@ $$\text{CER} = \frac{\text{Levenshtein}(\text{ref}_\text{chars}, \text{hyp}_\tex
 $$\text{Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_i = \text{hyp}_i]}{n}$$
 
 where 
-$$n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$$
+$$
+n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)
+$$
 
 **Calculation:**
 1. Split reference and hypothesis into lines
@@ -80,7 +82,9 @@ $$n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$$
 $$\text{Reverse Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_{-i} = \text{hyp}_{-i}]}{n}$$
 
 where 
-$$n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$$
+$$
+n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)
+$$
 and negative indexing aligns from the last line.
 
 **Calculation:**
