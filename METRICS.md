@@ -8,7 +8,9 @@ All metrics are computed both with raw text and with normalized text (whitespace
 
 **Formula:**
 
-$$\text{WER} = \frac{\text{Levenshtein}(\text{ref}_\text{words}, \text{hyp}_\text{words})}{\max(1, |\text{ref}_\text{words}|)}$$
+```math
+\text{WER} = \frac{\text{Levenshtein}(\text{ref}_\text{words}, \text{hyp}_\text{words})}{\max(1, |\text{ref}_\text{words}|)}
+```
 
 **Calculation:**
 1. Split reference and hypothesis texts into word tokens
@@ -28,7 +30,9 @@ $$\text{WER} = \frac{\text{Levenshtein}(\text{ref}_\text{words}, \text{hyp}_\tex
 
 **Formula:**
 
-$$\text{CER} = \frac{\text{Levenshtein}(\text{ref}_\text{chars}, \text{hyp}_\text{chars})}{\max(1, |\text{ref}_\text{chars}|)}$$
+```math
+\text{CER} = \frac{\text{Levenshtein}(\text{ref}_\text{chars}, \text{hyp}_\text{chars})}{\max(1, |\text{ref}_\text{chars}|)}
+```
 
 **Calculation:**
 1. Convert reference and hypothesis texts into character sequences
@@ -50,12 +54,11 @@ $$\text{CER} = \frac{\text{Levenshtein}(\text{ref}_\text{chars}, \text{hyp}_\tex
 
 **Formula:**
 
-$$\text{Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_i = \text{hyp}_i]}{n}$$
+```math
+\text{Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_i = \text{hyp}_i]}{n}
+```
 
-where 
-$$
-n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)
-$$
+where $n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$
 
 **Calculation:**
 1. Split reference and hypothesis into lines
@@ -79,13 +82,11 @@ $$
 
 **Formula:**
 
-$$\text{Reverse Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_{-i} = \text{hyp}_{-i}]}{n}$$
+```math
+\text{Reverse Line Accuracy} = \frac{\sum_{i=1}^{n} \mathbb{1}[\text{ref}_{-i} = \text{hyp}_{-i}]}{n}
+```
 
-where 
-$$
-n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)
-$$
-and negative indexing aligns from the last line.
+where $n = \max(|\text{ref}_\text{lines}|, |\text{hyp}_\text{lines}|)$ and negative indexing aligns from the last line.
 
 **Calculation:**
 1. Split reference and hypothesis into lines
@@ -115,21 +116,21 @@ Uses Counter-based matching (equivalent to maximum bipartite matching):
 
 **Formulas:**
 
-$$
+```math
 \text{matches} = \sum_{\ell \in \text{all unique lines}} \min(\text{count}_\text{GT}(\ell), \text{count}_\text{pred}(\ell))
-$$
+```
 
-$$
+```math
 \text{Exact Line Precision (ELP)} = \frac{\text{matches}}{|\text{pred}_\text{lines}|}
-$$
+```
 
-$$
+```math
 \text{Exact Line Recall (ELR)} = \frac{\text{matches}}{|\text{GT}_\text{lines}|}
-$$
+```
 
-$$
+```math
 \text{Exact Line F1 (ELF1)} = \frac{2 \times \text{ELP} \times \text{ELR}}{\text{ELP} + \text{ELR}}
-$$
+```
 
 **Calculation Example:**
 ```
