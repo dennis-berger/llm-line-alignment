@@ -1,4 +1,4 @@
-# bullinger-line-alignment-mwe
+# llm-line-alignment
 
 **Master's thesis project evaluating line alignment methods for document transcription.** The goal is to insert correct line breaks into clean diplomatic transcriptions by leveraging page images and/or noisy OCR/HTR line structure.
 

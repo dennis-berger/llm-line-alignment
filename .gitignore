@@ -34,3 +34,21 @@ ENV/
 # VS Code / IDEs
 .vscode/
 .idea/
+
+# Dataset images and PDFs
+datasets/*/images/
+datasets/*/pdf/
+datasets/IAM_original/forms/
+datasets/children_handwritten/raw_data/
+
+# Generated predictions and evaluations
+predictions_*/
+evaluation_*.csv
+
+# Build artifacts
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Additional data directories
+historical_hand_easier/
