@@ -36,8 +36,8 @@ JOBS_DIR="$PWD/jobs"
 # ==============================================================================
 # MODEL CONFIGURATION - Change this to use a different model for all jobs
 # ==============================================================================
-MODEL_NAME="Qwen/Qwen3-VL-32B-Instruct"
-MODEL_LOCAL="./.hf/Qwen3-VL-32B-Instruct"
+MODEL_NAME="Qwen/Qwen3-VL-8B-Instruct"
+MODEL_LOCAL="./.hf/Qwen3-VL-8B-Instruct"
 # Extract short model suffix for output naming (e.g., "qwen3-vl-32b-instruct")
 MODEL_SUFFIX=$(basename "$MODEL_NAME" | tr '[:upper:]' '[:lower:]')
 export SBATCH_EXPORT="MODEL_NAME=$MODEL_NAME,MODEL_LOCAL=$MODEL_LOCAL,MODEL_SUFFIX=$MODEL_SUFFIX"
