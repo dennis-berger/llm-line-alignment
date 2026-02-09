@@ -46,11 +46,32 @@ def build_segmenter(name: str, existing_lines_dir: Optional[str] = None):
     raise ValueError(f"Unknown segmenter {name}")
 
 
-def build_recognizer(name: str, device: str, batch_size: int, max_new_tokens: int, num_beams: int):
+def build_recognizer(
+    name: str,
+    device: str,
+    batch_size: int,
+    max_new_tokens: int,
+    num_beams: int,
+    model_id: Optional[str] = None,
+):
     if name == "trocr_printed":
-        return TrOCRRecognizer(preset="printed", device=device, batch_size=batch_size, max_new_tokens=max_new_tokens, num_beams=num_beams)
+        return TrOCRRecognizer(
+            preset="printed",
+            model_id=model_id,
+            device=device,
+            batch_size=batch_size,
+            max_new_tokens=max_new_tokens,
+            num_beams=num_beams,
+        )
     if name == "trocr_handwritten":
-        return TrOCRRecognizer(preset="handwritten", device=device, batch_size=batch_size, max_new_tokens=max_new_tokens, num_beams=num_beams)
+        return TrOCRRecognizer(
+            preset="handwritten",
+            model_id=model_id,
+            device=device,
+            batch_size=batch_size,
+            max_new_tokens=max_new_tokens,
+            num_beams=num_beams,
+        )
     if name == "htr_best_practices_iam":
         return IAMBestPracticesRecognizer()
     if name == "none":
@@ -76,6 +97,7 @@ def main():
     ap.add_argument("--batch-size", type=int, default=4)
     ap.add_argument("--max-new-tokens", type=int, default=128)
     ap.add_argument("--num-beams", type=int, default=1)
+    ap.add_argument("--recognizer-model", default=None, help="Override model id/path for TrOCR recognizers")
     ap.add_argument("--cache-dir", default=None, help="Cache directory for line crops. Default: outputs/cache/<dataset>/lines")
     ap.add_argument("--max-pages", type=int, default=None, help="Limit pages per ID (for quick tests)")
     ap.add_argument("--overwrite", action="store_true", help="Recompute even if ocr/<id>.txt exists")
@@ -103,8 +125,17 @@ def main():
     cache_root.mkdir(parents=True, exist_ok=True)
 
     try:
+        if args.recognizer_model and not recognizer_name.startswith("trocr_"):
+            raise ValueError("--recognizer-model is only supported for TrOCR recognizers.")
         segmenter = build_segmenter(segmenter_name, existing_lines_dir=args.existing_lines_dir)
-        recognizer = build_recognizer(recognizer_name, device=args.device, batch_size=args.batch_size, max_new_tokens=args.max_new_tokens, num_beams=args.num_beams)
+        recognizer = build_recognizer(
+            recognizer_name,
+            device=args.device,
+            batch_size=args.batch_size,
+            max_new_tokens=args.max_new_tokens,
+            num_beams=args.num_beams,
+            model_id=args.recognizer_model,
+        )
     except Exception as exc:
         logger.error("Failed to initialize backends: %s", exc)
         sys.exit(1)
