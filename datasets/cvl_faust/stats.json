@@ -1,0 +1,20 @@
+{
+  "text_number": "6",
+  "splits": [
+    "trainset",
+    "testset"
+  ],
+  "train": {
+    "count": 2280,
+    "avg_words": 6.265789473684211,
+    "avg_chars": 33.09649122807018
+  },
+  "val": {
+    "count": 180,
+    "avg_words": 6.105555555555555,
+    "avg_chars": 32.22222222222222
+  },
+  "writers_total": 309,
+  "writers_train": 287,
+  "writers_val": 22
+}
