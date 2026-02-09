@@ -47,6 +47,7 @@ python scripts/make_ocr_outputs.py \
   --device cuda \
   --batch-size 8 \
   --cache-dir outputs/cache/children_handwritten/lines \
-  --log-level INFO
+  --log-level INFO \
+  --overwrite
 
 echo "Done."
