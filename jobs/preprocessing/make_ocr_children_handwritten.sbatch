@@ -43,6 +43,7 @@ python scripts/make_ocr_outputs.py \
   --data-dir datasets/children_handwritten \
   --segmenter kraken \
   --recognizer trocr_handwritten \
+  --recognizer-model outputs/models/trocr-cvl-faust \
   --device cuda \
   --batch-size 8 \
   --cache-dir outputs/cache/children_handwritten/lines \
