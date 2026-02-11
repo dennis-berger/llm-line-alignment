@@ -24,6 +24,13 @@ from linealign.recognition.trocr import TrOCRRecognizer
 from linealign.segmentation.kraken_segmenter import KrakenSegmenter
 from linealign.segmentation.segmenter import PassthroughSegmenter
 
+# Optional: docTR segmenter
+try:
+    from linealign.segmentation.doctr_segmenter import DocTRSegmenter
+    DOCTR_AVAILABLE = True
+except ImportError:
+    DOCTR_AVAILABLE = False
+
 logger = logging.getLogger(__name__)
 
 
@@ -38,9 +45,27 @@ def parse_ids_arg(ids_arg: Optional[str]) -> Optional[List[str]]:
     return [p.strip() for p in ids_arg.split(",") if p.strip()]
 
 
-def build_segmenter(name: str, existing_lines_dir: Optional[str] = None):
+def build_segmenter(
+    name: str,
+    existing_lines_dir: Optional[str] = None,
+    merge_lines: bool = True,
+    min_line_height_ratio: float = 0.3,
+    vertical_overlap_threshold: float = 0.5,
+    vertical_gap_ratio: float = 0.3,
+):
     if name == "kraken":
-        return KrakenSegmenter()
+        return KrakenSegmenter(
+            merge_lines=merge_lines,
+            min_line_height_ratio=min_line_height_ratio,
+            vertical_overlap_threshold=vertical_overlap_threshold,
+            vertical_gap_ratio=vertical_gap_ratio,
+        )
+    if name == "doctr":
+        if not DOCTR_AVAILABLE:
+            raise RuntimeError(
+                "docTR is not installed. Install with: pip install python-doctr[torch]"
+            )
+        return DocTRSegmenter()
     if name == "none":
         return PassthroughSegmenter(existing_lines_root=Path(existing_lines_dir) if existing_lines_dir else None)
     raise ValueError(f"Unknown segmenter {name}")
@@ -91,7 +116,8 @@ def main():
     ], default="bullinger_handwritten")
     ap.add_argument("--data-dir", default=None, help="Root containing gt/, images/, transcription/. Defaults to datasets/<dataset>.")
     ap.add_argument("--ids", default=None, help="Comma-separated IDs or path to a file with one ID per line.")
-    ap.add_argument("--segmenter", choices=["kraken", "none"], default=None)
+    ap.add_argument("--segmenter", choices=["kraken", "doctr", "none"], default=None,
+                    help="Line segmenter: kraken (default), doctr (may work better for informal handwriting), or none")
     ap.add_argument("--recognizer", choices=["trocr_printed", "trocr_handwritten", "htr_best_practices_iam", "none"], default=None)
     ap.add_argument("--device", default="auto", help="Device for recognizer, e.g., cpu or cuda:0")
     ap.add_argument("--batch-size", type=int, default=4)
@@ -105,6 +131,14 @@ def main():
     ap.add_argument("--log-level", default="INFO", help="Logging level")
     ap.add_argument("--existing-lines-dir", default=None, help="Use pre-segmented line images from this root when --segmenter none")
     ap.add_argument("--no-meta", action="store_true", help="Do not write ocr/<id>.meta.json")
+    # Line merging options for Kraken segmenter
+    ap.add_argument("--no-merge-lines", action="store_true", help="Disable line merging (use raw Kraken output)")
+    ap.add_argument("--min-line-height-ratio", type=float, default=0.4,
+                    help="Min line height as ratio of reference height (filter tiny fragments). Default: 0.4")
+    ap.add_argument("--vertical-overlap-threshold", type=float, default=0.5,
+                    help="Merge lines with this much vertical overlap (0-1). Default: 0.5")
+    ap.add_argument("--vertical-gap-ratio", type=float, default=0.3,
+                    help="Merge lines if vertical gap < this ratio of median height. Default: 0.3")
 
     args = ap.parse_args()
 
@@ -127,7 +161,14 @@ def main():
     try:
         if args.recognizer_model and not recognizer_name.startswith("trocr_"):
             raise ValueError("--recognizer-model is only supported for TrOCR recognizers.")
-        segmenter = build_segmenter(segmenter_name, existing_lines_dir=args.existing_lines_dir)
+        segmenter = build_segmenter(
+            segmenter_name,
+            existing_lines_dir=args.existing_lines_dir,
+            merge_lines=not args.no_merge_lines,
+            min_line_height_ratio=args.min_line_height_ratio,
+            vertical_overlap_threshold=args.vertical_overlap_threshold,
+            vertical_gap_ratio=args.vertical_gap_ratio,
+        )
         recognizer = build_recognizer(
             recognizer_name,
             device=args.device,
