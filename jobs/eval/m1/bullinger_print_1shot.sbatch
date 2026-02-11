@@ -44,8 +44,8 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 python run_eval_m1.py \
   --data-dir datasets/bullinger_print \
-  --hf-model "$MODEL" \
-  --hf-device cuda \
+  --model "$MODEL" \
+  --device cuda \
   --n-shots 1 \
   --shots-seed 42 \
   --out-dir bullinger_print_predictions_m1_1shot_${MODEL_SUFFIX} \

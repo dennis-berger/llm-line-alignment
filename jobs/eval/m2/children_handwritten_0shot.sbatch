@@ -44,8 +44,8 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 python run_eval_m2.py \
   --data-dir datasets/children_handwritten \
-  --hf-model "$MODEL" \
-  --hf-device cuda \
+  --model "$MODEL" \
+  --device cuda \
   --n-shots 0 \
   --out-dir children_handwritten_predictions_m2_0shot_${MODEL_SUFFIX} \
   --eval-csv children_handwritten_eval_m2_0shot_${MODEL_SUFFIX}.csv \

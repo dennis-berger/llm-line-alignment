@@ -38,8 +38,16 @@ JOBS_DIR="$PWD/jobs"
 # ==============================================================================
 # MODEL CONFIGURATION - Change this to use a different model for all jobs
 # ==============================================================================
-MODEL_NAME="Qwen/Qwen3-VL-8B-Instruct"
-MODEL_LOCAL="./.hf/Qwen3-VL-8B-Instruct"
+# For HuggingFace models (local or remote):
+#   MODEL_NAME="hf/Qwen/Qwen3-VL-8B-Instruct"
+#   MODEL_LOCAL="./.hf/Qwen3-VL-8B-Instruct"
+#
+# For OpenAI API models (requires OPENAI_API_KEY env var):
+#   MODEL_NAME="openai/gpt-5.2-vision"
+#   MODEL_LOCAL=""  # Not used for API models
+#
+MODEL_NAME="openai/gpt-5.2-vision"
+MODEL_LOCAL=""
 # Extract short model suffix for output naming (e.g., "qwen3-vl-32b-instruct")
 MODEL_SUFFIX=$(basename "$MODEL_NAME" | tr '[:upper:]' '[:lower:]')
 export SBATCH_EXPORT="MODEL_NAME=$MODEL_NAME,MODEL_LOCAL=$MODEL_LOCAL,MODEL_SUFFIX=$MODEL_SUFFIX"

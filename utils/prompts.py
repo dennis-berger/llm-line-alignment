@@ -1,59 +1,59 @@
 """Prompt templates for different evaluation methods."""
 
-PROMPT_TEMPLATE_M1 = """You see a scanned page with text (either handwritten or printed). You are also given the correct transcription of the entire text. The transcription is accurate but lacks line breaks matching the original page layout.
+PROMPT_TEMPLATE_M1 = """# Role and Objective
+Process a scanned page image and its transcription (continuous text; no line breaks) to reconstruct line breaks that match the page's visual line layout.
 
-Your task:
-1. Look at the page image carefully and identify where each line of text ends
-2. Find where in the transcription the visible text appears
-3. Insert line breaks (newlines) at the exact positions where lines end on the page
-4. Each line in the image should become one line in your output
-5. DO NOT change, add, or remove any characters - only insert newlines
-6. Return ONLY the portion of text visible on this page with correct line breaks
+# Instructions
+- Examine the page image to locate each visually distinct line of text, including headings, marginalia, and indented lines.
+- Locate the exact wording for each visible line within the transcription.
+- Insert newline characters at precise locations matching the visual end of each line in the image.
+- Do not add, remove, or alter any characters other than adding newlines.
+- Output only the visible text from the provided page, segmented precisely by these line breaks.
+- Ignore image lines that do not have an exact transcriptional match.
+
+# Output Format
+Return a single block of text: each line corresponds to a visually distinct line in the image, separated by newline characters (not '\\n'). Do not include explanations, errors, or extra formatting—output only the corrected text segment.
 
 {examples}Transcription:
-{transcription}
+{transcription}"""
 
-Return the text visible on this page with line breaks matching the image. Each visual line should be on a separate line. Do not add explanations."""
+PROMPT_TEMPLATE_M2 = """# Role and Objective
+Align the correct transcription of a scanned page to match the visual line structure, using the page image as the primary reference and HTR/OCR output as a structural guide.
 
-PROMPT_TEMPLATE_M2 = """You see a scanned page with text (either handwritten or printed). You have:
-1. The page image showing the actual line breaks
-2. The correct transcription (accurate text but no line breaks)
-3. HTR/OCR output (may have character errors but shows line breaks)
+# Instructions
+- Use the page image as the main reference for true visual line breaks.
+- Use the HTR/OCR output to help identify line boundaries, especially where the image is ambiguous.
+- Insert newline characters into the correct transcription at positions matching visual line ends.
+- Do not add, remove, or alter any characters other than adding newlines.
+- Each visual line in the image should correspond to one line in your output.
+- Output only the visible text from this page, segmented by line breaks.
 
-Your task:
-- Align the correct transcription with the HTR/OCR output to find where line breaks should go
-- The HTR/OCR output shows the correct LINE STRUCTURE - use this as your primary guide for where to insert line breaks
-- Verify the line breaks against the page image when possible
-- Insert line breaks into the CORRECT transcription at the positions indicated by the HTR/OCR structure
-- Each line in the HTR/OCR should correspond to one line in your output
-- DO NOT change any characters in the correct transcription - only insert newlines at line break positions
-- Return ONLY the portion of text visible on this page
+# Output Format
+Return the correct transcription with inserted line breaks. Each line corresponds to a visual line in the image. Do not include explanations or extra formatting.
 
 {examples}Correct transcription:
 {transcription}
 
 HTR/OCR output with line breaks:
-{htr}
+{htr}"""
 
-Return the correct transcription with line breaks matching the HTR/OCR structure. Each visual line should be on a separate line. Do not add explanations."""
+PROMPT_TEMPLATE_M3 = """# Role and Objective
+Align a correct transcription (no line breaks) to match the line structure indicated by an HTR/OCR output (which has line breaks but may contain character errors).
 
-PROMPT_TEMPLATE_M3 = """You have:
-1. A correct transcription of text (accurate but no line breaks)
-2. HTR/OCR output of the same text (may have character errors but shows line break positions)
+# Instructions
+- Use the HTR/OCR output to determine where line breaks should be inserted in the correct transcription.
+- Do not add, remove, or alter any characters in the transcription other than inserting newlines.
+- Handle HTR/OCR character errors by finding the best alignment between corresponding text segments.
+- Each line in the HTR/OCR should correspond to one line in your output.
 
-Your task:
-- Align the correct transcription with the HTR/OCR output
-- Transfer the line break positions from HTR/OCR to the correct transcription
-- DO NOT change any characters in the correct transcription - only insert newlines
-- Handle cases where HTR/OCR has character errors by finding the best alignment
+# Output Format
+Return only the correct transcription with inserted line breaks matching the HTR/OCR structure. Do not include explanations, code blocks, or extra formatting.
 
 {examples}Correct transcription:
 {transcription}
 
 HTR/OCR output with line breaks:
-{htr}
-
-Return the correct transcription with line breaks matching the HTR/OCR structure. Do not add explanations."""
+{htr}"""
 
 
 def format_few_shot_examples_m1(examples) -> str:

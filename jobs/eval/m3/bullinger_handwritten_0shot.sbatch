@@ -44,8 +44,8 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 python run_eval_m3.py \
   --data-dir datasets/bullinger_handwritten \
-  --hf-model "$MODEL" \
-  --hf-device cuda \
+  --model "$MODEL" \
+  --device cuda \
   --n-shots 0 \
   --out-dir bullinger_handwritten_predictions_m3_0shot_${MODEL_SUFFIX} \
   --eval-csv bullinger_handwritten_eval_m3_0shot_${MODEL_SUFFIX}.csv \

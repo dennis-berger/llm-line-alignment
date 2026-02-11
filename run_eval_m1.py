@@ -23,14 +23,12 @@ import glob
 import logging
 import os
 import sys
-from dataclasses import dataclass
 from pathlib import Path
 from typing import List
 
 from PIL import Image
-import torch
-from transformers import AutoProcessor, AutoModelForVision2Seq
 
+from src.linealign.vlm import get_backend, VLMConfig
 from utils.common import find_images_for_id, read_text, write_text, select_few_shot_examples
 from utils.evaluation import evaluate_prediction
 from utils.prompts import PROMPT_TEMPLATE_M1, format_few_shot_examples_m1
@@ -43,12 +41,6 @@ logger = logging.getLogger(__name__)
 
 # ---------------- VLM backend (Method 1, multi-page) ----------------
 
-@dataclass
-class VLMConfig:
-    model_id: str = "Qwen/Qwen3-VL-8B-Instruct"
-    device: str = "auto"   # "auto" | "cuda" | "cpu"
-    max_new_tokens: int = 800
-    few_shot_examples: list = None
 
 class VLMLineBreaker:
     """
@@ -61,32 +53,9 @@ class VLMLineBreaker:
       on word boundaries) and process each (image_i, chunk_i) pair separately.
     """
 
-    def __init__(self, cfg: QwenCfg):
-        self.device = "cuda" if (cfg.device in ("auto", "cuda") and torch.cuda.is_available()) else "cpu"
-        self.processor = AutoProcessor.from_pretrained(cfg.model_id, trust_remote_code=True)
+    def __init__(self, cfg: VLMConfig):
+        self.backend = get_backend(cfg)
         self.few_shot_examples = cfg.few_shot_examples or []
-
-        load_kwargs = dict(trust_remote_code=True)
-        if self.device == "cuda":
-            # Prefer 4-bit quantization to fit on 32GB GPUs
-            try:
-                load_kwargs.update({
-                    "device_map": "auto",
-                    "load_in_4bit": True,
-                    "bnb_4bit_compute_dtype": torch.float16,
-                    "bnb_4bit_quant_type": "nf4",
-                    "bnb_4bit_use_double_quant": True,
-                })
-            except Exception:
-                # Fallback to fp16 if bitsandbytes not available
-                load_kwargs.update({
-                    "device_map": "auto",
-                    "torch_dtype": torch.float16,
-                })
-
-        self.model = AutoModelForVision2Seq.from_pretrained(cfg.model_id, **load_kwargs)
-        self.model.eval()
-        self.max_new_tokens = cfg.max_new_tokens
 
     # ---------- Prompt construction ----------
 
@@ -97,17 +66,6 @@ class VLMLineBreaker:
         """
         examples_str = format_few_shot_examples_m1(self.few_shot_examples)
         return PROMPT_TEMPLATE_M1.format(examples=examples_str, transcription=transcription)
-
-
-    # ---------- Image helper ----------
-
-    def _downscale(self, img: Image.Image, max_side: int = 1280) -> Image.Image:
-        w, h = img.size
-        s = max(w, h)
-        if s <= max_side:
-            return img
-        scale = max_side / float(s)
-        return img.resize((int(w * scale), int(h * scale)))
 
     # ---------- Transcription splitting across pages ----------
 
@@ -166,7 +124,6 @@ class VLMLineBreaker:
 
     # ---------- Core generation ----------
 
-    @torch.inference_mode()
     def _generate_one(self, img: Image.Image, transcription: str) -> str:
         """
         Single-page call: image + transcription chunk -> line-broken chunk.
@@ -174,62 +131,19 @@ class VLMLineBreaker:
         """
         prompt = self._build_prompt(transcription)
         
-        # Build message content with few-shot examples
-        content = []
+        # Collect all images (few-shot examples + current)
         all_images = []
         
-        # Add few-shot examples first (if any)
+        # Add few-shot example images first (if any)
         for ex in self.few_shot_examples:
             if ex.image_paths:
-                # Add first page image from example
-                ex_img = Image.open(ex.image_paths[0]).convert("RGB")
-                ex_img = self._downscale(ex_img, max_side=1280)
-                content.append({"type": "image", "image": ex_img})
+                ex_img = self.backend.load_and_prepare_image(ex.image_paths[0])
                 all_images.append(ex_img)
         
         # Add current test image
-        content.append({"type": "image", "image": img})
         all_images.append(img)
         
-        # Add text prompt
-        content.append({"type": "text", "text": prompt})
-        
-        messages = [{
-            "role": "user",
-            "content": content,
-        }]
-        
-        text = self.processor.apply_chat_template(
-            messages,
-            add_generation_prompt=True,
-            tokenize=False,
-        )
-        inputs = self.processor(text=[text], images=all_images, return_tensors="pt")
-        if self.device == "cuda":
-            inputs = {k: v.to("cuda") for k, v in inputs.items()}
-
-        out_ids = self.model.generate(
-            **inputs,
-            max_new_tokens=self.max_new_tokens,
-            do_sample=False,
-            temperature=0.0,
-            num_beams=1,
-            repetition_penalty=1.05,
-        )
-        raw = self.processor.batch_decode(out_ids, skip_special_tokens=True)[0]
-
-        # --- Extract only the assistant part ---
-        cleaned = raw.strip()
-        marker = "\nassistant\n"
-        idx = cleaned.rfind(marker)
-        if idx != -1:
-            cleaned = cleaned[idx + len(marker):].strip()
-
-        # just in case it starts with a bare 'assistant' token
-        if cleaned.startswith("assistant"):
-            cleaned = cleaned[len("assistant"):].lstrip()
-
-        return cleaned
+        return self.backend.generate(prompt, images=all_images)
 
 
     def infer_line_breaks(self, image_paths: List[str], transcription: str) -> str:
@@ -251,14 +165,12 @@ class VLMLineBreaker:
             if not chunk.strip():
                 continue
 
-            img = Image.open(img_path).convert("RGB")
-            img = self._downscale(img, max_side=1280)
+            img = self.backend.load_and_prepare_image(img_path)
 
             out = self._generate_one(img, chunk)
             outputs.append(out.strip())
 
-            if self.device == "cuda":
-                torch.cuda.empty_cache()
+            self.backend.cleanup()
 
         # Join page outputs with a single newline between pages.
         return "\n".join(o for o in outputs if o).strip()
@@ -273,8 +185,10 @@ def main():
                     help="Where to write predictions")
     ap.add_argument("--eval-csv", default="evaluation_m1.csv",
                     help="Output CSV path")
-    ap.add_argument("--hf-model", default="Qwen/Qwen3-VL-8B-Instruct")
-    ap.add_argument("--hf-device", default="auto", choices=["auto", "cuda", "cpu"])
+    ap.add_argument("--model", default="hf/Qwen/Qwen3-VL-8B-Instruct",
+                    help="Model ID with provider prefix: 'openai/gpt-5.2-vision' or 'hf/Qwen/Qwen3-VL-8B-Instruct'")
+    ap.add_argument("--device", default="auto", choices=["auto", "cuda", "cpu"],
+                    help="Device for HuggingFace models (ignored for API models)")
     ap.add_argument("--max-new-tokens", type=int, default=2048)
     ap.add_argument("--transcription-dir", default=None,
                     help="Folder containing transcription/<ID>.txt (no line breaks). "
@@ -296,8 +210,8 @@ def main():
     
     # Instantiate backend (few-shot examples will be set per sample)
     line_breaker = VLMLineBreaker(VLMConfig(
-        model_id=args.hf_model,
-        device=args.hf_device,
+        model_id=args.model,
+        device=args.device,
         max_new_tokens=args.max_new_tokens,
         few_shot_examples=[],
     ))

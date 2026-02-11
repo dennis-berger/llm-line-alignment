@@ -1,12 +1,12 @@
 {
   "id": "2B_14_0-1",
   "dataset": "children_handwritten",
-  "segmenter": "kraken",
+  "segmenter": "doctr",
   "recognizer": "trocr",
-  "recognizer_model": "microsoft/trocr-base-handwritten",
+  "recognizer_model": "outputs/models/trocr-cvl-faust",
   "num_pages": 1,
-  "num_lines": 4,
-  "timestamp_utc": "2026-02-09T14:53:36.151319+00:00",
+  "num_lines": 3,
+  "timestamp_utc": "2026-02-11T10:13:40.856375+00:00",
   "cache_root": "outputs/cache/children_handwritten/lines",
   "ocr_path": "datasets/children_handwritten/ocr/2B_14_0-1.txt",
   "transcription_path": "datasets/children_handwritten/transcription/2B_14_0-1.txt"

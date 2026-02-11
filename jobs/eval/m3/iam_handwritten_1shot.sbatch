@@ -44,8 +44,8 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 python run_eval_m3.py \
   --data-dir datasets/IAM_handwritten \
-  --hf-model "$MODEL" \
-  --hf-device cuda \
+  --model "$MODEL" \
+  --device cuda \
   --n-shots 1 \
   --shots-seed 42 \
   --out-dir iam_handwritten_predictions_m3_1shot_${MODEL_SUFFIX} \
