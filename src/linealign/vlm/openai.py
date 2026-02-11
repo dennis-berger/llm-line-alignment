@@ -100,7 +100,7 @@ class OpenAIBackend(VLMBackend):
             response = self.client.chat.completions.create(
                 model=self.model_name,
                 messages=messages,
-                max_tokens=self.config.max_new_tokens,
+                max_completion_tokens=self.config.max_new_tokens,
                 temperature=self.config.temperature,
             )
             
