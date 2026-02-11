@@ -36,6 +36,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
+# Install python-doctr if not already installed
+pip install --quiet "python-doctr[torch]"
+
 # Generate OCR for children_handwritten dataset
 # Using docTR segmenter (better for informal handwriting) and TrOCR fine-tuned on CVL-Faust
 python scripts/make_ocr_outputs.py \
