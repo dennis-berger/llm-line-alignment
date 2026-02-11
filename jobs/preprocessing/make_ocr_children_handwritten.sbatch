@@ -37,12 +37,13 @@ which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 # Generate OCR for children_handwritten dataset
-# Using docTR segmenter (better for informal handwriting) and base TrOCR model
+# Using docTR segmenter (better for informal handwriting) and TrOCR fine-tuned on CVL-Faust
 python scripts/make_ocr_outputs.py \
   --dataset children_handwritten \
   --data-dir datasets/children_handwritten \
   --segmenter doctr \
-  --recognizer outputs/models/trocr-cvl-faust \
+  --recognizer trocr_handwritten \
+  --recognizer-model outputs/models/trocr-cvl-faust \
   --device cuda \
   --batch-size 8 \
   --cache-dir outputs/cache/children_handwritten/lines \
