@@ -43,10 +43,10 @@ JOBS_DIR="$PWD/jobs"
 #   MODEL_LOCAL="./.hf/Qwen3-VL-8B-Instruct"
 #
 # For OpenAI API models (requires OPENAI_API_KEY env var):
-#   MODEL_NAME="openai/gpt-5.2-vision"
+#   MODEL_NAME="openai/gpt-5.2"
 #   MODEL_LOCAL=""  # Not used for API models
 #
-MODEL_NAME="openai/gpt-5.2-vision"
+MODEL_NAME="openai/gpt-5.2"
 MODEL_LOCAL=""
 # Extract short model suffix for output naming (e.g., "qwen3-vl-32b-instruct")
 MODEL_SUFFIX=$(basename "$MODEL_NAME" | tr '[:upper:]' '[:lower:]')

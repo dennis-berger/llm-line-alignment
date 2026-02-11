@@ -49,7 +49,7 @@ python scripts/summarize_macro_avgs.py
 python scripts/summarize_macro_avgs.py --in-dir results/
 
 # Custom glob pattern
-python scripts/summarize_macro_avgs.py --glob "evaluation_*.csv"
+python scripts/summarize_macro_avgs.py --glob "*gpt-5.2.csv"
 ```
 
 ### Output

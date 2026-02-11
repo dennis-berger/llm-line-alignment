@@ -186,7 +186,7 @@ def main():
     ap.add_argument("--eval-csv", default="evaluation_m1.csv",
                     help="Output CSV path")
     ap.add_argument("--model", default="hf/Qwen/Qwen3-VL-8B-Instruct",
-                    help="Model ID with provider prefix: 'openai/gpt-5.2-vision' or 'hf/Qwen/Qwen3-VL-8B-Instruct'")
+                    help="Model ID with provider prefix: 'openai/gpt-5.2' or 'hf/Qwen/Qwen3-VL-8B-Instruct'")
     ap.add_argument("--device", default="auto", choices=["auto", "cuda", "cpu"],
                     help="Device for HuggingFace models (ignored for API models)")
     ap.add_argument("--max-new-tokens", type=int, default=2048)

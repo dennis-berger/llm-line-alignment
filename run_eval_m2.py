@@ -223,7 +223,7 @@ def main():
     ap.add_argument(
         "--model",
         default="hf/Qwen/Qwen3-VL-8B-Instruct",
-        help="Model ID with provider prefix: 'openai/gpt-5.2-vision' or 'hf/Qwen/Qwen3-VL-8B-Instruct'",
+        help="Model ID with provider prefix: 'openai/gpt-5.2' or 'hf/Qwen/Qwen3-VL-8B-Instruct'",
     )
     ap.add_argument(
         "--device",

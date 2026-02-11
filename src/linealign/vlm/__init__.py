@@ -3,7 +3,7 @@ VLM (Vision-Language Model) backends for line alignment.
 
 This module provides a unified interface for different VLM providers:
 - HuggingFace Transformers (local models like Qwen VL)
-- OpenAI API (GPT-4V, GPT-5.2-vision, etc.)
+- OpenAI API (GPT-4V, gpt-5.2, etc.)
 
 Usage:
     from linealign.vlm import get_backend, VLMConfig
@@ -13,7 +13,7 @@ Usage:
     backend = get_backend(config)
     
     # For OpenAI models (prefix with "openai/")
-    config = VLMConfig(model_id="openai/gpt-5.2-vision")
+    config = VLMConfig(model_id="openai/gpt-5.2")
     backend = get_backend(config)
     
     # Generate with images
@@ -34,7 +34,7 @@ def get_backend(config: VLMConfig) -> VLMBackend:
     Args:
         config: VLMConfig with model_id specifying the provider and model.
                 Model ID format: "provider/model-name"
-                - "openai/gpt-5.2-vision" -> OpenAI backend
+                - "openai/gpt-5.2" -> OpenAI backend
                 - "hf/Qwen/Qwen3-VL-8B-Instruct" -> HuggingFace backend
                 - "Qwen/Qwen3-VL-8B-Instruct" -> HuggingFace backend (default)
     

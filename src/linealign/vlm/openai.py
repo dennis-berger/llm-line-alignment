@@ -1,7 +1,7 @@
 """
 OpenAI API backend for VLM inference.
 
-Supports GPT-4V, GPT-5.2-vision, and other OpenAI vision models.
+Supports GPT-4V, gpt-5.2, and other OpenAI vision models.
 Requires OPENAI_API_KEY environment variable.
 """
 
@@ -22,7 +22,7 @@ class OpenAIBackend(VLMBackend):
     """
     VLM backend using OpenAI's API.
     
-    Supports vision models like gpt-5.2-vision, gpt-4-vision-preview, etc.
+    Supports vision models like gpt-5.2, gpt-4-vision-preview, etc.
     API key must be set via OPENAI_API_KEY environment variable.
     """
     

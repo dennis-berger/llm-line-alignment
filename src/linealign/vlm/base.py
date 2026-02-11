@@ -19,7 +19,7 @@ class VLMConfig:
     Configuration for VLM backends.
     
     Attributes:
-        model_id: Full model identifier with provider prefix (e.g., "openai/gpt-5.2-vision" 
+        model_id: Full model identifier with provider prefix (e.g., "openai/gpt-5.2" 
                   or "hf/Qwen3-VL-8B-Instruct"). If no prefix, defaults to "hf/".
         max_new_tokens: Maximum tokens to generate.
         temperature: Sampling temperature (0.0 = deterministic).
