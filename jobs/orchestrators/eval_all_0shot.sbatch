@@ -46,11 +46,19 @@ JOBS_DIR="$PWD/jobs"
 #   MODEL_NAME="openai/gpt-5.2"
 #   MODEL_LOCAL=""  # Not used for API models
 #
+# For Google Gemini API models (requires GOOGLE_API_KEY env var):
+#   MODEL_NAME="gemini/gemini-3-pro-preview"
+#   MODEL_LOCAL=""  # Not used for API models
+#
+# For Mistral API models (requires MISTRAL_API_KEY env var):
+#   MODEL_NAME="mistral/mistral-large-2512"
+#   MODEL_LOCAL=""  # Not used for API models
+#
 MODEL_NAME="openai/gpt-5.2"
 MODEL_LOCAL=""
 # Extract short model suffix for output naming (e.g., "qwen3-vl-32b-instruct")
 MODEL_SUFFIX=$(basename "$MODEL_NAME" | tr '[:upper:]' '[:lower:]')
-export SBATCH_EXPORT="MODEL_NAME=$MODEL_NAME,MODEL_LOCAL=$MODEL_LOCAL,MODEL_SUFFIX=$MODEL_SUFFIX,OPENAI_API_KEY=$OPENAI_API_KEY"
+export SBATCH_EXPORT="MODEL_NAME=$MODEL_NAME,MODEL_LOCAL=$MODEL_LOCAL,MODEL_SUFFIX=$MODEL_SUFFIX,OPENAI_API_KEY=$OPENAI_API_KEY,GOOGLE_API_KEY=$GOOGLE_API_KEY,MISTRAL_API_KEY=$MISTRAL_API_KEY"
 echo "Using model: $MODEL_NAME (local: $MODEL_LOCAL, suffix: $MODEL_SUFFIX)"
 
 # Track submitted job IDs

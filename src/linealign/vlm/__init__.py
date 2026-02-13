@@ -4,6 +4,8 @@ VLM (Vision-Language Model) backends for line alignment.
 This module provides a unified interface for different VLM providers:
 - HuggingFace Transformers (local models like Qwen VL)
 - OpenAI API (GPT-4V, gpt-5.2, etc.)
+- Google Gemini API (gemini-3-pro-preview, gemini-2.0-flash, etc.)
+- Mistral API (mistral-large-2512, pixtral-large-latest, etc.)
 
 Usage:
     from linealign.vlm import get_backend, VLMConfig
@@ -14,6 +16,14 @@ Usage:
     
     # For OpenAI models (prefix with "openai/")
     config = VLMConfig(model_id="openai/gpt-5.2")
+    backend = get_backend(config)
+    
+    # For Gemini models (prefix with "gemini/")
+    config = VLMConfig(model_id="gemini/gemini-3-pro-preview")
+    backend = get_backend(config)
+    
+    # For Mistral models (prefix with "mistral/")
+    config = VLMConfig(model_id="mistral/mistral-large-2512")
     backend = get_backend(config)
     
     # Generate with images
@@ -56,10 +66,18 @@ def get_backend(config: VLMConfig) -> VLMBackend:
         from .huggingface import HuggingFaceBackend
         return HuggingFaceBackend(config)
     
+    elif provider == "gemini":
+        from .gemini import GeminiBackend
+        return GeminiBackend(config)
+    
+    elif provider == "mistral":
+        from .mistral import MistralBackend
+        return MistralBackend(config)
+    
     else:
         raise ValueError(
             f"Unknown provider: '{provider}'. "
-            f"Use 'openai/model-name' or 'hf/model-name' format."
+            f"Use 'openai/', 'hf/', 'gemini/', or 'mistral/' prefix."
         )
 
 

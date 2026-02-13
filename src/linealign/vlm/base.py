@@ -35,10 +35,10 @@ class VLMConfig:
     
     @property
     def provider(self) -> str:
-        """Extract provider from model_id (e.g., 'openai', 'hf')."""
+        """Extract provider from model_id (e.g., 'openai', 'hf', 'gemini', 'mistral')."""
         if "/" in self.model_id:
             prefix = self.model_id.split("/")[0].lower()
-            if prefix in ("openai", "hf"):
+            if prefix in ("openai", "hf", "gemini", "mistral"):
                 return prefix
         return "hf"  # default to HuggingFace
     
@@ -47,7 +47,7 @@ class VLMConfig:
         """Extract model name without provider prefix."""
         if "/" in self.model_id:
             prefix = self.model_id.split("/")[0].lower()
-            if prefix in ("openai", "hf"):
+            if prefix in ("openai", "hf", "gemini", "mistral"):
                 return self.model_id[len(prefix) + 1:]
         return self.model_id
 
