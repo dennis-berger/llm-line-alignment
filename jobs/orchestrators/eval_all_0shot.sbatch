@@ -58,7 +58,8 @@ MODEL_NAME="gemini/gemini-3-pro-preview"
 MODEL_LOCAL=""  # Not used for API models
 # Extract short model suffix for output naming (e.g., "qwen3-vl-32b-instruct")
 MODEL_SUFFIX=$(basename "$MODEL_NAME" | tr '[:upper:]' '[:lower:]')
-export SBATCH_EXPORT="MODEL_NAME=$MODEL_NAME,MODEL_LOCAL=$MODEL_LOCAL,MODEL_SUFFIX=$MODEL_SUFFIX,OPENAI_API_KEY=$OPENAI_API_KEY,GOOGLE_API_KEY=$GOOGLE_API_KEY,MISTRAL_API_KEY=$MISTRAL_API_KEY"
+# $OPENAI_API_KEY, $GOOGLE_API_KEY or $MISTRAL_API_KEY should be set in the environment before running this script if using API models
+export SBATCH_EXPORT="MODEL_NAME=$MODEL_NAME,MODEL_LOCAL=$MODEL_LOCAL,MODEL_SUFFIX=$MODEL_SUFFIX,GOOGLE_API_KEY=$GOOGLE_API_KEY"
 echo "Using model: $MODEL_NAME (local: $MODEL_LOCAL, suffix: $MODEL_SUFFIX)"
 
 # Track submitted job IDs
