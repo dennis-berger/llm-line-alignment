@@ -26,7 +26,7 @@ eval "$(conda shell.bash hook)"
 conda activate bullinger-mwe
 
 # Ensure OpenAI package is available (for API models)
-pip install -q openai>=1.0.0
+pip install -q openai>=1.0.0 google-genai>=0.3.0 mistralai>=1.0.0
 
 # HF cache in project dir
 export HF_HOME="$PWD/.hf"
