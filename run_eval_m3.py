@@ -35,10 +35,11 @@ import sys
 from pathlib import Path
 from typing import List
 
-from src.linealign.vlm import get_backend, VLMConfig
+from src.linealign.vlm import get_backend, VLMConfig, DailyQuotaExhausted, EXIT_CODE_DAILY_QUOTA
 from utils.common import read_text, write_text, select_few_shot_examples
 from utils.evaluation import evaluate_prediction
 from utils.prompts import PROMPT_TEMPLATE_M3, format_few_shot_examples_m3
+from utils.checkpoint import EvalCheckpoint, get_checkpoint_path
 
 logging.basicConfig(
     level=logging.INFO,
@@ -176,6 +177,8 @@ def main():
                     help="Use examples from 'same' dataset or 'cross' dataset")
     ap.add_argument("--shots-seed", type=int, default=None,
                     help="Random seed for selecting few-shot examples (optional)")
+    ap.add_argument("--checkpoint-dir", default="checkpoints",
+                    help="Directory for checkpoint files (for resuming interrupted runs)")
     args = ap.parse_args()
 
     # Determine output filenames based on n_shots
@@ -184,6 +187,24 @@ def main():
         args.out_dir = f"predictions_m3{shot_suffix}"
     if args.eval_csv == "evaluation_m3.csv":
         args.eval_csv = f"evaluation_m3{shot_suffix}.csv"
+    
+    # Load or create checkpoint for resumable evaluation
+    checkpoint_path = get_checkpoint_path(
+        method="m3",
+        dataset=args.data_dir,
+        model=args.model,
+        n_shots=args.n_shots,
+        checkpoint_dir=args.checkpoint_dir,
+    )
+    checkpoint = EvalCheckpoint.load(checkpoint_path)
+    if checkpoint is None:
+        checkpoint = EvalCheckpoint(
+            method="m3",
+            dataset=args.data_dir,
+            model=args.model,
+            n_shots=args.n_shots,
+            checkpoint_path=str(checkpoint_path),
+        )
     
     # Instantiate backend (few-shot examples will be set per sample)
     combiner = VLMMethod3Combiner(
@@ -206,15 +227,33 @@ def main():
         logger.error(f"No ground-truth files found in {gt_dir}")
         sys.exit(1)
 
-    rows: List[list] = []
-    n = 0
-    sum_w = sum_c = sum_wn = sum_cn = 0.0
-    sum_la = sum_lan = sum_rla = sum_rlan = 0.0
-    sum_elp = sum_elr = sum_elf1 = 0.0
-    sum_elp_norm = sum_elr_norm = sum_elf1_norm = 0.0
+    # Initialize from checkpoint or start fresh
+    rows: List[list] = checkpoint.rows.copy()
+    n = len(checkpoint.processed_ids)
+    sum_w = checkpoint.sums.get('wer', 0.0)
+    sum_c = checkpoint.sums.get('cer', 0.0)
+    sum_wn = checkpoint.sums.get('wer_norm', 0.0)
+    sum_cn = checkpoint.sums.get('cer_norm', 0.0)
+    sum_la = checkpoint.sums.get('line_acc', 0.0)
+    sum_lan = checkpoint.sums.get('line_acc_norm', 0.0)
+    sum_rla = checkpoint.sums.get('rev_line_acc', 0.0)
+    sum_rlan = checkpoint.sums.get('rev_line_acc_norm', 0.0)
+    sum_elp = checkpoint.sums.get('exact_line_precision', 0.0)
+    sum_elr = checkpoint.sums.get('exact_line_recall', 0.0)
+    sum_elf1 = checkpoint.sums.get('exact_line_f1', 0.0)
+    sum_elp_norm = checkpoint.sums.get('exact_line_precision_norm', 0.0)
+    sum_elr_norm = checkpoint.sums.get('exact_line_recall_norm', 0.0)
+    sum_elf1_norm = checkpoint.sums.get('exact_line_f1_norm', 0.0)
+    
+    if n > 0:
+        logger.info(f"Resuming from checkpoint: {n} samples already processed")
 
     for gt_path in gt_files:
         sample_id = os.path.splitext(os.path.basename(gt_path))[0]
+        
+        # Skip already-processed samples (from checkpoint)
+        if checkpoint.is_processed(sample_id):
+            continue
 
         # Load few-shot examples for this specific sample
         if args.n_shots > 0:
@@ -244,6 +283,15 @@ def main():
         # Ask LLM to infer line breaks using transcription + HTR
         try:
             pred = combiner.infer_line_breaks(transcription, htr_text)
+        except DailyQuotaExhausted as e:
+            logger.error(f"Daily quota exhausted after {n} samples. Saving checkpoint...")
+            checkpoint.save()
+            logger.info(
+                f"Progress saved. Processed {n}/{len(gt_files)} samples.\n"
+                f"To resume, rerun the same command. The job will continue from where it left off.\n"
+                f"Checkpoint: {checkpoint.checkpoint_path}"
+            )
+            sys.exit(EXIT_CODE_DAILY_QUOTA)
         except Exception as e:
             logger.error(f"Failure for {sample_id}: {e}", exc_info=True)
             continue
@@ -290,6 +338,25 @@ def main():
         sum_elr_norm += result['exact_line_recall_norm']
         sum_elf1_norm += result['exact_line_f1_norm']
         n += 1
+        
+        # Update checkpoint after each successful sample
+        checkpoint.mark_processed(sample_id, rows[-1], {
+            'wer': result['wer'],
+            'cer': result['cer'],
+            'wer_norm': result['wer_whitespace_normalized'],
+            'cer_norm': result['cer_whitespace_normalized'],
+            'line_acc': result['line_accuracy'],
+            'line_acc_norm': result['line_accuracy_whitespace_normalized'],
+            'rev_line_acc': result['line_accuracy_reverse'],
+            'rev_line_acc_norm': result['line_accuracy_whitespace_normalized_reverse'],
+            'exact_line_precision': result['exact_line_precision'],
+            'exact_line_recall': result['exact_line_recall'],
+            'exact_line_f1': result['exact_line_f1'],
+            'exact_line_precision_norm': result['exact_line_precision_norm'],
+            'exact_line_recall_norm': result['exact_line_recall_norm'],
+            'exact_line_f1_norm': result['exact_line_f1_norm'],
+        })
+        checkpoint.save()
 
         logger.info(
             f"[OK] {sample_id}: "
@@ -351,6 +418,9 @@ def main():
             )
 
     logger.info(f"Wrote {args.eval_csv} with {n} samples.")
+    
+    # Evaluation completed successfully - delete checkpoint
+    checkpoint.delete()
 
 
 if __name__ == "__main__":

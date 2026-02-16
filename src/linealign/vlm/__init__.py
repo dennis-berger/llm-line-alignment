@@ -81,4 +81,7 @@ def get_backend(config: VLMConfig) -> VLMBackend:
         )
 
 
-__all__ = ["VLMBackend", "VLMConfig", "get_backend"]
+# Re-export exceptions for convenience
+from .exceptions import DailyQuotaExhausted, EXIT_CODE_DAILY_QUOTA
+
+__all__ = ["VLMBackend", "VLMConfig", "get_backend", "DailyQuotaExhausted", "EXIT_CODE_DAILY_QUOTA"]

@@ -8,7 +8,7 @@
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=64G
 
-set -euo pipefail
+set -uo pipefail
 set -x
 
 echo "=== Node ==="
@@ -53,5 +53,23 @@ python run_eval_m3.py \
   --out-dir iam_print_predictions_m3_0shot_${MODEL_SUFFIX} \
   --eval-csv iam_print_eval_m3_0shot_${MODEL_SUFFIX}.csv \
   --max-new-tokens 800
+
+PYTHON_EXIT=$?
+
+# Handle daily quota exhaustion (exit code 75) - auto-resubmit for tomorrow
+if [ "$PYTHON_EXIT" -eq 75 ]; then
+  echo "Daily quota exhausted. Attempting to resubmit job for tomorrow..."
+  SCRIPT_PATH="${BASH_SOURCE[0]}"
+  if sbatch --begin=now+24hours "$SCRIPT_PATH"; then
+    echo "Job resubmitted successfully. Will resume tomorrow."
+  else
+    echo "Auto-resubmit failed. To resume manually, run:"
+    echo "  sbatch $SCRIPT_PATH"
+  fi
+  exit 75
+elif [ "$PYTHON_EXIT" -ne 0 ]; then
+  echo "Python script failed with exit code $PYTHON_EXIT"
+  exit $PYTHON_EXIT
+fi
 
 echo "Done."
