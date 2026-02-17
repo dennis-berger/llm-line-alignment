@@ -54,7 +54,7 @@ JOBS_DIR="$PWD/jobs"
 #   MODEL_NAME="mistral/mistral-large-2512"
 #   MODEL_LOCAL=""  # Not used for API models
 #
-MODEL_NAME="mistral/mistral-large-2512"
+MODEL_NAME="gemini/gemini-3-pro-preview"
 MODEL_LOCAL=""  # Not used for API models
 # Extract short model suffix for output naming (e.g., "qwen3-vl-32b-instruct")
 MODEL_SUFFIX=$(basename "$MODEL_NAME" | tr '[:upper:]' '[:lower:]')
