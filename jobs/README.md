@@ -214,6 +214,53 @@ Few-shot specific:
 - Verify dataset has gt/, transcription/, and ocr/ directories
 - Check that dataset has enough samples (need at least 2: 1 test + 1 example)
 
+## API Rate Limits & Auto-Resume (Gemini)
+
+Gemini API has strict rate limits on the free tier:
+- **Per-minute:** 25 requests/minute
+- **Per-day:** 250 requests/day (resets at midnight PT)
+
+### How It Works
+
+1. **Throttling:** Requests are automatically spaced (2.4s apart) to stay under the per-minute limit
+2. **Retry:** Per-minute 429 errors trigger exponential backoff retries
+3. **Checkpointing:** Progress is saved after each sample to `checkpoints/` directory
+4. **Daily Quota:** When daily limit is hit, job exits with code 75
+5. **Auto-Resubmit:** Jobs automatically resubmit themselves with `--begin=now+24hours`
+
+### Monitoring Resumed Jobs
+
+When a job hits daily quota and resubmits:
+
+```bash
+# Check pending jobs (shows BeginTime for scheduled jobs)
+squeue -u $USER
+
+# See when jobs are scheduled to run
+squeue -u $USER --start
+
+# View checkpoint files (shows progress saved)
+ls -la checkpoints/
+```
+
+### Manual Resume
+
+If a job failed without auto-resubmit, you can manually resume:
+
+```bash
+# Simply resubmit the same job - it will resume from checkpoint
+sbatch jobs/eval/m1/bullinger_handwritten_0shot.sbatch
+```
+
+### Checkpoint Files
+
+Checkpoints are stored in `checkpoints/` with naming pattern:
+```
+checkpoint_{method}_{dataset}_{provider}_{model}_{nshot}shot.json
+```
+
+Checkpoints are automatically deleted when evaluation completes successfully.
+
 ## Adding New Datasets
 
 To add a new dataset:
