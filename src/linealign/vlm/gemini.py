@@ -158,7 +158,7 @@ class GeminiBackend(VLMBackend):
             
             except self._genai_errors.ClientError as e:
                 # Check if it's a rate limit error (429)
-                if e.status == 429:
+                if e.code == 429:
                     # Check if it's a DAILY quota error (non-recoverable today)
                     error_str = str(e).lower()
                     is_daily_quota = any(pattern.lower() in error_str for pattern in DAILY_QUOTA_PATTERNS)
