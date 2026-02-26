@@ -4,9 +4,9 @@ Google Gemini API backend for VLM inference.
 Supports Gemini vision models like gemini-3-pro-preview.
 Requires GOOGLE_API_KEY environment variable.
 
-Includes rate limit handling:
+Includes rate limit and server error handling:
 - Throttling: Adds delay between requests to stay under quota (default: 25 req/min)
-- Retry with backoff: Automatically retries on 429 errors with exponential backoff
+- Retry with backoff: Automatically retries on 429 and 503 errors with exponential backoff
 """
 
 import io
@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 # Rate limit settings
 DEFAULT_REQUESTS_PER_MINUTE = 25
-DEFAULT_MAX_RETRIES = 5
+DEFAULT_MAX_RETRIES = 10
 DEFAULT_INITIAL_RETRY_DELAY = 3.0  # seconds
 
 # Patterns to detect daily quota exhaustion
@@ -43,9 +43,10 @@ class GeminiBackend(VLMBackend):
     Supports vision models like gemini-3-pro-preview, gemini-2.0-flash, etc.
     API key must be set via GOOGLE_API_KEY environment variable.
     
-    Rate limit handling:
+    Error handling:
         - Throttles requests to stay under per-minute quota
-        - Retries with exponential backoff on 429 errors
+        - Retries with exponential backoff on 429 rate limit errors
+        - Retries with exponential backoff on 503 server unavailability errors
     """
     
     def __init__(
@@ -185,6 +186,21 @@ class GeminiBackend(VLMBackend):
                         continue
                 # Re-raise non-rate-limit errors or if out of retries
                 raise
+            
+            except self._genai_errors.ServerError as e:
+                # Handle server errors (503, 500, etc.) with retry
+                last_error = e
+                if attempt < self.max_retries:
+                    logger.warning(
+                        f"Server error {e.code} (attempt {attempt + 1}/{self.max_retries + 1}). "
+                        f"Retrying in {retry_delay:.1f}s... Error: {e.message}"
+                    )
+                    time.sleep(retry_delay)
+                    retry_delay *= 2  # Exponential backoff
+                    continue
+                else:
+                    logger.error(f"Server error {e.code} - max retries exceeded. Error: {e.message}")
+                    raise
             
             except Exception as e:
                 logger.error(f"Gemini API error: {e}")
