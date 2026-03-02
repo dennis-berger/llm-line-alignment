@@ -1,6 +1,6 @@
 pillow
 transformers>=4.41.0
-torch
+torch>=2.6.0
 pytesseract
 openai>=1.0.0
 google-genai>=0.3.0
