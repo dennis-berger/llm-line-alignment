@@ -54,8 +54,8 @@ JOBS_DIR="$PWD/jobs"
 #   MODEL_NAME="mistral/mistral-large-2512"
 #   MODEL_LOCAL=""  # Not used for API models
 #
-MODEL_NAME="gemini/gemini-3-pro-preview"
-MODEL_LOCAL=""  # Not used for API models
+MODEL_NAME="hf/Qwen/Qwen3-VL-8B-Instruct"
+MODEL_LOCAL="./.hf/Qwen3-VL-8B-Instruct"
 # Extract short model suffix for output naming (e.g., "qwen3-vl-32b-instruct")
 MODEL_SUFFIX=$(basename "$MODEL_NAME" | tr '[:upper:]' '[:lower:]')
 # $OPENAI_API_KEY, $GOOGLE_API_KEY or $MISTRAL_API_KEY should be set in the environment before running this script if using API models
