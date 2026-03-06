@@ -155,6 +155,18 @@ class GeminiBackend(VLMBackend):
                         temperature=self.config.temperature,
                     ),
                 )
+                print("DEBUG CANDIDATES:", response.candidates)
+                print("DEBUG PROMPT FEEDBACK:", response.prompt_feedback)
+                if response.text is None:
+                    finish_reasons = [
+                        str(c.finish_reason)
+                        for c in (response.candidates or [])
+                    ]
+                    logger.warning(
+                        f"Gemini returned None text (finish_reasons={finish_reasons}). "
+                        "Returning empty string."
+                    )
+                    return ""
                 return response.text.strip()
             
             except self._genai_errors.ClientError as e:
