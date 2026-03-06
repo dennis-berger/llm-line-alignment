@@ -153,9 +153,6 @@ class GeminiBackend(VLMBackend):
                     config=self._types.GenerateContentConfig(
                         max_output_tokens=self.config.max_new_tokens,
                         temperature=self.config.temperature,
-                        thinking_config=self._types.ThinkingConfig(
-                            thinking_budget=0,
-                        ),
                     ),
                 )
                 if response.text is None:
