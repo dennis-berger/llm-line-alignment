@@ -153,10 +153,11 @@ class GeminiBackend(VLMBackend):
                     config=self._types.GenerateContentConfig(
                         max_output_tokens=self.config.max_new_tokens,
                         temperature=self.config.temperature,
+                        thinking_config=self._types.ThinkingConfig(
+                            thinking_budget=0,
+                        ),
                     ),
                 )
-                print("DEBUG CANDIDATES:", response.candidates)
-                print("DEBUG PROMPT FEEDBACK:", response.prompt_feedback)
                 if response.text is None:
                     finish_reasons = [
                         str(c.finish_reason)
