@@ -46,6 +46,7 @@ MODEL_SUFFIX="${MODEL_SUFFIX:-qwen3-vl-8b-instruct}"
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
+MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-800}"
 python run_eval_m1.py \
   --data-dir datasets/bullinger_handwritten \
   --model "$MODEL" \
@@ -54,7 +55,7 @@ python run_eval_m1.py \
   --shots-seed 42 \
   --out-dir bullinger_handwritten_predictions_m1_2shot_${MODEL_SUFFIX} \
   --eval-csv bullinger_handwritten_eval_m1_2shot_${MODEL_SUFFIX}.csv \
-  --max-new-tokens 800
+  --max-new-tokens "$MAX_NEW_TOKENS"
 
 PYTHON_EXIT=$?
 

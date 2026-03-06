@@ -43,6 +43,7 @@ MODEL_SUFFIX="${MODEL_SUFFIX:-qwen3-vl-8b-instruct}"
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
+MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-800}"
 python run_eval_m1.py \
   --data-dir datasets/easy_historical \
   --device cuda \
@@ -50,7 +51,7 @@ python run_eval_m1.py \
   --n-shots 0 \
   --out-dir easy_historical_predictions_m1_0shot_${MODEL_SUFFIX} \
   --eval-csv easy_historical_eval_m1_0shot_${MODEL_SUFFIX}.csv \
-  --max-new-tokens 800
+  --max-new-tokens "$MAX_NEW_TOKENS"
 
 PYTHON_EXIT=$?
 

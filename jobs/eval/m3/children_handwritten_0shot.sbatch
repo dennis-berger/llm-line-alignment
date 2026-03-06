@@ -48,6 +48,7 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-800}"
 
+MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-800}"
 python run_eval_m3.py \
   --data-dir datasets/children_handwritten \
   --model "$MODEL" \
