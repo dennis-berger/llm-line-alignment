@@ -352,24 +352,27 @@ def write_nntp_params(path: Path, observation_dir: Path, recognition_dir: Path) 
 def run_nntp_align(args, artifacts, converted):
     """Compile NNTP and run forced alignment on the per-letter observation files."""
 
-    nntp_root = Path(args.nntp_root)
+    nntp_root = Path(args.nntp_root).resolve()
     source_dir = nntp_root / "src" / "andreas"
     if not source_dir.exists():
         raise FileNotFoundError(f"NNTP source directory not found: {source_dir}")
 
-    classes_dir = Path(args.work_dir) / "nntp" / "classes"
-    recognition_dir = Path(args.work_dir) / "nntp" / "recognitions"
-    params_path = Path(args.work_dir) / "nntp" / "faParams.txt"
-    metadata_path = Path(args.work_dir) / "nntp" / "align_meta.json"
-    write_nntp_params(params_path, Path(args.work_dir) / "observations_letters", recognition_dir)
+    classes_dir = (Path(args.work_dir) / "nntp" / "classes").resolve()
+    recognition_dir = (Path(args.work_dir) / "nntp" / "recognitions").resolve()
+    params_path = (Path(args.work_dir) / "nntp" / "faParams.txt").resolve()
+    metadata_path = (Path(args.work_dir) / "nntp" / "align_meta.json").resolve()
+    observation_dir = (Path(args.work_dir) / "observations_letters").resolve()
+    fa_ids_path = Path(artifacts["fa_ids_path"]).resolve()
+    fa_labels_path = Path(artifacts["fa_labels_path"]).resolve()
+    write_nntp_params(params_path, observation_dir, recognition_dir)
 
     recognition_dir.mkdir(parents=True, exist_ok=True)
     rec_paths = {sample_id: recognition_dir / f"{sample_id}.rec" for sample_id in artifacts["ids"]}
     metadata = load_stage_metadata(metadata_path)
     expected_metadata = {
         "ids": artifacts["ids"],
-        "fa_ids_sha256": file_sha256(artifacts["fa_ids_path"]),
-        "fa_labels_sha256": file_sha256(artifacts["fa_labels_path"]),
+        "fa_ids_sha256": file_sha256(fa_ids_path),
+        "fa_labels_sha256": file_sha256(fa_labels_path),
     }
     if all(path.exists() for path in rec_paths.values()) and not args.overwrite and metadata == expected_metadata:
         logger.info("Reusing existing NNTP recognitions in %s", recognition_dir)
@@ -389,12 +392,12 @@ def run_nntp_align(args, artifacts, converted):
         str(classes_dir),
         "andreas.Main",
         "align",
-        str(artifacts["fa_ids_path"]),
+        str(fa_ids_path),
         str(params_path),
-        str(artifacts["fa_labels_path"]),
+        str(fa_labels_path),
     ]
     logger.info("Running NNTP forced alignment for %d sample(s)", len(artifacts["ids"]))
-    subprocess.run(cmd, check=True, cwd=nntp_root)
+    subprocess.run(cmd, check=True)
     metadata_path.write_text(json.dumps(expected_metadata, indent=2), encoding="utf-8")
     return rec_paths
 
