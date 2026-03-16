@@ -206,12 +206,15 @@ def test_decode_alignment_segments_respects_line_boundaries():
     """NNTP alignments should decode back into newline-separated text."""
 
     segments = [
+        AlignmentSegment(start=0, end=0, label="EPS", score=0.0),
+        AlignmentSegment(start=0, end=0, label="eps", score=0.0),
         AlignmentSegment(start=0, end=0, label="H", score=0.0),
         AlignmentSegment(start=1, end=1, label="sp", score=0.0),
         AlignmentSegment(start=2, end=2, label="B", score=0.0),
         AlignmentSegment(start=3, end=3, label="y", score=0.0),
         AlignmentSegment(start=4, end=4, label="e", score=0.0),
         AlignmentSegment(start=5, end=5, label="sp", score=0.0),
+        AlignmentSegment(start=5, end=5, label="<eps>", score=0.0),
     ]
     from linealign.nntp.models import BoundaryRecord
 

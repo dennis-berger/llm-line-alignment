@@ -6,6 +6,8 @@ from pathlib import Path
 
 from .models import AlignmentSegment, BoundaryRecord
 
+EPSILON_LABELS = {"EPS", "eps", "<eps>", "<EPS>"}
+
 
 def parse_alignment_file(path: Path) -> list[AlignmentSegment]:
     """Parse an NNTP `.rec` alignment file into character segments."""
@@ -43,6 +45,8 @@ def decode_alignment_segments(
     grouped: dict[int, list[str]] = {}
 
     for segment in segments:
+        if segment.label in EPSILON_LABELS:
+            continue
         midpoint = (segment.start + segment.end) / 2.0
         boundary_index = bisect_left(end_positions, midpoint)
         if boundary_index >= len(sorted_boundaries):
