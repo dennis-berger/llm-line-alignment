@@ -76,31 +76,47 @@ fi
 
 PYLAIA_CONDA_ENV="${PYLAIA_CONDA_ENV:-pylaia-htr}"
 PYLAIA_PYTHON_VERSION="${PYLAIA_PYTHON_VERSION:-3.10}"
+PYLAIA_SOURCE_URL="${PYLAIA_SOURCE_URL:-https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz}"
 if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$PYLAIA_CONDA_ENV"; then
   echo "Creating dedicated PyLaia environment '$PYLAIA_CONDA_ENV' with Python $PYLAIA_PYTHON_VERSION..."
   "$CONDA_INSTALL_BIN" create -y -n "$PYLAIA_CONDA_ENV" python="$PYLAIA_PYTHON_VERSION" pip
 fi
 
-PYLAIA_ENV_PREFIX="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -c 'import sys; print(sys.prefix)')"
-PYLAIA_NETOUT_BIN="$PYLAIA_ENV_PREFIX/bin/pylaia-htr-netout"
-
-if [ ! -x "$PYLAIA_NETOUT_BIN" ]; then
+if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+from importlib.metadata import version
+version("pylaia")
+PY
+then
   echo "Installing PyLaia into '$PYLAIA_CONDA_ENV' from the official GitHub source..."
   "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "pip<24.1" setuptools wheel
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz"
-  PYLAIA_ENV_PREFIX="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -c 'import sys; print(sys.prefix)')"
-  PYLAIA_NETOUT_BIN="$PYLAIA_ENV_PREFIX/bin/pylaia-htr-netout"
-fi
-if [ ! -x "$PYLAIA_NETOUT_BIN" ]; then
-  echo "ERROR: pylaia-htr-netout is still unavailable after installing PyLaia in '$PYLAIA_CONDA_ENV'."
-  exit 1
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "$PYLAIA_SOURCE_URL"
 fi
 
 "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
 from pathlib import Path
+import shutil
 import sysconfig
+import tarfile
+import tempfile
+import urllib.request
 
+source_url = "https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz"
+purelib = Path(sysconfig.get_paths()["purelib"])
+laia_dir = purelib / "laia"
 scripts_dir = Path(sysconfig.get_paths()["purelib"]) / "laia" / "scripts"
+htr_dir = scripts_dir / "htr"
+needs_patch = not (htr_dir / "netout.py").exists()
+
+if needs_patch:
+    print("PyLaia scripts tree incomplete; restoring laia/scripts from source tarball...")
+    tar_path = Path(tempfile.gettempdir()) / "pylaia-source.tar.gz"
+    urllib.request.urlretrieve(source_url, tar_path)
+    extract_root = Path(tempfile.mkdtemp(prefix="pylaia-src-"))
+    with tarfile.open(tar_path, "r:gz") as tar:
+        tar.extractall(extract_root)
+    src_scripts = next(extract_root.glob("PyLaia-*/laia/scripts"))
+    shutil.copytree(src_scripts, scripts_dir, dirs_exist_ok=True)
+
 scripts_dir.mkdir(parents=True, exist_ok=True)
 init_path = scripts_dir / "__init__.py"
 if not init_path.exists():
@@ -113,7 +129,7 @@ else:
     print("Found", init_path)
 PY
 
-"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
 from importlib.metadata import version
 import laia
 import laia.scripts.htr.netout
@@ -122,6 +138,10 @@ print("PyLaia package version:", version("pylaia"))
 print("PyLaia import OK:", laia.__file__)
 print("PyLaia netout import OK:", laia.scripts.htr.netout.__file__)
 PY
+then
+  echo "ERROR: PyLaia import validation failed in '$PYLAIA_CONDA_ENV'."
+  exit 1
+fi
 
 if ! command -v java >/dev/null 2>&1 || ! command -v javac >/dev/null 2>&1; then
   echo "Installing OpenJDK into '$CONDA_ENV_NAME' because java/javac are missing..."
@@ -137,7 +157,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
-echo "Using PyLaia netout binary: $PYLAIA_NETOUT_BIN"
+echo "Using PyLaia module runner from env: $PYLAIA_CONDA_ENV"
 java -version || true
 javac -version || true
 
@@ -157,7 +177,7 @@ WRAPPER_DIR="$WORK_DIR/job-bin"
 mkdir -p "$WRAPPER_DIR"
 cat > "$WRAPPER_DIR/pylaia-htr-netout" <<EOF
 #!/bin/bash
-exec "$PYLAIA_NETOUT_BIN" "\$@"
+exec "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m laia.scripts.htr.netout "\$@"
 EOF
 chmod +x "$WRAPPER_DIR/pylaia-htr-netout"
 export PATH="$WRAPPER_DIR:$PATH"
