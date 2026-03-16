@@ -59,6 +59,36 @@ python scripts/summarize_macro_avgs.py --glob "*gpt-5.2.csv"
 
 ---
 
+## run_nntp_eval.py
+
+Run the Bullinger handwritten NNTP baseline using local PAGE XML line geometry.
+
+### Basic Usage
+
+```bash
+# Prepare line images and manifests only
+python scripts/run_nntp_eval.py \
+  --data-dir datasets/bullinger_handwritten \
+  --ids 10177 \
+  --stop-after prepare
+
+# Full NNTP pipeline
+python scripts/run_nntp_eval.py \
+  --data-dir datasets/bullinger_handwritten \
+  --work-dir outputs/nntp/bullinger_handwritten \
+  --nntp-root ../nntp
+```
+
+### Output
+
+- **Predictions:** `bullinger_handwritten_predictions_nntp/`
+- **CSV metrics:** `bullinger_handwritten_eval_nntp.csv`
+- **Intermediates:** `outputs/nntp/bullinger_handwritten/`
+
+See [docs/nntp_pipeline.md](docs/nntp_pipeline.md) for stage details and caveats.
+
+---
+
 ## Additional Utilities
 
 Located in `utils/` directory:

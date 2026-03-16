@@ -44,6 +44,7 @@ python run_eval_m1.py --data-dir datasets/bullinger_print
 - **[METRICS.md](METRICS.md)** - All evaluation metrics with formulas and interpretation
 - **[datasets/README.md](datasets/README.md)** - Dataset structure and characteristics
 - **[docs/ocr_pipeline.md](docs/ocr_pipeline.md)** - OCR/HTR generation pipeline details
+- **[docs/nntp_pipeline.md](docs/nntp_pipeline.md)** - NNTP baseline pipeline from local PAGE XML
 - **[jobs/README.md](jobs/README.md)** - Running evaluations on HPC clusters
 - **[scripts/README.md](scripts/README.md)** - Utility scripts for data processing
 - **[tests/README.md](tests/README.md)** - Testing guide
