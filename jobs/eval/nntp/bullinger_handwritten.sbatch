@@ -176,6 +176,9 @@ EVAL_CSV="${EVAL_CSV:-bullinger_handwritten_eval_nntp.csv}"
 STOP_AFTER="${STOP_AFTER:-evaluate}"
 IDS="${IDS:-}"
 OVERWRITE="${OVERWRITE:-0}"
+PYLAIA_GPUS="${PYLAIA_GPUS:-1}"
+PYLAIA_AUTO_SELECT_GPUS="${PYLAIA_AUTO_SELECT_GPUS:-1}"
+PYLAIA_NUM_WORKERS="${PYLAIA_NUM_WORKERS:-6}"
 
 PYLAIA_RUNTIME_ROOT="$WORK_DIR/pylaia_runtime"
 mkdir -p "$PYLAIA_RUNTIME_ROOT"
@@ -211,9 +214,27 @@ PYLAIA_SYMS="$PYLAIA_RUNTIME_ROOT/syms.txt"
 
 WRAPPER_DIR="$WORK_DIR/job-bin"
 mkdir -p "$WRAPPER_DIR"
+cat > "$WRAPPER_DIR/run_pylaia_netout.py" <<'EOF'
+import os
+import sys
+
+from laia.scripts.htr import common_main
+from laia.scripts.htr.netout import get_args, run
+
+
+def main() -> None:
+    args = get_args(sys.argv[1:])
+    args = common_main(args)
+    args["num_workers"] = int(os.environ.get("PYLAIA_NUM_WORKERS", "6"))
+    run(**args)
+
+
+if __name__ == "__main__":
+    main()
+EOF
 cat > "$WRAPPER_DIR/pylaia-htr-netout" <<EOF
 #!/bin/bash
-exec "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m laia.scripts.htr.netout "\$@"
+exec "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" env PYLAIA_NUM_WORKERS="$PYLAIA_NUM_WORKERS" python "$WRAPPER_DIR/run_pylaia_netout.py" "\$@"
 EOF
 chmod +x "$WRAPPER_DIR/pylaia-htr-netout"
 export PATH="$WRAPPER_DIR:$PATH"
@@ -226,6 +247,7 @@ EXTRA_ARGS=(
   --pylaia-checkpoint "$PYLAIA_CHECKPOINT"
   --pylaia-syms "$PYLAIA_SYMS"
   --nntp-root "$NNTP_ROOT"
+  --pylaia-gpus "$PYLAIA_GPUS"
   --pred-dir "$PRED_DIR"
   --eval-csv "$EVAL_CSV"
   --stop-after "$STOP_AFTER"
@@ -233,6 +255,9 @@ EXTRA_ARGS=(
 
 if [ -n "$IDS" ]; then
   EXTRA_ARGS+=(--ids "$IDS")
+fi
+if [ "$PYLAIA_AUTO_SELECT_GPUS" = "1" ]; then
+  EXTRA_ARGS+=(--pylaia-auto-select-gpus)
 fi
 if [ "$OVERWRITE" = "1" ]; then
   EXTRA_ARGS+=(--overwrite)

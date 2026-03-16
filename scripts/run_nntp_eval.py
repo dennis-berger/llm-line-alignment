@@ -118,18 +118,31 @@ def load_stage_metadata(path: Path) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_netout_config(config_path: Path, experiment_dir: Path, model_path: Path) -> None:
+def build_netout_config(
+    config_path: Path,
+    experiment_dir: Path,
+    model_path: Path,
+    pylaia_gpus: int = 0,
+    auto_select_gpus: bool = False,
+) -> None:
     """Write a minimal PyLaia netout config for the generated line images."""
 
     config_path.parent.mkdir(parents=True, exist_ok=True)
+    experiment_dir.mkdir(parents=True, exist_ok=True)
+    trainer_lines = [
+        "trainer:",
+        f"  auto_select_gpus: {'true' if auto_select_gpus else 'false'}",
+        f"  gpus: {pylaia_gpus}",
+    ]
     config_path.write_text(
         "\n".join(
             [
                 "common:",
-                f'  experiment_dirname: "{experiment_dir}"',
-                f'  model_filename: "{model_path}"',
+                f'  experiment_dirname: "{experiment_dir.resolve()}"',
+                f'  model_filename: "{model_path.resolve()}"',
                 "netout:",
                 "  output_transform: softmax",
+                *trainer_lines,
                 "",
             ]
         ),
@@ -236,13 +249,16 @@ def run_pylaia_netout(args, artifacts) -> Path:
     model_path = ensure_file(pylaia_root / "model", "PyLaia model file")
 
     netout_dir = Path(args.work_dir) / "netout"
-    raw_lattice_path = netout_dir / "lattice.txt"
+    netout_dir.mkdir(parents=True, exist_ok=True)
+    raw_lattice_path = (netout_dir / "lattice.txt").resolve()
     metadata_path = netout_dir / "netout_meta.json"
     metadata = load_stage_metadata(metadata_path)
     expected_metadata = {
         "ids": artifacts["ids"],
         "pylaia_images_sha256": file_sha256(artifacts["pylaia_images_path"]),
         "checkpoint": str(Path(args.pylaia_checkpoint).resolve()),
+        "pylaia_gpus": args.pylaia_gpus,
+        "pylaia_auto_select_gpus": args.pylaia_auto_select_gpus,
     }
     if raw_lattice_path.exists() and not args.overwrite and metadata == expected_metadata:
         logger.info("Reusing existing raw lattice: %s", raw_lattice_path)
@@ -250,13 +266,19 @@ def run_pylaia_netout(args, artifacts) -> Path:
 
     config_path = netout_dir / "netout_generated.yaml"
     experiment_dir = Path(args.work_dir) / "pylaia_run"
-    build_netout_config(config_path, experiment_dir, model_path)
+    build_netout_config(
+        config_path,
+        experiment_dir,
+        model_path,
+        pylaia_gpus=args.pylaia_gpus,
+        auto_select_gpus=args.pylaia_auto_select_gpus,
+    )
 
     cmd = [
         pylaia_exe,
-        str(artifacts["pylaia_images_path"]),
+        str(Path(artifacts["pylaia_images_path"]).resolve()),
         "--config",
-        str(config_path),
+        str(config_path.resolve()),
         "--common.checkpoint",
         str(checkpoint_path),
         "--netout.lattice",
@@ -518,6 +540,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="PyLaia syms.txt file used for label filtering and observation conversion.",
     )
     parser.add_argument("--nntp-root", default=str(DEFAULT_NNTP_ROOT), help="NNTP repository root.")
+    parser.add_argument("--pylaia-gpus", type=int, default=0, help="Number of GPUs to request for PyLaia netout.")
+    parser.add_argument(
+        "--pylaia-auto-select-gpus",
+        action="store_true",
+        help="Let PyLaia/PyTorch Lightning auto-select the requested GPUs.",
+    )
     parser.add_argument("--ids", default=None, help="Comma-separated sample IDs or a file with one ID per line.")
     parser.add_argument("--pred-dir", default="bullinger_handwritten_predictions_nntp", help="Output directory for decoded NNTP predictions.")
     parser.add_argument("--eval-csv", default="bullinger_handwritten_eval_nntp.csv", help="Evaluation CSV path.")
