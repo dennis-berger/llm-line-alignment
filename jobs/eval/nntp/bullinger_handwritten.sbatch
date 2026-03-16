@@ -23,18 +23,42 @@ if ! command -v conda >/dev/null 2>&1; then
   exit 1
 fi
 eval "$(conda shell.bash hook)"
-conda activate bullinger-mwe
+
+CONDA_ENV_NAME="${CONDA_ENV_NAME:-bullinger-mwe}"
+if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$CONDA_ENV_NAME"; then
+  echo "ERROR: conda environment '$CONDA_ENV_NAME' does not exist."
+  echo "Available environments:"
+  conda env list
+  exit 1
+fi
+conda activate "$CONDA_ENV_NAME"
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 cd "$REPO_ROOT"
 mkdir -p logs
 
+CONDA_INSTALL_BIN="conda"
+if command -v mamba >/dev/null 2>&1; then
+  CONDA_INSTALL_BIN="mamba"
+fi
+
 if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
-  echo "ERROR: pylaia-htr-netout not found on PATH."
+  echo "Installing PyLaia into '$CONDA_ENV_NAME' because pylaia-htr-netout is missing..."
+  python -m pip install -q pylaia
+  hash -r
+fi
+if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
+  echo "ERROR: pylaia-htr-netout is still unavailable after installing PyLaia."
   exit 1
 fi
+
 if ! command -v java >/dev/null 2>&1 || ! command -v javac >/dev/null 2>&1; then
-  echo "ERROR: java and javac must be available on PATH."
+  echo "Installing OpenJDK into '$CONDA_ENV_NAME' because java/javac are missing..."
+  "$CONDA_INSTALL_BIN" install -y -c conda-forge openjdk
+  hash -r
+fi
+if ! command -v java >/dev/null 2>&1 || ! command -v javac >/dev/null 2>&1; then
+  echo "ERROR: java and javac are still unavailable after installing OpenJDK."
   exit 1
 fi
 
@@ -42,6 +66,8 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+python -c "import pylaia; print('PyLaia import OK:', pylaia.__file__)"
+which pylaia-htr-netout
 java -version || true
 javac -version || true
 
