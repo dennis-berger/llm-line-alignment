@@ -176,7 +176,7 @@ EVAL_CSV="${EVAL_CSV:-bullinger_handwritten_eval_nntp.csv}"
 STOP_AFTER="${STOP_AFTER:-evaluate}"
 IDS="${IDS:-}"
 OVERWRITE="${OVERWRITE:-0}"
-PYLAIA_GPUS="${PYLAIA_GPUS:-1}"
+PYLAIA_GPUS="${PYLAIA_GPUS:-0}"
 PYLAIA_AUTO_SELECT_GPUS="${PYLAIA_AUTO_SELECT_GPUS:-0}"
 PYLAIA_NUM_WORKERS="${PYLAIA_NUM_WORKERS:-6}"
 
@@ -208,6 +208,10 @@ if [ "$PYLAIA_GPUS" -gt 0 ] && [ "$PYLAIA_CUDA_AVAILABLE" != "1" ]; then
   PYLAIA_GPUS=0
   PYLAIA_AUTO_SELECT_GPUS=0
 fi
+if [ "$PYLAIA_GPUS" -eq 0 ]; then
+  PYLAIA_AUTO_SELECT_GPUS=0
+fi
+echo "PyLaia runtime settings: gpus=$PYLAIA_GPUS auto_select_gpus=$PYLAIA_AUTO_SELECT_GPUS num_workers=$PYLAIA_NUM_WORKERS"
 
 PYLAIA_RUNTIME_ROOT="$WORK_DIR/pylaia_runtime"
 mkdir -p "$PYLAIA_RUNTIME_ROOT"
