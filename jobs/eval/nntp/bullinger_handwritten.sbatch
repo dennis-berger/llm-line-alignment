@@ -27,6 +27,8 @@ eval "$(conda shell.bash hook)"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 cd "$REPO_ROOT"
 mkdir -p logs
+CONDA_BASE="$(conda info --base)"
+CONDA_EXE="$CONDA_BASE/bin/conda"
 
 CONDA_INSTALL_BIN="conda"
 if command -v mamba >/dev/null 2>&1; then
@@ -67,13 +69,20 @@ then
   python -m pip install -q -r requirements.txt
 fi
 
-if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
-  echo "Installing PyLaia into '$CONDA_ENV_NAME' because pylaia-htr-netout is missing..."
-  python -m pip install -q pylaia
-  hash -r
+PYLAIA_CONDA_ENV="${PYLAIA_CONDA_ENV:-pylaia-htr}"
+PYLAIA_PYTHON_VERSION="${PYLAIA_PYTHON_VERSION:-3.10}"
+if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$PYLAIA_CONDA_ENV"; then
+  echo "Creating dedicated PyLaia environment '$PYLAIA_CONDA_ENV' with Python $PYLAIA_PYTHON_VERSION..."
+  "$CONDA_INSTALL_BIN" create -y -n "$PYLAIA_CONDA_ENV" python="$PYLAIA_PYTHON_VERSION" pip
 fi
-if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
-  echo "ERROR: pylaia-htr-netout is still unavailable after installing PyLaia."
+
+if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-netout --help >/dev/null 2>&1; then
+  echo "Installing PyLaia into '$PYLAIA_CONDA_ENV' from the official GitHub source..."
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install -q "pip<24.1"
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install -q "https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz"
+fi
+if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-netout --help >/dev/null 2>&1; then
+  echo "ERROR: pylaia-htr-netout is still unavailable after installing PyLaia in '$PYLAIA_CONDA_ENV'."
   exit 1
 fi
 
@@ -91,8 +100,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
-python -c "import pylaia; print('PyLaia import OK:', pylaia.__file__)"
-which pylaia-htr-netout
+"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -c "import pylaia; print('PyLaia import OK:', pylaia.__file__)"
 java -version || true
 javac -version || true
 
@@ -107,6 +115,16 @@ EVAL_CSV="${EVAL_CSV:-bullinger_handwritten_eval_nntp.csv}"
 STOP_AFTER="${STOP_AFTER:-evaluate}"
 IDS="${IDS:-}"
 OVERWRITE="${OVERWRITE:-0}"
+
+WRAPPER_DIR="$WORK_DIR/job-bin"
+mkdir -p "$WRAPPER_DIR"
+cat > "$WRAPPER_DIR/pylaia-htr-netout" <<EOF
+#!/bin/bash
+exec "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-netout "\$@"
+EOF
+chmod +x "$WRAPPER_DIR/pylaia-htr-netout"
+export PATH="$WRAPPER_DIR:$PATH"
+which pylaia-htr-netout
 
 EXTRA_ARGS=(
   --data-dir "$DATA_DIR"
