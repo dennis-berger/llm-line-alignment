@@ -27,7 +27,6 @@ ENV/
 # Model checkpoints / weights
 *.pt
 *.bin
-*.ckpt
 
 # macOS
 .DS_Store
