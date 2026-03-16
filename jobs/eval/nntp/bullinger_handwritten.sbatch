@@ -9,7 +9,7 @@
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=64G
 
-set -uo pipefail
+set -euo pipefail
 set -x
 
 echo "=== Node ==="
@@ -103,39 +103,43 @@ import urllib.request
 source_url = "https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz"
 purelib = Path(sysconfig.get_paths()["purelib"])
 laia_dir = purelib / "laia"
-scripts_dir = Path(sysconfig.get_paths()["purelib"]) / "laia" / "scripts"
+scripts_dir = laia_dir / "scripts"
+models_dir = laia_dir / "models"
 htr_dir = scripts_dir / "htr"
-needs_patch = not (htr_dir / "netout.py").exists()
+needs_patch = not (htr_dir / "netout.py").exists() or not (models_dir / "htr").exists()
 
 if needs_patch:
-    print("PyLaia scripts tree incomplete; restoring laia/scripts from source tarball...")
+    print("PyLaia source tree incomplete; restoring laia/ from source tarball...")
     tar_path = Path(tempfile.gettempdir()) / "pylaia-source.tar.gz"
     urllib.request.urlretrieve(source_url, tar_path)
     extract_root = Path(tempfile.mkdtemp(prefix="pylaia-src-"))
     with tarfile.open(tar_path, "r:gz") as tar:
         tar.extractall(extract_root)
-    src_scripts = next(extract_root.glob("PyLaia-*/laia/scripts"))
-    shutil.copytree(src_scripts, scripts_dir, dirs_exist_ok=True)
+    src_laia = next(extract_root.glob("PyLaia-*/laia"))
+    shutil.copytree(src_laia, laia_dir, dirs_exist_ok=True)
 
-scripts_dir.mkdir(parents=True, exist_ok=True)
-init_path = scripts_dir / "__init__.py"
-if not init_path.exists():
-    init_path.write_text(
-        '"""Patched by llm-line-alignment to make PyLaia console scripts importable."""\n',
-        encoding="utf-8",
-    )
-    print("Patched missing", init_path)
-else:
-    print("Found", init_path)
+for pkg_dir in (scripts_dir, models_dir):
+    pkg_dir.mkdir(parents=True, exist_ok=True)
+    init_path = pkg_dir / "__init__.py"
+    if not init_path.exists():
+        init_path.write_text(
+            '"""Patched by llm-line-alignment to make PyLaia subpackages importable."""\n',
+            encoding="utf-8",
+        )
+        print("Patched missing", init_path)
+    else:
+        print("Found", init_path)
 PY
 
 if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
 from importlib.metadata import version
 import laia
+import laia.models.htr
 import laia.scripts.htr.netout
 
 print("PyLaia package version:", version("pylaia"))
 print("PyLaia import OK:", laia.__file__)
+print("PyLaia models import OK:", laia.models.htr.__file__)
 print("PyLaia netout import OK:", laia.scripts.htr.netout.__file__)
 PY
 then
