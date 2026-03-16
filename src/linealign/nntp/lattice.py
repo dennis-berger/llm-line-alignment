@@ -101,13 +101,23 @@ def convert_lattice_block(block_lines: list[str], symbol_table: SymbolTable) -> 
     transform = _select_probability_transform(values_by_time)
 
     raw_indices = sorted(symbol_table.raw_by_index)
-    non_ctc_indices = [index for index in raw_indices if symbol_table.raw_by_index[index] != "<ctc>"]
-    eps_index = raw_indices[0]
+    non_ctc_labels = [index + 1 for index in raw_indices if symbol_table.raw_by_index[index] != "<ctc>"]
+    eps_label = raw_indices[0] + 1
 
     rows: list[list[float]] = []
-    for index in non_ctc_indices:
-        rows.append([transform(values_by_time[time].get(index, 0.0)) for time in times])
-    rows.append([transform(values_by_time[time].get(eps_index, 0.0)) for time in times])
+    selected_columns: list[list[float]] = []
+    for label in non_ctc_labels:
+        selected_columns.append([transform(values_by_time[time].get(label, 0.0)) for time in times])
+    selected_columns.append([transform(values_by_time[time].get(eps_label, 0.0)) for time in times])
+
+    for timestep in range(len(times)):
+        kept_total = sum(column[timestep] for column in selected_columns)
+        if kept_total <= 0.0:
+            raise ValueError(f"Observation timestep {timestep} does not retain any supported probability mass")
+        for column in selected_columns:
+            column[timestep] /= kept_total
+
+    rows.extend(selected_columns)
 
     matrix = ObservationMatrix(symbols=symbol_table.observation_symbols, rows=rows)
     assert_probability_columns(matrix)

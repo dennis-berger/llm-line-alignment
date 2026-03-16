@@ -119,12 +119,12 @@ def test_convert_lattice_block_and_concatenate_observations(tmp_path: Path):
 
     symbol_table = build_symbol_table(tmp_path, ["<ctc>", "<space>", "a"])
     block_lines = [
-        "0\t0\t0\t0\t-0.1\n",
-        "0\t0\t0\t1\t-0.3\n",
-        "0\t0\t0\t2\t-0.6\n",
-        "1\t0\t0\t0\t-0.2\n",
-        "1\t0\t0\t1\t-0.4\n",
+        "0\t0\t0\t1\t-0.1\n",
+        "0\t0\t0\t2\t-0.3\n",
+        "0\t0\t0\t3\t-0.6\n",
+        "1\t0\t0\t1\t-0.2\n",
         "1\t0\t0\t2\t-0.4\n",
+        "1\t0\t0\t3\t-0.4\n",
     ]
 
     matrix = convert_lattice_block(block_lines, symbol_table)
@@ -182,6 +182,24 @@ def test_convert_lattice_block_and_concatenate_observations(tmp_path: Path):
     assert combined.rows[0] == pytest.approx([0.3, 0.4, 0.3, 0.4])
     assert combined.rows[2] == pytest.approx([0.1, 0.2, 0.1, 0.2])
     assert [(boundary.start_timestep, boundary.end_timestep) for boundary in boundaries] == [(0, 1), (2, 3)]
+
+
+def test_convert_lattice_block_ignores_extra_labels_and_renormalizes(tmp_path: Path):
+    """Unsupported lattice labels should be dropped and the kept rows renormalized."""
+
+    symbol_table = build_symbol_table(tmp_path, ["<ctc>", "<space>", "a"])
+    block_lines = [
+        "0\t0\t0\t1\t-0.1\n",
+        "0\t0\t0\t2\t-0.3\n",
+        "0\t0\t0\t3\t-0.5\n",
+        "0\t0\t0\t4\t-0.1\n",
+    ]
+
+    matrix = convert_lattice_block(block_lines, symbol_table)
+    assert matrix.symbols == ["sp", "a"]
+    assert matrix.rows[0] == pytest.approx([0.3 / 0.9])
+    assert matrix.rows[1] == pytest.approx([0.5 / 0.9])
+    assert matrix.rows[2] == pytest.approx([0.1 / 0.9])
 
 
 def test_decode_alignment_segments_respects_line_boundaries():

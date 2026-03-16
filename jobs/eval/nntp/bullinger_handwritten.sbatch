@@ -177,6 +177,38 @@ STOP_AFTER="${STOP_AFTER:-evaluate}"
 IDS="${IDS:-}"
 OVERWRITE="${OVERWRITE:-0}"
 
+PYLAIA_RUNTIME_ROOT="$WORK_DIR/pylaia_runtime"
+mkdir -p "$PYLAIA_RUNTIME_ROOT"
+cp "$PYLAIA_SYMS" "$PYLAIA_RUNTIME_ROOT/syms.txt"
+"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<PY
+import torch
+from pathlib import Path
+
+src_model = Path(r"$PYLAIA_ROOT") / "model"
+dst_model = Path(r"$PYLAIA_RUNTIME_ROOT") / "model"
+checkpoint_path = Path(r"$PYLAIA_CHECKPOINT")
+
+model_obj = torch.load(src_model, map_location="cpu", weights_only=False)
+checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+state_dict = checkpoint.get("state_dict", checkpoint)
+
+linear_weight = state_dict.get("model.linear.weight")
+if linear_weight is None:
+    linear_weight = state_dict["linear.weight"]
+
+checkpoint_outputs = int(linear_weight.shape[0])
+current_outputs = int(model_obj["kwargs"]["num_output_labels"])
+if current_outputs != checkpoint_outputs:
+    print(f"Patching PyLaia model num_output_labels: {current_outputs} -> {checkpoint_outputs}")
+    model_obj["kwargs"]["num_output_labels"] = checkpoint_outputs
+else:
+    print(f"PyLaia model already matches checkpoint outputs: {current_outputs}")
+
+torch.save(model_obj, dst_model)
+PY
+PYLAIA_ROOT="$PYLAIA_RUNTIME_ROOT"
+PYLAIA_SYMS="$PYLAIA_RUNTIME_ROOT/syms.txt"
+
 WRAPPER_DIR="$WORK_DIR/job-bin"
 mkdir -p "$WRAPPER_DIR"
 cat > "$WRAPPER_DIR/pylaia-htr-netout" <<EOF
