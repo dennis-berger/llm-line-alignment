@@ -76,15 +76,28 @@ if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$PYLAIA
   "$CONDA_INSTALL_BIN" create -y -n "$PYLAIA_CONDA_ENV" python="$PYLAIA_PYTHON_VERSION" pip
 fi
 
-if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-netout --help >/dev/null 2>&1; then
+PYLAIA_ENV_PREFIX="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -c 'import sys; print(sys.prefix)')"
+PYLAIA_NETOUT_BIN="$PYLAIA_ENV_PREFIX/bin/pylaia-htr-netout"
+
+if [ ! -x "$PYLAIA_NETOUT_BIN" ]; then
   echo "Installing PyLaia into '$PYLAIA_CONDA_ENV' from the official GitHub source..."
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install -q "pip<24.1"
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install -q "https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz"
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "pip<24.1" setuptools wheel
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz"
+  PYLAIA_ENV_PREFIX="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -c 'import sys; print(sys.prefix)')"
+  PYLAIA_NETOUT_BIN="$PYLAIA_ENV_PREFIX/bin/pylaia-htr-netout"
 fi
-if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-netout --help >/dev/null 2>&1; then
+if [ ! -x "$PYLAIA_NETOUT_BIN" ]; then
   echo "ERROR: pylaia-htr-netout is still unavailable after installing PyLaia in '$PYLAIA_CONDA_ENV'."
   exit 1
 fi
+
+"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+from importlib.metadata import version
+import laia
+
+print("PyLaia package version:", version("pylaia"))
+print("PyLaia import OK:", laia.__file__)
+PY
 
 if ! command -v java >/dev/null 2>&1 || ! command -v javac >/dev/null 2>&1; then
   echo "Installing OpenJDK into '$CONDA_ENV_NAME' because java/javac are missing..."
@@ -100,7 +113,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
-"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -c "import pylaia; print('PyLaia import OK:', pylaia.__file__)"
+echo "Using PyLaia netout binary: $PYLAIA_NETOUT_BIN"
 java -version || true
 javac -version || true
 
@@ -120,7 +133,7 @@ WRAPPER_DIR="$WORK_DIR/job-bin"
 mkdir -p "$WRAPPER_DIR"
 cat > "$WRAPPER_DIR/pylaia-htr-netout" <<EOF
 #!/bin/bash
-exec "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-netout "\$@"
+exec "$PYLAIA_NETOUT_BIN" "\$@"
 EOF
 chmod +x "$WRAPPER_DIR/pylaia-htr-netout"
 export PATH="$WRAPPER_DIR:$PATH"
