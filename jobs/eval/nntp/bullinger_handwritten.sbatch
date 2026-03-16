@@ -24,15 +24,6 @@ if ! command -v conda >/dev/null 2>&1; then
 fi
 eval "$(conda shell.bash hook)"
 
-CONDA_ENV_NAME="${CONDA_ENV_NAME:-bullinger-mwe}"
-if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$CONDA_ENV_NAME"; then
-  echo "ERROR: conda environment '$CONDA_ENV_NAME' does not exist."
-  echo "Available environments:"
-  conda env list
-  exit 1
-fi
-conda activate "$CONDA_ENV_NAME"
-
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 cd "$REPO_ROOT"
 mkdir -p logs
@@ -40,6 +31,40 @@ mkdir -p logs
 CONDA_INSTALL_BIN="conda"
 if command -v mamba >/dev/null 2>&1; then
   CONDA_INSTALL_BIN="mamba"
+fi
+
+CONDA_ENV_NAME="${CONDA_ENV_NAME:-bullinger-mwe}"
+ENV_CREATED=0
+if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$CONDA_ENV_NAME"; then
+  echo "Creating conda environment '$CONDA_ENV_NAME'..."
+  "$CONDA_INSTALL_BIN" create -y -n "$CONDA_ENV_NAME" python=3.11 pip
+  ENV_CREATED=1
+fi
+conda activate "$CONDA_ENV_NAME"
+
+if [ "$ENV_CREATED" = "1" ]; then
+  echo "Installing repo Python requirements into '$CONDA_ENV_NAME'..."
+  python -m pip install -q -r requirements.txt
+elif ! python - <<'PY'
+import importlib
+
+REQUIRED_MODULES = [
+    "PIL",
+    "torch",
+    "transformers",
+    "pytesseract",
+    "openai",
+    "mistralai",
+]
+
+for module_name in REQUIRED_MODULES:
+    importlib.import_module(module_name)
+
+from google import genai  # noqa: F401
+PY
+then
+  echo "Installing repo Python requirements into '$CONDA_ENV_NAME' because one or more packages are missing..."
+  python -m pip install -q -r requirements.txt
 fi
 
 if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
