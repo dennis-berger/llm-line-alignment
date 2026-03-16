@@ -97,11 +97,30 @@ if [ ! -x "$PYLAIA_NETOUT_BIN" ]; then
 fi
 
 "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+from pathlib import Path
+import sysconfig
+
+scripts_dir = Path(sysconfig.get_paths()["purelib"]) / "laia" / "scripts"
+scripts_dir.mkdir(parents=True, exist_ok=True)
+init_path = scripts_dir / "__init__.py"
+if not init_path.exists():
+    init_path.write_text(
+        '"""Patched by llm-line-alignment to make PyLaia console scripts importable."""\n',
+        encoding="utf-8",
+    )
+    print("Patched missing", init_path)
+else:
+    print("Found", init_path)
+PY
+
+"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
 from importlib.metadata import version
 import laia
+import laia.scripts.htr.netout
 
 print("PyLaia package version:", version("pylaia"))
 print("PyLaia import OK:", laia.__file__)
+print("PyLaia netout import OK:", laia.scripts.htr.netout.__file__)
 PY
 
 if ! command -v java >/dev/null 2>&1 || ! command -v javac >/dev/null 2>&1; then
