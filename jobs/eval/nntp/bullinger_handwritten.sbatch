@@ -24,8 +24,13 @@ if ! command -v conda >/dev/null 2>&1; then
 fi
 eval "$(conda shell.bash hook)"
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+REPO_ROOT="${REPO_ROOT:-${SLURM_SUBMIT_DIR:-$PWD}}"
 cd "$REPO_ROOT"
+if [ ! -f "scripts/run_nntp_eval.py" ]; then
+  echo "ERROR: could not find scripts/run_nntp_eval.py in REPO_ROOT='$REPO_ROOT'"
+  echo "Submit the job from the repository root or pass REPO_ROOT=/absolute/path/to/llm-line-alignment"
+  exit 1
+fi
 mkdir -p logs
 CONDA_BASE="$(conda info --base)"
 CONDA_EXE="$CONDA_BASE/bin/conda"
