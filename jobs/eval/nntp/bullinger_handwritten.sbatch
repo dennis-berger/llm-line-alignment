@@ -177,8 +177,37 @@ STOP_AFTER="${STOP_AFTER:-evaluate}"
 IDS="${IDS:-}"
 OVERWRITE="${OVERWRITE:-0}"
 PYLAIA_GPUS="${PYLAIA_GPUS:-1}"
-PYLAIA_AUTO_SELECT_GPUS="${PYLAIA_AUTO_SELECT_GPUS:-1}"
+PYLAIA_AUTO_SELECT_GPUS="${PYLAIA_AUTO_SELECT_GPUS:-0}"
 PYLAIA_NUM_WORKERS="${PYLAIA_NUM_WORKERS:-6}"
+
+PYLAIA_TORCH_INFO="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+import json
+import torch
+
+print(
+    json.dumps(
+        {
+            "torch": torch.__version__,
+            "cuda_available": torch.cuda.is_available(),
+            "cuda_version": torch.version.cuda,
+            "device_count": torch.cuda.device_count(),
+        }
+    )
+)
+PY
+)"
+echo "PyLaia torch info: $PYLAIA_TORCH_INFO"
+PYLAIA_CUDA_AVAILABLE="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+import torch
+
+print(1 if torch.cuda.is_available() else 0)
+PY
+)"
+if [ "$PYLAIA_GPUS" -gt 0 ] && [ "$PYLAIA_CUDA_AVAILABLE" != "1" ]; then
+  echo "WARNING: PyLaia environment cannot see CUDA. Falling back to CPU netout."
+  PYLAIA_GPUS=0
+  PYLAIA_AUTO_SELECT_GPUS=0
+fi
 
 PYLAIA_RUNTIME_ROOT="$WORK_DIR/pylaia_runtime"
 mkdir -p "$PYLAIA_RUNTIME_ROOT"
