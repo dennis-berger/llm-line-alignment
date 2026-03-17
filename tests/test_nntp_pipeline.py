@@ -253,3 +253,86 @@ def test_decode_alignment_segments_respects_line_boundaries():
 
     decoded = decode_alignment_segments(segments, boundaries)
     assert decoded == "H\nBye"
+
+
+def test_decode_alignment_segments_preserves_internal_empty_lines():
+    """Empty internal lines should stay in place instead of shifting later lines."""
+
+    segments = [
+        AlignmentSegment(start=0, end=1, label="A", score=0.0),
+        AlignmentSegment(start=6, end=7, label="B", score=0.0),
+    ]
+    from linealign.nntp.models import BoundaryRecord
+
+    boundaries = [
+        BoundaryRecord(
+            sample_id="0001",
+            page_index=0,
+            page_stem="page_0001",
+            page_line_index=0,
+            letter_line_index=0,
+            crop_path=Path("/tmp/line0.png"),
+            start_timestep=0,
+            end_timestep=1,
+        ),
+        BoundaryRecord(
+            sample_id="0001",
+            page_index=0,
+            page_stem="page_0001",
+            page_line_index=1,
+            letter_line_index=1,
+            crop_path=Path("/tmp/line1.png"),
+            start_timestep=2,
+            end_timestep=5,
+        ),
+        BoundaryRecord(
+            sample_id="0001",
+            page_index=0,
+            page_stem="page_0001",
+            page_line_index=2,
+            letter_line_index=2,
+            crop_path=Path("/tmp/line2.png"),
+            start_timestep=6,
+            end_timestep=7,
+        ),
+    ]
+
+    decoded = decode_alignment_segments(segments, boundaries)
+    assert decoded == "A\n\nB"
+
+
+def test_decode_alignment_segments_splits_at_nearest_gap():
+    """Cross-boundary characters should follow the closest split gap, not midpoint assignment."""
+
+    segments = [
+        AlignmentSegment(start=0, end=1, label="A", score=0.0),
+        AlignmentSegment(start=4, end=5, label="B", score=0.0),
+        AlignmentSegment(start=7, end=8, label="C", score=0.0),
+    ]
+    from linealign.nntp.models import BoundaryRecord
+
+    boundaries = [
+        BoundaryRecord(
+            sample_id="0001",
+            page_index=0,
+            page_stem="page_0001",
+            page_line_index=0,
+            letter_line_index=0,
+            crop_path=Path("/tmp/line0.png"),
+            start_timestep=0,
+            end_timestep=4,
+        ),
+        BoundaryRecord(
+            sample_id="0001",
+            page_index=0,
+            page_stem="page_0001",
+            page_line_index=1,
+            letter_line_index=1,
+            crop_path=Path("/tmp/line1.png"),
+            start_timestep=5,
+            end_timestep=8,
+        ),
+    ]
+
+    decoded = decode_alignment_segments(segments, boundaries)
+    assert decoded == "AB\nC"
