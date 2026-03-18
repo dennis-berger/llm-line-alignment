@@ -68,8 +68,12 @@ def extract_prepared_lines_from_presegmented(
             f"Sample {sample_id} has {len(source_paths)} line image(s) but {len(gt_lines)} GT line(s)"
         )
 
-    page_images = find_images_for_id(data_dir / "images", sample_id)
-    page_image_path = page_images[0].resolve() if page_images else source_paths[0]
+    sample_image_dir = data_dir / "images" / sample_id
+    if sample_image_dir.exists():
+        page_images = find_images_for_id(data_dir / "images", sample_id)
+        page_image_path = page_images[0].resolve() if page_images else source_paths[0]
+    else:
+        page_image_path = source_paths[0]
 
     prepared: list[PreparedLineRecord] = []
     for index, (source_path, source_text) in enumerate(zip(source_paths, gt_lines)):
