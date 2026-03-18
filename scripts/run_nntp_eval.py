@@ -35,6 +35,7 @@ from linealign.nntp import (
     split_lattice_blocks,
     write_boundary_map,
     write_observation_file,
+    write_pylaia_netout_config,
 )
 from utils.evaluation import evaluate_prediction
 from utils.common import read_text, write_text
@@ -130,26 +131,12 @@ def build_netout_config(
 ) -> None:
     """Write a minimal PyLaia netout config for the generated line images."""
 
-    config_path.parent.mkdir(parents=True, exist_ok=True)
-    experiment_dir.mkdir(parents=True, exist_ok=True)
-    trainer_lines = [
-        "trainer:",
-        f"  auto_select_gpus: {'true' if auto_select_gpus else 'false'}",
-        f"  gpus: {pylaia_gpus}",
-    ]
-    config_path.write_text(
-        "\n".join(
-            [
-                "common:",
-                f'  experiment_dirname: "{experiment_dir.resolve()}"',
-                f'  model_filename: "{model_path.resolve()}"',
-                "netout:",
-                "  output_transform: softmax",
-                *trainer_lines,
-                "",
-            ]
-        ),
-        encoding="utf-8",
+    write_pylaia_netout_config(
+        config_path,
+        experiment_dir,
+        model_path,
+        pylaia_gpus=pylaia_gpus,
+        auto_select_gpus=auto_select_gpus,
     )
 
 

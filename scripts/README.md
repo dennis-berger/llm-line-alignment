@@ -21,7 +21,7 @@ python scripts/make_ocr_outputs.py --dataset bullinger_print --recognizer trocr_
 
 - `--dataset <name>` - Dataset name
 - `--ids <list>` - Comma-separated IDs or path to file
-- `--recognizer` - `trocr_handwritten`, `trocr_printed`, `iam_best_practices`
+- `--recognizer` - `trocr_handwritten`, `trocr_printed`, `pylaia_iam`, `htr_best_practices_iam`
 - `--segmenter` - `kraken` (default), `none` (passthrough)
 - `--device` - `cuda`, `cpu`, `auto`
 - `--batch-size` - Recognition batch size (default: 8)
@@ -30,6 +30,9 @@ python scripts/make_ocr_outputs.py --dataset bullinger_print --recognizer trocr_
 ### Output
 
 Creates `ocr/<id>.txt` and optional `ocr/<id>.meta.json` in dataset directory.
+
+For IAM datasets that include `line_images/`, the script automatically switches to
+`--segmenter none` and `--recognizer pylaia_iam` unless you override those flags.
 
 See [docs/ocr_pipeline.md](docs/ocr_pipeline.md) for technical details.
 

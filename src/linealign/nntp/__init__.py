@@ -5,6 +5,9 @@ from .lattice import (
     assert_probability_columns,
     concatenate_observations,
     convert_lattice_block,
+    decode_ctc_indices,
+    decode_lattice_block_greedy,
+    decode_lattice_file_greedy,
     read_boundary_map,
     read_observation_file,
     split_lattice_blocks,
@@ -25,7 +28,9 @@ from .pylaia import (
     infer_pylaia_input_height,
     infer_pylaia_input_height_from_kwargs,
     load_pylaia_model_kwargs,
+    resize_image_files,
     resize_prepared_line_images,
+    write_pylaia_netout_config,
 )
 from .symbols import FilteredLabel, SymbolTable, filter_transcription_text, load_symbol_table
 
@@ -43,7 +48,10 @@ __all__ = [
     "bbox_from_points",
     "concatenate_observations",
     "convert_lattice_block",
+    "decode_ctc_indices",
     "decode_alignment_segments",
+    "decode_lattice_block_greedy",
+    "decode_lattice_file_greedy",
     "extract_prepared_lines",
     "extract_prepared_lines_from_presegmented",
     "filter_transcription_text",
@@ -58,8 +66,10 @@ __all__ = [
     "parse_reading_order_index",
     "read_boundary_map",
     "read_observation_file",
+    "resize_image_files",
     "resize_prepared_line_images",
     "split_lattice_blocks",
     "write_boundary_map",
     "write_observation_file",
+    "write_pylaia_netout_config",
 ]

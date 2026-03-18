@@ -24,13 +24,13 @@ def find_images_for_id(images_root: Path, sample_id: str) -> list[Path]:
     
     image_files = []
     for ext in ['*.jpg', '*.jpeg', '*.png', '*.tif', '*.tiff']:
-        image_files.extend(sample_dir.glob(ext))
+        image_files.extend(path for path in sample_dir.glob(ext) if not path.name.startswith('.'))
     
     # Also check for page subdirectory
     page_dir = sample_dir / 'page'
     if page_dir.exists():
         for ext in ['*.jpg', '*.jpeg', '*.png', '*.tif', '*.tiff']:
-            image_files.extend(page_dir.glob(ext))
+            image_files.extend(path for path in page_dir.glob(ext) if not path.name.startswith('.'))
     
     return sorted(image_files)
 

@@ -20,6 +20,7 @@ if str(REPO_ROOT) not in sys.path:
 from linealign.data.datasets import get_dataset_spec
 from linealign.pipelines.make_ocr import generate_ocr_for_id
 from linealign.recognition.htr_best_practices_iam import IAMBestPracticesRecognizer
+from linealign.recognition.pylaia import PyLaiaRecognizer
 from linealign.recognition.trocr import TrOCRRecognizer
 from linealign.segmentation.kraken_segmenter import KrakenSegmenter
 from linealign.segmentation.segmenter import PassthroughSegmenter
@@ -78,6 +79,13 @@ def build_recognizer(
     max_new_tokens: int,
     num_beams: int,
     model_id: Optional[str] = None,
+    pylaia_root: Optional[str] = None,
+    pylaia_checkpoint: Optional[str] = None,
+    pylaia_syms: Optional[str] = None,
+    pylaia_work_dir: Optional[str] = None,
+    pylaia_gpus: Optional[int] = None,
+    pylaia_auto_select_gpus: bool = False,
+    pylaia_fixed_height: Optional[int] = None,
 ):
     if name == "trocr_printed":
         return TrOCRRecognizer(
@@ -98,10 +106,40 @@ def build_recognizer(
             num_beams=num_beams,
         )
     if name == "htr_best_practices_iam":
-        return IAMBestPracticesRecognizer()
+        return IAMBestPracticesRecognizer(
+            pylaia_root=Path(pylaia_root) if pylaia_root else None,
+            checkpoint_path=Path(pylaia_checkpoint) if pylaia_checkpoint else None,
+            syms_path=Path(pylaia_syms) if pylaia_syms else None,
+            work_dir=Path(pylaia_work_dir) if pylaia_work_dir else None,
+            gpus=pylaia_gpus or 0,
+            auto_select_gpus=pylaia_auto_select_gpus,
+            fixed_height=pylaia_fixed_height,
+        )
+    if name == "pylaia_iam":
+        return PyLaiaRecognizer(
+            pylaia_root=Path(pylaia_root) if pylaia_root else None,
+            checkpoint_path=Path(pylaia_checkpoint) if pylaia_checkpoint else None,
+            syms_path=Path(pylaia_syms) if pylaia_syms else None,
+            work_dir=Path(pylaia_work_dir) if pylaia_work_dir else None,
+            gpus=pylaia_gpus or 0,
+            auto_select_gpus=pylaia_auto_select_gpus,
+            fixed_height=pylaia_fixed_height,
+        )
     if name == "none":
         raise RuntimeError("Recognizer 'none' is not supported. Choose a real recognizer.")
     raise ValueError(f"Unknown recognizer {name}")
+
+
+def infer_pylaia_gpu_count(device: str) -> int:
+    if device == "cpu":
+        return 0
+    if device.startswith("cuda"):
+        return 1
+    try:
+        import torch
+    except Exception:
+        return 0
+    return 1 if torch.cuda.is_available() else 0
 
 
 def main():
@@ -118,7 +156,11 @@ def main():
     ap.add_argument("--ids", default=None, help="Comma-separated IDs or path to a file with one ID per line.")
     ap.add_argument("--segmenter", choices=["kraken", "doctr", "none"], default=None,
                     help="Line segmenter: kraken (default), doctr (may work better for informal handwriting), or none")
-    ap.add_argument("--recognizer", choices=["trocr_printed", "trocr_handwritten", "htr_best_practices_iam", "none"], default=None)
+    ap.add_argument(
+        "--recognizer",
+        choices=["trocr_printed", "trocr_handwritten", "pylaia_iam", "htr_best_practices_iam", "none"],
+        default=None,
+    )
     ap.add_argument("--device", default="auto", help="Device for recognizer, e.g., cpu or cuda:0")
     ap.add_argument("--batch-size", type=int, default=4)
     ap.add_argument("--max-new-tokens", type=int, default=128)
@@ -139,6 +181,13 @@ def main():
                     help="Merge lines with this much vertical overlap (0-1). Default: 0.5")
     ap.add_argument("--vertical-gap-ratio", type=float, default=0.3,
                     help="Merge lines if vertical gap < this ratio of median height. Default: 0.3")
+    ap.add_argument("--pylaia-root", default=None, help="Directory containing PyLaia model, syms.txt, and weights.ckpt.")
+    ap.add_argument("--pylaia-checkpoint", default=None, help="Override PyLaia checkpoint path.")
+    ap.add_argument("--pylaia-syms", default=None, help="Override PyLaia syms.txt path.")
+    ap.add_argument("--pylaia-work-dir", default=None, help="Working directory for temporary PyLaia netout batches.")
+    ap.add_argument("--pylaia-gpus", type=int, default=None, help="Number of GPUs to request for PyLaia netout.")
+    ap.add_argument("--pylaia-auto-select-gpus", action="store_true", help="Set trainer.auto_select_gpus in the PyLaia config.")
+    ap.add_argument("--pylaia-fixed-height", type=int, default=None, help="Override PyLaia's inferred fixed input height.")
 
     args = ap.parse_args()
 
@@ -146,8 +195,18 @@ def main():
 
     dataset = get_dataset_spec(args.dataset, Path(args.data_dir) if args.data_dir else None)
 
+    existing_lines_root = Path(args.existing_lines_dir) if args.existing_lines_dir else dataset.data_dir / "line_images"
+    has_presegmented_lines = existing_lines_root.exists()
+
     segmenter_name = args.segmenter or dataset.default_segmenter
     recognizer_name = args.recognizer or dataset.default_recognizer
+    if dataset.name == "IAM_handwritten" and has_presegmented_lines:
+        if args.segmenter is None:
+            segmenter_name = "none"
+        if args.recognizer is None:
+            recognizer_name = "pylaia_iam"
+        if segmenter_name == "none" and args.existing_lines_dir is None:
+            args.existing_lines_dir = str(existing_lines_root)
 
     ids_filter = parse_ids_arg(args.ids)
     ids = dataset.list_ids(ids_filter=ids_filter)
@@ -161,6 +220,7 @@ def main():
     try:
         if args.recognizer_model and not recognizer_name.startswith("trocr_"):
             raise ValueError("--recognizer-model is only supported for TrOCR recognizers.")
+        pylaia_gpus = args.pylaia_gpus if args.pylaia_gpus is not None else infer_pylaia_gpu_count(args.device)
         segmenter = build_segmenter(
             segmenter_name,
             existing_lines_dir=args.existing_lines_dir,
@@ -176,6 +236,13 @@ def main():
             max_new_tokens=args.max_new_tokens,
             num_beams=args.num_beams,
             model_id=args.recognizer_model,
+            pylaia_root=args.pylaia_root,
+            pylaia_checkpoint=args.pylaia_checkpoint,
+            pylaia_syms=args.pylaia_syms,
+            pylaia_work_dir=args.pylaia_work_dir or str(Path(cache_root) / "pylaia"),
+            pylaia_gpus=pylaia_gpus,
+            pylaia_auto_select_gpus=args.pylaia_auto_select_gpus,
+            pylaia_fixed_height=args.pylaia_fixed_height,
         )
     except Exception as exc:
         logger.error("Failed to initialize backends: %s", exc)

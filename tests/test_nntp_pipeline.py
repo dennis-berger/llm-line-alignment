@@ -19,14 +19,18 @@ from linealign.nntp import (
     PreparedLineRecord,
     concatenate_observations,
     convert_lattice_block,
+    decode_ctc_indices,
     decode_alignment_segments,
+    decode_lattice_block_greedy,
     extract_prepared_lines,
     filter_transcription_text,
     infer_pylaia_input_height_from_kwargs,
     load_symbol_table,
     resize_prepared_line_images,
+    write_pylaia_netout_config,
     write_observation_file,
 )
+from utils.common import find_images_for_id
 
 
 def write_text(path: Path, text: str) -> None:
@@ -118,6 +122,8 @@ def test_extract_prepared_lines_uses_presegmented_images_when_available(tmp_path
     dataset_root = tmp_path / "dataset"
     write_text(dataset_root / "gt" / "iam-001.txt", "first line\nsecond line\n")
     save_image(dataset_root / "images" / "iam-001" / "iam-001.png", size=(80, 200))
+    write_text(dataset_root / "images" / "iam-001" / "._iam-001.png", "sidecar")
+    write_text(dataset_root / "line_images" / "iam-001" / "._iam-001-01.png", "sidecar")
     save_image(dataset_root / "line_images" / "iam-001" / "iam-001-01.png", size=(35, 10))
     save_image(dataset_root / "line_images" / "iam-001" / "iam-001-00.png", size=(25, 10))
 
@@ -136,6 +142,18 @@ def test_extract_prepared_lines_uses_presegmented_images_when_available(tmp_path
         assert crop.size == (25, 10)
     with Image.open(prepared[1].crop_path) as crop:
         assert crop.size == (35, 10)
+
+
+def test_find_images_for_id_ignores_hidden_sidecars(tmp_path: Path):
+    """Hidden macOS sidecar files should not be treated as images."""
+
+    images_root = tmp_path / "images"
+    save_image(images_root / "0001" / "page_0001.png", size=(20, 20))
+    write_text(images_root / "0001" / "._page_0001.png", "sidecar")
+
+    image_paths = find_images_for_id(images_root, "0001")
+
+    assert [path.name for path in image_paths] == ["page_0001.png"]
 
 
 def test_extract_prepared_lines_rejects_presegmented_count_mismatches(tmp_path: Path):
@@ -293,6 +311,62 @@ def test_convert_lattice_block_ignores_extra_labels_and_renormalizes(tmp_path: P
     assert matrix.rows[0] == pytest.approx([0.3 / 0.9])
     assert matrix.rows[1] == pytest.approx([0.5 / 0.9])
     assert matrix.rows[2] == pytest.approx([0.1 / 0.9])
+
+
+def test_decode_ctc_indices_preserves_repeats_split_by_blank(tmp_path: Path):
+    """Greedy CTC decoding should keep repeated symbols when separated by blanks."""
+
+    symbol_table = build_symbol_table(tmp_path, ["<ctc>", "<space>", "a", "b"])
+
+    decoded = decode_ctc_indices([2, 2, 0, 2, 3, 3], symbol_table)
+
+    assert decoded == "aab"
+
+
+def test_decode_lattice_block_greedy_collapses_ctc_and_maps_spaces(tmp_path: Path):
+    """Greedy lattice decoding should collapse repeats and decode spaces."""
+
+    symbol_table = build_symbol_table(tmp_path, ["<ctc>", "<space>", "a", "b"])
+    block_lines = [
+        "0\t0\t0\t3\t-0.8\n",
+        "0\t0\t0\t1\t-0.2\n",
+        "1\t0\t0\t3\t-0.9\n",
+        "1\t0\t0\t1\t-0.1\n",
+        "2\t0\t0\t1\t-0.9\n",
+        "2\t0\t0\t3\t-0.1\n",
+        "3\t0\t0\t3\t-0.8\n",
+        "3\t0\t0\t1\t-0.2\n",
+        "4\t0\t0\t2\t-0.9\n",
+        "4\t0\t0\t1\t-0.1\n",
+        "5\t0\t0\t4\t-0.9\n",
+        "5\t0\t0\t1\t-0.1\n",
+    ]
+
+    decoded = decode_lattice_block_greedy(block_lines, symbol_table)
+
+    assert decoded == "aa b"
+
+
+def test_write_pylaia_netout_config_writes_expected_trainer_values(tmp_path: Path):
+    """The shared PyLaia config helper should encode GPU settings consistently."""
+
+    config_path = tmp_path / "netout.yaml"
+    experiment_dir = tmp_path / "run"
+    model_path = tmp_path / "model"
+    model_path.write_text("placeholder", encoding="utf-8")
+
+    write_pylaia_netout_config(
+        config_path,
+        experiment_dir,
+        model_path,
+        pylaia_gpus=1,
+        auto_select_gpus=True,
+    )
+
+    payload = config_path.read_text(encoding="utf-8")
+    assert 'model_filename: "' in payload
+    assert "auto_select_gpus: true" in payload
+    assert "gpus: 1" in payload
 
 
 def test_decode_alignment_segments_respects_line_boundaries():

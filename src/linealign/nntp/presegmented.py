@@ -29,7 +29,7 @@ def _discover_line_images(line_root: Path) -> list[Path]:
 
     paths: list[Path] = []
     for pattern in IMAGE_GLOBS:
-        paths.extend(line_root.glob(pattern))
+        paths.extend(path for path in line_root.glob(pattern) if not path.name.startswith("."))
     sorted_paths = sorted(paths, key=_line_sort_key)
     for path in sorted_paths:
         if path.is_symlink() and not path.exists():

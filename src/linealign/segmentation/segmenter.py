@@ -49,7 +49,7 @@ class PassthroughSegmenter(Segmenter):
         exts = ("*.png", "*.jpg", "*.jpeg", "*.tif", "*.tiff")
         files: list[Path] = []
         for ext in exts:
-            files.extend(sorted(candidate_dir.glob(ext)))
+            files.extend(sorted(path for path in candidate_dir.glob(ext) if not path.name.startswith(".")))
         return files
 
     def segment_page(self, image_path: Path, cache_dir: Path) -> List[LineCrop]:

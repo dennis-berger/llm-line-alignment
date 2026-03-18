@@ -6,7 +6,7 @@ import math
 from pathlib import Path
 
 from .models import BoundaryRecord, ObservationMatrix, PreparedLineRecord
-from .symbols import SymbolTable
+from .symbols import CTC_TOKEN, SPACE_TOKEN, SymbolTable
 
 
 def iter_lattice_blocks(raw_lattice_path: Path):
@@ -122,6 +122,58 @@ def convert_lattice_block(block_lines: list[str], symbol_table: SymbolTable) -> 
     matrix = ObservationMatrix(symbols=symbol_table.observation_symbols, rows=rows)
     assert_probability_columns(matrix)
     return matrix
+
+
+def decode_ctc_indices(indices: list[int], symbol_table: SymbolTable) -> str:
+    """Greedily decode a CTC label sequence into plain text."""
+
+    decoded_chars: list[str] = []
+    previous_index: int | None = None
+
+    for index in indices:
+        if index == previous_index:
+            continue
+        previous_index = index
+        symbol = symbol_table.raw_by_index.get(index)
+        if symbol in (None, CTC_TOKEN):
+            continue
+        if symbol == SPACE_TOKEN:
+            decoded_chars.append(" ")
+        else:
+            decoded_chars.append(symbol)
+
+    return "".join(decoded_chars).strip()
+
+
+def decode_lattice_block_greedy(block_lines: list[str], symbol_table: SymbolTable) -> str:
+    """Greedily decode a raw PyLaia lattice block using CTC best path decoding."""
+
+    times, values_by_time = _parse_block_values(block_lines)
+    transform = _select_probability_transform(values_by_time)
+    supported_labels = {index + 1: index for index in symbol_table.raw_by_index}
+    best_path: list[int] = []
+
+    for time in times:
+        candidates = [
+            (label, transform(value))
+            for label, value in values_by_time[time].items()
+            if label in supported_labels
+        ]
+        if not candidates:
+            raise ValueError(f"Lattice timestep {time} does not contain any supported labels")
+        best_label, _ = max(candidates, key=lambda item: item[1])
+        best_path.append(supported_labels[best_label])
+
+    return decode_ctc_indices(best_path, symbol_table)
+
+
+def decode_lattice_file_greedy(raw_lattice_path: Path, symbol_table: SymbolTable) -> dict[Path, str]:
+    """Greedily decode each lattice block in a raw PyLaia output file."""
+
+    decoded: dict[Path, str] = {}
+    for header, block_lines in iter_lattice_blocks(raw_lattice_path):
+        decoded[Path(header).resolve()] = decode_lattice_block_greedy(block_lines, symbol_table)
+    return decoded
 
 
 def assert_probability_columns(matrix: ObservationMatrix, tolerance: float = 1e-3) -> None:

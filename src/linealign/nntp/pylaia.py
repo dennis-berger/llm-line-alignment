@@ -5,6 +5,7 @@ import sys
 import types
 from contextlib import contextmanager
 from pathlib import Path
+from typing import Iterable
 
 import torch
 from PIL import Image
@@ -86,21 +87,59 @@ def infer_pylaia_input_height(model_path: Path) -> int | None:
     return infer_pylaia_input_height_from_kwargs(load_pylaia_model_kwargs(model_path))
 
 
+def resize_image_files(image_paths: Iterable[Path], target_height: int) -> None:
+    """Resize image files in place to the requested height."""
+
+    if target_height <= 0:
+        raise ValueError(f"target_height must be positive, got {target_height}")
+
+    resample = getattr(Image, "Resampling", Image).BICUBIC
+    for image_path in image_paths:
+        with Image.open(image_path) as image:
+            width, height = image.size
+            if height == target_height:
+                continue
+            new_width = max(1, round(width * target_height / height))
+            resized = image.resize((new_width, target_height), resample=resample)
+            resized.save(image_path)
+
+
 def resize_prepared_line_images(
     prepared_lines: list[PreparedLineRecord],
     target_height: int,
 ) -> None:
     """Resize prepared line images in place to the requested height."""
 
-    if target_height <= 0:
-        raise ValueError(f"target_height must be positive, got {target_height}")
+    resize_image_files((record.crop_path for record in prepared_lines), target_height)
 
-    resample = getattr(Image, "Resampling", Image).BICUBIC
-    for record in prepared_lines:
-        with Image.open(record.crop_path) as image:
-            width, height = image.size
-            if height == target_height:
-                continue
-            new_width = max(1, round(width * target_height / height))
-            resized = image.resize((new_width, target_height), resample=resample)
-            resized.save(record.crop_path)
+
+def write_pylaia_netout_config(
+    config_path: Path,
+    experiment_dir: Path,
+    model_path: Path,
+    pylaia_gpus: int = 0,
+    auto_select_gpus: bool = False,
+) -> None:
+    """Write a minimal PyLaia netout config for a batch of line images."""
+
+    config_path.parent.mkdir(parents=True, exist_ok=True)
+    experiment_dir.mkdir(parents=True, exist_ok=True)
+    trainer_lines = [
+        "trainer:",
+        f"  auto_select_gpus: {'true' if auto_select_gpus else 'false'}",
+        f"  gpus: {pylaia_gpus}",
+    ]
+    config_path.write_text(
+        "\n".join(
+            [
+                "common:",
+                f'  experiment_dirname: "{experiment_dir.resolve()}"',
+                f'  model_filename: "{model_path.resolve()}"',
+                "netout:",
+                "  output_transform: softmax",
+                *trainer_lines,
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
