@@ -1,0 +1,1706 @@
+{
+  "source_dataset": "datasets/IAM_handwritten_rwth_test",
+  "selection": "representative_20",
+  "form_count": 20,
+  "line_count": 180,
+  "status_counts": {
+    "err": 40,
+    "ok": 140
+  },
+  "forms": [
+    {
+      "form_id": "c04-144",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsA-D/c04-144.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/c04-144/c04-144.png",
+      "line_count": 8,
+      "status_counts": {
+        "err": 2,
+        "ok": 6
+      },
+      "lines": [
+        {
+          "line_id": "c04-144-00",
+          "line_index": 0,
+          "status": "err",
+          "text": "Say Granada T V , the producers : \" We decided to make",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/c04/c04-144/c04-144-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/c04-144/c04-144-00.png"
+        },
+        {
+          "line_id": "c04-144-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "the switch because of the topicality of African",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/c04/c04-144/c04-144-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/c04-144/c04-144-01.png"
+        },
+        {
+          "line_id": "c04-144-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "affairs . The Wesker interview will be seen at a later",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/c04/c04-144/c04-144-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/c04-144/c04-144-02.png"
+        },
+        {
+          "line_id": "c04-144-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "date . \" ACTOR Tom Courtenay was an outstanding",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/c04/c04-144/c04-144-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/c04-144/c04-144-03.png"
+        },
+        {
+          "line_id": "c04-144-04",
+          "line_index": 4,
+          "status": "err",
+          "text": "success last night in I T V's \" Private Potter , \" his",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/c04/c04-144/c04-144-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/c04-144/c04-144-04.png"
+        },
+        {
+          "line_id": "c04-144-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "first big T V part . The play was a brilliantly-written",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/c04/c04-144/c04-144-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/c04-144/c04-144-05.png"
+        },
+        {
+          "line_id": "c04-144-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "essay on soldiering which stated that a fighting",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/c04/c04-144/c04-144-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/c04-144/c04-144-06.png"
+        },
+        {
+          "line_id": "c04-144-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "man could only be regarded as a machine .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/c04/c04-144/c04-144-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/c04-144/c04-144-07.png"
+        }
+      ]
+    },
+    {
+      "form_id": "d01-016",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsA-D/d01-016.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/d01-016/d01-016.png",
+      "line_count": 4,
+      "status_counts": {
+        "ok": 4
+      },
+      "lines": [
+        {
+          "line_id": "d01-016-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "The second said that the problems which arise from the comparisons with",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d01/d01-016/d01-016-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d01-016/d01-016-00.png"
+        },
+        {
+          "line_id": "d01-016-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "the Synoptics can be reasonably solved by paying due regard to the time and",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d01/d01-016/d01-016-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d01-016/d01-016-01.png"
+        },
+        {
+          "line_id": "d01-016-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "plan and to the different public for which , or against which , the author wrote .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d01/d01-016/d01-016-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d01-016/d01-016-02.png"
+        },
+        {
+          "line_id": "d01-016-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "The third article excluded any allegorical interpretation of the Gospel .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d01/d01-016/d01-016-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d01-016/d01-016-03.png"
+        }
+      ]
+    },
+    {
+      "form_id": "d04-101",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsA-D/d04-101.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/d04-101/d04-101.png",
+      "line_count": 6,
+      "status_counts": {
+        "ok": 5,
+        "err": 1
+      },
+      "lines": [
+        {
+          "line_id": "d04-101-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "We dip into both , at the Seder . And we want to understand",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-101/d04-101-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-101/d04-101-00.png"
+        },
+        {
+          "line_id": "d04-101-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "more of the Torah and the Oral Tradition , our inheritance .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-101/d04-101-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-101/d04-101-01.png"
+        },
+        {
+          "line_id": "d04-101-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "Living the life of the Torah ( \" dipping-in \" ) makes us",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-101/d04-101-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-101/d04-101-02.png"
+        },
+        {
+          "line_id": "d04-101-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "meek : \" But the meek shall inherit the earth ; and shall",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-101/d04-101-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-101/d04-101-03.png"
+        },
+        {
+          "line_id": "d04-101-04",
+          "line_index": 4,
+          "status": "err",
+          "text": "delight themselves in the abundance of Peace \" ( Psalm 37 ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-101/d04-101-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-101/d04-101-04.png"
+        },
+        {
+          "line_id": "d04-101-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "11 ) . That gives us freedom from want .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-101/d04-101-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-101/d04-101-05.png"
+        }
+      ]
+    },
+    {
+      "form_id": "d04-032",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsA-D/d04-032.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/d04-032/d04-032.png",
+      "line_count": 11,
+      "status_counts": {
+        "ok": 8,
+        "err": 3
+      },
+      "lines": [
+        {
+          "line_id": "d04-032-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "The Shamir's daily life writes the Decalogue ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-00.png"
+        },
+        {
+          "line_id": "d04-032-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "which is written on two plates , the hard facts",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-01.png"
+        },
+        {
+          "line_id": "d04-032-02",
+          "line_index": 2,
+          "status": "err",
+          "text": "of life , and all facts are \" one \" . We have all",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-02.png"
+        },
+        {
+          "line_id": "d04-032-03",
+          "line_index": 3,
+          "status": "err",
+          "text": "come across human Shamirs and they leave",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-03.png"
+        },
+        {
+          "line_id": "d04-032-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "a deep impression on our feelings and senses .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-04.png"
+        },
+        {
+          "line_id": "d04-032-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "They make us the Altar for God to emit",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-05.png"
+        },
+        {
+          "line_id": "d04-032-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "the Light which can be read in every",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-06.png"
+        },
+        {
+          "line_id": "d04-032-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "language . The Shamir is the \" seventh \" and",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-07.png"
+        },
+        {
+          "line_id": "d04-032-08",
+          "line_index": 8,
+          "status": "ok",
+          "text": "most important creature , that was created on",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-08.png"
+        },
+        {
+          "line_id": "d04-032-09",
+          "line_index": 9,
+          "status": "err",
+          "text": "the eve of the Sabbath , to bring the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-09.png"
+        },
+        {
+          "line_id": "d04-032-10",
+          "line_index": 10,
+          "status": "ok",
+          "text": "Sabbath , real peace to the whole world .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-032/d04-032-10.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-032/d04-032-10.png"
+        }
+      ]
+    },
+    {
+      "form_id": "d04-111",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsA-D/d04-111.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/d04-111/d04-111.png",
+      "line_count": 12,
+      "status_counts": {
+        "err": 4,
+        "ok": 8
+      },
+      "lines": [
+        {
+          "line_id": "d04-111-00",
+          "line_index": 0,
+          "status": "err",
+          "text": "( 1 ) Matzo represents Peshat ; ( 2 ) Moraur",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-00.png"
+        },
+        {
+          "line_id": "d04-111-01",
+          "line_index": 1,
+          "status": "err",
+          "text": "represents Remez ; ( 3 ) Dipping-in represents",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-01.png"
+        },
+        {
+          "line_id": "d04-111-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "Derush ; ( 4 ) Leaning-back represents Saud .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-02.png"
+        },
+        {
+          "line_id": "d04-111-03",
+          "line_index": 3,
+          "status": "err",
+          "text": "( This is the PARDUS . ) Matzo represents",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-03.png"
+        },
+        {
+          "line_id": "d04-111-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "the literal meaning of Pesach which",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-04.png"
+        },
+        {
+          "line_id": "d04-111-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "is called : The Feast of Matzos . The",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-05.png"
+        },
+        {
+          "line_id": "d04-111-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "Bitter-Herbs represent the spiritual",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-06.png"
+        },
+        {
+          "line_id": "d04-111-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "principle and this gives us \" a wink \" ( Remez )",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-07.png"
+        },
+        {
+          "line_id": "d04-111-08",
+          "line_index": 8,
+          "status": "err",
+          "text": "how to live and accept all the bitterness",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-08.png"
+        },
+        {
+          "line_id": "d04-111-09",
+          "line_index": 9,
+          "status": "ok",
+          "text": "that is hurled against us . The Salt-water",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-09.png"
+        },
+        {
+          "line_id": "d04-111-10",
+          "line_index": 10,
+          "status": "ok",
+          "text": "and the sweet Mortar in which we dip-in represents",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-10.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-10.png"
+        },
+        {
+          "line_id": "d04-111-11",
+          "line_index": 11,
+          "status": "ok",
+          "text": "the richness of the Law and that we should",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/d04/d04-111/d04-111-11.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/d04-111/d04-111-11.png"
+        }
+      ]
+    },
+    {
+      "form_id": "e06-015",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsE-H/e06-015.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/e06-015/e06-015.png",
+      "line_count": 10,
+      "status_counts": {
+        "err": 2,
+        "ok": 8
+      },
+      "lines": [
+        {
+          "line_id": "e06-015-00",
+          "line_index": 0,
+          "status": "err",
+          "text": "The joint evidence of echo-sounders",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-00.png"
+        },
+        {
+          "line_id": "e06-015-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "and fishing gear leads to an overall",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-01.png"
+        },
+        {
+          "line_id": "e06-015-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "though somewhat dim picture .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-02.png"
+        },
+        {
+          "line_id": "e06-015-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "The details are harder still to see .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-03.png"
+        },
+        {
+          "line_id": "e06-015-04",
+          "line_index": 4,
+          "status": "err",
+          "text": "Drift Effects . At East Anglia , for instance ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-04.png"
+        },
+        {
+          "line_id": "e06-015-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "shoals that gather at the Knoll or",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-05.png"
+        },
+        {
+          "line_id": "e06-015-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "other banks are most of them",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-06.png"
+        },
+        {
+          "line_id": "e06-015-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "going to travel a hundred",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-07.png"
+        },
+        {
+          "line_id": "e06-015-08",
+          "line_index": 8,
+          "status": "ok",
+          "text": "miles farther south before they",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-08.png"
+        },
+        {
+          "line_id": "e06-015-09",
+          "line_index": 9,
+          "status": "ok",
+          "text": "spawn . Some will spawn at the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/e06/e06-015/e06-015-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/e06-015/e06-015-09.png"
+        }
+      ]
+    },
+    {
+      "form_id": "f07-006",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsE-H/f07-006.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/f07-006/f07-006.png",
+      "line_count": 7,
+      "status_counts": {
+        "ok": 7
+      },
+      "lines": [
+        {
+          "line_id": "f07-006-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "How many centuries later did the mercenary in",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f07/f07-006/f07-006-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f07-006/f07-006-00.png"
+        },
+        {
+          "line_id": "f07-006-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "the Roman wars thus impale on pike or lance his",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f07/f07-006/f07-006-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f07-006/f07-006-01.png"
+        },
+        {
+          "line_id": "f07-006-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "evening meal . Later came the thrifty peasant ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f07/f07-006/f07-006-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f07-006/f07-006-02.png"
+        },
+        {
+          "line_id": "f07-006-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "later still the young Victorian buck adventuring",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f07/f07-006/f07-006-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f07-006/f07-006-03.png"
+        },
+        {
+          "line_id": "f07-006-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "in Paris , and even later our attractive young",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f07/f07-006/f07-006-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f07-006/f07-006-04.png"
+        },
+        {
+          "line_id": "f07-006-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "ladies toying with these primitive morsels in the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f07/f07-006/f07-006-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f07-006/f07-006-05.png"
+        },
+        {
+          "line_id": "f07-006-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "gleam and glitter of our latter-day restaurants .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f07/f07-006/f07-006-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f07-006/f07-006-06.png"
+        }
+      ]
+    },
+    {
+      "form_id": "f04-074",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsE-H/f04-074.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/f04-074/f04-074.png",
+      "line_count": 12,
+      "status_counts": {
+        "ok": 9,
+        "err": 3
+      },
+      "lines": [
+        {
+          "line_id": "f04-074-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "It was the battered and broken body of a woman .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-00.png"
+        },
+        {
+          "line_id": "f04-074-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "He sent word straight away to near-by Merstham",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-01.png"
+        },
+        {
+          "line_id": "f04-074-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "Station , and a stretcher party took the body to",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-02.png"
+        },
+        {
+          "line_id": "f04-074-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "the Feathers Hotel to await identification .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-03.png"
+        },
+        {
+          "line_id": "f04-074-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "Was it a case of suicide , where some unhappy soul",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-04.png"
+        },
+        {
+          "line_id": "f04-074-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "had walked deliberately into the blackness and",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-05.png"
+        },
+        {
+          "line_id": "f04-074-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "into the path of some train ? This hardly seemed",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-06.png"
+        },
+        {
+          "line_id": "f04-074-07",
+          "line_index": 7,
+          "status": "err",
+          "text": "likely , since , when she was examined by a local",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-07.png"
+        },
+        {
+          "line_id": "f04-074-08",
+          "line_index": 8,
+          "status": "err",
+          "text": "doctor , the woman , young , small , and rather plump ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-08.png"
+        },
+        {
+          "line_id": "f04-074-09",
+          "line_index": 9,
+          "status": "ok",
+          "text": "was found to have her own silk scarf drawn",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-09.png"
+        },
+        {
+          "line_id": "f04-074-10",
+          "line_index": 10,
+          "status": "ok",
+          "text": "almost tight enough to strangle her , and the ends",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-10.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-10.png"
+        },
+        {
+          "line_id": "f04-074-11",
+          "line_index": 11,
+          "status": "err",
+          "text": "thrust in her mouth like a gag .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/f04/f04-074/f04-074-11.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/f04-074/f04-074-11.png"
+        }
+      ]
+    },
+    {
+      "form_id": "g01-016",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsE-H/g01-016.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/g01-016/g01-016.png",
+      "line_count": 8,
+      "status_counts": {
+        "ok": 8
+      },
+      "lines": [
+        {
+          "line_id": "g01-016-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "These dreary years of ineffective fighting provide",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g01/g01-016/g01-016-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g01-016/g01-016-00.png"
+        },
+        {
+          "line_id": "g01-016-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "obvious morals for those who are judges long",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g01/g01-016/g01-016-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g01-016/g01-016-01.png"
+        },
+        {
+          "line_id": "g01-016-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "after the event . It seems obvious that , though",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g01/g01-016/g01-016-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g01-016/g01-016-02.png"
+        },
+        {
+          "line_id": "g01-016-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "the longbows of yeomen could pierce the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g01/g01-016/g01-016-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g01-016/g01-016-03.png"
+        },
+        {
+          "line_id": "g01-016-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "plate and mail of French knights , a brilliant",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g01/g01-016/g01-016-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g01-016/g01-016-04.png"
+        },
+        {
+          "line_id": "g01-016-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "battle was no substitute for a sound policy ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g01/g01-016/g01-016-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g01-016/g01-016-05.png"
+        },
+        {
+          "line_id": "g01-016-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "and that , if archers had no target , campaigns",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g01/g01-016/g01-016-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g01-016/g01-016-06.png"
+        },
+        {
+          "line_id": "g01-016-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "became mere marauding route marches .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g01/g01-016/g01-016-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g01-016/g01-016-07.png"
+        }
+      ]
+    },
+    {
+      "form_id": "g03-043",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsE-H/g03-043.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/g03-043/g03-043.png",
+      "line_count": 11,
+      "status_counts": {
+        "ok": 7,
+        "err": 4
+      },
+      "lines": [
+        {
+          "line_id": "g03-043-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "One of the students was young",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-00.png"
+        },
+        {
+          "line_id": "g03-043-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "George , and another the dark-haired",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-01.png"
+        },
+        {
+          "line_id": "g03-043-02",
+          "line_index": 2,
+          "status": "err",
+          "text": "little granddaughter of Charlie Grant .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-02.png"
+        },
+        {
+          "line_id": "g03-043-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "George often spoke at the Sunday school .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-03.png"
+        },
+        {
+          "line_id": "g03-043-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "He christened the babies . Also , when",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-04.png"
+        },
+        {
+          "line_id": "g03-043-05",
+          "line_index": 5,
+          "status": "err",
+          "text": "called upon to do so , he would officiate",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-05.png"
+        },
+        {
+          "line_id": "g03-043-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "at funerals . Religion was one of his pet",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-06.png"
+        },
+        {
+          "line_id": "g03-043-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "subjects , for being well acquainted",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-07.png"
+        },
+        {
+          "line_id": "g03-043-08",
+          "line_index": 8,
+          "status": "ok",
+          "text": "with the Bible , which he had",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-08.png"
+        },
+        {
+          "line_id": "g03-043-09",
+          "line_index": 9,
+          "status": "err",
+          "text": "read in prison where it was the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-09.png"
+        },
+        {
+          "line_id": "g03-043-10",
+          "line_index": 10,
+          "status": "err",
+          "text": "only book they were allowed ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/g03/g03-043/g03-043-10.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/g03-043/g03-043-10.png"
+        }
+      ]
+    },
+    {
+      "form_id": "m01-136",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/m01-136.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/m01-136/m01-136.png",
+      "line_count": 11,
+      "status_counts": {
+        "ok": 9,
+        "err": 2
+      },
+      "lines": [
+        {
+          "line_id": "m01-136-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "His whole attitude was a mixture of",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-00.png"
+        },
+        {
+          "line_id": "m01-136-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "impatience pending an awaited",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-01.png"
+        },
+        {
+          "line_id": "m01-136-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "communication and of a vague",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-02.png"
+        },
+        {
+          "line_id": "m01-136-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "perplexity respecting his surroundings",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-03.png"
+        },
+        {
+          "line_id": "m01-136-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "and the purpose he was to serve .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-04.png"
+        },
+        {
+          "line_id": "m01-136-05",
+          "line_index": 5,
+          "status": "err",
+          "text": "Finally , being so obviously on their own ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-05.png"
+        },
+        {
+          "line_id": "m01-136-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "Heather and Steve tried to make themselves",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-06.png"
+        },
+        {
+          "line_id": "m01-136-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "at home . Steve switched on Dan's",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-07.png"
+        },
+        {
+          "line_id": "m01-136-08",
+          "line_index": 8,
+          "status": "ok",
+          "text": "powerful , world-wide radio and systematically",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-08.png"
+        },
+        {
+          "line_id": "m01-136-09",
+          "line_index": 9,
+          "status": "ok",
+          "text": "turned the tuning knob through all the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-09.png"
+        },
+        {
+          "line_id": "m01-136-10",
+          "line_index": 10,
+          "status": "err",
+          "text": "tuning points of the world's great radio",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-136/m01-136-10.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-136/m01-136-10.png"
+        }
+      ]
+    },
+    {
+      "form_id": "m03-118",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/m03-118.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/m03-118/m03-118.png",
+      "line_count": 6,
+      "status_counts": {
+        "ok": 6
+      },
+      "lines": [
+        {
+          "line_id": "m03-118-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "But after what Mrs Caine had said it was never",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m03/m03-118/m03-118-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m03-118/m03-118-00.png"
+        },
+        {
+          "line_id": "m03-118-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "far from our minds that at any moment we were",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m03/m03-118/m03-118-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m03-118/m03-118-01.png"
+        },
+        {
+          "line_id": "m03-118-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "to receive a summons . I could see that Mr Septimus",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m03/m03-118/m03-118-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m03-118/m03-118-02.png"
+        },
+        {
+          "line_id": "m03-118-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "was impatient for it . This afternoon , then , we climbed",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m03/m03-118/m03-118-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m03-118/m03-118-03.png"
+        },
+        {
+          "line_id": "m03-118-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "a promontory , a mass of clean rock crowned with",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m03/m03-118/m03-118-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m03-118/m03-118-04.png"
+        },
+        {
+          "line_id": "m03-118-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "trees and bushes , that stood well out over the lake .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m03/m03-118/m03-118-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m03-118/m03-118-05.png"
+        }
+      ]
+    },
+    {
+      "form_id": "m01-049",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/m01-049.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/m01-049/m01-049.png",
+      "line_count": 12,
+      "status_counts": {
+        "ok": 10,
+        "err": 2
+      },
+      "lines": [
+        {
+          "line_id": "m01-049-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "He rose from his breakfast-nook bench",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-00.png"
+        },
+        {
+          "line_id": "m01-049-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "and came into the livingroom , where",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-01.png"
+        },
+        {
+          "line_id": "m01-049-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "Heather and Steve stood aghast at",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-02.png"
+        },
+        {
+          "line_id": "m01-049-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "his entrance . He came , almost falling",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-03.png"
+        },
+        {
+          "line_id": "m01-049-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "forward in an ungainly shuffle , neck",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-04.png"
+        },
+        {
+          "line_id": "m01-049-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "thrust out , arms dangling loosely .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-05.png"
+        },
+        {
+          "line_id": "m01-049-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "Then , abruptly , he drew himself up",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-06.png"
+        },
+        {
+          "line_id": "m01-049-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "and walked on the very tips of",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-07.png"
+        },
+        {
+          "line_id": "m01-049-08",
+          "line_index": 8,
+          "status": "ok",
+          "text": "his toes . He stretched his arms",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-08.png"
+        },
+        {
+          "line_id": "m01-049-09",
+          "line_index": 9,
+          "status": "err",
+          "text": "over his head and yawned agape ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-09.png"
+        },
+        {
+          "line_id": "m01-049-10",
+          "line_index": 10,
+          "status": "ok",
+          "text": "drawing-in great breaths that",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-10.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-10.png"
+        },
+        {
+          "line_id": "m01-049-11",
+          "line_index": 11,
+          "status": "err",
+          "text": "became great sighs of ecstacy .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/m01/m01-049/m01-049-11.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/m01-049/m01-049-11.png"
+        }
+      ]
+    },
+    {
+      "form_id": "n01-036",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/n01-036.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/n01-036/n01-036.png",
+      "line_count": 6,
+      "status_counts": {
+        "ok": 6
+      },
+      "lines": [
+        {
+          "line_id": "n01-036-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "He was able to pick out towns , unrecognisable to the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n01/n01-036/n01-036-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n01-036/n01-036-00.png"
+        },
+        {
+          "line_id": "n01-036-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "naked eye , obscured by the ground haze which even",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n01/n01-036/n01-036-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n01-036/n01-036-01.png"
+        },
+        {
+          "line_id": "n01-036-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "on the clearest night limited angular vision . He glanced",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n01/n01-036/n01-036-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n01-036/n01-036-02.png"
+        },
+        {
+          "line_id": "n01-036-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "at the speed recorder . It seemed almost incredible that",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n01/n01-036/n01-036-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n01-036/n01-036-03.png"
+        },
+        {
+          "line_id": "n01-036-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "the tiny white figure of 8.5 against which the needle",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n01/n01-036/n01-036-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n01-036/n01-036-04.png"
+        },
+        {
+          "line_id": "n01-036-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "was resting could really mean hundreds of knots .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n01/n01-036/n01-036-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n01-036/n01-036-05.png"
+        }
+      ]
+    },
+    {
+      "form_id": "n02-049",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/n02-049.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/n02-049/n02-049.png",
+      "line_count": 6,
+      "status_counts": {
+        "err": 4,
+        "ok": 2
+      },
+      "lines": [
+        {
+          "line_id": "n02-049-00",
+          "line_index": 0,
+          "status": "err",
+          "text": "\" It 's your superior attitude that riles me . \" Beryl was",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n02/n02-049/n02-049-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n02-049/n02-049-00.png"
+        },
+        {
+          "line_id": "n02-049-01",
+          "line_index": 1,
+          "status": "err",
+          "text": "scarlet with annoyance . \" How I happened to be marooned",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n02/n02-049/n02-049-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n02-049/n02-049-01.png"
+        },
+        {
+          "line_id": "n02-049-02",
+          "line_index": 2,
+          "status": "err",
+          "text": "at Balicou doesn't interest you in the faintest degree . You",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n02/n02-049/n02-049-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n02-049/n02-049-02.png"
+        },
+        {
+          "line_id": "n02-049-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "look as though it was only what you expected of me ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n02/n02-049/n02-049-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n02-049/n02-049-03.png"
+        },
+        {
+          "line_id": "n02-049-04",
+          "line_index": 4,
+          "status": "err",
+          "text": "as though I didn't care a hoot about letting Hubert",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n02/n02-049/n02-049-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n02-049/n02-049-04.png"
+        },
+        {
+          "line_id": "n02-049-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "and his pals down . \"",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n02/n02-049/n02-049-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n02-049/n02-049-05.png"
+        }
+      ]
+    },
+    {
+      "form_id": "n04-048",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/n04-048.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/n04-048/n04-048.png",
+      "line_count": 10,
+      "status_counts": {
+        "err": 2,
+        "ok": 8
+      },
+      "lines": [
+        {
+          "line_id": "n04-048-00",
+          "line_index": 0,
+          "status": "err",
+          "text": "So he put up for the night at The Admiral's Head , that",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-00.png"
+        },
+        {
+          "line_id": "n04-048-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "famous Portsmouth hostelry , second only in historic",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-01.png"
+        },
+        {
+          "line_id": "n04-048-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "interest to The George , unhappily destroyed by German",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-02.png"
+        },
+        {
+          "line_id": "n04-048-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "bombs during the last war . Having deposited his",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-03.png"
+        },
+        {
+          "line_id": "n04-048-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "baggage and unpacked his overnight-bag he",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-04.png"
+        },
+        {
+          "line_id": "n04-048-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "went in search of a drink . The lower bar was",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-05.png"
+        },
+        {
+          "line_id": "n04-048-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "empty , save for the lady known by all habitue",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-06.png"
+        },
+        {
+          "line_id": "n04-048-07",
+          "line_index": 7,
+          "status": "err",
+          "text": "*?2s as ' Seaweed ' , and a youngish , sharp-eyed",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-07.png"
+        },
+        {
+          "line_id": "n04-048-08",
+          "line_index": 8,
+          "status": "ok",
+          "text": "man who was staring moodily into a gin",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-08.png"
+        },
+        {
+          "line_id": "n04-048-09",
+          "line_index": 9,
+          "status": "ok",
+          "text": "and tonic .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n04/n04-048/n04-048-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n04-048/n04-048-09.png"
+        }
+      ]
+    },
+    {
+      "form_id": "n03-106",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/n03-106.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/n03-106/n03-106.png",
+      "line_count": 12,
+      "status_counts": {
+        "err": 2,
+        "ok": 10
+      },
+      "lines": [
+        {
+          "line_id": "n03-106-00",
+          "line_index": 0,
+          "status": "err",
+          "text": "\" Willie , \" the judge said huskily ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-00.png"
+        },
+        {
+          "line_id": "n03-106-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "\" that was as pretty a piece of seamans-",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-01.png"
+        },
+        {
+          "line_id": "n03-106-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "hip as I ever saw . That boy of",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-02.png"
+        },
+        {
+          "line_id": "n03-106-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "mine seems to know how to do",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-03.png"
+        },
+        {
+          "line_id": "n03-106-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "everything , when he wants to . \"",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-04.png"
+        },
+        {
+          "line_id": "n03-106-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "\" 3Naw , \" disputed Willie . 3\" Just",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-05.png"
+        },
+        {
+          "line_id": "n03-106-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "play in damn fine luck this time .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-06.png"
+        },
+        {
+          "line_id": "n03-106-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "He plenty smart though . \" As they",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-07.png"
+        },
+        {
+          "line_id": "n03-106-08",
+          "line_index": 8,
+          "status": "ok",
+          "text": "reached the pier , the judge on legs",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-08.png"
+        },
+        {
+          "line_id": "n03-106-09",
+          "line_index": 9,
+          "status": "ok",
+          "text": "that were a little unsteady , they",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-09.png"
+        },
+        {
+          "line_id": "n03-106-10",
+          "line_index": 10,
+          "status": "ok",
+          "text": "found Bueno Buck , now on the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-10.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-10.png"
+        },
+        {
+          "line_id": "n03-106-11",
+          "line_index": 11,
+          "status": "err",
+          "text": "pier , leading the yawl toward",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/n03/n03-106/n03-106-11.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/n03-106/n03-106-11.png"
+        }
+      ]
+    },
+    {
+      "form_id": "p02-105",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/p02-105.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/p02-105/p02-105.png",
+      "line_count": 8,
+      "status_counts": {
+        "ok": 8
+      },
+      "lines": [
+        {
+          "line_id": "p02-105-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "As he swung her on to the floor Gay saw Gavin",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p02/p02-105/p02-105-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p02-105/p02-105-00.png"
+        },
+        {
+          "line_id": "p02-105-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "and Simone go through the doorway that led",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p02/p02-105/p02-105-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p02-105/p02-105-01.png"
+        },
+        {
+          "line_id": "p02-105-02",
+          "line_index": 2,
+          "status": "ok",
+          "text": "down to the beach . Gay closed her eyes for a",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p02/p02-105/p02-105-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p02-105/p02-105-02.png"
+        },
+        {
+          "line_id": "p02-105-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "moment in disgust . She was fully aware that Gavin",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p02/p02-105/p02-105-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p02-105/p02-105-03.png"
+        },
+        {
+          "line_id": "p02-105-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "would make love to the French girl on the sands ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p02/p02-105/p02-105-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p02-105/p02-105-04.png"
+        },
+        {
+          "line_id": "p02-105-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "and no doubt he would come back soon and",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p02/p02-105/p02-105-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p02-105/p02-105-05.png"
+        },
+        {
+          "line_id": "p02-105-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "after Simone had left expect her to accept his",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p02/p02-105/p02-105-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p02-105/p02-105-06.png"
+        },
+        {
+          "line_id": "p02-105-07",
+          "line_index": 7,
+          "status": "ok",
+          "text": "kisses on the way back to the hotel .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p02/p02-105/p02-105-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p02-105/p02-105-07.png"
+        }
+      ]
+    },
+    {
+      "form_id": "p06-042",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/p06-042.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/p06-042/p06-042.png",
+      "line_count": 11,
+      "status_counts": {
+        "ok": 5,
+        "err": 6
+      },
+      "lines": [
+        {
+          "line_id": "p06-042-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "And as he spoke , the thought",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-00.png"
+        },
+        {
+          "line_id": "p06-042-01",
+          "line_index": 1,
+          "status": "err",
+          "text": "of Philip lying in the other",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-01.png"
+        },
+        {
+          "line_id": "p06-042-02",
+          "line_index": 2,
+          "status": "err",
+          "text": "room filled him with a re-",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-02.png"
+        },
+        {
+          "line_id": "p06-042-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "vulsion that was homicidal .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-03.png"
+        },
+        {
+          "line_id": "p06-042-04",
+          "line_index": 4,
+          "status": "err",
+          "text": "Even in that , his hands were",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-04.png"
+        },
+        {
+          "line_id": "p06-042-05",
+          "line_index": 5,
+          "status": "ok",
+          "text": "tied . He dare not precipitate",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-05.png"
+        },
+        {
+          "line_id": "p06-042-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "what might well be another",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-06.png"
+        },
+        {
+          "line_id": "p06-042-07",
+          "line_index": 7,
+          "status": "err",
+          "text": "coronary . And in that second",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-07.png"
+        },
+        {
+          "line_id": "p06-042-08",
+          "line_index": 8,
+          "status": "err",
+          "text": "he put back his professional",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-08.png"
+        },
+        {
+          "line_id": "p06-042-09",
+          "line_index": 9,
+          "status": "ok",
+          "text": "mantle , and said with such",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-09.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-09.png"
+        },
+        {
+          "line_id": "p06-042-10",
+          "line_index": 10,
+          "status": "err",
+          "text": "icy politeness , such withdrawn",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/p06/p06-042/p06-042-10.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/p06-042/p06-042-10.png"
+        }
+      ]
+    },
+    {
+      "form_id": "r03-053",
+      "split": "test",
+      "source_form_image": "/Users/dennisberger/Documents/Privat/iam/data/formsI-Z/r03-053.png",
+      "dataset_form_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/images/r03-053/r03-053.png",
+      "line_count": 9,
+      "status_counts": {
+        "ok": 6,
+        "err": 3
+      },
+      "lines": [
+        {
+          "line_id": "r03-053-00",
+          "line_index": 0,
+          "status": "ok",
+          "text": "His voice was like his black and pin-stripe ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-00.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-00.png"
+        },
+        {
+          "line_id": "r03-053-01",
+          "line_index": 1,
+          "status": "ok",
+          "text": "a grey superimposition of respectability over",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-01.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-01.png"
+        },
+        {
+          "line_id": "r03-053-02",
+          "line_index": 2,
+          "status": "err",
+          "text": "the original colour of his own natural vowels ,",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-02.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-02.png"
+        },
+        {
+          "line_id": "r03-053-03",
+          "line_index": 3,
+          "status": "ok",
+          "text": "the result being somehow as ineffective , not",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-03.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-03.png"
+        },
+        {
+          "line_id": "r03-053-04",
+          "line_index": 4,
+          "status": "ok",
+          "text": "just dusty-grey but muddy , slimy even .",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-04.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-04.png"
+        },
+        {
+          "line_id": "r03-053-05",
+          "line_index": 5,
+          "status": "err",
+          "text": "His digressions too , seemed to have no other",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-05.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-05.png"
+        },
+        {
+          "line_id": "r03-053-06",
+          "line_index": 6,
+          "status": "ok",
+          "text": "purpose than the throwing of dust in his",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-06.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-06.png"
+        },
+        {
+          "line_id": "r03-053-07",
+          "line_index": 7,
+          "status": "err",
+          "text": "client's eyes , the dust of fake security , of",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-07.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-07.png"
+        },
+        {
+          "line_id": "r03-053-08",
+          "line_index": 8,
+          "status": "ok",
+          "text": "the fake friend of the family , like the",
+          "source_line_image": "/Users/dennisberger/Documents/Privat/iam/data/lines/r03/r03-053/r03-053-08.png",
+          "dataset_line_image": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test/line_images/r03-053/r03-053-08.png"
+        }
+      ]
+    }
+  ]
+}
