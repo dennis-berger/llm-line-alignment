@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the Bullinger handwritten NNTP baseline from local PAGE XML."""
+"""Run the NNTP baseline from PAGE XML or presegmented line images."""
 from __future__ import annotations
 
 import argparse
@@ -21,6 +21,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from linealign.nntp import (
+    PREPARE_MODES,
     concatenate_observations,
     convert_lattice_block,
     decode_alignment_segments,
@@ -178,12 +179,13 @@ def prepare_stage(args, data_dir: Path, symbol_table):
                 sample_id,
                 line_image_root,
                 overwrite=args.overwrite,
+                prepare_mode=args.prepare_mode,
             )
         except Exception as exc:
-            logger.warning("Skipping %s because PAGE XML preparation failed: %s", sample_id, exc)
+            logger.warning("Skipping %s because line preparation failed: %s", sample_id, exc)
             continue
         if not prepared_lines:
-            logger.warning("Skipping %s because no content lines were extracted from PAGE XML", sample_id)
+            logger.warning("Skipping %s because no content lines were prepared", sample_id)
             continue
 
         filtered_label = filter_transcription_text(sample_id, read_text(transcription_path), symbol_table)
@@ -524,9 +526,19 @@ def evaluate_stage(args, data_dir: Path, artifacts, converted, rec_paths):
 def build_arg_parser() -> argparse.ArgumentParser:
     """Build the CLI parser for the NNTP runner."""
 
-    parser = argparse.ArgumentParser(description="Run the Bullinger handwritten NNTP baseline.")
-    parser.add_argument("--data-dir", default="datasets/bullinger_handwritten", help="Dataset root containing gt/, transcription/, and images/.")
+    parser = argparse.ArgumentParser(description="Run the NNTP baseline on a prepared dataset.")
+    parser.add_argument(
+        "--data-dir",
+        default="datasets/bullinger_handwritten",
+        help="Dataset root containing gt/, transcription/, images/, and optionally line_images/.",
+    )
     parser.add_argument("--work-dir", default="outputs/nntp/bullinger_handwritten", help="Disposable working directory for line images and NNTP intermediates.")
+    parser.add_argument(
+        "--prepare-mode",
+        choices=PREPARE_MODES,
+        default="auto",
+        help="How to obtain line images: auto-detect presegmented line_images/ or fall back to PAGE XML.",
+    )
     parser.add_argument(
         "--pylaia-root",
         default=str(DEFAULT_PYLAIA_ROOT),

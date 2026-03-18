@@ -42,8 +42,9 @@ jobs/
 │   │   ├── iam_handwritten_1shot.sbatch
 │   │   ├── iam_print_0shot.sbatch
 │   │   └── iam_print_1shot.sbatch
-│   └── nntp/                     # Bullinger NNTP baseline
-│       └── bullinger_handwritten.sbatch
+│   └── nntp/                     # NNTP baselines
+│       ├── bullinger_handwritten.sbatch
+│       └── iam_handwritten.sbatch
 └── preprocessing/                # OCR/HTR generation jobs
     ├── make_ocr_easy_historical.sbatch
     ├── make_ocr_iam_handwritten.sbatch
@@ -72,6 +73,7 @@ sbatch jobs/eval/m1/bullinger_handwritten_0shot.sbatch
 sbatch jobs/eval/m2/iam_handwritten_1shot.sbatch
 sbatch jobs/eval/m3/easy_historical_0shot.sbatch
 sbatch jobs/eval/nntp/bullinger_handwritten.sbatch
+sbatch jobs/eval/nntp/iam_handwritten.sbatch
 ```
 
 **All jobs for one method:**
@@ -103,10 +105,19 @@ sbatch jobs/eval/m3/iam_print_1shot.sbatch
 - **Task:** Transfer line breaks from HTR to transcription
 - **Datasets:** 5 (all datasets)
 
-### NNTP Baseline: PAGE XML + PyLaia + NNTP
-- **Input:** Bullinger page images, PAGE XML line geometry, correct transcription, vendored PyLaia assets
-- **Task:** Extract line crops, generate CTC lattices with PyLaia, and align with NNTP
-- **Datasets:** 1 (`bullinger_handwritten`)
+### NNTP Baseline: PyLaia + NNTP
+- **Input:** Correct transcription plus either PAGE XML line geometry or presegmented line images
+- **Task:** Prepare line images, generate CTC lattices with PyLaia, and align with NNTP
+- **Datasets:** 2 (`bullinger_handwritten`, `IAM_handwritten_rwth_test`)
+
+Before running the IAM NNTP job, build the RWTH test dataset once:
+
+```bash
+python scripts/build_iam_rwth_dataset.py \
+  --iam-root ../iam/data \
+  --split test \
+  --out-dir datasets/IAM_handwritten_rwth_test
+```
 
 ## Few-Shot Configuration
 
@@ -176,6 +187,7 @@ Results are saved with dataset-specific naming for easy comparison:
 
 NNTP baseline:
 - `bullinger_handwritten_eval_nntp.csv` + `bullinger_handwritten_predictions_nntp/`
+- `iam_handwritten_rwth_test_eval_nntp.csv` + `iam_handwritten_rwth_test_predictions_nntp/`
 
 This makes it easy to compare:
 - **Across shots**: `iam_print_eval_m2_0shot.csv` vs `iam_print_eval_m2_1shot.csv`
@@ -191,7 +203,7 @@ All evaluation jobs use:
 - **Time:** 2 hours
 - **Partition:** GPU
 
-The NNTP baseline job uses the same GPU/CPU/memory profile, but with a 4 hour wall clock limit to cover PyLaia netout plus Java alignment.
+The NNTP baseline jobs use the same GPU/CPU/memory profile, but with a 4 hour wall clock limit to cover PyLaia netout plus Java alignment.
 
 Orchestrator jobs use minimal resources (1GB RAM, 10 minutes).
 

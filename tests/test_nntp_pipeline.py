@@ -45,13 +45,20 @@ def build_symbol_table(tmp_path: Path, symbols: list[str]):
     return load_symbol_table(syms_path)
 
 
+def save_image(path: Path, size: tuple[int, int] = (100, 100)) -> None:
+    """Create a simple placeholder image on disk."""
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    Image.new("RGB", size, color="white").save(path)
+
+
 def test_extract_prepared_lines_uses_pagexml_order_and_filters_placeholders(tmp_path: Path):
     """PAGE XML lines should follow reading order and skip marker-only lines."""
 
     sample_root = tmp_path / "dataset" / "images" / "0001"
     sample_root.mkdir(parents=True, exist_ok=True)
     image_path = sample_root / "page_0001.png"
-    Image.new("RGB", (100, 100), color="white").save(image_path)
+    save_image(image_path)
 
     xml_content = """<?xml version="1.0" encoding="UTF-8"?>
 <PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15">
@@ -101,6 +108,49 @@ def test_extract_prepared_lines_uses_pagexml_order_and_filters_placeholders(tmp_
         assert crop.size == (30, 10)
     with Image.open(prepared[1].crop_path) as crop:
         assert crop.size == (30, 10)
+
+
+def test_extract_prepared_lines_uses_presegmented_images_when_available(tmp_path: Path):
+    """Presegmented datasets should stage sorted line images without PAGE XML."""
+
+    dataset_root = tmp_path / "dataset"
+    write_text(dataset_root / "gt" / "iam-001.txt", "first line\nsecond line\n")
+    save_image(dataset_root / "images" / "iam-001" / "iam-001.png", size=(80, 200))
+    save_image(dataset_root / "line_images" / "iam-001" / "iam-001-01.png", size=(35, 10))
+    save_image(dataset_root / "line_images" / "iam-001" / "iam-001-00.png", size=(25, 10))
+
+    prepared = extract_prepared_lines(
+        dataset_root,
+        "iam-001",
+        tmp_path / "out" / "line_images",
+        overwrite=True,
+    )
+
+    assert [record.textline_id for record in prepared] == ["iam-001-00", "iam-001-01"]
+    assert [record.source_text for record in prepared] == ["first line", "second line"]
+    assert [record.crop_path.name for record in prepared] == ["iam-001-00.png", "iam-001-01.png"]
+    assert prepared[0].image_path.name == "iam-001.png"
+    with Image.open(prepared[0].crop_path) as crop:
+        assert crop.size == (25, 10)
+    with Image.open(prepared[1].crop_path) as crop:
+        assert crop.size == (35, 10)
+
+
+def test_extract_prepared_lines_rejects_presegmented_count_mismatches(tmp_path: Path):
+    """Presegmented line images must match the GT line count."""
+
+    dataset_root = tmp_path / "dataset"
+    write_text(dataset_root / "gt" / "iam-001.txt", "only one line\n")
+    save_image(dataset_root / "line_images" / "iam-001" / "iam-001-00.png", size=(20, 10))
+    save_image(dataset_root / "line_images" / "iam-001" / "iam-001-01.png", size=(20, 10))
+
+    with pytest.raises(ValueError, match="2 line image\\(s\\) but 1 GT line\\(s\\)"):
+        extract_prepared_lines(
+            dataset_root,
+            "iam-001",
+            tmp_path / "out" / "line_images",
+            overwrite=True,
+        )
 
 
 def test_filter_transcription_text_strips_oov_chars(tmp_path: Path):

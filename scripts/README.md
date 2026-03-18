@@ -35,6 +35,39 @@ See [docs/ocr_pipeline.md](docs/ocr_pipeline.md) for technical details.
 
 ---
 
+## build_iam_rwth_dataset.py
+
+Build an IAM dataset slice from the official RWTH split files used by the public PyLaia IAM checkpoint.
+
+### Basic Usage
+
+```bash
+# Build the full RWTH test split as a new dataset
+python scripts/build_iam_rwth_dataset.py \
+  --iam-root ../iam/data \
+  --split test \
+  --out-dir datasets/IAM_handwritten_rwth_test
+
+# Smoke-test on a couple of forms
+python scripts/build_iam_rwth_dataset.py \
+  --iam-root ../iam/data \
+  --split test \
+  --max-forms 2 \
+  --out-dir /tmp/iam_handwritten_rwth_test
+```
+
+### Output
+
+Creates a dataset with:
+
+- **`gt/`** - newline-separated ground truth per form
+- **`transcription/`** - line-break-free text per form
+- **`images/`** - form images
+- **`line_images/`** - presegmented IAM line images for NNTP
+- **`metadata.json`** - per-form and per-line provenance/status metadata
+
+---
+
 ## summarize_macro_avgs.py
 
 Extract macro-average rows from evaluation CSVs.
@@ -61,29 +94,43 @@ python scripts/summarize_macro_avgs.py --glob "*gpt-5.2.csv"
 
 ## run_nntp_eval.py
 
-Run the Bullinger handwritten NNTP baseline using local PAGE XML line geometry.
+Run the NNTP baseline using either local PAGE XML crops or presegmented line images.
 
 ### Basic Usage
 
 ```bash
-# Prepare line images and manifests only
+# Bullinger smoke test from PAGE XML
 python scripts/run_nntp_eval.py \
   --data-dir datasets/bullinger_handwritten \
   --ids 10177 \
   --stop-after prepare
 
-# Full NNTP pipeline
+# IAM smoke test from presegmented line images
+python scripts/run_nntp_eval.py \
+  --data-dir datasets/IAM_handwritten_rwth_test \
+  --ids c04-110 \
+  --stop-after prepare
+
+# Full Bullinger NNTP pipeline
 python scripts/run_nntp_eval.py \
   --data-dir datasets/bullinger_handwritten \
   --work-dir outputs/nntp/bullinger_handwritten \
+  --nntp-root ../nntp
+
+# Full IAM NNTP pipeline
+python scripts/run_nntp_eval.py \
+  --data-dir datasets/IAM_handwritten_rwth_test \
+  --work-dir outputs/nntp/IAM_handwritten_rwth_test \
+  --pred-dir iam_handwritten_rwth_test_predictions_nntp \
+  --eval-csv iam_handwritten_rwth_test_eval_nntp.csv \
   --nntp-root ../nntp
 ```
 
 ### Output
 
-- **Predictions:** `bullinger_handwritten_predictions_nntp/`
-- **CSV metrics:** `bullinger_handwritten_eval_nntp.csv`
-- **Intermediates:** `outputs/nntp/bullinger_handwritten/`
+- **Predictions:** dataset-specific `*_predictions_nntp/`
+- **CSV metrics:** dataset-specific `*_eval_nntp.csv`
+- **Intermediates:** dataset-specific `outputs/nntp/<dataset_name>/`
 
 See [docs/nntp_pipeline.md](docs/nntp_pipeline.md) for stage details and caveats.
 
@@ -91,9 +138,10 @@ See [docs/nntp_pipeline.md](docs/nntp_pipeline.md) for stage details and caveats
 
 ## Additional Utilities
 
-Located in `utils/` directory:
+Located in `scripts/` and `utils/`:
 
 - **`convert_iam_dataset.py`** - Convert IAM database to project format
+- **`build_iam_rwth_dataset.py`** - Build the RWTH IAM form split used by the NNTP baseline
 - **`convert_easy_hist_gt.py`** - Convert easy_historical ground truth
 - **`copy_pages_to_images.py`** - Organize page images
 
