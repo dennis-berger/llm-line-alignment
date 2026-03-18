@@ -21,6 +21,12 @@ from .pagexml import (
 )
 from .prepare import PREPARE_MODES, detect_prepare_mode, extract_prepared_lines
 from .presegmented import extract_prepared_lines_from_presegmented
+from .pylaia import (
+    infer_pylaia_input_height,
+    infer_pylaia_input_height_from_kwargs,
+    load_pylaia_model_kwargs,
+    resize_prepared_line_images,
+)
 from .symbols import FilteredLabel, SymbolTable, filter_transcription_text, load_symbol_table
 
 __all__ = [
@@ -41,7 +47,10 @@ __all__ = [
     "extract_prepared_lines",
     "extract_prepared_lines_from_presegmented",
     "filter_transcription_text",
+    "infer_pylaia_input_height",
+    "infer_pylaia_input_height_from_kwargs",
     "is_placeholder_text",
+    "load_pylaia_model_kwargs",
     "load_symbol_table",
     "parse_alignment_file",
     "parse_pagexml",
@@ -49,6 +58,7 @@ __all__ = [
     "parse_reading_order_index",
     "read_boundary_map",
     "read_observation_file",
+    "resize_prepared_line_images",
     "split_lattice_blocks",
     "write_boundary_map",
     "write_observation_file",

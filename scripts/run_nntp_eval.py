@@ -27,9 +27,11 @@ from linealign.nntp import (
     decode_alignment_segments,
     extract_prepared_lines,
     filter_transcription_text,
+    infer_pylaia_input_height,
     load_symbol_table,
     parse_alignment_file,
     read_boundary_map,
+    resize_prepared_line_images,
     split_lattice_blocks,
     write_boundary_map,
     write_observation_file,
@@ -249,6 +251,18 @@ def run_pylaia_netout(args, artifacts) -> Path:
     pylaia_root = Path(args.pylaia_root)
     checkpoint_path = ensure_file(Path(args.pylaia_checkpoint), "PyLaia checkpoint")
     model_path = ensure_file(pylaia_root / "model", "PyLaia model file")
+    inferred_image_height = infer_pylaia_input_height(model_path)
+    pylaia_image_height = args.pylaia_fixed_height or inferred_image_height
+    if pylaia_image_height is not None:
+        resize_prepared_line_images(
+            [
+                record
+                for sample_id in artifacts["ids"]
+                for record in artifacts["prepared_by_id"][sample_id]
+            ],
+            pylaia_image_height,
+        )
+        logger.info("Normalized prepared line images to height %d for PyLaia netout", pylaia_image_height)
 
     netout_dir = Path(args.work_dir) / "netout"
     netout_dir.mkdir(parents=True, exist_ok=True)
@@ -261,6 +275,7 @@ def run_pylaia_netout(args, artifacts) -> Path:
         "checkpoint": str(Path(args.pylaia_checkpoint).resolve()),
         "pylaia_gpus": args.pylaia_gpus,
         "pylaia_auto_select_gpus": args.pylaia_auto_select_gpus,
+        "pylaia_image_height": pylaia_image_height,
     }
     if raw_lattice_path.exists() and not args.overwrite and metadata == expected_metadata:
         logger.info("Reusing existing raw lattice: %s", raw_lattice_path)
@@ -556,6 +571,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--nntp-root", default=str(DEFAULT_NNTP_ROOT), help="NNTP repository root.")
     parser.add_argument("--pylaia-gpus", type=int, default=0, help="Number of GPUs to request for PyLaia netout.")
+    parser.add_argument(
+        "--pylaia-fixed-height",
+        type=int,
+        default=None,
+        help="Optional override for the fixed input height expected by the PyLaia model. Defaults to auto-inference from the serialized model.",
+    )
     parser.add_argument(
         "--pylaia-auto-select-gpus",
         action="store_true",

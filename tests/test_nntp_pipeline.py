@@ -22,7 +22,9 @@ from linealign.nntp import (
     decode_alignment_segments,
     extract_prepared_lines,
     filter_transcription_text,
+    infer_pylaia_input_height_from_kwargs,
     load_symbol_table,
+    resize_prepared_line_images,
     write_observation_file,
 )
 
@@ -151,6 +153,47 @@ def test_extract_prepared_lines_rejects_presegmented_count_mismatches(tmp_path: 
             tmp_path / "out" / "line_images",
             overwrite=True,
         )
+
+
+def test_infer_pylaia_input_height_from_model_kwargs():
+    """PyLaia input height should be inferred from sequencer size and pooling."""
+
+    kwargs = {
+        "image_sequencer": "none-16",
+        "cnn_poolsize": [[2, 2], [2, 2], [0, 0], [2, 2]],
+    }
+
+    assert infer_pylaia_input_height_from_kwargs(kwargs) == 128
+
+
+def test_resize_prepared_line_images_normalizes_height(tmp_path: Path):
+    """Prepared line images should be resized in place to the PyLaia input height."""
+
+    line_path = tmp_path / "line_0.png"
+    save_image(line_path, size=(50, 25))
+    prepared = [
+        PreparedLineRecord(
+            sample_id="0001",
+            page_index=0,
+            page_stem="page_0001",
+            page_line_index=0,
+            letter_line_index=0,
+            xml_path=tmp_path / "x1.xml",
+            image_path=tmp_path / "x1.png",
+            crop_path=line_path.resolve(),
+            region_id="r1",
+            region_order=0,
+            textline_id="l1",
+            line_order=0,
+            source_text="line one",
+            bbox=(0, 0, 50, 25),
+        )
+    ]
+
+    resize_prepared_line_images(prepared, 128)
+
+    with Image.open(line_path) as image:
+        assert image.size == (256, 128)
 
 
 def test_filter_transcription_text_strips_oov_chars(tmp_path: Path):
