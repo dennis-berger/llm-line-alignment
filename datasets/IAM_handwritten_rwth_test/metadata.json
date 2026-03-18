@@ -3,7 +3,7 @@
   "split_url": "https://www.openslr.org/resources/56/splits.zip",
   "iam_root": "/Users/dennisberger/Documents/Privat/iam/data",
   "out_dir": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/IAM_handwritten_rwth_test",
-  "link_mode": "symlink",
+  "link_mode": "copy",
   "form_count": 336,
   "line_count": 2915,
   "status_counts": {

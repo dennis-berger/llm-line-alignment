@@ -60,6 +60,8 @@ python scripts/build_iam_rwth_dataset.py \
   --out-dir datasets/IAM_handwritten_rwth_test
 ```
 
+This builder defaults to `--link-mode copy`, so the resulting dataset does not depend on your local `../iam/data` paths.
+
 Smoke-test preparation:
 
 ```bash

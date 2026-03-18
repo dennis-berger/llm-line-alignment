@@ -234,7 +234,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--iam-root", default="../iam/data", help="Root of the extracted IAM data directory.")
     parser.add_argument("--split", choices=tuple(SPLIT_TO_FILENAME), default="test", help="RWTH split to materialize.")
     parser.add_argument("--out-dir", default="datasets/IAM_handwritten_rwth_test", help="Output dataset directory.")
-    parser.add_argument("--link-mode", choices=("symlink", "copy"), default="symlink", help="How to materialize images in the output dataset.")
+    parser.add_argument(
+        "--link-mode",
+        choices=("symlink", "copy"),
+        default="copy",
+        help="How to materialize images in the output dataset. Use copy for a portable dataset that works off-machine.",
+    )
     parser.add_argument("--split-url", default=SPLIT_URL, help="URL of the RWTH split zip archive.")
     parser.add_argument("--ids", default=None, help="Comma-separated form IDs or a file with one form ID per line.")
     parser.add_argument("--max-forms", type=int, default=None, help="Optional limit for smoke tests or debug builds.")

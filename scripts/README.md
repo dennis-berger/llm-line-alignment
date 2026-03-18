@@ -39,6 +39,8 @@ See [docs/ocr_pipeline.md](docs/ocr_pipeline.md) for technical details.
 
 Build an IAM dataset slice from the official RWTH split files used by the public PyLaia IAM checkpoint.
 
+The default `--link-mode copy` makes the dataset portable to another machine or cluster.
+
 ### Basic Usage
 
 ```bash

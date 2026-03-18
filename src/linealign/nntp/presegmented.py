@@ -30,7 +30,17 @@ def _discover_line_images(line_root: Path) -> list[Path]:
     paths: list[Path] = []
     for pattern in IMAGE_GLOBS:
         paths.extend(line_root.glob(pattern))
-    return sorted((path.resolve() for path in paths), key=_line_sort_key)
+    sorted_paths = sorted(paths, key=_line_sort_key)
+    for path in sorted_paths:
+        if path.is_symlink() and not path.exists():
+            target = path.readlink()
+            raise FileNotFoundError(
+                f"Broken presegmented line-image symlink: {path} -> {target}. "
+                "Rebuild the dataset with --link-mode copy or rerun the builder where the IAM source data is available."
+            )
+        if not path.exists():
+            raise FileNotFoundError(f"Missing presegmented line image: {path}")
+    return [path.resolve() for path in sorted_paths]
 
 
 def extract_prepared_lines_from_presegmented(
