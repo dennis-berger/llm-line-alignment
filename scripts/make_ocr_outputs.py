@@ -147,7 +147,7 @@ def main():
     ap.add_argument("--dataset", choices=[
         "bullinger_handwritten",
         "bullinger_print",
-        "easy_historical",
+        "washington_handwritten",
         "IAM_handwritten",
         "IAM_print",
         "children_handwritten",

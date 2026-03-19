@@ -8,45 +8,50 @@ This directory contains SLURM batch jobs for running line alignment evaluations 
 jobs/
 ├── README.md                     # This file
 ├── orchestrators/                # Master submission scripts
-│   ├── eval_all_0shot.sbatch    # Submit all zero-shot jobs (15 jobs)
-│   └── eval_all_1shot.sbatch    # Submit all 1-shot jobs (13 jobs)
+│   ├── eval_all_0shot.sbatch    # Submit all zero-shot jobs (18 jobs)
+│   ├── eval_all_1shot.sbatch    # Submit all 1-shot jobs (18 jobs)
+│   └── eval_all_2shot.sbatch    # Submit all 2-shot jobs (18 jobs)
 ├── eval/                         # Evaluation jobs organized by method
 │   ├── m1/                       # Method 1: Image + Transcription
 │   │   ├── bullinger_handwritten_0shot.sbatch
 │   │   ├── bullinger_handwritten_1shot.sbatch
 │   │   ├── bullinger_print_0shot.sbatch
-│   │   ├── easy_historical_0shot.sbatch
+│   │   ├── washington_handwritten_0shot.sbatch
 │   │   ├── iam_handwritten_0shot.sbatch
 │   │   ├── iam_handwritten_1shot.sbatch
 │   │   ├── iam_print_0shot.sbatch
-│   │   └── iam_print_1shot.sbatch
+│   │   ├── iam_print_1shot.sbatch
+│   │   └── ... 2-shot variants
 │   ├── m2/                       # Method 2: Image + Transcription + HTR
 │   │   ├── bullinger_handwritten_0shot.sbatch
 │   │   ├── bullinger_handwritten_1shot.sbatch
 │   │   ├── bullinger_print_0shot.sbatch
 │   │   ├── bullinger_print_1shot.sbatch
-│   │   ├── easy_historical_0shot.sbatch
-│   │   ├── easy_historical_1shot.sbatch
+│   │   ├── washington_handwritten_0shot.sbatch
+│   │   ├── washington_handwritten_1shot.sbatch
 │   │   ├── iam_handwritten_0shot.sbatch
 │   │   ├── iam_handwritten_1shot.sbatch
 │   │   ├── iam_print_0shot.sbatch
-│   │   └── iam_print_1shot.sbatch
+│   │   ├── iam_print_1shot.sbatch
+│   │   └── ... 2-shot variants
 │   ├── m3/                       # Method 3: Transcription + HTR (no images)
 │   │   ├── bullinger_handwritten_0shot.sbatch
 │   │   ├── bullinger_handwritten_1shot.sbatch
 │   │   ├── bullinger_print_0shot.sbatch
 │   │   ├── bullinger_print_1shot.sbatch
-│   │   ├── easy_historical_0shot.sbatch
-│   │   ├── easy_historical_1shot.sbatch
+│   │   ├── washington_handwritten_0shot.sbatch
+│   │   ├── washington_handwritten_1shot.sbatch
 │   │   ├── iam_handwritten_0shot.sbatch
 │   │   ├── iam_handwritten_1shot.sbatch
 │   │   ├── iam_print_0shot.sbatch
-│   │   └── iam_print_1shot.sbatch
+│   │   ├── iam_print_1shot.sbatch
+│   │   └── ... 2-shot variants
 │   └── nntp/                     # NNTP baselines
 │       ├── bullinger_handwritten.sbatch
 │       └── iam_handwritten.sbatch
 └── preprocessing/                # OCR/HTR generation jobs
-    ├── make_ocr_easy_historical.sbatch
+    ├── make_ocr_children_handwritten.sbatch
+    ├── make_ocr_washington_handwritten.sbatch
     ├── make_ocr_iam_handwritten.sbatch
     └── make_ocr_iam_print.sbatch
 ```
@@ -55,12 +60,12 @@ jobs/
 
 ### Submit All Jobs (Recommended)
 
-**Zero-shot evaluation (all 15 jobs):**
+**Zero-shot evaluation (all 18 jobs):**
 ```bash
 sbatch jobs/orchestrators/eval_all_0shot.sbatch
 ```
 
-**1-shot evaluation (all 13 jobs):**
+**1-shot evaluation (all 18 jobs):**
 ```bash
 sbatch jobs/orchestrators/eval_all_1shot.sbatch
 ```
@@ -71,7 +76,7 @@ sbatch jobs/orchestrators/eval_all_1shot.sbatch
 ```bash
 sbatch jobs/eval/m1/bullinger_handwritten_0shot.sbatch
 sbatch jobs/eval/m2/iam_handwritten_1shot.sbatch
-sbatch jobs/eval/m3/easy_historical_0shot.sbatch
+sbatch jobs/eval/m3/washington_handwritten_0shot.sbatch
 sbatch jobs/eval/nntp/bullinger_handwritten.sbatch
 sbatch jobs/eval/nntp/iam_handwritten.sbatch
 ```
@@ -93,22 +98,24 @@ sbatch jobs/eval/m3/iam_print_1shot.sbatch
 ### Method 1 (M1): Image + Transcription
 - **Input:** Page image(s) + correct transcription (no line breaks)
 - **Task:** Insert line breaks based on visual layout
-- **Datasets:** 5 (all datasets)
+- **Datasets:** 6 (all datasets)
 
 ### Method 2 (M2): Image + Transcription + HTR
 - **Input:** Page image(s) + correct transcription + HTR output
 - **Task:** Use HTR line breaks as hints while preserving correct text
-- **Datasets:** 5 (all datasets)
+- **Datasets:** 6 (all datasets)
 
 ### Method 3 (M3): Transcription + HTR (text-only)
 - **Input:** Correct transcription + HTR output (no images)
 - **Task:** Transfer line breaks from HTR to transcription
-- **Datasets:** 5 (all datasets)
+- **Datasets:** 6 (all datasets)
 
 ### NNTP Baseline: PyLaia + NNTP
 - **Input:** Correct transcription plus either PAGE XML line geometry or presegmented line images
 - **Task:** Prepare line images, generate CTC lattices with PyLaia, and align with NNTP
-- **Datasets:** 2 (`bullinger_handwritten`, `IAM_handwritten_rwth_test`)
+- **Datasets:** 2 scheduled jobs today (`bullinger_handwritten`, `IAM_handwritten_rwth_test`)
+
+`washington_handwritten` now also ships curated `line_images/` plus NNTP provenance files, so it is ready for local NNTP smoke tests even though no dedicated SLURM job is committed yet.
 
 Before running the IAM NNTP job, build the RWTH test dataset once:
 
@@ -178,7 +185,7 @@ Results are saved with dataset-specific naming for easy comparison:
 ### Zero-Shot (0-shot)
 - `bullinger_handwritten_eval_m1_0shot.csv` + `bullinger_handwritten_predictions_m1_0shot/`
 - `iam_print_eval_m2_0shot.csv` + `iam_print_predictions_m2_0shot/`
-- `easy_historical_eval_m3_0shot.csv` + `easy_historical_predictions_m3_0shot/`
+- `washington_handwritten_eval_m3_0shot.csv` + `washington_handwritten_predictions_m3_0shot/`
 
 ### 1-Shot
 - `bullinger_handwritten_eval_m1_1shot.csv` + `bullinger_handwritten_predictions_m1_1shot/`
@@ -192,7 +199,7 @@ NNTP baseline:
 This makes it easy to compare:
 - **Across shots**: `iam_print_eval_m2_0shot.csv` vs `iam_print_eval_m2_1shot.csv`
 - **Across methods**: `bullinger_handwritten_eval_m1_1shot.csv` vs `bullinger_handwritten_eval_m2_1shot.csv`
-- **Across datasets**: `iam_print_eval_m2_1shot.csv` vs `easy_historical_eval_m2_1shot.csv`
+- **Across datasets**: `iam_print_eval_m2_1shot.csv` vs `washington_handwritten_eval_m2_1shot.csv`
 
 ## Resource Allocation
 

@@ -1,0 +1,252 @@
+{
+  "source_dataset": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/washington_handwritten",
+  "allowed_statuses": [
+    "ok",
+    "needs_merge",
+    "needs_split",
+    "needs_reorder",
+    "redo_segmentation"
+  ],
+  "samples": [
+    {
+      "sample_id": "270",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 31,
+      "detected_line_count": 31,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/270.json",
+      "preview_paths": [
+        "previews/270/270_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "271",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 33,
+      "detected_line_count": 33,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/271.json",
+      "preview_paths": [
+        "previews/271/271_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "272",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 34,
+      "detected_line_count": 34,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/272.json",
+      "preview_paths": [
+        "previews/272/272_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "273",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 32,
+      "detected_line_count": 32,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/273.json",
+      "preview_paths": [
+        "previews/273/273_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "274",
+      "status": "ok",
+      "notes": "",
+      "gt_line_count": 34,
+      "detected_line_count": 34,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/274.json",
+      "preview_paths": [
+        "previews/274/274_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "275",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 33,
+      "detected_line_count": 33,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/275.json",
+      "preview_paths": [
+        "previews/275/275_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "276",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 33,
+      "detected_line_count": 33,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/276.json",
+      "preview_paths": [
+        "previews/276/276_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "277",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 33,
+      "detected_line_count": 33,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/277.json",
+      "preview_paths": [
+        "previews/277/277_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "278",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 32,
+      "detected_line_count": 32,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/278.json",
+      "preview_paths": [
+        "previews/278/278_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "279",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 30,
+      "detected_line_count": 30,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/279.json",
+      "preview_paths": [
+        "previews/279/279_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "300",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 32,
+      "detected_line_count": 32,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/300.json",
+      "preview_paths": [
+        "previews/300/300_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "301",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 34,
+      "detected_line_count": 34,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/301.json",
+      "preview_paths": [
+        "previews/301/301_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "302",
+      "status": "ok",
+      "notes": "",
+      "gt_line_count": 34,
+      "detected_line_count": 34,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/302.json",
+      "preview_paths": [
+        "previews/302/302_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "303",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 34,
+      "detected_line_count": 34,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/303.json",
+      "preview_paths": [
+        "previews/303/303_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "304",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 34,
+      "detected_line_count": 34,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/304.json",
+      "preview_paths": [
+        "previews/304/304_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "305",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 34,
+      "detected_line_count": 34,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/305.json",
+      "preview_paths": [
+        "previews/305/305_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "306",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 33,
+      "detected_line_count": 33,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/306.json",
+      "preview_paths": [
+        "previews/306/306_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "307",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 31,
+      "detected_line_count": 31,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/307.json",
+      "preview_paths": [
+        "previews/307/307_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "308",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 33,
+      "detected_line_count": 33,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/308.json",
+      "preview_paths": [
+        "previews/308/308_overlay.png"
+      ]
+    },
+    {
+      "sample_id": "309",
+      "status": "ok",
+      "notes": "Curated from raw Washington crops using reviewed merge/drop groups.",
+      "gt_line_count": 32,
+      "detected_line_count": 32,
+      "detected_minus_gt": 0,
+      "metadata_path": "metadata/309.json",
+      "preview_paths": [
+        "previews/309/309_overlay.png"
+      ]
+    }
+  ]
+}

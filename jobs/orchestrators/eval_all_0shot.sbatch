@@ -18,7 +18,7 @@
 #
 # To cancel all submitted jobs:
 #   scancel -u $USER -n bullinger_*
-#   scancel -u $USER -n easy_historical_*
+#   scancel -u $USER -n washington_handwritten_*
 #   scancel -u $USER -n iam_*
 # ==============================================================================
 
@@ -83,12 +83,12 @@ job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/bulli
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/bullinger_print_0shot.sbatch"))
 
 # ------------------------------------------------------------------------------
-# Dataset: easy_historical
+# Dataset: washington_handwritten
 # ------------------------------------------------------------------------------
-echo "Submitting easy_historical jobs..."
-job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/easy_historical_0shot.sbatch"))
-job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/easy_historical_0shot.sbatch"))
-job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/easy_historical_0shot.sbatch"))
+echo "Submitting washington_handwritten jobs..."
+job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/washington_handwritten_0shot.sbatch"))
+job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/washington_handwritten_0shot.sbatch"))
+job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/washington_handwritten_0shot.sbatch"))
 
 # ------------------------------------------------------------------------------
 # Dataset: children_handwritten

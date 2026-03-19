@@ -17,9 +17,24 @@ datasets/<dataset_name>/
 │   │   ├── page_1.jpg
 │   │   └── ...
 │   └── ...
-└── ocr/                  # HTR/OCR output (generated)
-    ├── 0001.txt
-    └── ...
+├── ocr/                  # HTR/OCR output (generated)
+│   ├── 0001.txt
+│   └── ...
+├── line_images/          # Optional presegmented line images for NNTP/OCR
+│   ├── 0001/
+│   │   ├── 0001_line000.png
+│   │   └── ...
+│   └── ...
+├── metadata/             # Optional per-sample NNTP provenance
+│   ├── 0001.json
+│   └── ...
+├── previews/             # Optional overlay previews for line review
+│   ├── 0001/
+│   │   ├── 0001_overlay.png
+│   │   └── ...
+│   └── ...
+├── metadata.json         # Optional dataset-level NNTP manifest
+└── review_status.json    # Optional review status manifest
 ```
 
 ## Directory Descriptions
@@ -28,15 +43,20 @@ datasets/<dataset_name>/
 - **`transcription/`** - Correct text without line breaks (input to methods)
 - **`images/`** - Page images (required for M1/M2, not used in M3)
 - **`ocr/`** - Generated HTR output with line breaks (required for M2/M3)
+- **`line_images/`** - Optional curated line crops for presegmented OCR or NNTP
+- **`metadata/`, `metadata.json`** - Optional NNTP provenance and bounding-box manifests
+- **`previews/`, `review_status.json`** - Optional visual review artifacts for curated line images
 
 ## Available Datasets
 
 - **`bullinger_handwritten/`** - Historical handwritten letters (16th century)
 - **`bullinger_print/`** - Historical printed texts
-- **`easy_historical/`** - Easier historical handwriting
+- **`washington_handwritten/`** - Easier historical handwriting
 - **`IAM_handwritten/`** - Modern English handwriting (IAM dataset)
 - **`IAM_print/`** - Modern printed text (IAM dataset)
 - **`children_handwritten/`** - Children's handwriting
+
+`washington_handwritten/` also ships curated `line_images/` plus NNTP review/provenance metadata.
 
 ## Generating OCR
 
@@ -62,6 +82,7 @@ See [scripts/README.md](scripts/README.md) for details.
 - Must be consistent across all subdirectories
 - Images: `page_1.jpg`, `page_2.jpg`, etc. for multi-page documents
 - UTF-8 encoding required for text files
+- Optional NNTP assets follow the same sample IDs under `line_images/`, `metadata/`, and `previews/`
 
 ## Related Documentation
 

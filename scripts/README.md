@@ -31,7 +31,8 @@ python scripts/make_ocr_outputs.py --dataset bullinger_print --recognizer trocr_
 
 Creates `ocr/<id>.txt` and optional `ocr/<id>.meta.json` in dataset directory.
 
-For IAM datasets that include `line_images/`, the script automatically switches to
+For datasets that include `line_images/`, the script can reuse those presegmented crops with
+`--segmenter none --existing-lines-dir ...`. For IAM handwritten datasets, it automatically switches to
 `--segmenter none` and `--recognizer pylaia_iam` unless you override those flags.
 
 See [docs/ocr_pipeline.md](docs/ocr_pipeline.md) for technical details.
@@ -70,6 +71,78 @@ Creates a dataset with:
 - **`images/`** - form images
 - **`line_images/`** - presegmented IAM line images for NNTP
 - **`metadata.json`** - per-form and per-line provenance/status metadata
+
+---
+
+## build_washington_handwritten_nntp_dataset.py
+
+Build a scratch Washington NNTP workspace with raw Kraken line-image crops for manual review.
+
+This script keeps the canonical dataset untouched and materializes a separate workspace that contains:
+
+- copied or symlinked `gt/`, `transcription/`, `ocr/`, and `images/`
+- auto-segmented `line_images/`
+- per-sample metadata under `metadata/`
+- overlay previews under `previews/`
+- a review template in `review_status.json`
+
+### Basic Usage
+
+```bash
+# Build a full scratch workspace from the canonical dataset
+python scripts/build_washington_handwritten_nntp_dataset.py \
+  --source-dir datasets/washington_handwritten \
+  --out-dir /tmp/washington_handwritten_nntp
+
+# Rebuild a small subset
+python scripts/build_washington_handwritten_nntp_dataset.py \
+  --source-dir datasets/washington_handwritten \
+  --ids 270,271 \
+  --out-dir /tmp/washington_handwritten_nntp \
+  --overwrite
+```
+
+### Output
+
+Creates a dataset with:
+
+- **`gt/`**, **`transcription/`**, **`ocr/`**, **`images/`** - materialized source inputs
+- **`line_images/`** - raw no-merge Kraken crops in reading order
+- **`metadata/`** - one JSON file per page/sample with crop order and bounding boxes
+- **`previews/`** - overlay images with crop boxes and line indices
+- **`metadata.json`** - dataset-wide manifest
+- **`review_status.json`** - template for manual verification statuses
+
+---
+
+## curate_washington_handwritten_nntp_dataset.py
+
+Curate a Washington NNTP workspace so the final `line_images/` count matches the GT line count exactly.
+
+This script preserves the raw workspace artifacts before rewriting the curated ones:
+
+- raw crops move to `line_images_raw/`
+- raw previews move to `previews_raw/`
+- raw metadata is preserved in `metadata_raw/`, `metadata_raw.json`, and `review_status_raw.json`
+- curated crops, previews, and manifests replace `line_images/`, `previews/`, `metadata/`, `metadata.json`, and `review_status.json`
+
+### Basic Usage
+
+```bash
+python scripts/curate_washington_handwritten_nntp_dataset.py \
+  --data-dir /tmp/washington_handwritten_nntp
+```
+
+### Output
+
+Creates a curated dataset where:
+
+- **`line_images/`** contains one crop per GT line
+- **`line_images_raw/`** preserves the original no-merge Kraken output
+- **`metadata.json`** reflects the curated line set
+- **`review_status.json`** marks the curated Washington pages as ready for NNTP use
+
+The committed canonical dataset already lives at `datasets/washington_handwritten/`. Use the builder/curator only when you want to reproduce or rework that curation in a scratch workspace.
 
 ---
 
@@ -147,7 +220,7 @@ Located in `scripts/` and `utils/`:
 
 - **`convert_iam_dataset.py`** - Convert IAM database to project format
 - **`build_iam_rwth_dataset.py`** - Build the RWTH IAM form split used by the NNTP baseline
-- **`convert_easy_hist_gt.py`** - Convert easy_historical ground truth
+- **`convert_washington_gt.py`** - Convert washington_handwritten ground truth
 - **`copy_pages_to_images.py`** - Organize page images
 
 ---

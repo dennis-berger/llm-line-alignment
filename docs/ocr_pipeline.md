@@ -26,7 +26,7 @@ python scripts/make_ocr_outputs.py \
 ```
 
 Key flags:
-- `--dataset`: one of bullinger_handwritten, bullinger_print, easy_historical, IAM_handwritten, IAM_print.
+- `--dataset`: one of bullinger_handwritten, bullinger_print, washington_handwritten, IAM_handwritten, IAM_print.
 - `--data-dir`: root containing gt/, images/, transcription/, ocr/ (defaults to datasets/<dataset>).
 - `--ids`: comma list or file of IDs to process; defaults to all IDs in gt/ (fallback: transcription/).
 - `--segmenter`: `kraken` (default) or `none` (uses pre-segmented lines or full page as one line).
@@ -43,7 +43,7 @@ Key flags:
 - Paths are unified: `<data-dir>/ocr/<id>.txt` for every dataset.
 - IDs:
   - Bullinger (handwritten/print): `<id>` is a letter; may span multiple page images under `images/<id>/`.
-  - easy_historical: treat `<id>` as a single page (e.g., `270`).
+  - washington_handwritten: treat `<id>` as a single page (e.g., `270`).
   - IAM (handwritten/print): `<id>` is a form/page ID.
 - IAM handwritten with `line_images/`: if `--segmenter` and `--recognizer` are not given, the script defaults to `--segmenter none` plus `--recognizer pylaia_iam`.
 - Multi-page outputs: pages concatenate in order with a blank line between pages.
@@ -57,9 +57,9 @@ Key flags:
   ```bash
   python scripts/make_ocr_outputs.py --dataset bullinger_print --recognizer trocr_printed
   ```
-- Easy historical, limit to 2 IDs on CPU:
+- Washington handwritten, limit to 2 IDs on CPU:
   ```bash
-  python scripts/make_ocr_outputs.py --dataset easy_historical --device cpu --ids "270,271" --max-pages 1
+  python scripts/make_ocr_outputs.py --dataset washington_handwritten --device cpu --ids "270,271" --max-pages 1
   ```
 - IAM handwritten RWTH subset with PyLaia and official line images:
   ```bash

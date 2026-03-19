@@ -61,7 +61,7 @@ declare -a job_ids
 echo "Submitting Method 1 (2-shot) jobs..."
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/bullinger_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/bullinger_print_2shot.sbatch"))
-job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/easy_historical_2shot.sbatch"))
+job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/washington_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/children_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/iam_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/iam_print_2shot.sbatch"))
@@ -72,7 +72,7 @@ job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m1/iam_p
 echo "Submitting Method 2 (2-shot) jobs..."
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/bullinger_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/bullinger_print_2shot.sbatch"))
-job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/easy_historical_2shot.sbatch"))
+job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/washington_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/children_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/iam_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/iam_print_2shot.sbatch"))
@@ -83,7 +83,7 @@ job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m2/iam_p
 echo "Submitting Method 3 (2-shot) jobs..."
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/bullinger_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/bullinger_print_2shot.sbatch"))
-job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/easy_historical_2shot.sbatch"))
+job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/washington_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/children_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/iam_handwritten_2shot.sbatch"))
 job_ids+=($(sbatch --parsable --export="$SBATCH_EXPORT" "$JOBS_DIR/eval/m3/iam_print_2shot.sbatch"))

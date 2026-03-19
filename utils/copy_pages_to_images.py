@@ -6,7 +6,7 @@ to:
     <dataset_root>/images/<page_id>/<page_id>.<ext>
 
 Usage:
-    python copy_pages_to_images.py datasets/easy_historical
+    python copy_pages_to_images.py datasets/washington_handwritten
 """
 
 import os
