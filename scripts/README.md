@@ -170,6 +170,43 @@ python scripts/summarize_macro_avgs.py --glob "*gpt-5.2.csv"
 
 ---
 
+## build_washington_pylaia_manifests.py
+
+Build deterministic Washington 2-fold CV manifests for PyLaia fine-tuning.
+
+This script reads the canonical `datasets/washington_handwritten/line_images/` and `gt/` pairs, validates them against `third_party/pylaia-iam/syms.txt`, and writes:
+
+- user-facing `train.tsv` / `val.tsv` with absolute image paths and GT text
+- PyLaia-native `train.txt` / `val.txt` / `test.txt`
+- disjoint page ID lists for `train`, `val`, and `test`
+- one `manifest_meta.json` per fold plus a top-level summary
+
+### Basic Usage
+
+```bash
+# Build both CV folds
+python scripts/build_washington_pylaia_manifests.py
+
+# Rebuild only fold A
+python scripts/build_washington_pylaia_manifests.py --fold train_a
+```
+
+### Output
+
+Creates fold directories under `outputs/manifests/washington_handwritten_pylaia_cv/`:
+
+- **`train_a/`**
+- **`train_b/`**
+
+Each fold directory contains:
+
+- **`train.tsv`**, **`val.tsv`** - absolute-path TSV manifests
+- **`train.txt`**, **`val.txt`**, **`test.txt`** - PyLaia text tables
+- **`train_ids.txt`**, **`val_ids.txt`**, **`test_ids.txt`** - page/sample IDs
+- **`manifest_meta.json`** - split counts and fold metadata
+
+---
+
 ## run_nntp_eval.py
 
 Run the NNTP baseline using either local PAGE XML crops or presegmented line images.
@@ -214,14 +251,32 @@ See [docs/nntp_pipeline.md](docs/nntp_pipeline.md) for stage details and caveats
 
 ---
 
+## summarize_washington_nntp_cv.py
+
+Summarize the two Washington NNTP fold evaluation CSVs into one 3-row CSV.
+
+### Basic Usage
+
+```bash
+python scripts/summarize_washington_nntp_cv.py
+```
+
+### Output
+
+- **`washington_handwritten_eval_nntp_cv_macro.csv`** - rows for `train_a_test_b`, `train_b_test_a`, and `macro_avg`
+
+---
+
 ## Additional Utilities
 
 Located in `scripts/` and `utils/`:
 
 - **`convert_iam_dataset.py`** - Convert IAM database to project format
 - **`build_iam_rwth_dataset.py`** - Build the RWTH IAM form split used by the NNTP baseline
+- **`build_washington_pylaia_manifests.py`** - Build Washington PyLaia 2-fold CV manifests
 - **`convert_washington_gt.py`** - Convert washington_handwritten ground truth
 - **`copy_pages_to_images.py`** - Organize page images
+- **`summarize_washington_nntp_cv.py`** - Combine the two Washington NNTP fold CSVs into one macro summary
 
 ---
 

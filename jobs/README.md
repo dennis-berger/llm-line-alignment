@@ -48,7 +48,12 @@ jobs/
 │   │   └── ... 2-shot variants
 │   └── nntp/                     # NNTP baselines
 │       ├── bullinger_handwritten.sbatch
-│       └── iam_handwritten.sbatch
+│       ├── iam_handwritten.sbatch
+│       └── washington_handwritten.sbatch
+├── training/                     # Training / fine-tuning jobs
+│   ├── build_cvl_faust_manifest.sbatch
+│   ├── train_trocr_cvl_faust.sbatch
+│   └── train_washington_handwritten_pylaia_cv.sbatch
 └── preprocessing/                # OCR/HTR generation jobs
     ├── make_ocr_children_handwritten.sbatch
     ├── make_ocr_washington_handwritten.sbatch
@@ -79,6 +84,7 @@ sbatch jobs/eval/m2/iam_handwritten_1shot.sbatch
 sbatch jobs/eval/m3/washington_handwritten_0shot.sbatch
 sbatch jobs/eval/nntp/bullinger_handwritten.sbatch
 sbatch jobs/eval/nntp/iam_handwritten.sbatch
+sbatch jobs/eval/nntp/washington_handwritten.sbatch
 ```
 
 **All jobs for one method:**
@@ -113,9 +119,9 @@ sbatch jobs/eval/m3/iam_print_1shot.sbatch
 ### NNTP Baseline: PyLaia + NNTP
 - **Input:** Correct transcription plus either PAGE XML line geometry or presegmented line images
 - **Task:** Prepare line images, generate CTC lattices with PyLaia, and align with NNTP
-- **Datasets:** 2 scheduled jobs today (`bullinger_handwritten`, `IAM_handwritten_rwth_test`)
+- **Datasets:** 3 scheduled jobs today (`bullinger_handwritten`, `IAM_handwritten_rwth_test`, `washington_handwritten`)
 
-`washington_handwritten` now also ships curated `line_images/` plus NNTP provenance files, so it is ready for local NNTP smoke tests even though no dedicated SLURM job is committed yet.
+Washington uses curated presegmented `line_images/` plus the explicit IAM PyLaia assets from `third_party/pylaia-iam`.
 
 Before running the IAM NNTP job, build the RWTH test dataset once:
 
@@ -124,6 +130,19 @@ python scripts/build_iam_rwth_dataset.py \
   --iam-root ../iam/data \
   --split test \
   --out-dir datasets/IAM_handwritten_rwth_test
+```
+
+Washington zero-adaptation NNTP baseline:
+
+```bash
+sbatch jobs/eval/nntp/washington_handwritten.sbatch
+```
+
+Washington PyLaia 2-fold fine-tuning plus opposite-fold NNTP evaluation:
+
+```bash
+TRAIN_FOLD=train_a sbatch jobs/training/train_washington_handwritten_pylaia_cv.sbatch
+TRAIN_FOLD=train_b sbatch jobs/training/train_washington_handwritten_pylaia_cv.sbatch
 ```
 
 ## Few-Shot Configuration

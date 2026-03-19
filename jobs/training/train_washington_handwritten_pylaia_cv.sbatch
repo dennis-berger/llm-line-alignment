@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=iam_nntp
+#SBATCH --job-name=washington_pylaia_cv
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --error=logs/%x_%j.err
-#SBATCH --time=04:00:00
+#SBATCH --time=12:00:00
 #SBATCH --partition=GPU
 #SBATCH --gres=gpu:1
 #SBATCH --exclude=diufrd205
@@ -26,9 +26,8 @@ eval "$(conda shell.bash hook)"
 
 REPO_ROOT="${REPO_ROOT:-${SLURM_SUBMIT_DIR:-$PWD}}"
 cd "$REPO_ROOT"
-if [ ! -f "scripts/run_nntp_eval.py" ]; then
-  echo "ERROR: could not find scripts/run_nntp_eval.py in REPO_ROOT='$REPO_ROOT'"
-  echo "Submit the job from the repository root or pass REPO_ROOT=/absolute/path/to/llm-line-alignment"
+if [ ! -f "scripts/build_washington_pylaia_manifests.py" ]; then
+  echo "ERROR: could not find scripts/build_washington_pylaia_manifests.py in REPO_ROOT='$REPO_ROOT'"
   exit 1
 fi
 mkdir -p logs
@@ -147,39 +146,67 @@ then
   exit 1
 fi
 
-if ! command -v java >/dev/null 2>&1 || ! command -v javac >/dev/null 2>&1; then
-  echo "Installing OpenJDK into '$CONDA_ENV_NAME' because java/javac are missing..."
-  "$CONDA_INSTALL_BIN" install -y -c conda-forge openjdk
-  hash -r
+if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-train-ctc --help >/dev/null 2>&1; then
+  echo "ERROR: pylaia-htr-train-ctc is unavailable in '$PYLAIA_CONDA_ENV'."
+  exit 1
 fi
-if ! command -v java >/dev/null 2>&1 || ! command -v javac >/dev/null 2>&1; then
-  echo "ERROR: java and javac are still unavailable after installing OpenJDK."
+if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-dataset-validate --help >/dev/null 2>&1; then
+  echo "ERROR: pylaia-htr-dataset-validate is unavailable in '$PYLAIA_CONDA_ENV'."
   exit 1
 fi
 
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-
-which python
-python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
-echo "Using PyLaia module runner from env: $PYLAIA_CONDA_ENV"
-java -version || true
-javac -version || true
-
-DATA_DIR="${DATA_DIR:-datasets/IAM_handwritten_rwth_test}"
-WORK_DIR="${WORK_DIR:-outputs/nntp/IAM_handwritten_rwth_test}"
+DATA_DIR="${DATA_DIR:-datasets/washington_handwritten}"
+MANIFEST_OUT_DIR="${MANIFEST_OUT_DIR:-outputs/manifests/washington_handwritten_pylaia_cv}"
+TRAIN_FOLD="${TRAIN_FOLD:-train_a}"
 PYLAIA_ROOT="${PYLAIA_ROOT:-third_party/pylaia-iam}"
+PYLAIA_MODEL="${PYLAIA_MODEL:-$PYLAIA_ROOT/model}"
 PYLAIA_CHECKPOINT="${PYLAIA_CHECKPOINT:-$PYLAIA_ROOT/weights.ckpt}"
 PYLAIA_SYMS="${PYLAIA_SYMS:-$PYLAIA_ROOT/syms.txt}"
-NNTP_ROOT="${NNTP_ROOT:-../nntp}"
-PRED_DIR="${PRED_DIR:-iam_handwritten_rwth_test_predictions_nntp}"
-EVAL_CSV="${EVAL_CSV:-iam_handwritten_rwth_test_eval_nntp.csv}"
-STOP_AFTER="${STOP_AFTER:-evaluate}"
-PREPARE_MODE="${PREPARE_MODE:-auto}"
-IDS="${IDS:-}"
-OVERWRITE="${OVERWRITE:-0}"
-PYLAIA_GPUS="${PYLAIA_GPUS:-0}"
+OUTPUT_ROOT="${OUTPUT_ROOT:-outputs/pylaia}"
+EXPERIMENT_DIR="${EXPERIMENT_DIR:-$OUTPUT_ROOT/washington_handwritten_${TRAIN_FOLD}}"
+TRAIN_OVERWRITE="${TRAIN_OVERWRITE:-0}"
+RUN_EVAL="${RUN_EVAL:-1}"
+RUN_SUMMARY="${RUN_SUMMARY:-1}"
+EVAL_STOP_AFTER="${EVAL_STOP_AFTER:-evaluate}"
+EVAL_OVERWRITE="${EVAL_OVERWRITE:-0}"
+MAX_EPOCHS="${MAX_EPOCHS:-200}"
+BATCH_SIZE="${BATCH_SIZE:-8}"
+EARLY_STOPPING_PATIENCE="${EARLY_STOPPING_PATIENCE:-40}"
+CHECKPOINT_K="${CHECKPOINT_K:-1}"
+PYLAIA_GPUS="${PYLAIA_GPUS:-1}"
 PYLAIA_AUTO_SELECT_GPUS="${PYLAIA_AUTO_SELECT_GPUS:-0}"
 PYLAIA_NUM_WORKERS="${PYLAIA_NUM_WORKERS:-6}"
+
+if [ "$TRAIN_FOLD" != "train_a" ] && [ "$TRAIN_FOLD" != "train_b" ]; then
+  echo "ERROR: TRAIN_FOLD must be train_a or train_b, got '$TRAIN_FOLD'"
+  exit 1
+fi
+
+python scripts/build_washington_pylaia_manifests.py \
+  --data-dir "$DATA_DIR" \
+  --out-dir "$MANIFEST_OUT_DIR" \
+  --syms "$PYLAIA_SYMS" \
+  --fold "$TRAIN_FOLD"
+
+MANIFEST_DIR="$MANIFEST_OUT_DIR/$TRAIN_FOLD"
+TRAIN_TXT="$MANIFEST_DIR/train.txt"
+VAL_TXT="$MANIFEST_DIR/val.txt"
+TEST_TXT="$MANIFEST_DIR/test.txt"
+TEST_IDS_PATH="$MANIFEST_DIR/test_ids.txt"
+
+PYLAIA_IMAGE_HEIGHT="$(python - <<PY
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path("$REPO_ROOT") / "src"))
+from linealign.nntp import infer_pylaia_input_height
+
+height = infer_pylaia_input_height(Path("$PYLAIA_MODEL"))
+if height is None:
+    raise SystemExit("Could not infer PyLaia input height from model")
+print(height)
+PY
+)"
+echo "Using PyLaia input height: $PYLAIA_IMAGE_HEIGHT"
 
 PYLAIA_TORCH_INFO="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
 import json
@@ -205,105 +232,100 @@ print(1 if torch.cuda.is_available() else 0)
 PY
 )"
 if [ "$PYLAIA_GPUS" -gt 0 ] && [ "$PYLAIA_CUDA_AVAILABLE" != "1" ]; then
-  echo "WARNING: PyLaia environment cannot see CUDA. Falling back to CPU netout."
+  echo "WARNING: PyLaia environment cannot see CUDA. Falling back to CPU training."
   PYLAIA_GPUS=0
   PYLAIA_AUTO_SELECT_GPUS=0
 fi
 if [ "$PYLAIA_GPUS" -eq 0 ]; then
   PYLAIA_AUTO_SELECT_GPUS=0
 fi
-echo "PyLaia runtime settings: gpus=$PYLAIA_GPUS auto_select_gpus=$PYLAIA_AUTO_SELECT_GPUS num_workers=$PYLAIA_NUM_WORKERS"
+echo "PyLaia training settings: fold=$TRAIN_FOLD gpus=$PYLAIA_GPUS auto_select_gpus=$PYLAIA_AUTO_SELECT_GPUS num_workers=$PYLAIA_NUM_WORKERS"
 
-PYLAIA_RUNTIME_ROOT="$WORK_DIR/pylaia_runtime"
-mkdir -p "$PYLAIA_RUNTIME_ROOT"
-cp "$PYLAIA_SYMS" "$PYLAIA_RUNTIME_ROOT/syms.txt"
-"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<PY
-import torch
-from pathlib import Path
-
-src_model = Path(r"$PYLAIA_ROOT") / "model"
-dst_model = Path(r"$PYLAIA_RUNTIME_ROOT") / "model"
-checkpoint_path = Path(r"$PYLAIA_CHECKPOINT")
-
-model_obj = torch.load(src_model, map_location="cpu", weights_only=False)
-checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
-state_dict = checkpoint.get("state_dict", checkpoint)
-
-linear_weight = state_dict.get("model.linear.weight")
-if linear_weight is None:
-    linear_weight = state_dict["linear.weight"]
-
-checkpoint_outputs = int(linear_weight.shape[0])
-current_outputs = int(model_obj["kwargs"]["num_output_labels"])
-if current_outputs != checkpoint_outputs:
-    print(f"Patching PyLaia model num_output_labels: {current_outputs} -> {checkpoint_outputs}")
-    model_obj["kwargs"]["num_output_labels"] = checkpoint_outputs
-else:
-    print(f"PyLaia model already matches checkpoint outputs: {current_outputs}")
-
-torch.save(model_obj, dst_model)
-PY
-PYLAIA_ROOT="$PYLAIA_RUNTIME_ROOT"
-PYLAIA_SYMS="$PYLAIA_RUNTIME_ROOT/syms.txt"
-
-WRAPPER_DIR="$WORK_DIR/job-bin"
-mkdir -p "$WRAPPER_DIR"
-cat > "$WRAPPER_DIR/run_pylaia_netout.py" <<'EOF'
-import os
-import sys
-
-from laia.scripts.htr import common_main
-from laia.scripts.htr.netout import get_args, run
-
-
-def main() -> None:
-    args = get_args(sys.argv[1:])
-    args = common_main(args)
-    args["num_workers"] = int(os.environ.get("PYLAIA_NUM_WORKERS", "6"))
-    run(**args)
-
-
-if __name__ == "__main__":
-    main()
-EOF
-cat > "$WRAPPER_DIR/pylaia-htr-netout" <<EOF
-#!/bin/bash
-exec "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" env PYLAIA_NUM_WORKERS="$PYLAIA_NUM_WORKERS" python "$WRAPPER_DIR/run_pylaia_netout.py" "\$@"
-EOF
-chmod +x "$WRAPPER_DIR/pylaia-htr-netout"
-export PATH="$WRAPPER_DIR:$PATH"
-which pylaia-htr-netout
-
-EXTRA_ARGS=(
-  --data-dir "$DATA_DIR"
-  --work-dir "$WORK_DIR"
-  --prepare-mode "$PREPARE_MODE"
-  --pylaia-root "$PYLAIA_ROOT"
-  --pylaia-checkpoint "$PYLAIA_CHECKPOINT"
-  --pylaia-syms "$PYLAIA_SYMS"
-  --nntp-root "$NNTP_ROOT"
-  --pylaia-gpus "$PYLAIA_GPUS"
-  --pred-dir "$PRED_DIR"
-  --eval-csv "$EVAL_CSV"
-  --stop-after "$STOP_AFTER"
-)
-
-if [ -n "$IDS" ]; then
-  EXTRA_ARGS+=(--ids "$IDS")
+if [ "$TRAIN_OVERWRITE" = "1" ]; then
+  rm -rf "$EXPERIMENT_DIR"
 fi
-if [ "$PYLAIA_AUTO_SELECT_GPUS" = "1" ]; then
-  EXTRA_ARGS+=(--pylaia-auto-select-gpus)
-fi
-if [ "$OVERWRITE" = "1" ]; then
-  EXTRA_ARGS+=(--overwrite)
+mkdir -p "$EXPERIMENT_DIR"
+
+if [ -f "$EXPERIMENT_DIR/best.ckpt" ]; then
+  echo "Reusing existing trained checkpoint: $EXPERIMENT_DIR/best.ckpt"
+else
+  if find "$EXPERIMENT_DIR" -mindepth 1 -maxdepth 1 | read -r _; then
+    echo "ERROR: Experiment dir $EXPERIMENT_DIR already exists without best.ckpt. Inspect it or rerun with TRAIN_OVERWRITE=1."
+    exit 1
+  fi
+
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-dataset-validate \
+    "$PYLAIA_SYMS" \
+    "$DATA_DIR" \
+    "$TRAIN_TXT" \
+    "$VAL_TXT" \
+    "$TEST_TXT" \
+    --fixed_input_height "$PYLAIA_IMAGE_HEIGHT" \
+    --statistics_output "$EXPERIMENT_DIR/dataset_statistics.md"
+
+  TRAIN_ARGS=(
+    "$PYLAIA_SYMS"
+    "$DATA_DIR"
+    "$TRAIN_TXT"
+    "$VAL_TXT"
+    --fixed_input_height "$PYLAIA_IMAGE_HEIGHT"
+    --common.experiment_dirname "$EXPERIMENT_DIR"
+    --common.model_filename "$PYLAIA_MODEL"
+    --common.checkpoint "$PYLAIA_CHECKPOINT"
+    --train.pretrain true
+    --data.batch_size "$BATCH_SIZE"
+    --data.num_workers "$PYLAIA_NUM_WORKERS"
+    --trainer.max_epochs "$MAX_EPOCHS"
+    --train.early_stopping_patience "$EARLY_STOPPING_PATIENCE"
+    --train.checkpoint_k "$CHECKPOINT_K"
+    --trainer.gpus "$PYLAIA_GPUS"
+  )
+  if [ "$PYLAIA_AUTO_SELECT_GPUS" = "1" ]; then
+    TRAIN_ARGS+=(--trainer.auto_select_gpus true)
+  fi
+
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-train-ctc "${TRAIN_ARGS[@]}"
+
+  BEST_CKPT="$(find "$EXPERIMENT_DIR" -type f -name '*.ckpt' ! -name 'last.ckpt' ! -path '*/pretrained/*' | sort | head -n 1)"
+  if [ -z "$BEST_CKPT" ]; then
+    BEST_CKPT="$(find "$EXPERIMENT_DIR" -type f -name 'last.ckpt' | sort | head -n 1)"
+  fi
+  if [ -z "$BEST_CKPT" ]; then
+    echo "ERROR: No checkpoint produced under $EXPERIMENT_DIR"
+    exit 1
+  fi
+  cp "$BEST_CKPT" "$EXPERIMENT_DIR/best.ckpt"
 fi
 
-python scripts/run_nntp_eval.py "${EXTRA_ARGS[@]}"
+BEST_CKPT="$EXPERIMENT_DIR/best.ckpt"
 
-PYTHON_EXIT=$?
-if [ "$PYTHON_EXIT" -ne 0 ]; then
-  echo "Python script failed with exit code $PYTHON_EXIT"
-  exit "$PYTHON_EXIT"
+if [ "$TRAIN_FOLD" = "train_a" ]; then
+  FOLD_RESULT_STEM="train_a_test_b"
+else
+  FOLD_RESULT_STEM="train_b_test_a"
+fi
+
+if [ "$RUN_EVAL" = "1" ]; then
+  export DATA_DIR="$DATA_DIR"
+  export WORK_DIR="outputs/nntp/washington_handwritten_${FOLD_RESULT_STEM}"
+  export PYLAIA_ROOT="$PYLAIA_ROOT"
+  export PYLAIA_CHECKPOINT="$BEST_CKPT"
+  export PYLAIA_SYMS="$PYLAIA_SYMS"
+  export PREPARE_MODE="presegmented"
+  export PRED_DIR="washington_handwritten_predictions_nntp_${FOLD_RESULT_STEM}"
+  export EVAL_CSV="washington_handwritten_eval_nntp_${FOLD_RESULT_STEM}.csv"
+  export STOP_AFTER="$EVAL_STOP_AFTER"
+  export IDS="$TEST_IDS_PATH"
+  export OVERWRITE="$EVAL_OVERWRITE"
+  bash "$REPO_ROOT/jobs/eval/nntp/washington_handwritten.sbatch"
+
+  if [ "$RUN_SUMMARY" = "1" ] && [ "$EVAL_STOP_AFTER" = "evaluate" ]; then
+    if [ -f "$REPO_ROOT/washington_handwritten_eval_nntp_train_a_test_b.csv" ] && [ -f "$REPO_ROOT/washington_handwritten_eval_nntp_train_b_test_a.csv" ]; then
+      python scripts/summarize_washington_nntp_cv.py
+    else
+      echo "Skipping CV summary because both fold CSVs are not available yet."
+    fi
+  fi
 fi
 
 echo "Done."
