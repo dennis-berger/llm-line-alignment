@@ -46,6 +46,15 @@ jobs/
 │   │   ├── iam_print_0shot.sbatch
 │   │   ├── iam_print_1shot.sbatch
 │   │   └── ... 2-shot variants
+│   ├── m4/                       # Method 4: PyLaia-guided LLM alignment
+│   │   ├── common_m4_eval.sbatch
+│   │   ├── bullinger_handwritten_0shot.sbatch
+│   │   ├── bullinger_handwritten_1shot.sbatch
+│   │   ├── washington_handwritten_0shot.sbatch
+│   │   ├── washington_handwritten_1shot.sbatch
+│   │   ├── iam_handwritten_0shot.sbatch
+│   │   ├── iam_handwritten_1shot.sbatch
+│   │   └── ... 2-shot variants
 │   └── nntp/                     # NNTP baselines
 │       ├── bullinger_handwritten.sbatch
 │       ├── iam_handwritten.sbatch
@@ -82,6 +91,7 @@ sbatch jobs/orchestrators/eval_all_1shot.sbatch
 sbatch jobs/eval/m1/bullinger_handwritten_0shot.sbatch
 sbatch jobs/eval/m2/iam_handwritten_1shot.sbatch
 sbatch jobs/eval/m3/washington_handwritten_0shot.sbatch
+sbatch jobs/eval/m4/washington_handwritten_0shot.sbatch
 sbatch jobs/eval/nntp/bullinger_handwritten.sbatch
 sbatch jobs/eval/nntp/iam_handwritten.sbatch
 sbatch jobs/eval/nntp/washington_handwritten.sbatch
@@ -115,6 +125,13 @@ sbatch jobs/eval/m3/iam_print_1shot.sbatch
 - **Input:** Correct transcription + HTR output (no images)
 - **Task:** Transfer line breaks from HTR to transcription
 - **Datasets:** 6 (all datasets)
+
+### Method 4 (M4): PyLaia-Guided LLM Alignment
+- **Input:** Correct transcription + structured PyLaia line hypotheses (`ocr_lines/<id>.json`)
+- **Task:** Use PyLaia line order as structural hints while preserving exact transcription characters
+- **Datasets:** Current cluster wrappers target `bullinger_handwritten`, `IAM_handwritten`, and `washington_handwritten`
+- **Jobs:** `jobs/eval/m4/*_{0,1,2}shot.sbatch`; current defaults match the other eval jobs and start with `Qwen3-VL-8B-Instruct`
+- **Note:** Each M4 job first refreshes or creates `ocr_lines/<id>.json` with PyLaia, then runs `run_eval_m4.py`
 
 ### NNTP Baseline: PyLaia + NNTP
 - **Input:** Correct transcription plus either PAGE XML line geometry or presegmented line images

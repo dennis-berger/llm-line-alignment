@@ -20,6 +20,8 @@ class DatasetSpec:
     images_subdir: str = "images"
     transcription_subdir: str = "transcription"
     ocr_subdir: str = "ocr"
+    ocr_lines_subdir: str = "ocr_lines"
+    line_images_subdir: str = "line_images"
     gt_subdir: str = "gt"
 
     @property
@@ -33,6 +35,14 @@ class DatasetSpec:
     @property
     def ocr_root(self) -> Path:
         return self.data_dir / self.ocr_subdir
+
+    @property
+    def ocr_lines_root(self) -> Path:
+        return self.data_dir / self.ocr_lines_subdir
+
+    @property
+    def line_images_root(self) -> Path:
+        return self.data_dir / self.line_images_subdir
 
     @property
     def gt_root(self) -> Path:
@@ -60,6 +70,9 @@ class DatasetSpec:
 
     def ocr_output_path(self, sample_id: str) -> Path:
         return self.ocr_root / f"{sample_id}.txt"
+
+    def ocr_lines_output_path(self, sample_id: str) -> Path:
+        return self.ocr_lines_root / f"{sample_id}.json"
 
     def meta_output_path(self, sample_id: str) -> Path:
         return self.ocr_root / f"{sample_id}.meta.json"

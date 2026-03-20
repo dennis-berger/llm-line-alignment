@@ -1,8 +1,9 @@
 """Shared utility functions for evaluation scripts."""
+import json
 import logging
 import random
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import Any, List, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -62,6 +63,11 @@ def write_text(path: Path | str, text: str) -> None:
     path.write_text(text, encoding='utf-8')
 
 
+def read_json(path: Path | str) -> Any:
+    """Read JSON content from disk."""
+    return json.loads(read_text(path))
+
+
 class FewShotExample:
     """Container for a few-shot example."""
     
@@ -71,12 +77,14 @@ class FewShotExample:
         gt_text: str,
         transcription: str,
         ocr_text: Optional[str] = None,
+        ocr_lines: Optional[Dict[str, Any]] = None,
         image_paths: Optional[List[Path]] = None,
     ):
         self.sample_id = sample_id
         self.gt_text = gt_text
         self.transcription = transcription
         self.ocr_text = ocr_text
+        self.ocr_lines = ocr_lines
         self.image_paths = image_paths or []
 
 
@@ -114,7 +122,7 @@ def select_few_shot_examples(
         data_dir: Dataset directory
         n_shots: Number of examples to select
         exclude_ids: Sample IDs to exclude (e.g., current test sample)
-        method: Method name ("m1", "m2", or "m3") - determines what data to load
+        method: Method name ("m1", "m2", "m3", or "m4") - determines what data to load
         seed: Random seed for reproducibility (optional)
         
     Returns:
@@ -155,11 +163,17 @@ def select_few_shot_examples(
             
             # Load OCR/HTR output (if method requires it)
             ocr_text = None
+            ocr_lines = None
             if method in ["m2", "m3"]:
                 ocr_path = data_dir / "ocr" / f"{sample_id}.txt"
                 if ocr_path.exists():
                     ocr_text = read_text(ocr_path)
-            
+            elif method == "m4":
+                ocr_lines_path = data_dir / "ocr_lines" / f"{sample_id}.json"
+                if not ocr_lines_path.exists():
+                    raise FileNotFoundError(f"Missing ocr_lines artifact: {ocr_lines_path}")
+                ocr_lines = read_json(ocr_lines_path)
+
             # Load images (if method requires them)
             image_paths = []
             if method in ["m1", "m2"]:
@@ -171,6 +185,7 @@ def select_few_shot_examples(
                 gt_text=gt_text,
                 transcription=transcription,
                 ocr_text=ocr_text,
+                ocr_lines=ocr_lines,
                 image_paths=image_paths,
             ))
             

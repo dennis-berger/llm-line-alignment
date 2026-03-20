@@ -143,7 +143,9 @@ def infer_pylaia_gpu_count(device: str) -> int:
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Generate OCR/HTR outputs (ocr/<id>.txt) for supported datasets.")
+    ap = argparse.ArgumentParser(
+        description="Generate OCR/HTR outputs (ocr/<id>.txt and ocr_lines/<id>.json) for supported datasets."
+    )
     ap.add_argument("--dataset", choices=[
         "bullinger_handwritten",
         "bullinger_print",
