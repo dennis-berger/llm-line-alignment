@@ -1,0 +1,13 @@
+{
+  "id": "10275",
+  "dataset": "bullinger_handwritten",
+  "segmenter": "none",
+  "recognizer": "pylaia",
+  "recognizer_model": "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt",
+  "num_pages": 2,
+  "num_lines": 36,
+  "timestamp_utc": "2026-03-20T13:35:16.316719+00:00",
+  "cache_root": "outputs/cache/bullinger_handwritten/lines",
+  "ocr_path": "datasets/bullinger_handwritten/ocr/10275.txt",
+  "transcription_path": "datasets/bullinger_handwritten/transcription/10275.txt"
+}

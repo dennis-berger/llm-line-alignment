@@ -30,10 +30,10 @@ Key flags:
 - `--data-dir`: root containing gt/, images/, transcription/, ocr/ (defaults to datasets/<dataset>).
 - `--ids`: comma list or file of IDs to process; defaults to all IDs in gt/ (fallback: transcription/).
 - `--segmenter`: `kraken` (default) or `none` (uses pre-segmented lines or full page as one line).
-- `--recognizer`: `trocr_printed`, `trocr_handwritten`, `pylaia_iam`, `htr_best_practices_iam` (alias of the same PyLaia IAM checkpoint), `none` (not supported).
+- `--recognizer`: `trocr_printed`, `trocr_handwritten`, `pylaia`, `pylaia_iam` (legacy alias), `htr_best_practices_iam` (alias of the same PyLaia IAM checkpoint), `none` (not supported).
 - `--device`: `auto`, `cpu`, or `cuda:0`.
 - `--cache-dir`: where line crops are stored; defaults to `outputs/cache/<dataset>/lines`.
-- `--pylaia-root`, `--pylaia-checkpoint`, `--pylaia-syms`: override the vendored IAM PyLaia assets when using `pylaia_iam`.
+- `--pylaia-root`, `--pylaia-checkpoint`, `--pylaia-syms`: override the vendored PyLaia assets when using `pylaia`.
 - `--pylaia-gpus`, `--pylaia-auto-select-gpus`, `--pylaia-fixed-height`: advanced PyLaia runtime overrides.
 - `--max-pages`: limit pages per ID for smoke tests.
 - `--overwrite`: recompute even if `ocr/<id>.txt` exists (default is skip-existing).
@@ -45,7 +45,7 @@ Key flags:
   - Bullinger (handwritten/print): `<id>` is a letter; may span multiple page images under `images/<id>/`.
   - washington_handwritten: treat `<id>` as a single page (e.g., `270`).
   - IAM (handwritten/print): `<id>` is a form/page ID.
-- IAM handwritten with `line_images/`: if `--segmenter` and `--recognizer` are not given, the script defaults to `--segmenter none` plus `--recognizer pylaia_iam`.
+- IAM handwritten with `line_images/`: if `--segmenter` and `--recognizer` are not given, the script defaults to `--segmenter none` plus `--recognizer pylaia`.
 - Multi-page outputs: pages concatenate in order with a blank line between pages.
 
 ## Examples

@@ -115,7 +115,7 @@ def build_recognizer(
             auto_select_gpus=pylaia_auto_select_gpus,
             fixed_height=pylaia_fixed_height,
         )
-    if name == "pylaia_iam":
+    if name in {"pylaia", "pylaia_iam"}:
         return PyLaiaRecognizer(
             pylaia_root=Path(pylaia_root) if pylaia_root else None,
             checkpoint_path=Path(pylaia_checkpoint) if pylaia_checkpoint else None,
@@ -160,7 +160,7 @@ def main():
                     help="Line segmenter: kraken (default), doctr (may work better for informal handwriting), or none")
     ap.add_argument(
         "--recognizer",
-        choices=["trocr_printed", "trocr_handwritten", "pylaia_iam", "htr_best_practices_iam", "none"],
+        choices=["trocr_printed", "trocr_handwritten", "pylaia", "pylaia_iam", "htr_best_practices_iam", "none"],
         default=None,
     )
     ap.add_argument("--device", default="auto", help="Device for recognizer, e.g., cpu or cuda:0")
@@ -206,7 +206,7 @@ def main():
         if args.segmenter is None:
             segmenter_name = "none"
         if args.recognizer is None:
-            recognizer_name = "pylaia_iam"
+            recognizer_name = "pylaia"
         if segmenter_name == "none" and args.existing_lines_dir is None:
             args.existing_lines_dir = str(existing_lines_root)
 

@@ -5,6 +5,7 @@ import sys
 import types
 from contextlib import contextmanager
 from pathlib import Path
+import subprocess
 from typing import Iterable
 
 import torch
@@ -24,12 +25,17 @@ def _jsonargparse_typing_stub():
         jsonargparse = types.ModuleType("jsonargparse")
         typing_mod = types.ModuleType("jsonargparse.typing")
 
+        def restricted_number_type(name, base_type, *_constraints):
+            type_name = name or f"Restricted{getattr(base_type, '__name__', 'Number').title()}"
+            return type(type_name, (base_type,), {"__module__": "jsonargparse.typing"})
+
         def _getattr(name: str):
             base = str if name.startswith("Path_") else int
-            value = type(name, (base,), {})
+            value = type(name, (base,), {"__module__": "jsonargparse.typing"})
             setattr(typing_mod, name, value)
             return value
 
+        typing_mod.restricted_number_type = restricted_number_type
         typing_mod.__getattr__ = _getattr  # type: ignore[attr-defined]
         jsonargparse.typing = typing_mod  # type: ignore[attr-defined]
         sys.modules["jsonargparse"] = jsonargparse
@@ -85,6 +91,98 @@ def infer_pylaia_input_height(model_path: Path) -> int | None:
     """Infer the fixed input height directly from a serialized PyLaia model."""
 
     return infer_pylaia_input_height_from_kwargs(load_pylaia_model_kwargs(model_path))
+
+
+def patch_pylaia_model_num_outputs(
+    model_path: Path,
+    checkpoint_path: Path,
+    output_dir: Path | None = None,
+    python_exe: Path | None = None,
+) -> Path:
+    """Patch serialized PyLaia model metadata to match the checkpoint output size.
+
+    Some PyLaia checkpoints ship with a different ``num_output_labels`` than the
+    bundled ``model`` metadata. When that happens, ``pylaia-htr-netout`` fails
+    during state-dict loading. This helper mirrors the existing NNTP cluster
+    workaround and persists a patched model file when needed.
+    """
+
+    model_path = model_path.resolve()
+    checkpoint_path = checkpoint_path.resolve()
+
+    with _jsonargparse_typing_stub():
+        model_obj = torch.load(model_path, map_location="cpu", weights_only=False)
+        checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+
+    if not isinstance(model_obj, dict):
+        raise TypeError(f"Unexpected PyLaia model payload type: {type(model_obj)!r}")
+    kwargs = model_obj.get("kwargs")
+    if not isinstance(kwargs, dict):
+        raise TypeError(f"Unexpected PyLaia model kwargs payload: {type(kwargs)!r}")
+
+    state_dict = checkpoint.get("state_dict", checkpoint) if isinstance(checkpoint, dict) else checkpoint
+    linear_weight = state_dict.get("model.linear.weight")
+    if linear_weight is None:
+        linear_weight = state_dict.get("linear.weight")
+    if linear_weight is None:
+        raise KeyError("PyLaia checkpoint is missing linear.weight")
+
+    checkpoint_outputs = int(linear_weight.shape[0])
+    current_outputs = int(kwargs["num_output_labels"])
+    if current_outputs == checkpoint_outputs:
+        return model_path
+
+    patched_dir = output_dir or (checkpoint_path.parent / ".patched_models")
+    patched_dir.mkdir(parents=True, exist_ok=True)
+    patched_path = patched_dir / f"{model_path.name}.num_outputs_{checkpoint_outputs}"
+    if patched_path.exists():
+        try:
+            with _jsonargparse_typing_stub():
+                existing_patched = torch.load(patched_path, map_location="cpu", weights_only=False)
+            existing_kwargs = existing_patched.get("kwargs", {}) if isinstance(existing_patched, dict) else {}
+            if int(existing_kwargs.get("num_output_labels", -1)) == checkpoint_outputs:
+                return patched_path.resolve()
+        except Exception:
+            patched_path.unlink(missing_ok=True)
+
+    patched_model = dict(model_obj)
+    patched_kwargs = dict(kwargs)
+    patched_kwargs["num_output_labels"] = checkpoint_outputs
+    patched_model["kwargs"] = patched_kwargs
+
+    if python_exe is not None:
+        python_exe = python_exe.resolve()
+        patch_script = """
+from pathlib import Path
+import torch
+import sys
+
+model_path = Path(sys.argv[1])
+checkpoint_path = Path(sys.argv[2])
+patched_path = Path(sys.argv[3])
+
+model_obj = torch.load(model_path, map_location="cpu", weights_only=False)
+checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+state_dict = checkpoint.get("state_dict", checkpoint)
+linear_weight = state_dict.get("model.linear.weight")
+if linear_weight is None:
+    linear_weight = state_dict["linear.weight"]
+
+model_obj["kwargs"]["num_output_labels"] = int(linear_weight.shape[0])
+patched_path.parent.mkdir(parents=True, exist_ok=True)
+tmp_path = patched_path.with_suffix(patched_path.suffix + ".tmp")
+torch.save(model_obj, tmp_path)
+tmp_path.replace(patched_path)
+"""
+        subprocess.run(
+            [str(python_exe), "-c", patch_script, str(model_path), str(checkpoint_path), str(patched_path)],
+            check=True,
+        )
+    else:
+        tmp_path = patched_path.with_suffix(f"{patched_path.suffix}.tmp")
+        torch.save(patched_model, tmp_path)
+        tmp_path.replace(patched_path)
+    return patched_path.resolve()
 
 
 def resize_image_files(image_paths: Iterable[Path], target_height: int) -> None:

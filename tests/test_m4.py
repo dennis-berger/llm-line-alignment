@@ -81,7 +81,7 @@ def build_ocr_lines_payload(texts: list[str]) -> dict:
     return {
         "id": "sample",
         "dataset": "dummy",
-        "recognizer": "pylaia_iam",
+        "recognizer": "pylaia",
         "num_pages": 1,
         "num_lines": len(texts),
         "lines": [

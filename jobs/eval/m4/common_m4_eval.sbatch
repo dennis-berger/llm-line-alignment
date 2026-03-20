@@ -206,7 +206,7 @@ PY
     --dataset "$DATASET_KEY"
     --data-dir "$DATA_DIR"
     --segmenter "$SEGMENTER"
-    --recognizer pylaia_iam
+    --recognizer pylaia
     --cache-dir "$OCR_CACHE_DIR"
     --batch-size "$OCR_BATCH_SIZE"
     --pylaia-root "$PYLAIA_ROOT"

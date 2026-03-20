@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 from PIL import Image
+import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -26,6 +27,7 @@ from linealign.nntp import (
     filter_transcription_text,
     infer_pylaia_input_height_from_kwargs,
     load_symbol_table,
+    patch_pylaia_model_num_outputs,
     resize_prepared_line_images,
     write_pylaia_netout_config,
     write_observation_file,
@@ -212,6 +214,43 @@ def test_resize_prepared_line_images_normalizes_height(tmp_path: Path):
 
     with Image.open(line_path) as image:
         assert image.size == (256, 128)
+
+
+def test_patch_pylaia_model_num_outputs_rewrites_mismatched_metadata(tmp_path: Path):
+    """Patched model metadata should match the checkpoint output dimension."""
+
+    model_path = tmp_path / "model"
+    checkpoint_path = tmp_path / "weights.ckpt"
+
+    torch.save(
+        {
+            "kwargs": {
+                "num_output_labels": 79,
+                "image_sequencer": "none-16",
+                "cnn_poolsize": [[2, 2], [2, 2], [0, 0], [2, 2]],
+            }
+        },
+        model_path,
+    )
+    torch.save(
+        {
+            "state_dict": {
+                "model.linear.weight": torch.zeros((98, 512)),
+                "model.linear.bias": torch.zeros(98),
+            }
+        },
+        checkpoint_path,
+    )
+
+    patched_path = patch_pylaia_model_num_outputs(
+        model_path,
+        checkpoint_path,
+        output_dir=tmp_path / "patched",
+    )
+
+    assert patched_path != model_path.resolve()
+    patched_model = torch.load(patched_path, map_location="cpu", weights_only=False)
+    assert patched_model["kwargs"]["num_output_labels"] == 98
 
 
 def test_filter_transcription_text_strips_oov_chars(tmp_path: Path):

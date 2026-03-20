@@ -1,0 +1,390 @@
+=== Node ===
+diufrd204
+Fri Mar 20 14:25:50 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.211.01             Driver Version: 570.211.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-SXM2-32GB           On  |   00000000:1A:00.0 Off |                    0 |
+| N/A   30C    P0             43W /  300W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  Tesla V100-SXM2-32GB           On  |   00000000:1B:00.0 Off |                    0 |
+| N/A   33C    P0             44W /  300W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  Tesla V100-SXM2-32GB           On  |   00000000:3D:00.0 Off |                    0 |
+| N/A   33C    P0             44W /  300W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  Tesla V100-SXM2-32GB           On  |   00000000:3E:00.0 Off |                    0 |
+| N/A   29C    P0             43W /  300W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   4  Tesla V100-SXM2-32GB           On  |   00000000:88:00.0 Off |                    0 |
+| N/A   29C    P0             42W /  300W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   5  Tesla V100-SXM2-32GB           On  |   00000000:89:00.0 Off |                    0 |
+| N/A   32C    P0             43W /  300W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   6  Tesla V100-SXM2-32GB           On  |   00000000:B2:00.0 Off |                    0 |
+| N/A   32C    P0             43W /  300W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   7  Tesla V100-SXM2-32GB           On  |   00000000:B3:00.0 Off |                    0 |
+| N/A   30C    P0             41W /  300W |       0MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+============
+Creating conda environment 'bullinger-mwe'...
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /HOME/bergerd/.conda/envs/bullinger-mwe
+
+  added / updated specs:
+    - pip
+    - python=3.11
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu 
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6 
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2025.12.2-h06a4308_0 
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.44-h9e0c5a2_3 
+  libexpat           pkgs/main/linux-64::libexpat-2.7.4-h7354ed3_0 
+  libffi             pkgs/main/linux-64::libffi-3.4.4-h6a678d5_1 
+  libgcc             pkgs/main/linux-64::libgcc-15.2.0-h69a1729_7 
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-15.2.0-h166f726_7 
+  libgomp            pkgs/main/linux-64::libgomp-15.2.0-h4751f2c_7 
+  libnsl             pkgs/main/linux-64::libnsl-2.0.0-h5eee18b_0 
+  libstdcxx          pkgs/main/linux-64::libstdcxx-15.2.0-h39759b7_7 
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-15.2.0-hc03a8fd_7 
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0 
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libzlib            pkgs/main/linux-64::libzlib-1.3.1-hb25bd0a_0 
+  ncurses            pkgs/main/linux-64::ncurses-6.5-h7934f7d_0 
+  openssl            pkgs/main/linux-64::openssl-3.5.5-h1b28b03_0 
+  packaging          pkgs/main/linux-64::packaging-25.0-py311h06a4308_1 
+  pip                pkgs/main/noarch::pip-26.0.1-pyhc872135_0 
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1 
+  python             pkgs/main/linux-64::python-3.11.15-h741d88c_0 
+  readline           pkgs/main/linux-64::readline-8.3-hc2a1206_0 
+  setuptools         pkgs/main/linux-64::setuptools-80.10.2-py311h06a4308_0 
+  sqlite             pkgs/main/linux-64::sqlite-3.51.2-h3e8d24a_0 
+  tk                 pkgs/main/linux-64::tk-8.6.15-h54e0aa7_0 
+  tzdata             pkgs/main/noarch::tzdata-2026a-he532380_0 
+  wheel              pkgs/main/linux-64::wheel-0.46.3-py311h06a4308_0 
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1 
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1 
+  xz                 pkgs/main/linux-64::xz-5.8.2-h448239c_0 
+  zlib               pkgs/main/linux-64::zlib-1.3.1-hb25bd0a_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: - \ | done
+Verifying transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+Executing transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+#
+# To activate this environment, use
+#
+#     $ conda activate bullinger-mwe
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Installing repo Python requirements into 'bullinger-mwe'...
+/HOME/bergerd/.conda/envs/bullinger-mwe/bin/python
+CUDA available: True
+Creating dedicated PyLaia environment 'pylaia-htr' with Python 3.10...
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /HOME/bergerd/.conda/envs/pylaia-htr
+
+  added / updated specs:
+    - pip
+    - python=3.10
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu 
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6 
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2025.12.2-h06a4308_0 
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.44-h9e0c5a2_3 
+  libexpat           pkgs/main/linux-64::libexpat-2.7.4-h7354ed3_0 
+  libffi             pkgs/main/linux-64::libffi-3.4.4-h6a678d5_1 
+  libgcc             pkgs/main/linux-64::libgcc-15.2.0-h69a1729_7 
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-15.2.0-h166f726_7 
+  libgomp            pkgs/main/linux-64::libgomp-15.2.0-h4751f2c_7 
+  libnsl             pkgs/main/linux-64::libnsl-2.0.0-h5eee18b_0 
+  libstdcxx          pkgs/main/linux-64::libstdcxx-15.2.0-h39759b7_7 
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-15.2.0-hc03a8fd_7 
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0 
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libzlib            pkgs/main/linux-64::libzlib-1.3.1-hb25bd0a_0 
+  ncurses            pkgs/main/linux-64::ncurses-6.5-h7934f7d_0 
+  openssl            pkgs/main/linux-64::openssl-3.5.5-h1b28b03_0 
+  packaging          pkgs/main/linux-64::packaging-25.0-py310h06a4308_1 
+  pip                pkgs/main/noarch::pip-26.0.1-pyhc872135_0 
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h0ce48e5_1 
+  python             pkgs/main/linux-64::python-3.10.20-h741d88c_0 
+  readline           pkgs/main/linux-64::readline-8.3-hc2a1206_0 
+  setuptools         pkgs/main/linux-64::setuptools-80.10.2-py310h06a4308_0 
+  sqlite             pkgs/main/linux-64::sqlite-3.51.2-h3e8d24a_0 
+  tk                 pkgs/main/linux-64::tk-8.6.15-h54e0aa7_0 
+  tzdata             pkgs/main/noarch::tzdata-2026a-he532380_0 
+  wheel              pkgs/main/linux-64::wheel-0.46.3-py310h06a4308_0 
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.12-h9b100fa_1 
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2024.1-h5eee18b_1 
+  xz                 pkgs/main/linux-64::xz-5.8.2-h448239c_0 
+  zlib               pkgs/main/linux-64::zlib-1.3.1-hb25bd0a_0 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: - \ | / done
+Verifying transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+Executing transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+#
+# To activate this environment, use
+#
+#     $ conda activate pylaia-htr
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Installing PyLaia into 'pylaia-htr' from PyPI package 'pylaia==1.1.2'...
+Collecting pip<24.1
+  Using cached pip-24.0-py3-none-any.whl.metadata (3.6 kB)
+Requirement already satisfied: setuptools in /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages (80.10.2)
+Requirement already satisfied: wheel in /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages (0.46.3)
+Requirement already satisfied: packaging>=24.0 in /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages (from wheel) (25.0)
+Using cached pip-24.0-py3-none-any.whl (2.1 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 26.0.1
+    Uninstalling pip-26.0.1:
+      Successfully uninstalled pip-26.0.1
+Successfully installed pip-24.0
+Collecting pylaia==1.1.2
+  Using cached pylaia-1.1.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting imagesize==1.4.1 (from pylaia==1.1.2)
+  Using cached imagesize-1.4.1-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting jsonargparse==4.7 (from jsonargparse[signatures]==4.7->pylaia==1.1.2)
+  Using cached jsonargparse-4.7.0-py3-none-any.whl.metadata (66 kB)
+Collecting matplotlib==3.9.2 (from pylaia==1.1.2)
+  Using cached matplotlib-3.9.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Collecting natsort==8.4.0 (from pylaia==1.1.2)
+  Using cached natsort-8.4.0-py3-none-any.whl.metadata (21 kB)
+Collecting pytorch-lightning==1.4.2 (from pylaia==1.1.2)
+  Using cached pytorch_lightning-1.4.2-py3-none-any.whl.metadata (32 kB)
+Collecting scipy==1.11.3 (from pylaia==1.1.2)
+  Using cached scipy-1.11.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+Collecting textdistance==4.6.3 (from pylaia==1.1.2)
+  Using cached textdistance-4.6.3-py3-none-any.whl.metadata (18 kB)
+Collecting torch<1.14,>=1.13 (from pylaia==1.1.2)
+  Using cached torch-1.13.1-cp310-cp310-manylinux1_x86_64.whl.metadata (24 kB)
+Collecting torchaudio<0.14,>=0.13 (from pylaia==1.1.2)
+  Using cached torchaudio-0.13.1-cp310-cp310-manylinux1_x86_64.whl.metadata (1.2 kB)
+Collecting torchmetrics<0.8.0 (from pylaia==1.1.2)
+  Using cached torchmetrics-0.7.3-py3-none-any.whl.metadata (20 kB)
+Collecting torchvision<0.15,>=0.14 (from pylaia==1.1.2)
+  Using cached torchvision-0.14.1-cp310-cp310-manylinux1_x86_64.whl.metadata (11 kB)
+Collecting mdutils==1.6.0 (from pylaia==1.1.2)
+  Using cached mdutils-1.6.0-py3-none-any.whl
+Collecting prettytable==3.11.0 (from pylaia==1.1.2)
+  Using cached prettytable-3.11.0-py3-none-any.whl.metadata (30 kB)
+Collecting python-bidi==0.6.0 (from pylaia==1.1.2)
+  Using cached python_bidi-0.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.6 kB)
+Collecting PyYAML>=3.13 (from jsonargparse==4.7->jsonargparse[signatures]==4.7->pylaia==1.1.2)
+  Using cached pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting docstring-parser>=0.7.3 (from jsonargparse[signatures]==4.7->pylaia==1.1.2)
+  Using cached docstring_parser-0.17.0-py3-none-any.whl.metadata (3.5 kB)
+Collecting contourpy>=1.0.1 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached fonttools-4.62.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (117 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached kiwisolver-1.5.0-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.1 kB)
+Collecting numpy>=1.23 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Requirement already satisfied: packaging>=20.0 in /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages (from matplotlib==3.9.2->pylaia==1.1.2) (25.0)
+Collecting pillow>=8 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached pillow-12.1.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+Collecting pyparsing>=2.3.1 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Collecting python-dateutil>=2.7 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting wcwidth (from prettytable==3.11.0->pylaia==1.1.2)
+  Using cached wcwidth-0.6.0-py3-none-any.whl.metadata (30 kB)
+Collecting future>=0.17.1 (from pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached future-1.0.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting tqdm>=4.41.0 (from pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached tqdm-4.67.3-py3-none-any.whl.metadata (57 kB)
+Collecting fsspec!=2021.06.0,>=2021.05.0 (from fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached fsspec-2026.2.0-py3-none-any.whl.metadata (10 kB)
+Collecting tensorboard>=2.2.0 (from pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached tensorboard-2.20.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting pyDeprecate==0.3.1 (from pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached pyDeprecate-0.3.1-py3-none-any.whl.metadata (10 kB)
+Collecting typing-extensions (from pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting numpy>=1.23 (from matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting nvidia-cuda-runtime-cu11==11.7.99 (from torch<1.14,>=1.13->pylaia==1.1.2)
+  Using cached nvidia_cuda_runtime_cu11-11.7.99-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cudnn-cu11==8.5.0.96 (from torch<1.14,>=1.13->pylaia==1.1.2)
+  Using cached nvidia_cudnn_cu11-8.5.0.96-2-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cublas-cu11==11.10.3.66 (from torch<1.14,>=1.13->pylaia==1.1.2)
+  Using cached nvidia_cublas_cu11-11.10.3.66-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cuda-nvrtc-cu11==11.7.99 (from torch<1.14,>=1.13->pylaia==1.1.2)
+  Using cached nvidia_cuda_nvrtc_cu11-11.7.99-2-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
+Requirement already satisfied: setuptools in /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages (from nvidia-cublas-cu11==11.10.3.66->torch<1.14,>=1.13->pylaia==1.1.2) (80.10.2)
+Requirement already satisfied: wheel in /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages (from nvidia-cublas-cu11==11.10.3.66->torch<1.14,>=1.13->pylaia==1.1.2) (0.46.3)
+Collecting requests (from torchvision<0.15,>=0.14->pylaia==1.1.2)
+  Using cached requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached aiohttp-3.13.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib==3.9.2->pylaia==1.1.2)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting absl-py>=0.4 (from tensorboard>=2.2.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached absl_py-2.4.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting grpcio>=1.48.2 (from tensorboard>=2.2.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached grpcio-1.78.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.8 kB)
+Collecting markdown>=2.6.8 (from tensorboard>=2.2.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached markdown-3.10.2-py3-none-any.whl.metadata (5.1 kB)
+Collecting protobuf!=4.24.0,>=3.19.6 (from tensorboard>=2.2.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached protobuf-7.34.0-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard>=2.2.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
+Collecting werkzeug>=1.0.1 (from tensorboard>=2.2.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached werkzeug-3.1.6-py3-none-any.whl.metadata (4.0 kB)
+Collecting charset_normalizer<4,>=2 (from requests->torchvision<0.15,>=0.14->pylaia==1.1.2)
+  Using cached charset_normalizer-3.4.6-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting idna<4,>=2.5 (from requests->torchvision<0.15,>=0.14->pylaia==1.1.2)
+  Using cached idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+Collecting urllib3<3,>=1.21.1 (from requests->torchvision<0.15,>=0.14->pylaia==1.1.2)
+  Using cached urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+Collecting certifi>=2017.4.17 (from requests->torchvision<0.15,>=0.14->pylaia==1.1.2)
+  Using cached certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting async-timeout<6.0,>=4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
+Collecting attrs>=17.3.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached frozenlist-1.8.0-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached multidict-6.7.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached propcache-0.4.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]!=2021.06.0,>=2021.05.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached yarl-1.23.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Collecting markupsafe>=2.1.1 (from werkzeug>=1.0.1->tensorboard>=2.2.0->pytorch-lightning==1.4.2->pylaia==1.1.2)
+  Using cached markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Using cached pylaia-1.1.2-py3-none-any.whl (93 kB)
+Using cached imagesize-1.4.1-py2.py3-none-any.whl (8.8 kB)
+Using cached jsonargparse-4.7.0-py3-none-any.whl (135 kB)
+Using cached matplotlib-3.9.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
+Using cached natsort-8.4.0-py3-none-any.whl (38 kB)
+Using cached prettytable-3.11.0-py3-none-any.whl (28 kB)
+Using cached python_bidi-0.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (281 kB)
+Using cached pytorch_lightning-1.4.2-py3-none-any.whl (916 kB)
+Using cached scipy-1.11.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (36.4 MB)
+Using cached textdistance-4.6.3-py3-none-any.whl (31 kB)
+Using cached pyDeprecate-0.3.1-py3-none-any.whl (10 kB)
+Using cached torch-1.13.1-cp310-cp310-manylinux1_x86_64.whl (887.5 MB)
+Using cached nvidia_cublas_cu11-11.10.3.66-py3-none-manylinux1_x86_64.whl (317.1 MB)
+Using cached nvidia_cuda_nvrtc_cu11-11.7.99-2-py3-none-manylinux1_x86_64.whl (21.0 MB)
+Using cached nvidia_cuda_runtime_cu11-11.7.99-py3-none-manylinux1_x86_64.whl (849 kB)
+Using cached nvidia_cudnn_cu11-8.5.0.96-2-py3-none-manylinux1_x86_64.whl (557.1 MB)
+Using cached torchaudio-0.13.1-cp310-cp310-manylinux1_x86_64.whl (4.2 MB)
+Using cached torchmetrics-0.7.3-py3-none-any.whl (398 kB)
+Using cached torchvision-0.14.1-cp310-cp310-manylinux1_x86_64.whl (24.2 MB)
+Using cached contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached docstring_parser-0.17.0-py3-none-any.whl (36 kB)
+Using cached fonttools-4.62.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.9 MB)
+Using cached fsspec-2026.2.0-py3-none-any.whl (202 kB)
+Using cached future-1.0.0-py3-none-any.whl (491 kB)
+Using cached kiwisolver-1.5.0-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+Using cached numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+Using cached pillow-12.1.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+Using cached pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached pyyaml-6.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (770 kB)
+Using cached tensorboard-2.20.0-py3-none-any.whl (5.5 MB)
+Using cached tqdm-4.67.3-py3-none-any.whl (78 kB)
+Using cached requests-2.32.5-py3-none-any.whl (64 kB)
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Using cached wcwidth-0.6.0-py3-none-any.whl (94 kB)
+Using cached absl_py-2.4.0-py3-none-any.whl (135 kB)
+Using cached aiohttp-3.13.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+Using cached certifi-2026.2.25-py3-none-any.whl (153 kB)
+Using cached charset_normalizer-3.4.6-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (207 kB)
+Using cached grpcio-1.78.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (6.7 MB)
+Using cached idna-3.11-py3-none-any.whl (71 kB)
+Using cached markdown-3.10.2-py3-none-any.whl (108 kB)
+Using cached protobuf-7.34.0-cp310-abi3-manylinux2014_x86_64.whl (324 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Using cached tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
+Using cached urllib3-2.6.3-py3-none-any.whl (131 kB)
+Using cached werkzeug-3.1.6-py3-none-any.whl (225 kB)
+Using cached aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Using cached aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Using cached async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Using cached frozenlist-1.8.0-cp310-cp310-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (219 kB)
+Using cached markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Using cached multidict-6.7.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (243 kB)
+Using cached propcache-0.4.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (196 kB)
+Using cached yarl-1.23.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (102 kB)
+Installing collected packages: python-bidi, mdutils, wcwidth, urllib3, typing-extensions, tqdm, textdistance, tensorboard-data-server, six, PyYAML, pyparsing, pyDeprecate, protobuf, propcache, pillow, nvidia-cuda-nvrtc-cu11, numpy, natsort, markupsafe, markdown, kiwisolver, imagesize, idna, future, fsspec, frozenlist, fonttools, docstring-parser, cycler, charset_normalizer, certifi, attrs, async-timeout, aiohappyeyeballs, absl-py, werkzeug, scipy, requests, python-dateutil, prettytable, nvidia-cuda-runtime-cu11, nvidia-cublas-cu11, multidict, jsonargparse, grpcio, contourpy, aiosignal, yarl, tensorboard, nvidia-cudnn-cu11, matplotlib, torch, aiohttp, torchvision, torchmetrics, torchaudio, pytorch-lightning, pylaia
+Successfully installed PyYAML-6.0.3 absl-py-2.4.0 aiohappyeyeballs-2.6.1 aiohttp-3.13.3 aiosignal-1.4.0 async-timeout-5.0.1 attrs-26.1.0 certifi-2026.2.25 charset_normalizer-3.4.6 contourpy-1.3.2 cycler-0.12.1 docstring-parser-0.17.0 fonttools-4.62.1 frozenlist-1.8.0 fsspec-2026.2.0 future-1.0.0 grpcio-1.78.0 idna-3.11 imagesize-1.4.1 jsonargparse-4.7.0 kiwisolver-1.5.0 markdown-3.10.2 markupsafe-3.0.3 matplotlib-3.9.2 mdutils-1.6.0 multidict-6.7.1 natsort-8.4.0 numpy-1.26.4 nvidia-cublas-cu11-11.10.3.66 nvidia-cuda-nvrtc-cu11-11.7.99 nvidia-cuda-runtime-cu11-11.7.99 nvidia-cudnn-cu11-8.5.0.96 pillow-12.1.1 prettytable-3.11.0 propcache-0.4.1 protobuf-7.34.0 pyDeprecate-0.3.1 pylaia-1.1.2 pyparsing-3.3.2 python-bidi-0.6.0 python-dateutil-2.9.0.post0 pytorch-lightning-1.4.2 requests-2.32.5 scipy-1.11.3 six-1.17.0 tensorboard-2.20.0 tensorboard-data-server-0.7.2 textdistance-4.6.3 torch-1.13.1 torchaudio-0.13.1 torchmetrics-0.7.3 torchvision-0.14.1 tqdm-4.67.3 typing-extensions-4.15.0 urllib3-2.6.3 wcwidth-0.6.0 werkzeug-3.1.6 yarl-1.23.0
+PyLaia package version: 1.1.2
+PyLaia import OK: /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/laia/__init__.py
+PyLaia models import OK: /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/laia/models/htr/__init__.py
+PyLaia netout import OK: /HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/laia/scripts/htr/netout.py
+PyLaia CUDA available: True
+PyLaia CUDA device count: 1
+Skipping M4 evaluation because SKIP_EVAL=1.

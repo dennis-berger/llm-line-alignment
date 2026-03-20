@@ -1,0 +1,255 @@
+{
+  "id": "0001",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 41,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": ".",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": ".",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Gratiam et vitae innocentiam a domino. Ego vero venerande",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "fratiem nu faile voto adare pastiu est donus tibi u",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "nuunc agitur de pabulo ovium et penes, quos sit, u",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "antas dispendandi pabuli. universitas omnem author",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "sibi cupit vendicare, subditis sibi pastoribus, qui",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "tuox libue libere et vingene administrrint seb",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "illa notitur et vexet. aliter scicet concionandum esse etum",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "illa me tu non ita Ciso gate e pirte doch mutt",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "zyt also gon. Quisi divis ecclesięs isti illa finus uli",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "ablecibatis praesides? Ecclesiae est illa p",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "vitis niie ecclesiae qua arbrum, nisi impia sit",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "subesse ditit doctoribus doctores ecclesiarum pastor",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "tubeslqu tamen ministros te non diinos dofunt",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "was, sond sy bür und fernn mitt dem bochfertigen si",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "wedederons. Portiter te illis oppone. Mivare",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "erotnon toti ecclesia propositurum. Nam ocede",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Baliensis ecclesiae aliquando usumenturum, quod hoc",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Gabatfordiae nostras u nevalte doleo. e",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Lunsfondiae ique animis tranquillis, id est flexibilibus",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "totam samen religionis contraveram copunit Iug",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "pelugustis et caesar arbitros. An non potexunt aliud",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Dominussitate 4 viri censuram si dignatqua et",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "mfr et pao rhar ihe",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "proniciae, daen so üß",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "unillen. A n consulis ube distent tu",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "veritati initimur canonicae. Huic iupor",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "Si vobis errare videmur scriptaris",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "eate. Quortum opus erat colloquoram iier",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "illes, de quibus quid speremus nonno igtoro. Illo",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "illitade et pertente tumn cessit, nobis quoque colloqui",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "papistis de compositinedemhens t heelicuid et",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "et papismi bene cedent. Sed huc spertai",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "quidam convordandi ta anxium, studium isti a",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "ponaposibionem etiam cum monechis et pfaffis tu",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "sed hic tibi, ut fido in cor tamen et sinum tu",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "Sed e mi Myconii focetis sis, simplici",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "sas  dale go ffeffischens",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "diederlihe eie eyn und chäffischen sind",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "dorget i fröiden. die unsern doch beckin",
+      "crop_path": "line_images/0001/0001_0001_151828_0002_line040.png"
+    }
+  ]
+}

@@ -1,0 +1,841 @@
++ echo '=== Node ==='
++ hostname
++ nvidia-smi
++ echo ============
++ '[' -f /HOME/bergerd/.bashrc ']'
++ source /HOME/bergerd/.bashrc
++++ /opt/miniconda3/bin/conda shell.bash hook
+++ __conda_setup='export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    if [ -n "${_CE_M:+x}" ] && [ -n "${_CE_CONDA:+x}" ]; then
+        # only use _CE_M/_CE_CONDA when defined to avoid issues when run with `set -u`
+        "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+    else
+        "$CONDA_EXE" "$@"
+    fi
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    # FUTURE: conda 25.9, remove this function
+    echo "'\''__conda_reactivate'\'' is deprecated and will be removed in 25.9. Use '\''__conda_activate reactivate'\'' instead." 1>&2
+    __conda_activate reactivate
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_activate reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
+++ '[' 0 -eq 0 ']'
+++ eval 'export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    if [ -n "${_CE_M:+x}" ] && [ -n "${_CE_CONDA:+x}" ]; then
+        # only use _CE_M/_CE_CONDA when defined to avoid issues when run with `set -u`
+        "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+    else
+        "$CONDA_EXE" "$@"
+    fi
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    # FUTURE: conda 25.9, remove this function
+    echo "'\''__conda_reactivate'\'' is deprecated and will be removed in 25.9. Use '\''__conda_activate reactivate'\'' instead." 1>&2
+    __conda_activate reactivate
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_activate reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export _CE_M=
++++ _CE_M=
++++ export _CE_CONDA=
++++ _CE_CONDA=
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ '[' -z x ']'
++++ conda activate base
++++ local cmd=activate
++++ case "$cmd" in
++++ __conda_activate activate base
++++ '[' -n '' ']'
++++ local ask_conda
+++++ PS1=
+++++ __conda_exe shell.posix activate base
+++++ '[' -n '' ']'
+++++ /opt/miniconda3/bin/conda shell.posix activate base
++++ ask_conda='unset _CE_M
+unset _CE_CONDA
+PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ eval 'unset _CE_M
+unset _CE_CONDA
+PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++++ unset _CE_M
+++++ unset _CE_CONDA
+++++ PS1='(base) '
+++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++++ export CONDA_SHLVL=1
+++++ CONDA_SHLVL=1
+++++ export 'CONDA_PROMPT_MODIFIER=(base) '
+++++ CONDA_PROMPT_MODIFIER='(base) '
+++++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++++ CONDA_EXE=/opt/miniconda3/bin/conda
+++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ __conda_hashr
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
+++ unset __conda_setup
++ command -v conda
+++ conda shell.bash hook
+++ local cmd=shell.bash
+++ case "$cmd" in
+++ __conda_exe shell.bash hook
+++ '[' -n '' ']'
+++ /opt/miniconda3/bin/conda shell.bash hook
++ eval 'export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\''
+
+# Copyright (C) 2012 Anaconda, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+__conda_exe() (
+    if [ -n "${_CE_M:+x}" ] && [ -n "${_CE_CONDA:+x}" ]; then
+        # only use _CE_M/_CE_CONDA when defined to avoid issues when run with `set -u`
+        "$CONDA_EXE" $_CE_M $_CE_CONDA "$@"
+    else
+        "$CONDA_EXE" "$@"
+    fi
+)
+
+__conda_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    elif [ -n "${POSH_VERSION:+x}" ]; then
+        :  # pass
+    else
+        \hash -r
+    fi
+}
+
+__conda_activate() {
+    if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+        # Handle transition from shell activated with conda <= 4.3 to a subsequent activation
+        # after conda updated to >= 4.4. See issue #6173.
+        PS1="$CONDA_PS1_BACKUP"
+        \unset CONDA_PS1_BACKUP
+    fi
+    \local ask_conda
+    ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return
+    \eval "$ask_conda"
+    __conda_hashr
+}
+
+__conda_reactivate() {
+    # FUTURE: conda 25.9, remove this function
+    echo "'\''__conda_reactivate'\'' is deprecated and will be removed in 25.9. Use '\''__conda_activate reactivate'\'' instead." 1>&2
+    __conda_activate reactivate
+}
+
+conda() {
+    \local cmd="${1-__missing__}"
+    case "$cmd" in
+        activate|deactivate)
+            __conda_activate "$@"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __conda_exe "$@" || \return
+            __conda_activate reactivate
+            ;;
+        *)
+            __conda_exe "$@"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    \export CONDA_SHLVL=0
+    # In dev-mode CONDA_EXE is python.exe and on Windows
+    # it is in a different relative location to condabin.
+    if [ -n "${_CE_CONDA:+x}" ] && [ -n "${WINDIR+x}" ]; then
+        PATH="$(\dirname "$CONDA_EXE")/condabin${PATH:+":${PATH}"}"
+    else
+        PATH="$(\dirname "$(\dirname "$CONDA_EXE")")/condabin${PATH:+":${PATH}"}"
+    fi
+    \export PATH
+
+    # We'\''re not allowing PS1 to be unbound. It must at least be set.
+    # However, we'\''re not exporting it, which can cause problems when starting a second shell
+    # via a first shell (i.e. starting zsh from bash).
+    if [ -z "${PS1+x}" ]; then
+        PS1=
+    fi
+fi
+
+conda activate base'
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ '[' -z x ']'
+++ conda activate base
+++ local cmd=activate
+++ case "$cmd" in
+++ __conda_activate activate base
+++ '[' -n '' ']'
+++ local ask_conda
++++ PS1='(base) '
++++ __conda_exe shell.posix activate base
++++ '[' -n '' ']'
++++ /opt/miniconda3/bin/conda shell.posix activate base
+++ ask_conda='unset _CE_M
+unset _CE_CONDA
+PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ eval 'unset _CE_M
+unset _CE_CONDA
+PS1='\''(base) '\''
+export PATH='\''/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\''
+export CONDA_SHLVL='\''1'\''
+export CONDA_PROMPT_MODIFIER='\''(base) '\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++++ unset _CE_M
++++ unset _CE_CONDA
++++ PS1='(base) '
++++ export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++++ PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++++ export CONDA_SHLVL=1
++++ CONDA_SHLVL=1
++++ export 'CONDA_PROMPT_MODIFIER=(base) '
++++ CONDA_PROMPT_MODIFIER='(base) '
++++ export CONDA_EXE=/opt/miniconda3/bin/conda
++++ CONDA_EXE=/opt/miniconda3/bin/conda
++++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ __conda_hashr
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
++ REPO_ROOT=/HOME/bergerd/projects/llm-line-alignment
++ cd /HOME/bergerd/projects/llm-line-alignment
++ '[' '!' -f run_eval_m4.py ']'
++ mkdir -p logs
+++ conda info --base
+++ local cmd=info
+++ case "$cmd" in
+++ __conda_exe info --base
+++ '[' -n '' ']'
+++ /opt/miniconda3/bin/conda info --base
++ CONDA_BASE=/opt/miniconda3
++ CONDA_EXE=/opt/miniconda3/bin/conda
++ CONDA_INSTALL_BIN=conda
++ command -v mamba
++ CONDA_ENV_NAME=bullinger-mwe
++ ENV_CREATED=0
++ conda env list
++ local cmd=env
++ case "$cmd" in
++ sed 's/*//g'
++ __conda_exe env list
++ awk 'NF && $1 !~ /^#/'
++ '[' -n '' ']'
++ grep -Fxq bullinger-mwe
++ /opt/miniconda3/bin/conda env list
++ echo 'Creating conda environment '\''bullinger-mwe'\''...'
++ conda create -y -n bullinger-mwe python=3.11 pip
++ local cmd=create
++ case "$cmd" in
++ __conda_exe create -y -n bullinger-mwe python=3.11 pip
++ '[' -n '' ']'
++ /opt/miniconda3/bin/conda create -y -n bullinger-mwe python=3.11 pip
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.1.1
+    latest version: 26.1.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
++ ENV_CREATED=1
++ conda activate bullinger-mwe
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate bullinger-mwe
++ '[' -n '' ']'
++ local ask_conda
+++ PS1='(base) '
+++ __conda_exe shell.posix activate bullinger-mwe
+++ '[' -n '' ']'
+++ /opt/miniconda3/bin/conda shell.posix activate bullinger-mwe
++ ask_conda='unset _CE_M
+unset _CE_CONDA
+PS1='\''(bullinger-mwe) '\''
+export PATH='\''/HOME/bergerd/.conda/envs/bullinger-mwe/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\''
+export CONDA_PREFIX='\''/HOME/bergerd/.conda/envs/bullinger-mwe'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''bullinger-mwe'\''
+export CONDA_PROMPT_MODIFIER='\''(bullinger-mwe) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
++ eval 'unset _CE_M
+unset _CE_CONDA
+PS1='\''(bullinger-mwe) '\''
+export PATH='\''/HOME/bergerd/.conda/envs/bullinger-mwe/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\''
+export CONDA_PREFIX='\''/HOME/bergerd/.conda/envs/bullinger-mwe'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_DEFAULT_ENV='\''bullinger-mwe'\''
+export CONDA_PROMPT_MODIFIER='\''(bullinger-mwe) '\''
+export CONDA_PREFIX_1='\''/opt/miniconda3'\''
+export CONDA_EXE='\''/opt/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/opt/miniconda3/bin/python'\'''
+++ unset _CE_M
+++ unset _CE_CONDA
+++ PS1='(bullinger-mwe) '
+++ export PATH=/HOME/bergerd/.conda/envs/bullinger-mwe/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ PATH=/HOME/bergerd/.conda/envs/bullinger-mwe/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export CONDA_PREFIX=/HOME/bergerd/.conda/envs/bullinger-mwe
+++ CONDA_PREFIX=/HOME/bergerd/.conda/envs/bullinger-mwe
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export CONDA_DEFAULT_ENV=bullinger-mwe
+++ CONDA_DEFAULT_ENV=bullinger-mwe
+++ export 'CONDA_PROMPT_MODIFIER=(bullinger-mwe) '
+++ CONDA_PROMPT_MODIFIER='(bullinger-mwe) '
+++ export CONDA_PREFIX_1=/opt/miniconda3
+++ CONDA_PREFIX_1=/opt/miniconda3
+++ export CONDA_EXE=/opt/miniconda3/bin/conda
+++ CONDA_EXE=/opt/miniconda3/bin/conda
+++ export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ '[' 1 = 1 ']'
++ echo 'Installing repo Python requirements into '\''bullinger-mwe'\''...'
++ python -m pip install -q -r requirements.txt
++ python -m pip install -q 'openai>=1.0.0' 'google-genai>=0.3.0' 'mistralai>=1.0.0'
++ export HF_HOME=/HOME/bergerd/projects/llm-line-alignment/.hf
++ HF_HOME=/HOME/bergerd/projects/llm-line-alignment/.hf
++ export TRANSFORMERS_CACHE=/HOME/bergerd/projects/llm-line-alignment/.hf/transformers
++ TRANSFORMERS_CACHE=/HOME/bergerd/projects/llm-line-alignment/.hf/transformers
++ mkdir -p /HOME/bergerd/projects/llm-line-alignment/.hf/transformers
++ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
++ which python
++ python -c 'import torch; print('\''CUDA available:'\'', torch.cuda.is_available())'
++ DATASET_KEY=bullinger_handwritten
++ DATA_DIR=datasets/bullinger_handwritten
++ DATASET_TAG=bullinger_handwritten
++ SEGMENTER=none
++ EXISTING_LINES_DIR=datasets/bullinger_handwritten/line_images
++ OCR_LINES_DIR=datasets/bullinger_handwritten/ocr_lines
++ OCR_CACHE_DIR=outputs/cache/bullinger_handwritten/lines
++ OCR_BATCH_SIZE=8
++ SKIP_OCR=0
++ FORCE_OCR=0
++ SKIP_EVAL=1
++ MODEL=./.hf/Qwen3-VL-8B-Instruct
++ '[' -d ./.hf/Qwen3-VL-8B-Instruct ']'
++ MODEL=Qwen/Qwen3-VL-8B-Instruct
++ MODEL_SUFFIX=qwen3-vl-8b-instruct
++ N_SHOTS=0
++ SHOTS_SEED=42
++ MAX_NEW_TOKENS=800
++ SHOT_SUFFIX=0shot
++ OUT_DIR=bullinger_handwritten_predictions_m4_0shot_qwen3-vl-8b-instruct
++ EVAL_CSV=bullinger_handwritten_eval_m4_0shot_qwen3-vl-8b-instruct.csv
++ '[' 0 '!=' 1 ']'
++ PYLAIA_ROOT=third_party/pylaia-dennis
++ PYLAIA_CHECKPOINT=third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt
++ PYLAIA_SYMS=third_party/pylaia-dennis/syms.txt
++ PYLAIA_WORK_DIR=outputs/cache/bullinger_handwritten/pylaia
++ PYLAIA_GPUS=0
++ PYLAIA_AUTO_SELECT_GPUS=0
++ PYLAIA_CONDA_ENV=pylaia-htr
++ PYLAIA_PYTHON_VERSION=3.10
++ PYLAIA_PIP_SPEC=pylaia==1.1.2
++ PYLAIA_SOURCE_URL=https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz
++ sed 's/*//g'
++ conda env list
++ local cmd=env
++ case "$cmd" in
++ __conda_exe env list
++ awk 'NF && $1 !~ /^#/'
++ '[' -n '' ']'
++ /opt/miniconda3/bin/conda env list
++ grep -Fxq pylaia-htr
++ echo 'Creating dedicated PyLaia environment '\''pylaia-htr'\'' with Python 3.10...'
++ conda create -y -n pylaia-htr python=3.10 pip
++ local cmd=create
++ case "$cmd" in
++ __conda_exe create -y -n pylaia-htr python=3.10 pip
++ '[' -n '' ']'
++ /opt/miniconda3/bin/conda create -y -n pylaia-htr python=3.10 pip
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.1.1
+    latest version: 26.1.1
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
++ /opt/miniconda3/bin/conda run --no-capture-output -n pylaia-htr python -
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/importlib/metadata/__init__.py", line 996, in version
+    return distribution(distribution_name).version
+  File "/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/importlib/metadata/__init__.py", line 969, in distribution
+    return Distribution.from_name(distribution_name)
+  File "/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/importlib/metadata/__init__.py", line 548, in from_name
+    raise PackageNotFoundError(name)
+importlib.metadata.PackageNotFoundError: No package metadata was found for pylaia
+ERROR conda.cli.main_run:execute(125): `conda run python -` failed. (See above for error)
++ echo 'Installing PyLaia into '\''pylaia-htr'\'' from PyPI package '\''pylaia==1.1.2'\''...'
++ /opt/miniconda3/bin/conda run --no-capture-output -n pylaia-htr python -m pip install 'pip<24.1' setuptools wheel
++ /opt/miniconda3/bin/conda run --no-capture-output -n pylaia-htr python -m pip install pylaia==1.1.2
+
+[notice] A new release of pip is available: 24.0 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
++ /opt/miniconda3/bin/conda run --no-capture-output -n pylaia-htr python -
++ /opt/miniconda3/bin/conda run --no-capture-output -n pylaia-htr python -
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+++ /opt/miniconda3/bin/conda run --no-capture-output -n pylaia-htr python -
++ PYLAIA_ENV_BIN=/HOME/bergerd/.conda/envs/pylaia-htr/bin
++ export PATH=/HOME/bergerd/.conda/envs/pylaia-htr/bin:/HOME/bergerd/.conda/envs/bullinger-mwe/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ PATH=/HOME/bergerd/.conda/envs/pylaia-htr/bin:/HOME/bergerd/.conda/envs/bullinger-mwe/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ command -v pylaia-htr-netout
++ /opt/miniconda3/bin/conda run --no-capture-output -n pylaia-htr python -
++ '[' none = kraken ']'
++ OCR_ARGS=(python scripts/make_ocr_outputs.py --dataset "$DATASET_KEY" --data-dir "$DATA_DIR" --segmenter "$SEGMENTER" --recognizer pylaia_iam --cache-dir "$OCR_CACHE_DIR" --batch-size "$OCR_BATCH_SIZE" --pylaia-root "$PYLAIA_ROOT" --pylaia-checkpoint "$PYLAIA_CHECKPOINT" --pylaia-syms "$PYLAIA_SYMS" --pylaia-work-dir "$PYLAIA_WORK_DIR" --pylaia-gpus "$PYLAIA_GPUS" --log-level INFO)
++ '[' -n datasets/bullinger_handwritten/line_images ']'
++ OCR_ARGS+=(--existing-lines-dir "$EXISTING_LINES_DIR")
++ '[' 0 = 1 ']'
++ python scripts/make_ocr_outputs.py --dataset bullinger_handwritten --data-dir datasets/bullinger_handwritten --segmenter none --recognizer pylaia_iam --cache-dir outputs/cache/bullinger_handwritten/lines --batch-size 8 --pylaia-root third_party/pylaia-dennis --pylaia-checkpoint third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt --pylaia-syms third_party/pylaia-dennis/syms.txt --pylaia-work-dir outputs/cache/bullinger_handwritten/pylaia --pylaia-gpus 0 --log-level INFO --existing-lines-dir datasets/bullinger_handwritten/line_images
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+2026-03-20 14:33:34,684 - INFO - Starting OCR generation: dataset=bullinger_handwritten ids=10 segmenter=none recognizer=pylaia_iam
+2026-03-20 14:33:34,689 - INFO - Skip 0001 (exists). Use --overwrite to recompute.
+2026-03-20 14:33:34,689 - INFO - Done 0001 -> datasets/bullinger_handwritten/ocr/0001.txt
+2026-03-20 14:33:36,387 - INFO - Running PyLaia netout for 12 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:33:38,391 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_w57a9rx1/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_w57a9rx1/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_w57a9rx1/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:33:39,182 INFO laia] Installed:
+[2026-03-20 14:33:39,182 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:33:39,240 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:33:39,343 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:33:39,347 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  50%|█████     | 1/2 [00:05<00:05,  5.01s/it][A
+Decoding: 100%|██████████| 2/2 [00:05<00:00,  2.30s/it][A
+                                                       [ADecoding: 100%|██████████| 2/2 [00:05<00:00,  2.76s/it]
+2026-03-20 14:33:45,663 - INFO - 0002 page 1: 12 lines
+2026-03-20 14:33:45,670 - INFO - Done 0002 -> datasets/bullinger_handwritten/ocr/0002.txt
+2026-03-20 14:33:47,570 - INFO - Running PyLaia netout for 16 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:33:49,613 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_otob7gf7/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_otob7gf7/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_otob7gf7/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:33:50,158 INFO laia] Installed:
+[2026-03-20 14:33:50,159 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:33:50,210 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:33:50,308 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:33:50,310 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  50%|█████     | 1/2 [00:05<00:05,  5.57s/it][A
+Decoding: 100%|██████████| 2/2 [00:06<00:00,  2.76s/it][A
+                                                       [ADecoding: 100%|██████████| 2/2 [00:06<00:00,  3.23s/it]
+2026-03-20 14:33:57,852 - INFO - 0003 page 1: 16 lines
+2026-03-20 14:33:57,859 - INFO - Done 0003 -> datasets/bullinger_handwritten/ocr/0003.txt
+2026-03-20 14:34:01,756 - INFO - Running PyLaia netout for 32 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:34:03,863 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_4ia1sdes/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_4ia1sdes/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_4ia1sdes/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:34:04,382 INFO laia] Installed:
+[2026-03-20 14:34:04,383 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:34:04,434 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:34:04,531 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:34:04,533 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  25%|██▌       | 1/4 [00:05<00:15,  5.28s/it][A
+Decoding:  50%|█████     | 2/4 [00:06<00:05,  2.62s/it][A
+Decoding:  75%|███████▌  | 3/4 [00:06<00:01,  1.76s/it][A
+Decoding: 100%|██████████| 4/4 [00:07<00:00,  1.34s/it][A
+                                                       [ADecoding: 100%|██████████| 4/4 [00:07<00:00,  1.90s/it]
+2026-03-20 14:34:13,661 - INFO - 0027 page 1: 32 lines
+2026-03-20 14:34:13,667 - INFO - Done 0027 -> datasets/bullinger_handwritten/ocr/0027.txt
+2026-03-20 14:34:17,396 - INFO - Running PyLaia netout for 39 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:34:19,372 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_0no0wr5i/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_0no0wr5i/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_0no0wr5i/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:34:19,803 INFO laia] Installed:
+[2026-03-20 14:34:19,804 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:34:19,856 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:34:19,954 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:34:19,957 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  20%|██        | 1/5 [00:04<00:18,  4.58s/it][A
+Decoding:  40%|████      | 2/5 [00:05<00:06,  2.15s/it][A
+Decoding:  60%|██████    | 3/5 [00:05<00:02,  1.38s/it][A
+Decoding:  80%|████████  | 4/5 [00:06<00:01,  1.05s/it][A
+Decoding: 100%|██████████| 5/5 [00:06<00:00,  1.25it/s][A
+                                                       [ADecoding: 100%|██████████| 5/5 [00:06<00:00,  1.30s/it]
+2026-03-20 14:34:27,743 - INFO - 0030 page 1: 39 lines
+2026-03-20 14:34:27,751 - INFO - Done 0030 -> datasets/bullinger_handwritten/ocr/0030.txt
+2026-03-20 14:34:30,390 - INFO - Running PyLaia netout for 21 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:34:33,738 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_mfk5co45/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_mfk5co45/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_mfk5co45/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:34:34,516 INFO laia] Installed:
+[2026-03-20 14:34:34,518 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:34:34,597 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:34:34,699 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:34:34,702 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  33%|███▎      | 1/3 [00:05<00:10,  5.21s/it][A
+Decoding:  67%|██████▋   | 2/3 [00:06<00:02,  2.71s/it][A
+Decoding: 100%|██████████| 3/3 [00:06<00:00,  1.73s/it][A
+                                                       [ADecoding: 100%|██████████| 3/3 [00:06<00:00,  2.28s/it]
+2026-03-20 14:34:42,940 - INFO - 10177 page 1: 21 lines
+2026-03-20 14:34:43,132 - INFO - Running PyLaia netout for 4 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:34:45,214 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_1gh44q8j/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_1gh44q8j/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_1gh44q8j/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:34:45,656 INFO laia] Installed:
+[2026-03-20 14:34:45,656 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:34:45,708 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:34:45,805 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:34:45,808 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding: 100%|██████████| 1/1 [00:04<00:00,  4.41s/it][A
+                                                       [ADecoding: 100%|██████████| 1/1 [00:04<00:00,  4.52s/it]
+2026-03-20 14:34:50,761 - INFO - 10177 page 2: 4 lines
+2026-03-20 14:34:50,767 - INFO - Done 10177 -> datasets/bullinger_handwritten/ocr/10177.txt
+2026-03-20 14:34:54,254 - INFO - Running PyLaia netout for 33 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:34:56,265 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_603bdknt/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_603bdknt/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_603bdknt/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:34:56,690 INFO laia] Installed:
+[2026-03-20 14:34:56,691 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:34:56,742 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:34:56,841 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:34:56,844 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  20%|██        | 1/5 [00:05<00:22,  5.67s/it][A
+Decoding:  40%|████      | 2/5 [00:06<00:08,  2.87s/it][A
+Decoding:  60%|██████    | 3/5 [00:07<00:03,  1.94s/it][A
+Decoding:  80%|████████  | 4/5 [00:08<00:01,  1.50s/it][A
+                                                       [ADecoding: 100%|██████████| 5/5 [00:08<00:00,  1.68s/it]
+2026-03-20 14:35:07,168 - INFO - 10275 page 1: 33 lines
+2026-03-20 14:35:07,291 - INFO - Running PyLaia netout for 3 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:35:10,444 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch__gaukgho/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch__gaukgho/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch__gaukgho/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:35:11,124 INFO laia] Installed:
+[2026-03-20 14:35:11,125 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:35:11,200 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:35:11,302 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:35:11,305 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding: 100%|██████████| 1/1 [00:04<00:00,  4.46s/it][A
+                                                       [ADecoding: 100%|██████████| 1/1 [00:04<00:00,  4.57s/it]
+2026-03-20 14:35:16,312 - INFO - 10275 page 2: 3 lines
+2026-03-20 14:35:16,318 - INFO - Done 10275 -> datasets/bullinger_handwritten/ocr/10275.txt
+2026-03-20 14:35:18,627 - INFO - Running PyLaia netout for 15 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:35:21,740 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_qsav70ed/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_qsav70ed/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_qsav70ed/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:35:22,585 INFO laia] Installed:
+[2026-03-20 14:35:22,586 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:35:22,681 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:35:22,814 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:35:22,818 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  50%|█████     | 1/2 [00:06<00:06,  6.05s/it][A
+Decoding: 100%|██████████| 2/2 [00:06<00:00,  2.98s/it][A
+                                                       [ADecoding: 100%|██████████| 2/2 [00:06<00:00,  3.50s/it]
+2026-03-20 14:35:31,105 - INFO - 10317 page 1: 15 lines
+2026-03-20 14:35:31,233 - INFO - Running PyLaia netout for 4 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:35:34,317 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_dze3v5dl/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_dze3v5dl/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_dze3v5dl/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:35:35,009 INFO laia] Installed:
+[2026-03-20 14:35:35,010 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:35:35,088 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:35:35,194 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:35:35,197 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding: 100%|██████████| 1/1 [00:04<00:00,  4.40s/it][A
+                                                       [ADecoding: 100%|██████████| 1/1 [00:04<00:00,  4.51s/it]
+2026-03-20 14:35:40,133 - INFO - 10317 page 2: 4 lines
+2026-03-20 14:35:40,138 - INFO - Done 10317 -> datasets/bullinger_handwritten/ocr/10317.txt
+2026-03-20 14:35:41,811 - INFO - Running PyLaia netout for 19 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:35:44,886 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_tmokm8p4/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_tmokm8p4/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_tmokm8p4/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:35:45,477 INFO laia] Installed:
+[2026-03-20 14:35:45,478 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:35:45,533 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:35:45,632 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:35:45,636 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  33%|███▎      | 1/3 [00:04<00:09,  4.98s/it][A
+Decoding:  67%|██████▋   | 2/3 [00:05<00:02,  2.49s/it][A
+                                                       [ADecoding: 100%|██████████| 3/3 [00:05<00:00,  1.96s/it]
+2026-03-20 14:35:52,636 - INFO - 10330 page 1: 19 lines
+2026-03-20 14:35:52,792 - INFO - Running PyLaia netout for 4 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:35:55,648 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_ywdaw_iw/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_ywdaw_iw/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_ywdaw_iw/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:35:56,261 INFO laia] Installed:
+[2026-03-20 14:35:56,261 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:35:56,328 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:35:56,434 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:35:56,437 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding: 100%|██████████| 1/1 [00:04<00:00,  4.53s/it][A
+                                                       [ADecoding: 100%|██████████| 1/1 [00:04<00:00,  4.64s/it]
+2026-03-20 14:36:01,541 - INFO - 10330 page 2: 4 lines
+2026-03-20 14:36:01,547 - INFO - Done 10330 -> datasets/bullinger_handwritten/ocr/10330.txt
+2026-03-20 14:36:03,450 - INFO - Running PyLaia netout for 22 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:36:06,612 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_onb_wecw/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_onb_wecw/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_onb_wecw/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:36:07,487 INFO laia] Installed:
+[2026-03-20 14:36:07,487 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:36:07,544 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:36:07,643 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:36:07,646 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding:  33%|███▎      | 1/3 [00:05<00:10,  5.24s/it][A
+Decoding:  67%|██████▋   | 2/3 [00:05<00:02,  2.57s/it][A
+Decoding: 100%|██████████| 3/3 [00:06<00:00,  1.59s/it][A
+                                                       [ADecoding: 100%|██████████| 3/3 [00:06<00:00,  2.16s/it]
+2026-03-20 14:36:15,310 - INFO - 10392 page 1: 22 lines
+2026-03-20 14:36:15,737 - INFO - Running PyLaia netout for 5 line image(s)
+/HOME/bergerd/.conda/envs/pylaia-htr/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+[2026-03-20 14:36:18,687 INFO laia] Arguments: {'img_list': '/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_gvxeccxj/images.txt', 'img_dirs': None, 'common': CommonArgs(seed=74565, train_path='', model_filename='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98', experiment_dirname='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_gvxeccxj/pylaia_run', monitor=<Monitor.va_cer: 'va_cer'>, checkpoint='/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt'), 'data': DataArgs(batch_size=8, color_mode=<ColorMode.L: 'L'>, num_workers=None, reading_order=<ReadingOrder.LTR: 'LTR'>), 'netout': NetoutArgs(output_transform=<OutputTransform.softmax: 'softmax'>, matrix=None, lattice='/HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/batch_gvxeccxj/lattice.txt', digits=10), 'trainer': TrainerArgs(gradient_clip_val=0.0, gradient_clip_algorithm='norm', process_position=0, num_nodes=1, num_processes=1, devices=None, gpus=0, auto_select_gpus=False, tpu_cores=None, ipus=None, progress_bar_refresh_rate=1, overfit_batches=0.0, track_grad_norm=-1, check_val_every_n_epoch=1, fast_dev_run=False, accumulate_grad_batches=1, max_epochs=None, min_epochs=None, max_steps=None, min_steps=None, max_time=None, limit_train_batches=1.0, limit_val_batches=1.0, limit_test_batches=1.0, limit_predict_batches=1.0, val_check_interval=1.0, flush_logs_every_n_steps=100, log_every_n_steps=50, accelerator=None, sync_batchnorm=False, precision=32, weights_summary='top', weights_save_path=None, num_sanity_val_steps=2, truncated_bptt_steps=None, profiler=None, benchmark=False, deterministic=False, reload_dataloaders_every_n_epochs=0, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, terminate_on_nan=False, prepare_data_per_node=True, plugins=None, amp_backend='native', amp_level='O2', distributed_backend=None, move_metrics_to_cpu=False, multiple_trainloader_mode='max_size_cycle', stochastic_weight_avg=False)}
+[2026-03-20 14:36:19,532 INFO laia] Installed:
+[2026-03-20 14:36:19,533 INFO laia.common.loader] Using checkpoint "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-dennis/epoch=170-lowest_va_cer.ckpt"
+[2026-03-20 14:36:19,593 INFO laia.common.loader] Loaded model /HOME/bergerd/projects/llm-line-alignment/outputs/cache/bullinger_handwritten/pylaia/patched_models/model.num_outputs_98
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+[2026-03-20 14:36:19,692 WARNING py.warnings] UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+[2026-03-20 14:36:19,695 WARNING py.warnings] UserWarning: This DataLoader will create 64 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+
+Decoding: 0it [00:00, ?it/s][A
+Decoding: 100%|██████████| 1/1 [00:04<00:00,  4.79s/it][A
+                                                       [ADecoding: 100%|██████████| 1/1 [00:04<00:00,  4.90s/it]
+2026-03-20 14:36:25,176 - INFO - 10392 page 2: 5 lines
+2026-03-20 14:36:25,181 - INFO - Done 10392 -> datasets/bullinger_handwritten/ocr/10392.txt
+2026-03-20 14:36:25,181 - INFO - Completed successfully
++ '[' 1 = 1 ']'
++ echo 'Skipping M4 evaluation because SKIP_EVAL=1.'
++ exit 0

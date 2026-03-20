@@ -1,0 +1,123 @@
+{
+  "id": "10317",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 19,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Er uff 12 statt der ratt uff, kumpt min bott, hab icdh von stund an dine brieff uffs gwissest nogen",
+      "crop_path": "line_images/10317/p001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "suchen sepianum, zeig imm din brieff zeigt e mir an, das in gheim beschlogen unsern botten zu gschriben",
+      "crop_path": "line_images/10317/p001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "kein richtung an zenamen, so dem globet inhring, do d sgitt anders möchen sin sölle .",
+      "crop_path": "line_images/10317/p001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "chelütt. S habend in allen scheiden daß beest gethon, die wil 6 ab zunächtel reicht unsdero glober",
+      "crop_path": "line_images/10317/p001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "wellind min herren, dum mit nitt zeschaffen haben, Jedodi sich hie mitt elütten, soiemen undstude",
+      "crop_path": "line_images/10317/p001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "wutt gwalt, und gemerter hand durch ir land und ertrich ze zühen  wedend sy sömlichs nitt",
+      "crop_path": "line_images/10317/p001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "gstatten. sunder ir land und erriden vot gealtle tien alle. Her aserian sied zwant wir wol siht",
+      "crop_path": "line_images/10317/p001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "hn kumen, das die von statt und land solotar s z allen sit heiwrachen und ewa hetten, die satidtt",
+      "crop_path": "line_images/10317/p001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "uff die unser odnind, ußgenomen die 8 man, deren sy zu ersten begert, die söllen etebart",
+      "crop_path": "line_images/10317/p001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "ul biet rummen. Deinde sind fier papisten habt erm wa eir garen beten 8 aideri t Jellen barten",
+      "crop_path": "line_images/10317/p001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "und schlachtschwert bewert im gfraget, wo er hin welle hat e bebet and e fidei bribi e",
+      "crop_path": "line_images/10317/p001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "uf. gschlagen hatt site gewert und zwen ghüwen. Ur judiceen me luiosni",
+      "crop_path": "line_images/10317/p001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "krlabtren? Wir esm alb bald ocdh ibel gratus. Hęc nunc habeo. indefessum me cemperios non",
+      "crop_path": "line_images/10317/p001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "nunicos habea, quibus fidum. Vale, ut supra.",
+      "crop_path": "line_images/10317/p001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "B.",
+      "crop_path": "line_images/10317/p001_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "suo Heinrico",
+      "crop_path": "line_images/10317/p002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Bullingero,",
+      "crop_path": "line_images/10317/p002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "supu omnusmum",
+      "crop_path": "line_images/10317/p002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "carissimo fratri",
+      "crop_path": "line_images/10317/p002_line003.png"
+    }
+  ]
+}

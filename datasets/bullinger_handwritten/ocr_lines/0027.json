@@ -1,0 +1,201 @@
+{
+  "id": "0027",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 32,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "auctm icdeoque haud absque conscientiae rupulo vocationi",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "eescurus licet gradvibum cuso crdalustios ego revocari et cu",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Fentrinęet eiumorium cupidemu desicderemque. Quumnamque totus",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "comemptus, sprietus neglectus pice cęteris, Seecumo factas",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "tansacta ominia, ut comicus adolecem conquerebatum etsi",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "alicre furutioni illque abulta ilium fiero pręfertius, temenimne",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "qudem fidei susplitum vereber, cantieque supicaber, utpote",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "cui cane vehementius et angui commitcere concredereque di",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "quae aliis cocequalibus dudum commisere, horruerint. Nam ut",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "deos parum de me frugis bone et erpestare et sperare persualum ha",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "etn fuecit, quod autem evum Basileę, Merpurgiqu agorem tarum mona",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "ac intellerabili fere investiva in me licet nemorium ferrentum",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "quam quivis in deum patriam praeceptores ac pationos pietatis oblitum",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "Quod si idem etiam iam sentiunt de me, prudenter faciunt, qued",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "me ad inclytae ecclesiae vestrae exitia daministrandia adhibere",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "nupriusquam evidens melioris de me frugis specimen aedam; nam",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "sic volent, sciensque vidensque offendiculo essem futurus, quo ane aliud sr",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "cuius vel salvatore tete, crimeni queat a me admiru esis. Qu",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "vero tot verbis haec conquerem et deploro? Quae vers aute me melli",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "aut catum aiuit simulia abigerintur. Solitis enim et viseris lecios ha",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "molorura. An non si quadem accidit illem pię memoris viro seat",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Rhellicano assivi et prrecepteri meo colendo eidemque erga Tiguri",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "ecclesiam et rempublica optime affecto nec parum de eadem om",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "ito, id quod ab obitu eius libillus aeditus testatur, quo Tigurum",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Tigurinosque per seso quidem satis claros, honorificis tamen encommus,",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "omnare atque celebrare sicque gratitudinem, pietatemue vi patriam suam",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "ererere stulavit. At ipse interim totam fere tanquam exulem quodamo",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "vitam extra dulcissimae patrię limites centerere fuit coactus,",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "nec unquam me ea, quanquam id nunquam non ardentisimus arelenimus psti",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "rvotis, commoda potiri conditione cucivit. Haec cale scribi",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "liberius copisiusque fiecus parum conscientia effiti tui benevolentiaque,",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "quam in me qauad poterit conspretabis, parum statuo ma non anpli",
+      "crop_path": "line_images/0027/0027_0027_Ms_F_62_2_0283_line031.png"
+    }
+  ]
+}

@@ -14,6 +14,7 @@ from linealign.nntp import (
     decode_lattice_file_greedy,
     infer_pylaia_input_height,
     load_symbol_table,
+    patch_pylaia_model_num_outputs,
     write_pylaia_netout_config,
 )
 
@@ -42,7 +43,7 @@ def _write_lines(path: Path, lines: list[str]) -> None:
 class PyLaiaRecognizer(Recognizer):
     """Line recognizer backed by `pylaia-htr-netout` plus greedy CTC decoding."""
 
-    name = "pylaia_iam"
+    name = "pylaia"
 
     def __init__(
         self,
@@ -57,19 +58,26 @@ class PyLaiaRecognizer(Recognizer):
         pylaia_root = Path(pylaia_root) if pylaia_root else DEFAULT_PYLAIA_ROOT
         checkpoint_path = Path(checkpoint_path) if checkpoint_path else pylaia_root / "weights.ckpt"
         syms_path = Path(syms_path) if syms_path else pylaia_root / "syms.txt"
-        work_dir = Path(work_dir) if work_dir else Path("outputs/cache/pylaia_iam")
+        work_dir = Path(work_dir) if work_dir else Path("outputs/cache/pylaia")
 
         self.pylaia_exe = shutil.which("pylaia-htr-netout")
         if self.pylaia_exe is None:
             raise RuntimeError("pylaia-htr-netout is not installed or not on PATH")
+        self.pylaia_python = Path(self.pylaia_exe).resolve().with_name("python")
 
         self.pylaia_root = pylaia_root.resolve()
-        self.model_path = _ensure_file(self.pylaia_root / "model", "PyLaia model file")
         self.checkpoint_path = _ensure_file(checkpoint_path, "PyLaia checkpoint")
+        base_model_path = _ensure_file(self.pylaia_root / "model", "PyLaia model file")
         self.syms_path = _ensure_file(syms_path, "PyLaia syms.txt")
         self.symbol_table = load_symbol_table(self.syms_path)
         self.work_dir = work_dir.resolve()
         self.work_dir.mkdir(parents=True, exist_ok=True)
+        self.model_path = patch_pylaia_model_num_outputs(
+            base_model_path,
+            self.checkpoint_path,
+            output_dir=self.work_dir / "patched_models",
+            python_exe=self.pylaia_python if self.pylaia_python.exists() else None,
+        )
         self.gpus = gpus
         self.auto_select_gpus = auto_select_gpus
         self.fixed_height = fixed_height if fixed_height is not None else infer_pylaia_input_height(self.model_path)

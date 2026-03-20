@@ -1,0 +1,105 @@
+{
+  "id": "0003",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 16,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "S. Dm in Christo dominu venerande et amantissime Bullingere magnas tibi gratias ago peo literis",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Pridem expectavit senex noster atrociora ab antichristo et ab aliis. In domino collo",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "cvit omnim fiduciam suam. hunc orabitis nobiscum, ne sinat dicere hostes sui nominis.Ubi",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Christus istorum? Colonia enim tota cum praecipuis ex capitulo et maiore parte u",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "contra nos incredibili furore non profligationem, sed extinctioneem senis molien",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Conventus Provicię habebit 23. iulii ad concludendum de reformatione, cuiue",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "formula composita est. In quo conventu nisi dominus retineat in officio tres reliquos",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "a capilo ordines, comitum scicet Equitum et oppidorum, magna erit sanctorum deiectio",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "et contra nomen Christi insultatio opud impios. Gelis et Spicurismo Christique aperto",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "oppugnatione Germania fatum suum achelerat. Ca os l frum omnium avincat plernanque",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "torum redemptiorum faciant aut servet et augeat parvum suum grigem, ne silescat i",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "voatis nominis euus. Commenda mehi, quęso, diligenter symmistis tuis omnibus, quos cum",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "eccliae et Schoolanistram Christi cufetiat et benedicat. amen. F vobis precatur d. Pi",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "rppus et distani. Bonę 2. iulii",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "M. Bucerus.",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "tuu in domino.",
+      "crop_path": "line_images/0003/0003_0003_157705_0002_line015.png"
+    }
+  ]
+}

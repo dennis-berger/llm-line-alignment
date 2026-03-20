@@ -1,0 +1,171 @@
+{
+  "id": "10392",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 27,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Gnad und frid vonn gott. Fürgeliepter bruder ich bitt",
+      "crop_path": "line_images/10392/p001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "üch früntlich, ir wöllend üch dise arme xellen bevol.",
+      "crop_path": "line_images/10392/p001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "haben inn üwer fürpitt gägen minen herrenn",
+      "crop_path": "line_images/10392/p001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "vonn Basel ann die sy ein bitt umb ein stür thun wer.",
+      "crop_path": "line_images/10392/p001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Dann sy dem honegger c gl gäben müssend",
+      "crop_path": "line_images/10392/p001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "dasy aber wenig schuldig wärend, wann sust die",
+      "crop_path": "line_images/10392/p001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "sachen rächt zugiengen. Min herren denn zur ych ha",
+      "crop_path": "line_images/10392/p001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "n inen geschenckt, aulb so in her  zun erem",
+      "crop_path": "line_images/10392/p001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "bee. Dann meerteyls dero, se ihattena gerrim",
+      "crop_path": "line_images/10392/p001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "redlich xellen aber armm dy vätend em",
+      "crop_path": "line_images/10392/p001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "holffen, daß der Honigger gestehafft were, rufftund",
+      "crop_path": "line_images/10392/p001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "deßhalb min herren vonn Zürych an imm ercten a",
+      "crop_path": "line_images/10392/p001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "lrzug. Es ward aber dem honegg sogeschonet",
+      "crop_path": "line_images/10392/p001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "lezund, so der wurff imm und sinsde yben in die",
+      "crop_path": "line_images/10392/p001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "hab worden, trybwellicy ilerngutt hebren ommitt",
+      "crop_path": "line_images/10392/p001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "sömlichen armen Eellow dornd da hertzaman.",
+      "crop_path": "line_images/10392/p001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "heren saßler würtend wol brieffs wir berude o",
+      "crop_path": "line_images/10392/p001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "könnend üch zöngen dich buthe, weritteri.",
+      "crop_path": "line_images/10392/p001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "khund üwernn müglichen klyge pitt ich. sind",
+      "crop_path": "line_images/10392/p001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "gott befolhen. 22. aprilis 1534.",
+      "crop_path": "line_images/10392/p001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Heinrych Bullinger,",
+      "crop_path": "line_images/10392/p001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "üwer getruwen.",
+      "crop_path": "line_images/10392/p001_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Dem wolgelerten frommen und acht",
+      "crop_path": "line_images/10392/p002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "herren Oswalden Mycor,",
+      "crop_path": "line_images/10392/p002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "praedicanten zum domsiffeBa",
+      "crop_path": "line_images/10392/p002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "sinem günstigen lieben herren",
+      "crop_path": "line_images/10392/p002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "unnd bruder.",
+      "crop_path": "line_images/10392/p002_line004.png"
+    }
+  ]
+}
