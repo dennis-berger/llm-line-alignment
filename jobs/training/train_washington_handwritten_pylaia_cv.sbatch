@@ -75,6 +75,7 @@ fi
 
 PYLAIA_CONDA_ENV="${PYLAIA_CONDA_ENV:-pylaia-htr}"
 PYLAIA_PYTHON_VERSION="${PYLAIA_PYTHON_VERSION:-3.10}"
+PYLAIA_PIP_SPEC="${PYLAIA_PIP_SPEC:-pylaia==1.1.2}"
 PYLAIA_SOURCE_URL="${PYLAIA_SOURCE_URL:-https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz}"
 if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$PYLAIA_CONDA_ENV"; then
   echo "Creating dedicated PyLaia environment '$PYLAIA_CONDA_ENV' with Python $PYLAIA_PYTHON_VERSION..."
@@ -86,9 +87,9 @@ from importlib.metadata import version
 version("pylaia")
 PY
 then
-  echo "Installing PyLaia into '$PYLAIA_CONDA_ENV' from the official GitHub source..."
+  echo "Installing PyLaia into '$PYLAIA_CONDA_ENV' from PyPI package '$PYLAIA_PIP_SPEC'..."
   "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "pip<24.1" setuptools wheel
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "$PYLAIA_SOURCE_URL"
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "$PYLAIA_PIP_SPEC"
 fi
 
 "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
@@ -182,10 +183,45 @@ if [ "$TRAIN_FOLD" != "train_a" ] && [ "$TRAIN_FOLD" != "train_b" ]; then
   exit 1
 fi
 
+DATA_DIR_ABS="$(python - <<PY
+from pathlib import Path
+print(Path("$DATA_DIR").resolve())
+PY
+)"
+PYLAIA_MODEL_ABS="$(python - <<PY
+from pathlib import Path
+print(Path("$PYLAIA_MODEL").resolve())
+PY
+)"
+PYLAIA_CHECKPOINT_ABS="$(python - <<PY
+from pathlib import Path
+print(Path("$PYLAIA_CHECKPOINT").resolve())
+PY
+)"
+PYLAIA_SYMS_ABS="$(python - <<PY
+from pathlib import Path
+print(Path("$PYLAIA_SYMS").resolve())
+PY
+)"
+PYLAIA_IMAGE_HEIGHT="$(python - <<PY
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path("$REPO_ROOT") / "src"))
+from linealign.nntp import infer_pylaia_input_height
+
+height = infer_pylaia_input_height(Path("$PYLAIA_MODEL_ABS"))
+if height is None:
+    raise SystemExit("Could not infer PyLaia input height from model")
+print(height)
+PY
+)"
+echo "Using PyLaia input height: $PYLAIA_IMAGE_HEIGHT"
+
 python scripts/build_washington_pylaia_manifests.py \
   --data-dir "$DATA_DIR" \
   --out-dir "$MANIFEST_OUT_DIR" \
   --syms "$PYLAIA_SYMS" \
+  --fixed-height "$PYLAIA_IMAGE_HEIGHT" \
   --fold "$TRAIN_FOLD"
 
 MANIFEST_DIR="$MANIFEST_OUT_DIR/$TRAIN_FOLD"
@@ -193,20 +229,16 @@ TRAIN_TXT="$MANIFEST_DIR/train.txt"
 VAL_TXT="$MANIFEST_DIR/val.txt"
 TEST_TXT="$MANIFEST_DIR/test.txt"
 TEST_IDS_PATH="$MANIFEST_DIR/test_ids.txt"
-
-PYLAIA_IMAGE_HEIGHT="$(python - <<PY
-import sys
+MANIFEST_META_PATH="$MANIFEST_DIR/manifest_meta.json"
+PYLAIA_IMG_DIRS="$(python - <<PY
+import json
 from pathlib import Path
-sys.path.insert(0, str(Path("$REPO_ROOT") / "src"))
-from linealign.nntp import infer_pylaia_input_height
 
-height = infer_pylaia_input_height(Path("$PYLAIA_MODEL"))
-if height is None:
-    raise SystemExit("Could not infer PyLaia input height from model")
-print(height)
+meta = json.loads(Path("$MANIFEST_META_PATH").read_text(encoding="utf-8"))
+img_dirs = meta.get("pylaia_img_dirs") or ["$DATA_DIR_ABS"]
+print("[" + ",".join(img_dirs) + "]")
 PY
 )"
-echo "Using PyLaia input height: $PYLAIA_IMAGE_HEIGHT"
 
 PYLAIA_TORCH_INFO="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
 import json
@@ -255,23 +287,23 @@ else
   fi
 
   "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-dataset-validate \
-    "$PYLAIA_SYMS" \
-    "$DATA_DIR" \
+    "$PYLAIA_SYMS_ABS" \
+    "$PYLAIA_IMG_DIRS" \
     "$TRAIN_TXT" \
     "$VAL_TXT" \
     "$TEST_TXT" \
+    --common.model_filename "$PYLAIA_MODEL_ABS" \
     --fixed_input_height "$PYLAIA_IMAGE_HEIGHT" \
     --statistics_output "$EXPERIMENT_DIR/dataset_statistics.md"
 
   TRAIN_ARGS=(
-    "$PYLAIA_SYMS"
-    "$DATA_DIR"
+    "$PYLAIA_SYMS_ABS"
+    "$PYLAIA_IMG_DIRS"
     "$TRAIN_TXT"
     "$VAL_TXT"
-    --fixed_input_height "$PYLAIA_IMAGE_HEIGHT"
     --common.experiment_dirname "$EXPERIMENT_DIR"
-    --common.model_filename "$PYLAIA_MODEL"
-    --common.checkpoint "$PYLAIA_CHECKPOINT"
+    --common.model_filename "$PYLAIA_MODEL_ABS"
+    --common.checkpoint "$PYLAIA_CHECKPOINT_ABS"
     --train.pretrain true
     --data.batch_size "$BATCH_SIZE"
     --data.num_workers "$PYLAIA_NUM_WORKERS"
@@ -286,9 +318,12 @@ else
 
   "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-train-ctc "${TRAIN_ARGS[@]}"
 
-  BEST_CKPT="$(find "$EXPERIMENT_DIR" -type f -name '*.ckpt' ! -name 'last.ckpt' ! -path '*/pretrained/*' | sort | head -n 1)"
+  BEST_CKPT="$(find "$EXPERIMENT_DIR" -type f -name '*lowest_*.ckpt' ! -path '*/pretrained/*' | sort | head -n 1)"
   if [ -z "$BEST_CKPT" ]; then
-    BEST_CKPT="$(find "$EXPERIMENT_DIR" -type f -name 'last.ckpt' | sort | head -n 1)"
+    BEST_CKPT="$(find "$EXPERIMENT_DIR" -type f -name '*.ckpt' ! -name '*-last.ckpt' ! -path '*/pretrained/*' | sort | head -n 1)"
+  fi
+  if [ -z "$BEST_CKPT" ]; then
+    BEST_CKPT="$(find "$EXPERIMENT_DIR" -type f -name '*-last.ckpt' | sort | head -n 1)"
   fi
   if [ -z "$BEST_CKPT" ]; then
     echo "ERROR: No checkpoint produced under $EXPERIMENT_DIR"

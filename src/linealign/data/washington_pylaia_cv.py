@@ -8,7 +8,9 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Iterable
 
-from linealign.nntp.symbols import filter_transcription_text, load_symbol_table
+from PIL import Image
+
+from linealign.nntp.symbols import SPACE_TOKEN, filter_transcription_text, load_symbol_table
 from utils.common import read_text
 
 IMAGE_GLOBS = ("*.jpg", "*.jpeg", "*.png", "*.tif", "*.tiff")
@@ -37,6 +39,26 @@ class ManifestRow:
     image_path: str
     text: str
     tokenized_text: str
+
+
+def _resize_to_fixed_height(src_path: Path, dst_path: Path, fixed_height: int) -> Path:
+    """Resize one line image to a fixed height while preserving aspect ratio."""
+
+    if fixed_height <= 0:
+        raise ValueError(f"fixed_height must be positive, got {fixed_height}")
+
+    dst_path.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(src_path) as image:
+        width, height = image.size
+        if height <= 0:
+            raise ValueError(f"Image has invalid height 0: {src_path}")
+        if height == fixed_height:
+            normalized = image.copy()
+        else:
+            new_width = max(1, int(round(width * (fixed_height / height))))
+            normalized = image.resize((new_width, fixed_height), resample=Image.Resampling.LANCZOS)
+        normalized.save(dst_path)
+    return dst_path
 
 
 def _line_sort_key(path: Path) -> tuple[str, str]:
@@ -71,7 +93,14 @@ def split_train_val_ids(sample_ids: Iterable[str], *, val_ratio: float = 0.1, se
     return train_ids, val_ids
 
 
-def build_manifest_rows(data_dir: Path, sample_ids: Iterable[str], syms_path: Path) -> list[ManifestRow]:
+def build_manifest_rows(
+    data_dir: Path,
+    sample_ids: Iterable[str],
+    syms_path: Path,
+    *,
+    prepared_line_images_root: Path | None = None,
+    fixed_height: int | None = None,
+) -> list[ManifestRow]:
     """Pair Washington line images and GT lines in strict reading order."""
 
     symbol_table = load_symbol_table(syms_path)
@@ -102,13 +131,16 @@ def build_manifest_rows(data_dir: Path, sample_ids: Iterable[str], syms_path: Pa
                 raise ValueError(f"Sample {sample_id} line {image_path.name} is empty after filtering")
 
             image_id = str(Path("line_images") / sample_id / image_path.name)
+            if prepared_line_images_root is not None:
+                target_path = prepared_line_images_root / image_id
+                image_path = _resize_to_fixed_height(image_path, target_path, fixed_height or 0)
             rows.append(
                 ManifestRow(
                     sample_id=sample_id,
                     image_id=image_id,
                     image_path=str(image_path.resolve()),
                     text=text,
-                    tokenized_text=" ".join(filtered.tokens),
+                    tokenized_text=" ".join(SPACE_TOKEN if token == "sp" else token for token in filtered.tokens),
                 )
             )
 
@@ -166,6 +198,7 @@ def validate_manifest_dir(fold_dir: Path, data_dir: Path) -> dict:
     train_ids = meta["train_ids"]
     val_ids = meta["val_ids"]
     test_ids = meta["test_ids"]
+    img_dirs = [Path(path) for path in meta.get("pylaia_img_dirs", [str(data_dir.resolve())])]
     if set(train_ids) & set(val_ids):
         raise ValueError(f"Train/val overlap in {fold_dir}")
     if set(train_ids) & set(test_ids):
@@ -190,8 +223,8 @@ def validate_manifest_dir(fold_dir: Path, data_dir: Path) -> dict:
             raise ValueError(f"{fold_dir / f'{split_name}.txt'} has {len(rows)} row(s), expected {expected_count}")
         for row in rows:
             image_id, _tokens = row.split(" ", 1)
-            if not (data_dir / image_id).exists():
-                raise FileNotFoundError(f"PyLaia image id does not resolve under {data_dir}: {image_id}")
+            if not any((img_dir / image_id).exists() for img_dir in img_dirs):
+                raise FileNotFoundError(f"PyLaia image id does not resolve under {img_dirs}: {image_id}")
 
     return meta
 
@@ -201,6 +234,7 @@ def build_washington_pylaia_cv_manifests(
     out_dir: Path,
     *,
     syms_path: Path,
+    fixed_height: int | None = None,
     val_ratio: float = 0.1,
     seed: int = 42,
     selected_folds: Iterable[str] | None = None,
@@ -219,19 +253,39 @@ def build_washington_pylaia_cv_manifests(
         "data_dir": str(data_dir.resolve()),
         "out_dir": str(out_dir.resolve()),
         "syms_path": str(syms_path.resolve()),
+        "fixed_height": fixed_height,
         "val_ratio": val_ratio,
         "seed": seed,
         "folds": {},
     }
+    prepared_line_images_root = out_dir / "prepared_line_images" if fixed_height is not None else None
 
     for fold_name in selected:
         fold_spec = active_fold_specs[fold_name]
         base_train_ids = list(fold_spec["train_ids"])
         base_test_ids = list(fold_spec["test_ids"])
         train_ids, val_ids = split_train_val_ids(base_train_ids, val_ratio=val_ratio, seed=seed)
-        train_rows = build_manifest_rows(data_dir, train_ids, syms_path)
-        val_rows = build_manifest_rows(data_dir, val_ids, syms_path)
-        test_rows = build_manifest_rows(data_dir, base_test_ids, syms_path)
+        train_rows = build_manifest_rows(
+            data_dir,
+            train_ids,
+            syms_path,
+            prepared_line_images_root=prepared_line_images_root,
+            fixed_height=fixed_height,
+        )
+        val_rows = build_manifest_rows(
+            data_dir,
+            val_ids,
+            syms_path,
+            prepared_line_images_root=prepared_line_images_root,
+            fixed_height=fixed_height,
+        )
+        test_rows = build_manifest_rows(
+            data_dir,
+            base_test_ids,
+            syms_path,
+            prepared_line_images_root=prepared_line_images_root,
+            fixed_height=fixed_height,
+        )
 
         fold_dir = out_dir / fold_name
         fold_dir.mkdir(parents=True, exist_ok=True)
@@ -246,6 +300,8 @@ def build_washington_pylaia_cv_manifests(
 
         fold_meta = {
             "fold": fold_name,
+            "fixed_height": fixed_height,
+            "pylaia_img_dirs": [str(prepared_line_images_root.resolve())] if prepared_line_images_root else [str(data_dir.resolve())],
             "train_ids": train_ids,
             "val_ids": val_ids,
             "test_ids": base_test_ids,

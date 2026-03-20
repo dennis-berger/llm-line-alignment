@@ -32,6 +32,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--out-dir", default=str(DEFAULT_OUT_DIR), help="Output directory for generated manifests.")
     parser.add_argument("--syms", default=str(DEFAULT_SYMS_PATH), help="PyLaia syms.txt used for label validation.")
     parser.add_argument(
+        "--fixed-height",
+        type=int,
+        default=None,
+        help="Optional fixed height for normalized training images written under the manifest output root.",
+    )
+    parser.add_argument(
         "--fold",
         choices=("all", "train_a", "train_b"),
         default="all",
@@ -58,6 +64,7 @@ def main() -> None:
         Path(args.data_dir),
         Path(args.out_dir),
         syms_path=Path(args.syms),
+        fixed_height=args.fixed_height,
         val_ratio=args.val_ratio,
         seed=args.seed,
         selected_folds=selected_folds,

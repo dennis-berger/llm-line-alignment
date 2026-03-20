@@ -59,6 +59,7 @@ def test_build_washington_pylaia_cv_manifests_creates_disjoint_splits(tmp_path: 
         dataset_root,
         tmp_path / "out",
         syms_path=syms_path,
+        fixed_height=32,
         val_ratio=0.5,
         seed=42,
         selected_folds=["train_a", "train_b"],
@@ -83,8 +84,13 @@ def test_build_washington_pylaia_cv_manifests_creates_disjoint_splits(tmp_path: 
     assert len(train_tsv_rows) == train_a_meta["counts"]["train"]["line_count"]
     assert len(val_tsv_rows) == train_a_meta["counts"]["val"]["line_count"]
     assert len(test_txt_rows) == train_a_meta["counts"]["test"]["line_count"]
-    assert train_tsv_rows[0].startswith(str(dataset_root.resolve()))
+    assert train_tsv_rows[0].startswith(str((tmp_path / "out" / "prepared_line_images").resolve()))
     assert test_txt_rows[0].startswith("line_images/")
+    assert "<space>" in test_txt_rows[0]
+
+    normalized_image = Path(train_tsv_rows[0].split("\t", 1)[0])
+    with Image.open(normalized_image) as image:
+        assert image.height == 32
 
 
 def test_build_washington_pylaia_cv_manifests_rejects_oov_text(tmp_path: Path) -> None:
