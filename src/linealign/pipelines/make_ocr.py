@@ -27,6 +27,7 @@ def _assemble_page_text(recognized_lines: List[str]) -> str:
 
 def _ensure_dataset_relative_crop_path(
     dataset: DatasetSpec,
+    sample_id: str,
     crop_path: Path,
     page_stem: str,
     overwrite: bool = False,
@@ -36,7 +37,7 @@ def _ensure_dataset_relative_crop_path(
     try:
         return str(resolved_crop.relative_to(dataset_root))
     except ValueError:
-        portable_dir = dataset.line_images_root / page_stem
+        portable_dir = dataset.line_images_root / sample_id
         portable_dir.mkdir(parents=True, exist_ok=True)
         portable_path = portable_dir / resolved_crop.name
         if overwrite or not portable_path.exists():
@@ -109,6 +110,7 @@ def generate_ocr_for_id(
                     "text": text,
                     "crop_path": _ensure_dataset_relative_crop_path(
                         dataset,
+                        sample_id,
                         crop.path,
                         image_path.stem,
                         overwrite=overwrite,

@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
 from linealign.data.datasets import DatasetSpec
 from linealign.pipelines.make_ocr import generate_ocr_for_id
 from linealign.segmentation.segmenter import LineCrop, Segmenter
+from linealign.segmentation.segmenter import PassthroughSegmenter
 from linealign.recognition.recognizer import Recognizer
 from run_eval_m4 import VLMMethod4Combiner
 from src.linealign.vlm import VLMConfig
@@ -197,3 +198,22 @@ def test_project_boundaries_to_transcription_preserves_exact_text():
     assert projected == ["hello", "world"]
     assert "".join(projected) == "helloworld"
     assert len(projected) == 2
+
+
+def test_passthrough_segmenter_uses_sample_aware_page_prefixes(tmp_path: Path):
+    """Presegmented lookup should isolate one Bullinger page inside a shared sample dir."""
+
+    existing_root = tmp_path / "line_images"
+    sample_dir = existing_root / "10392"
+    save_image(sample_dir / "p001_line001.png", size=(20, 10))
+    save_image(sample_dir / "p001_line000.png", size=(18, 10))
+    save_image(sample_dir / "p002_line000.png", size=(22, 10))
+
+    page_path = tmp_path / "images" / "10392" / "p001.jpg"
+    save_image(page_path, size=(100, 40))
+
+    segmenter = PassthroughSegmenter(existing_lines_root=existing_root)
+
+    crops = segmenter.segment_page(page_path, tmp_path / "cache")
+
+    assert [crop.path.name for crop in crops] == ["p001_line000.png", "p001_line001.png"]

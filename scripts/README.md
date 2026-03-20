@@ -29,13 +29,39 @@ python scripts/make_ocr_outputs.py --dataset bullinger_print --recognizer trocr_
 
 ### Output
 
-Creates `ocr/<id>.txt` and optional `ocr/<id>.meta.json` in dataset directory.
+Creates `ocr/<id>.txt`, `ocr_lines/<id>.json`, and optional `ocr/<id>.meta.json` in dataset directory.
 
 For datasets that include `line_images/`, the script can reuse those presegmented crops with
 `--segmenter none --existing-lines-dir ...`. For IAM handwritten datasets, it automatically switches to
 `--segmenter none` and `--recognizer pylaia_iam` unless you override those flags.
 
 See [docs/ocr_pipeline.md](docs/ocr_pipeline.md) for technical details.
+
+---
+
+## build_bullinger_handwritten_line_images.py
+
+Materialize reusable Bullinger `line_images/` directly from the PAGE XML annotations.
+
+This is useful when you want to:
+
+- precompute deterministic line crops once
+- run PyLaia OCR later as a separate preprocessing step
+- keep Bullinger `M4` eval jobs focused on `run_eval_m4.py`
+
+### Basic Usage
+
+```bash
+python scripts/build_bullinger_handwritten_line_images.py \
+  --data-dir datasets/bullinger_handwritten \
+  --out-dir datasets/bullinger_handwritten/line_images
+```
+
+### Output
+
+Creates:
+
+- **`line_images/<sample_id>/`** - one cropped image per XML line in reading order
 
 ---
 

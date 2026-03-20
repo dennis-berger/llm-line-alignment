@@ -64,6 +64,8 @@ jobs/
 │   ├── train_trocr_cvl_faust.sbatch
 │   └── train_washington_handwritten_pylaia_cv.sbatch
 └── preprocessing/                # OCR/HTR generation jobs
+    ├── build_bullinger_handwritten_line_images.sbatch
+    ├── make_ocr_bullinger_handwritten_pylaia.sbatch
     ├── make_ocr_children_handwritten.sbatch
     ├── make_ocr_washington_handwritten.sbatch
     ├── make_ocr_iam_handwritten.sbatch
@@ -131,7 +133,13 @@ sbatch jobs/eval/m3/iam_print_1shot.sbatch
 - **Task:** Use PyLaia line order as structural hints while preserving exact transcription characters
 - **Datasets:** Current cluster wrappers target `bullinger_handwritten`, `IAM_handwritten`, and `washington_handwritten`
 - **Jobs:** `jobs/eval/m4/*_{0,1,2}shot.sbatch`; current defaults match the other eval jobs and start with `Qwen3-VL-8B-Instruct`
-- **Note:** Each M4 job first refreshes or creates `ocr_lines/<id>.json` with PyLaia, then runs `run_eval_m4.py`
+- **Note:** IAM/Washington `M4` jobs refresh `ocr_lines/<id>.json` inline; Bullinger expects that preprocessing to be done ahead of time
+
+Bullinger is now split more explicitly:
+
+- build XML-derived line images once with `jobs/preprocessing/build_bullinger_handwritten_line_images.sbatch`
+- refresh PyLaia OCR artifacts with `jobs/preprocessing/make_ocr_bullinger_handwritten_pylaia.sbatch`
+- then run `jobs/eval/m4/bullinger_handwritten_*shot.sbatch`
 
 ### NNTP Baseline: PyLaia + NNTP
 - **Input:** Correct transcription plus either PAGE XML line geometry or presegmented line images
