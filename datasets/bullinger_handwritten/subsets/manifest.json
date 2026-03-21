@@ -1,0 +1,425 @@
+{
+  "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset",
+  "num_samples": 59,
+  "subsets": {
+    "Subset1": [
+      "10069",
+      "10095",
+      "10100",
+      "10109",
+      "10116",
+      "10123",
+      "10133",
+      "10141",
+      "10145",
+      "10193",
+      "10203",
+      "10209",
+      "10211",
+      "10229",
+      "10313",
+      "10333",
+      "10335",
+      "10380",
+      "10693",
+      "10789"
+    ],
+    "Subset2": [
+      "10653",
+      "10676",
+      "10707",
+      "10729",
+      "10747",
+      "10810",
+      "10820",
+      "10838",
+      "10839",
+      "10860",
+      "10921",
+      "11084",
+      "11213",
+      "11231",
+      "11371",
+      "11422",
+      "11453",
+      "11461",
+      "11560",
+      "11608",
+      "11632",
+      "11666",
+      "11686",
+      "11832",
+      "11866",
+      "12160",
+      "12166",
+      "12241",
+      "12252",
+      "12301",
+      "12386",
+      "12445",
+      "12517",
+      "12868",
+      "12875",
+      "401210002",
+      "620363",
+      "6230374",
+      "6230409"
+    ]
+  },
+  "samples": {
+    "10069": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 25,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10069"
+    },
+    "10095": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 11,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10095"
+    },
+    "10100": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 31,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10100"
+    },
+    "10109": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 45,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10109"
+    },
+    "10116": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 42,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10116"
+    },
+    "10123": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 23,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10123"
+    },
+    "10133": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 36,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10133"
+    },
+    "10141": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 29,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10141"
+    },
+    "10145": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 29,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10145"
+    },
+    "10193": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 22,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10193"
+    },
+    "10203": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 27,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10203"
+    },
+    "10209": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 13,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10209"
+    },
+    "10211": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 21,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10211"
+    },
+    "10229": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 66,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10229"
+    },
+    "10313": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 22,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10313"
+    },
+    "10333": {
+      "subset": "Subset1",
+      "num_pages": 4,
+      "num_gt_lines": 54,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10333"
+    },
+    "10335": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 38,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10335"
+    },
+    "10380": {
+      "subset": "Subset1",
+      "num_pages": 2,
+      "num_gt_lines": 47,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10380"
+    },
+    "10693": {
+      "subset": "Subset1",
+      "num_pages": 4,
+      "num_gt_lines": 108,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10693"
+    },
+    "10789": {
+      "subset": "Subset1",
+      "num_pages": 8,
+      "num_gt_lines": 213,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset1/10789"
+    },
+    "10653": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 36,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10653"
+    },
+    "10676": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 49,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10676"
+    },
+    "10707": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 45,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10707"
+    },
+    "10729": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 66,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10729"
+    },
+    "10747": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 33,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10747"
+    },
+    "10810": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 38,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10810"
+    },
+    "10820": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 28,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10820"
+    },
+    "10838": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 40,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10838"
+    },
+    "10839": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 51,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10839"
+    },
+    "10860": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 51,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10860"
+    },
+    "10921": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 36,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/10921"
+    },
+    "11084": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 32,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11084"
+    },
+    "11213": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 53,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11213"
+    },
+    "11231": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 41,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11231"
+    },
+    "11371": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 15,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11371"
+    },
+    "11422": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 79,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11422"
+    },
+    "11453": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 52,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11453"
+    },
+    "11461": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 42,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11461"
+    },
+    "11560": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 52,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11560"
+    },
+    "11608": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 34,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11608"
+    },
+    "11632": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 24,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11632"
+    },
+    "11666": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 25,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11666"
+    },
+    "11686": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 72,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11686"
+    },
+    "11832": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 58,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11832"
+    },
+    "11866": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 18,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/11866"
+    },
+    "12160": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 57,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12160"
+    },
+    "12166": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 44,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12166"
+    },
+    "12241": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 69,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12241"
+    },
+    "12252": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 22,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12252"
+    },
+    "12301": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 25,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12301"
+    },
+    "12386": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 55,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12386"
+    },
+    "12445": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 28,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12445"
+    },
+    "12517": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 23,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12517"
+    },
+    "12868": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 7,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12868"
+    },
+    "12875": {
+      "subset": "Subset2",
+      "num_pages": 2,
+      "num_gt_lines": 86,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/12875"
+    },
+    "401210002": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 39,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/401210002"
+    },
+    "620363": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 43,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/620363"
+    },
+    "6230374": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 30,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/6230374"
+    },
+    "6230409": {
+      "subset": "Subset2",
+      "num_pages": 1,
+      "num_gt_lines": 35,
+      "source_dir": "/Users/dennisberger/Documents/Privat/iccv-testset/Subset2/6230409"
+    }
+  }
+}
