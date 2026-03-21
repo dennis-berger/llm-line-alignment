@@ -86,6 +86,8 @@ OCR_BATCH_SIZE="${OCR_BATCH_SIZE:-8}"
 SKIP_OCR="${SKIP_OCR:-0}"
 FORCE_OCR="${FORCE_OCR:-0}"
 SKIP_EVAL="${SKIP_EVAL:-0}"
+CHECKPOINT_DIR="${CHECKPOINT_DIR:-checkpoints}"
+IDS="${IDS:-}"
 
 # Use orchestrator-provided model or default
 # MODEL_LOCAL and MODEL_NAME can be set by orchestrator via --export
@@ -220,6 +222,9 @@ PY
   if [ -n "$EXISTING_LINES_DIR" ]; then
     OCR_ARGS+=(--existing-lines-dir "$EXISTING_LINES_DIR")
   fi
+  if [ -n "$IDS" ]; then
+    OCR_ARGS+=(--ids "$IDS")
+  fi
   if [ "$FORCE_OCR" = "1" ]; then
     OCR_ARGS+=(--overwrite)
   fi
@@ -240,10 +245,14 @@ RUN_ARGS=(
   --out-dir "$OUT_DIR"
   --eval-csv "$EVAL_CSV"
   --ocr-lines-dir "$OCR_LINES_DIR"
+  --checkpoint-dir "$CHECKPOINT_DIR"
   --max-new-tokens "$MAX_NEW_TOKENS"
 )
 if [ "$N_SHOTS" -gt 0 ]; then
   RUN_ARGS+=(--shots-seed "$SHOTS_SEED")
+fi
+if [ -n "$IDS" ]; then
+  RUN_ARGS+=(--ids "$IDS")
 fi
 
 set +e

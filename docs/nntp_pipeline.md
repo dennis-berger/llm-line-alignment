@@ -28,7 +28,7 @@ Two external tools are still required:
 
 Vendored PyLaia assets are included directly in this repo:
 
-- PyLaia assets in `third_party/pylaia-dennis/`
+- PyLaia assets in `third_party/pylaia-bullinger/`
   - `model`
   - `epoch=170-lowest_va_cer.ckpt`
   - `syms.txt`
@@ -45,7 +45,7 @@ Vendored PyLaia assets are included directly in this repo:
 ```bash
 python scripts/run_nntp_eval.py \
   --data-dir datasets/bullinger_handwritten \
-  --ids 10177 \
+  --ids 10069 \
   --stop-after prepare
 ```
 

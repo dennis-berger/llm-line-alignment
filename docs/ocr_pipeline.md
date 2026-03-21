@@ -11,7 +11,7 @@ This pipeline produces `ocr/<id>.txt` for all datasets so Method 2 and 3 can run
 ## Dependencies
 - Required: `pillow`, `torch`, `transformers` (already in requirements.txt).
 - Optional for segmentation: `kraken` (`pip install kraken` or `pip install .[kraken]`).
-- Optional for IAM PyLaia recognition: `pylaia-htr-netout` available on `PATH`, plus vendored assets in `third_party/pylaia-iam/`.
+- Optional for PyLaia recognition: `pylaia-htr-netout` available on `PATH`, plus vendored assets in `third_party/pylaia-bullinger/` or `third_party/pylaia-iam/`.
 - Cluster note: CUDA is available on FAITH GPU jobs; CPU works on login nodes.
 
 ## CLI
@@ -19,10 +19,14 @@ This pipeline produces `ocr/<id>.txt` for all datasets so Method 2 and 3 can run
 python scripts/make_ocr_outputs.py \
   --dataset bullinger_handwritten \
   --data-dir datasets/bullinger_handwritten \
-  --segmenter kraken \
-  --recognizer trocr_handwritten \
-  --device auto \
-  --cache-dir outputs/cache/bullinger_handwritten/lines
+  --segmenter none \
+  --existing-lines-dir datasets/bullinger_handwritten/line_images \
+  --recognizer pylaia \
+  --pylaia-root third_party/pylaia-bullinger \
+  --pylaia-checkpoint third_party/pylaia-bullinger/epoch=170-lowest_va_cer.ckpt \
+  --pylaia-syms third_party/pylaia-bullinger/syms.txt \
+  --cache-dir outputs/cache/bullinger_handwritten/lines \
+  --overwrite
 ```
 
 Key flags:
@@ -45,13 +49,22 @@ Key flags:
   - Bullinger (handwritten/print): `<id>` is a letter; may span multiple page images under `images/<id>/`.
   - washington_handwritten: treat `<id>` as a single page (e.g., `270`).
   - IAM (handwritten/print): `<id>` is a form/page ID.
+- Bullinger handwritten reproducibility runs should use the precomputed PAGE-derived `line_images/` plus the Bullinger checkpoint in `third_party/pylaia-bullinger/`.
 - IAM handwritten with `line_images/`: if `--segmenter` and `--recognizer` are not given, the script defaults to `--segmenter none` plus `--recognizer pylaia`.
 - Multi-page outputs: pages concatenate in order with a blank line between pages.
 
 ## Examples
-- Bullinger handwritten (default everything):
+- Bullinger handwritten with the Bullinger PyLaia checkpoint:
   ```bash
-  python scripts/make_ocr_outputs.py --dataset bullinger_handwritten
+  python scripts/make_ocr_outputs.py \
+    --dataset bullinger_handwritten \
+    --data-dir datasets/bullinger_handwritten \
+    --segmenter none \
+    --existing-lines-dir datasets/bullinger_handwritten/line_images \
+    --recognizer pylaia \
+    --pylaia-root third_party/pylaia-bullinger \
+    --pylaia-checkpoint third_party/pylaia-bullinger/epoch=170-lowest_va_cer.ckpt \
+    --pylaia-syms third_party/pylaia-bullinger/syms.txt
   ```
 - Bullinger print with printed recognizer:
   ```bash

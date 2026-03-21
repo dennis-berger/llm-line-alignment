@@ -168,7 +168,7 @@ javac -version || true
 
 DATA_DIR="${DATA_DIR:-datasets/bullinger_handwritten}"
 WORK_DIR="${WORK_DIR:-outputs/nntp/bullinger_handwritten}"
-PYLAIA_ROOT="${PYLAIA_ROOT:-third_party/pylaia-dennis}"
+PYLAIA_ROOT="${PYLAIA_ROOT:-third_party/pylaia-bullinger}"
 PYLAIA_CHECKPOINT="${PYLAIA_CHECKPOINT:-$PYLAIA_ROOT/epoch=170-lowest_va_cer.ckpt}"
 PYLAIA_SYMS="${PYLAIA_SYMS:-$PYLAIA_ROOT/syms.txt}"
 NNTP_ROOT="${NNTP_ROOT:-../nntp}"

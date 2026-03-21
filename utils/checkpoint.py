@@ -5,6 +5,7 @@ Supports saving and loading progress to handle quota limits and job interruption
 """
 
 import json
+import hashlib
 import logging
 import os
 from dataclasses import dataclass, field, asdict
@@ -96,6 +97,7 @@ def get_checkpoint_path(
     model: str,
     n_shots: int = 0,
     checkpoint_dir: str = "checkpoints",
+    ids: str | None = None,
 ) -> Path:
     """
     Generate a deterministic checkpoint path for a given evaluation run.
@@ -106,6 +108,7 @@ def get_checkpoint_path(
         model: Model ID (e.g., 'gemini/gemini-3-pro-preview')
         n_shots: Number of few-shot examples
         checkpoint_dir: Directory to store checkpoints
+        ids: Optional ids selector used for subset runs
     
     Returns:
         Path to checkpoint file
@@ -113,6 +116,10 @@ def get_checkpoint_path(
     # Sanitize model name for filename
     model_safe = model.replace("/", "_").replace(":", "_")
     dataset_safe = Path(dataset).name  # Get just the folder name
-    
-    filename = f"checkpoint_{method}_{dataset_safe}_{model_safe}_{n_shots}shot.json"
+    ids_suffix = ""
+    if ids:
+        ids_digest = hashlib.md5(ids.encode("utf-8")).hexdigest()[:8]
+        ids_suffix = f"_ids_{ids_digest}"
+
+    filename = f"checkpoint_{method}_{dataset_safe}_{model_safe}_{n_shots}shot{ids_suffix}.json"
     return Path(checkpoint_dir) / filename

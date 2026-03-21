@@ -5,7 +5,7 @@ import logging
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Sequence
 
 from PIL import Image
 
@@ -60,7 +60,12 @@ def is_placeholder_text(text: str) -> bool:
     return bool(PLACEHOLDER_RE.fullmatch(stripped))
 
 
-def resolve_page_image(xml_path: Path, image_filename: str) -> Path:
+def resolve_page_image(
+    xml_path: Path,
+    image_filename: str,
+    *,
+    available_images: Sequence[Path] | None = None,
+) -> Path:
     """Resolve the page image referenced by a PAGE XML file."""
 
     candidates = [
@@ -70,10 +75,42 @@ def resolve_page_image(xml_path: Path, image_filename: str) -> Path:
     for candidate in candidates:
         if candidate.exists():
             return candidate.resolve()
-    raise FileNotFoundError(f"Could not resolve image {image_filename!r} for {xml_path}")
+
+    sample_root = xml_path.parent.parent
+    sample_images = [
+        path.resolve()
+        for path in (
+            list(available_images)
+            if available_images is not None
+            else find_images_for_id(sample_root.parent, sample_root.name)
+        )
+    ]
+
+    same_stem_matches = [path for path in sample_images if path.stem == xml_path.stem]
+    if len(same_stem_matches) == 1:
+        return same_stem_matches[0]
+
+    xml_paths = sorted(path.resolve() for path in xml_path.parent.glob("*.xml"))
+    try:
+        page_position = xml_paths.index(xml_path.resolve())
+    except ValueError:
+        page_position = None
+    if page_position is not None and page_position < len(sample_images):
+        return sample_images[page_position]
+
+    raise FileNotFoundError(
+        f"Could not resolve image {image_filename!r} for {xml_path}. "
+        f"Available images: {[path.name for path in sample_images]}"
+    )
 
 
-def parse_pagexml(xml_path: Path, sample_id: str, page_index: int) -> list[PageXmlLineRecord]:
+def parse_pagexml(
+    xml_path: Path,
+    sample_id: str,
+    page_index: int,
+    *,
+    available_images: Sequence[Path] | None = None,
+) -> list[PageXmlLineRecord]:
     """Parse PAGE XML into line records ordered by region and line reading order."""
 
     root = ET.parse(xml_path).getroot()
@@ -82,8 +119,8 @@ def parse_pagexml(xml_path: Path, sample_id: str, page_index: int) -> list[PageX
         raise ValueError(f"Missing Page element in {xml_path}")
 
     image_filename = page.attrib["imageFilename"]
-    image_path = resolve_page_image(xml_path, image_filename)
-    page_stem = Path(image_filename).stem
+    image_path = resolve_page_image(xml_path, image_filename, available_images=available_images)
+    page_stem = image_path.stem
 
     region_order_map: dict[str, int] = {}
     ordered_group = page.find("page:ReadingOrder/page:OrderedGroup", PAGE_NS)
@@ -137,6 +174,57 @@ def parse_pagexml(xml_path: Path, sample_id: str, page_index: int) -> list[PageX
     return records
 
 
+def load_pagexml_lines(images_root: Path, sample_id: str) -> tuple[list[PageXmlLineRecord], list[Path]]:
+    """Load filtered PAGE XML lines and ordered page images for one sample."""
+
+    sample_root = images_root / sample_id
+    page_dir = sample_root / "page"
+    xml_paths = sorted(page_dir.glob("*.xml"))
+    if not xml_paths:
+        raise FileNotFoundError(f"No PAGE XML files found for {sample_id} under {page_dir}")
+
+    image_paths = [path.resolve() for path in find_images_for_id(images_root, sample_id)]
+    if not image_paths:
+        raise FileNotFoundError(f"No page images found for {sample_id} under {sample_root}")
+    page_index_map = {path.resolve(): index for index, path in enumerate(image_paths)}
+
+    all_lines: list[PageXmlLineRecord] = []
+    for xml_path in xml_paths:
+        root = ET.parse(xml_path).getroot()
+        page = root.find("page:Page", PAGE_NS)
+        if page is None:
+            raise ValueError(f"Missing Page element in {xml_path}")
+        image_filename = page.attrib["imageFilename"]
+        image_path = resolve_page_image(xml_path, image_filename, available_images=image_paths)
+        page_index = page_index_map.get(image_path.resolve())
+        if page_index is None:
+            logger.warning(
+                "Skipping %s because %s is not part of the sample image order",
+                xml_path,
+                image_path,
+            )
+            continue
+        all_lines.extend(
+            parse_pagexml(
+                xml_path,
+                sample_id,
+                page_index,
+                available_images=image_paths,
+            )
+        )
+
+    content_lines = [line for line in all_lines if not is_placeholder_text(line.source_text)]
+    content_lines.sort(
+        key=lambda line: (
+            line.page_index,
+            line.region_order,
+            line.line_order,
+            line.textline_id,
+        )
+    )
+    return content_lines, image_paths
+
+
 def extract_prepared_lines(
     data_dir: Path,
     sample_id: str,
@@ -148,44 +236,7 @@ def extract_prepared_lines(
     """Crop line images for one sample using its PAGE XML annotations."""
 
     images_root = data_dir / "images"
-    sample_root = images_root / sample_id
-    page_dir = sample_root / "page"
-    xml_paths = sorted(page_dir.glob("*.xml"))
-    if not xml_paths:
-        raise FileNotFoundError(f"No PAGE XML files found for {sample_id} under {page_dir}")
-
-    image_paths = [path.resolve() for path in find_images_for_id(images_root, sample_id)]
-    if not image_paths:
-        raise FileNotFoundError(f"No page images found for {sample_id} under {sample_root}")
-    page_index_map = {path: index for index, path in enumerate(image_paths)}
-
-    all_lines: list[PageXmlLineRecord] = []
-    for xml_path in xml_paths:
-        root = ET.parse(xml_path).getroot()
-        page = root.find("page:Page", PAGE_NS)
-        if page is None:
-            raise ValueError(f"Missing Page element in {xml_path}")
-        image_filename = page.attrib["imageFilename"]
-        image_path = resolve_page_image(xml_path, image_filename)
-        page_index = page_index_map.get(image_path.resolve())
-        if page_index is None:
-            logger.warning(
-                "Skipping %s because %s is not part of the sample image order",
-                xml_path,
-                image_path,
-            )
-            continue
-        all_lines.extend(parse_pagexml(xml_path, sample_id, page_index))
-
-    content_lines = [line for line in all_lines if not is_placeholder_text(line.source_text)]
-    content_lines.sort(
-        key=lambda line: (
-            line.page_index,
-            line.region_order,
-            line.line_order,
-            line.textline_id,
-        )
-    )
+    content_lines, image_paths = load_pagexml_lines(images_root, sample_id)
 
     per_page_counts: dict[str, int] = {}
     prepared: list[PreparedLineRecord] = []

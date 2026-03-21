@@ -11,7 +11,7 @@ Generate OCR/HTR outputs for datasets.
 python scripts/make_ocr_outputs.py --dataset bullinger_handwritten
 
 # Process specific samples
-python scripts/make_ocr_outputs.py --dataset bullinger_handwritten --ids 0001,0002
+python scripts/make_ocr_outputs.py --dataset bullinger_handwritten --ids 10069,10676
 
 # Use different recognizer
 python scripts/make_ocr_outputs.py --dataset bullinger_print --recognizer trocr_printed
@@ -36,6 +36,32 @@ For datasets that include `line_images/`, the script can reuse those presegmente
 `--segmenter none` and `--recognizer pylaia` unless you override those flags.
 
 See [docs/ocr_pipeline.md](docs/ocr_pipeline.md) for technical details.
+
+---
+
+## import_bullinger_iccv_testset.py
+
+Import the ICCV Bullinger export from `../iccv-testset` into the canonical flat
+repo dataset layout while preserving paper subsets under `subsets/`.
+
+### Basic Usage
+
+```bash
+python scripts/import_bullinger_iccv_testset.py \
+  --source-dir ../iccv-testset \
+  --out-dir datasets/bullinger_handwritten \
+  --overwrite
+```
+
+### Output
+
+Creates or replaces:
+
+- **`images/<sample_id>/`** - page images plus PAGE XML and available sidecar XML
+- **`gt/<sample_id>.txt`** - filtered line-broken PAGE text
+- **`transcription/<sample_id>.txt`** - GT-collapsed transcription
+- **`subsets/subset1_ids.txt`**, **`subsets/subset2_ids.txt`** - paper subset manifests
+- **`subsets/manifest.json`** - subset/source metadata
 
 ---
 
@@ -243,7 +269,7 @@ Run the NNTP baseline using either local PAGE XML crops or presegmented line ima
 # Bullinger smoke test from PAGE XML
 python scripts/run_nntp_eval.py \
   --data-dir datasets/bullinger_handwritten \
-  --ids 10177 \
+  --ids 10069 \
   --stop-after prepare
 
 # IAM smoke test from presegmented line images

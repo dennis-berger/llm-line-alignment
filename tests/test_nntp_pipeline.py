@@ -32,6 +32,7 @@ from linealign.nntp import (
     write_pylaia_netout_config,
     write_observation_file,
 )
+from linealign.nntp.pagexml import load_pagexml_lines
 from utils.common import find_images_for_id
 
 
@@ -116,6 +117,49 @@ def test_extract_prepared_lines_uses_pagexml_order_and_filters_placeholders(tmp_
         assert crop.size == (30, 10)
     with Image.open(prepared[1].crop_path) as crop:
         assert crop.size == (30, 10)
+
+
+def test_load_pagexml_lines_resolves_renamed_source_images(tmp_path: Path):
+    """PAGE XML should bind to actual page files even when imageFilename was renamed."""
+
+    sample_root = tmp_path / "images" / "10069"
+    sample_root.mkdir(parents=True, exist_ok=True)
+    save_image(sample_root / "0001.jpg", size=(100, 60))
+    save_image(sample_root / "0002.jpg", size=(100, 60))
+
+    xml_page_1 = """<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15">
+  <Page imageFilename="0001_0001_p001.jpg" imageWidth="100" imageHeight="60">
+    <TextRegion id="r1">
+      <TextLine id="l1">
+        <Coords points="0,0 50,0 50,10 0,10"/>
+        <TextEquiv><Unicode>first line</Unicode></TextEquiv>
+      </TextLine>
+    </TextRegion>
+  </Page>
+</PcGts>
+"""
+    xml_page_2 = """<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15">
+  <Page imageFilename="0002_0002_p002.jpg" imageWidth="100" imageHeight="60">
+    <TextRegion id="r1">
+      <TextLine id="l2">
+        <Coords points="0,10 50,10 50,20 0,20"/>
+        <TextEquiv><Unicode>second line</Unicode></TextEquiv>
+      </TextLine>
+    </TextRegion>
+  </Page>
+</PcGts>
+"""
+    write_text(sample_root / "page" / "0001.xml", xml_page_1)
+    write_text(sample_root / "page" / "0002.xml", xml_page_2)
+
+    content_lines, image_paths = load_pagexml_lines(tmp_path / "images", "10069")
+
+    assert [path.name for path in image_paths] == ["0001.jpg", "0002.jpg"]
+    assert [record.image_path.name for record in content_lines] == ["0001.jpg", "0002.jpg"]
+    assert [record.page_stem for record in content_lines] == ["0001", "0002"]
+    assert [record.source_text for record in content_lines] == ["first line", "second line"]
 
 
 def test_extract_prepared_lines_uses_presegmented_images_when_available(tmp_path: Path):

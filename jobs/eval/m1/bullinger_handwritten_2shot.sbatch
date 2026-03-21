@@ -42,20 +42,32 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 MODEL="${MODEL_LOCAL:-./.hf/Qwen3-VL-8B-Instruct}"
 [ -d "$MODEL" ] || MODEL="${MODEL_NAME:-Qwen/Qwen3-VL-8B-Instruct}"
 MODEL_SUFFIX="${MODEL_SUFFIX:-qwen3-vl-8b-instruct}"
+DATA_DIR="${DATA_DIR:-datasets/bullinger_handwritten}"
+OUT_DIR="${OUT_DIR:-bullinger_handwritten_predictions_m1_2shot_${MODEL_SUFFIX}}"
+EVAL_CSV="${EVAL_CSV:-bullinger_handwritten_eval_m1_2shot_${MODEL_SUFFIX}.csv}"
+CHECKPOINT_DIR="${CHECKPOINT_DIR:-checkpoints}"
+IDS="${IDS:-}"
 
 which python
 python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
 
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-800}"
-python run_eval_m1.py \
-  --data-dir datasets/bullinger_handwritten \
-  --model "$MODEL" \
-  --device cuda \
-  --n-shots 2 \
-  --shots-seed 42 \
-  --out-dir bullinger_handwritten_predictions_m1_2shot_${MODEL_SUFFIX} \
-  --eval-csv bullinger_handwritten_eval_m1_2shot_${MODEL_SUFFIX}.csv \
+RUN_ARGS=(
+  python run_eval_m1.py
+  --data-dir "$DATA_DIR"
+  --model "$MODEL"
+  --device cuda
+  --n-shots 2
+  --shots-seed 42
+  --out-dir "$OUT_DIR"
+  --eval-csv "$EVAL_CSV"
+  --checkpoint-dir "$CHECKPOINT_DIR"
   --max-new-tokens "$MAX_NEW_TOKENS"
+)
+if [ -n "$IDS" ]; then
+  RUN_ARGS+=(--ids "$IDS")
+fi
+"${RUN_ARGS[@]}"
 
 PYTHON_EXIT=$?
 

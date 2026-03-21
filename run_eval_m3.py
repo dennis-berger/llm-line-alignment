@@ -36,7 +36,13 @@ from pathlib import Path
 from typing import List
 
 from src.linealign.vlm import get_backend, VLMConfig, DailyQuotaExhausted, EXIT_CODE_DAILY_QUOTA
-from utils.common import read_text, write_text, select_few_shot_examples
+from utils.common import (
+    filter_paths_by_stem,
+    parse_ids_arg,
+    read_text,
+    select_few_shot_examples,
+    write_text,
+)
 from utils.evaluation import evaluate_prediction
 from utils.prompts import PROMPT_TEMPLATE_M3, format_few_shot_examples_m3
 from utils.checkpoint import EvalCheckpoint, get_checkpoint_path
@@ -171,6 +177,8 @@ def main():
             "Defaults to <data-dir>/ocr"
         ),
     )
+    ap.add_argument("--ids", default=None,
+                    help="Comma-separated IDs or a file with one ID per line.")
     ap.add_argument("--n-shots", type=int, default=0,
                     help="Number of few-shot examples (0 = zero-shot)")
     ap.add_argument("--shots-dataset-scope", default="same", choices=["same", "cross"],
@@ -195,6 +203,7 @@ def main():
         model=args.model,
         n_shots=args.n_shots,
         checkpoint_dir=args.checkpoint_dir,
+        ids=args.ids,
     )
     checkpoint = EvalCheckpoint.load(checkpoint_path)
     if checkpoint is None:
@@ -222,10 +231,15 @@ def main():
     )
     ocr_dir = args.ocr_dir or os.path.join(args.data_dir, "ocr")
 
-    gt_files = sorted(glob.glob(os.path.join(gt_dir, "*.txt")))
+    ids_filter = parse_ids_arg(args.ids)
+    gt_files = filter_paths_by_stem(
+        [Path(path) for path in sorted(glob.glob(os.path.join(gt_dir, "*.txt")))],
+        ids_filter,
+    )
     if not gt_files:
         logger.error(f"No ground-truth files found in {gt_dir}")
         sys.exit(1)
+    active_ids = [path.stem for path in gt_files]
 
     # Initialize from checkpoint or start fresh
     rows: List[list] = checkpoint.rows.copy()
@@ -263,6 +277,7 @@ def main():
                 exclude_ids=[sample_id],  # Exclude only the current sample
                 method="m3",
                 seed=args.shots_seed,
+                allowed_ids=active_ids,
             )
             combiner.few_shot_examples = few_shot_examples
         

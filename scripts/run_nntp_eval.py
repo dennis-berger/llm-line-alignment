@@ -63,7 +63,7 @@ CSV_HEADER = [
     "exact_line_f1_norm",
 ]
 STOP_STAGES = ("prepare", "netout", "convert", "align", "evaluate")
-DEFAULT_PYLAIA_ROOT = REPO_ROOT / "third_party" / "pylaia-dennis"
+DEFAULT_PYLAIA_ROOT = REPO_ROOT / "third_party" / "pylaia-bullinger"
 DEFAULT_PYLAIA_CHECKPOINT = DEFAULT_PYLAIA_ROOT / "epoch=170-lowest_va_cer.ckpt"
 DEFAULT_PYLAIA_SYMS = DEFAULT_PYLAIA_ROOT / "syms.txt"
 DEFAULT_NNTP_ROOT = (REPO_ROOT.parent / "nntp").resolve()

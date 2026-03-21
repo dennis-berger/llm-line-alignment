@@ -20,7 +20,7 @@ export DATA_DIR="datasets/bullinger_handwritten"
 export DATASET_TAG="bullinger_handwritten"
 export SEGMENTER="none"
 export EXISTING_LINES_DIR="datasets/bullinger_handwritten/line_images"
-export PYLAIA_ROOT="${PYLAIA_ROOT:-third_party/pylaia-dennis}"
+export PYLAIA_ROOT="${PYLAIA_ROOT:-third_party/pylaia-bullinger}"
 export PYLAIA_CHECKPOINT="${PYLAIA_CHECKPOINT:-$PYLAIA_ROOT/epoch=170-lowest_va_cer.ckpt}"
 export PYLAIA_SYMS="${PYLAIA_SYMS:-$PYLAIA_ROOT/syms.txt}"
 export SKIP_EVAL=1

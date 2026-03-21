@@ -21,20 +21,42 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**2. Generate OCR outputs (required for M2 and M3):**
+**2. Refresh Bullinger from the ICCV export when needed:**
 ```bash
-python scripts/make_ocr_outputs.py --dataset bullinger_handwritten
+python scripts/import_bullinger_iccv_testset.py \
+  --source-dir ../iccv-testset \
+  --out-dir datasets/bullinger_handwritten \
+  --overwrite
 ```
 
-**3. Run an evaluation:**
+**3. Rebuild Bullinger line images and PyLaia OCR outputs (required for M2, M3, and M4):**
 ```bash
-python run_eval_m1.py  # Image-only alignment
+python scripts/build_bullinger_handwritten_line_images.py \
+  --data-dir datasets/bullinger_handwritten \
+  --out-dir datasets/bullinger_handwritten/line_images \
+  --overwrite
+
+python scripts/make_ocr_outputs.py \
+  --dataset bullinger_handwritten \
+  --data-dir datasets/bullinger_handwritten \
+  --segmenter none \
+  --existing-lines-dir datasets/bullinger_handwritten/line_images \
+  --recognizer pylaia \
+  --pylaia-root third_party/pylaia-bullinger \
+  --pylaia-checkpoint third_party/pylaia-bullinger/epoch=170-lowest_va_cer.ckpt \
+  --pylaia-syms third_party/pylaia-bullinger/syms.txt \
+  --overwrite
 ```
 
-**4. Try other methods or datasets:**
+**4. Run an evaluation:**
 ```bash
-python run_eval_m2.py  # Image + OCR hints
-python run_eval_m3.py  # Text-only alignment
+python run_eval_m1.py --data-dir datasets/bullinger_handwritten  # Image-only alignment
+```
+
+**5. Try other methods or datasets:**
+```bash
+python run_eval_m2.py --data-dir datasets/bullinger_handwritten  # Image + OCR hints
+python run_eval_m3.py --data-dir datasets/bullinger_handwritten  # Text-only alignment
 python run_eval_m1.py --data-dir datasets/bullinger_print
 ```
 

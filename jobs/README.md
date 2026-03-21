@@ -137,9 +137,24 @@ sbatch jobs/eval/m3/iam_print_1shot.sbatch
 
 Bullinger is now split more explicitly:
 
+- import or refresh the canonical ICCV export with `python scripts/import_bullinger_iccv_testset.py --source-dir ../iccv-testset --out-dir datasets/bullinger_handwritten --overwrite`
 - build XML-derived line images once with `jobs/preprocessing/build_bullinger_handwritten_line_images.sbatch`
 - refresh PyLaia OCR artifacts with `jobs/preprocessing/make_ocr_bullinger_handwritten_pylaia.sbatch`
 - then run `jobs/eval/m4/bullinger_handwritten_*shot.sbatch`
+
+The canonical Bullinger dataset stays flat under `datasets/bullinger_handwritten/`, but the paper split is preserved in:
+
+- `datasets/bullinger_handwritten/subsets/subset1_ids.txt`
+- `datasets/bullinger_handwritten/subsets/subset2_ids.txt`
+
+All Bullinger M1-M4 wrappers now accept `IDS`, `DATA_DIR`, `OUT_DIR`, `EVAL_CSV`, and `CHECKPOINT_DIR` env overrides, so subset reruns can reuse the same job files:
+
+```bash
+IDS=datasets/bullinger_handwritten/subsets/subset1_ids.txt \
+OUT_DIR=predictions_m1/bullinger_subset1 \
+EVAL_CSV=evaluation_qwen_m1_subset1.csv \
+sbatch jobs/eval/m1/bullinger_handwritten_0shot.sbatch
+```
 
 ### NNTP Baseline: PyLaia + NNTP
 - **Input:** Correct transcription plus either PAGE XML line geometry or presegmented line images

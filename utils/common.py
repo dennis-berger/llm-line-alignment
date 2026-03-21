@@ -3,9 +3,30 @@ import json
 import logging
 import random
 from pathlib import Path
-from typing import Any, List, Dict, Optional
+from typing import Any, Dict, Iterable, List, Optional
 
 logger = logging.getLogger(__name__)
+
+
+def parse_ids_arg(ids_arg: Optional[str]) -> Optional[list[str]]:
+    """Parse an ids argument as a comma list or newline-delimited file."""
+
+    if not ids_arg:
+        return None
+    path = Path(ids_arg)
+    if path.exists():
+        return [line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    return [value.strip() for value in ids_arg.split(",") if value.strip()]
+
+
+def filter_paths_by_stem(paths: Iterable[Path], ids_filter: Optional[Iterable[str]]) -> list[Path]:
+    """Filter paths by file stem while preserving input order."""
+
+    items = list(paths)
+    if ids_filter is None:
+        return items
+    allowed = set(ids_filter)
+    return [path for path in items if path.stem in allowed]
 
 
 def find_images_for_id(images_root: Path, sample_id: str) -> list[Path]:
@@ -115,6 +136,7 @@ def select_few_shot_examples(
     exclude_ids: List[str],
     method: str = "m1",
     seed: Optional[int] = None,
+    allowed_ids: Optional[List[str]] = None,
 ) -> List[FewShotExample]:
     """Randomly select few-shot examples from a dataset.
     
@@ -124,6 +146,7 @@ def select_few_shot_examples(
         exclude_ids: Sample IDs to exclude (e.g., current test sample)
         method: Method name ("m1", "m2", "m3", or "m4") - determines what data to load
         seed: Random seed for reproducibility (optional)
+        allowed_ids: Optional subset of dataset ids to sample from
         
     Returns:
         List of FewShotExample objects
@@ -133,6 +156,9 @@ def select_few_shot_examples(
     
     # Get all available sample IDs
     all_ids = load_dataset_samples(data_dir)
+    if allowed_ids is not None:
+        allowed_id_set = set(allowed_ids)
+        all_ids = [sample_id for sample_id in all_ids if sample_id in allowed_id_set]
     
     # Filter out excluded IDs
     available_ids = [sid for sid in all_ids if sid not in exclude_ids]
