@@ -33,7 +33,7 @@ fi
 
 CONDA_ENV_NAME="${CONDA_ENV_NAME:-bullinger-mwe}"
 ENV_CREATED=0
-if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$CONDA_ENV_NAME"; then
+if ! conda env list | sed 's/\*//g' | awk 'NF && $1 !~ /^#/ {print $1}' | grep -Fxq "$CONDA_ENV_NAME"; then
   echo "Creating conda environment '$CONDA_ENV_NAME'..."
   "$CONDA_INSTALL_BIN" create -y -n "$CONDA_ENV_NAME" python=3.11 pip
   ENV_CREATED=1
@@ -49,6 +49,7 @@ import importlib
 REQUIRED_MODULES = [
     "PIL",
     "torch",
+    "torchvision",
     "transformers",
     "openai",
     "mistralai",
@@ -109,7 +110,7 @@ if [ "$SKIP_OCR" != "1" ]; then
   PYLAIA_PYTHON_VERSION="${PYLAIA_PYTHON_VERSION:-3.10}"
   PYLAIA_PIP_SPEC="${PYLAIA_PIP_SPEC:-pylaia==1.1.2}"
   PYLAIA_SOURCE_URL="${PYLAIA_SOURCE_URL:-https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz}"
-  if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$PYLAIA_CONDA_ENV"; then
+  if ! conda env list | sed 's/\*//g' | awk 'NF && $1 !~ /^#/ {print $1}' | grep -Fxq "$PYLAIA_CONDA_ENV"; then
     echo "Creating dedicated PyLaia environment '$PYLAIA_CONDA_ENV' with Python $PYLAIA_PYTHON_VERSION..."
     "$CONDA_INSTALL_BIN" create -y -n "$PYLAIA_CONDA_ENV" python="$PYLAIA_PYTHON_VERSION" pip
   fi

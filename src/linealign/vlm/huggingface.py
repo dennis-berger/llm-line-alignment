@@ -1,27 +1,84 @@
 """
 HuggingFace Transformers backend for VLM inference.
 
-Supports models like Qwen VL, LLaVA, etc. that are compatible with
-AutoModelForVision2Seq.
+Supports models like Qwen VL, LLaVA, etc. across Transformers API
+renames (`AutoModelForVision2Seq` in older releases,
+`AutoModelForImageTextToText` in newer ones).
 """
 
+import importlib.util
 import logging
 from typing import List, Optional
 
 import torch
 from PIL import Image
-from transformers import AutoProcessor, AutoModelForVision2Seq
+import transformers
+from transformers import AutoProcessor
 
 from .base import VLMBackend, VLMConfig
 
 logger = logging.getLogger(__name__)
 
 
+def resolve_auto_model_class(transformers_module=transformers):
+    """Return the compatible HF auto-model class for multimodal generation."""
+
+    if hasattr(transformers_module, "AutoModelForImageTextToText"):
+        return transformers_module.AutoModelForImageTextToText, "AutoModelForImageTextToText"
+    if hasattr(transformers_module, "AutoModelForVision2Seq"):
+        return transformers_module.AutoModelForVision2Seq, "AutoModelForVision2Seq"
+    raise ImportError(
+        "Could not find a compatible Hugging Face multimodal auto-model class. "
+        "Expected AutoModelForImageTextToText or AutoModelForVision2Seq."
+    )
+
+
+def build_model_load_kwargs(
+    device: str,
+    *,
+    has_accelerate: bool | None = None,
+    has_bitsandbytes: bool | None = None,
+    torch_module=torch,
+) -> tuple[dict, str]:
+    """Choose a model loading strategy compatible with the local HF stack."""
+
+    load_kwargs: dict = {"trust_remote_code": True}
+    strategy = "default"
+
+    if device != "cuda":
+        return load_kwargs, strategy
+
+    if has_accelerate is None:
+        has_accelerate = importlib.util.find_spec("accelerate") is not None
+    if has_bitsandbytes is None:
+        has_bitsandbytes = importlib.util.find_spec("bitsandbytes") is not None
+
+    if has_accelerate and has_bitsandbytes:
+        load_kwargs.update(
+            {
+                "device_map": "auto",
+                "load_in_4bit": True,
+                "bnb_4bit_compute_dtype": torch_module.float16,
+                "bnb_4bit_quant_type": "nf4",
+                "bnb_4bit_use_double_quant": True,
+            }
+        )
+        strategy = "cuda-4bit-auto-device-map"
+    else:
+        # Single-GPU fp16 fallback keeps M3/M4 usable even when accelerate or
+        # bitsandbytes are unavailable in a cluster environment.
+        load_kwargs.update({"torch_dtype": torch_module.float16})
+        strategy = "cuda-fp16-single-device"
+
+    return load_kwargs, strategy
+
+
 class HuggingFaceBackend(VLMBackend):
     """
     VLM backend using HuggingFace Transformers.
     
-    Supports local and remote models via AutoModelForVision2Seq.
+    Supports local and remote models via the appropriate Transformers
+    multimodal auto-model class for the installed version.
     Uses 4-bit quantization by default on CUDA for memory efficiency.
     """
     
@@ -42,26 +99,15 @@ class HuggingFaceBackend(VLMBackend):
         self.processor = AutoProcessor.from_pretrained(
             model_name, trust_remote_code=True
         )
+
+        load_kwargs, load_strategy = build_model_load_kwargs(self.device)
+        logger.info("Using HuggingFace load strategy: %s", load_strategy)
         
-        load_kwargs = dict(trust_remote_code=True)
-        if self.device == "cuda":
-            # Prefer 4-bit quantization to fit on 32GB GPUs
-            try:
-                load_kwargs.update({
-                    "device_map": "auto",
-                    "load_in_4bit": True,
-                    "bnb_4bit_compute_dtype": torch.float16,
-                    "bnb_4bit_quant_type": "nf4",
-                    "bnb_4bit_use_double_quant": True,
-                })
-            except Exception:
-                # Fallback to fp16 if bitsandbytes not available
-                load_kwargs.update({
-                    "device_map": "auto",
-                    "torch_dtype": torch.float16,
-                })
-        
-        self.model = AutoModelForVision2Seq.from_pretrained(model_name, **load_kwargs)
+        auto_model_cls, auto_model_name = resolve_auto_model_class()
+        logger.info("Using HuggingFace auto-model class: %s", auto_model_name)
+        self.model = auto_model_cls.from_pretrained(model_name, **load_kwargs)
+        if self.device == "cuda" and "device_map" not in load_kwargs:
+            self.model.to("cuda")
         self.model.eval()
         
         logger.info(f"Model loaded successfully on {self.device}")
