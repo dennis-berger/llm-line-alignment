@@ -1,0 +1,279 @@
+{
+  "id": "10707",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 45,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "acta d",
+      "crop_path": "line_images/10707/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Plosius plurimontanus doctissimo Henricho",
+      "crop_path": "line_images/10707/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Bullingero, sanatissimo theologię vinlici",
+      "crop_path": "line_images/10707/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Pręsitantissimo gravarant",
+      "crop_path": "line_images/10707/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "207.",
+      "crop_path": "line_images/10707/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Pacim a Brde era",
+      "crop_path": "line_images/10707/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Turus.",
+      "crop_path": "line_images/10707/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Nostri doctissime Bullingere epcusacionem quam, (qui digri seu mimus lo",
+      "crop_path": "line_images/10707/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "nostri sunt ad scribendus pretixunt semper brevitatem epistolę excusant per",
+      "crop_path": "line_images/10707/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "tabellarium, qui, si parum certus obtugit, negant illi comitendas prolixiores",
+      "crop_path": "line_images/10707/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "literas non veli multum oprem perint, si non perferentur vel ad plures humanare",
+      "crop_path": "line_images/10707/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "qupinotum esse oprtunt slatoris prhiaa resignaventur, si vero contigit",
+      "crop_path": "line_images/10707/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "exploratę fidei, per quem scribant, nogant opus prolixis literis, quum minus",
+      "crop_path": "line_images/10707/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "omnia coram velaturus sit Tadellio, quam literis mandari possit. Haec excusatione",
+      "crop_path": "line_images/10707/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "vero poterum u quamoquidem ad vos proficitutur Nicolaus Balingius nostr",
+      "crop_path": "line_images/10707/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "tibi non solum notus rerum etiam ob egregias hominis aotes charus, cui prafecto",
+      "crop_path": "line_images/10707/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "multum seciam, siquia est erudicionis, ne dicam dinguarum cognitionis cudimus",
+      "crop_path": "line_images/10707/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "exe, inqua cagnisces, quicquid hic vel qubluxonel puuniatim geritur meriter",
+      "crop_path": "line_images/10707/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "vitta qur deeus ipti mlaximus rertat in domen inexitu, sed, ut imma dibi",
+      "crop_path": "line_images/10707/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "unico veserai verbo. Papistę itidem et Densioni hec ut more aliorum loquar",
+      "crop_path": "line_images/10707/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Horu agunt viribus, ut non minus donas lit ac hemestas visci",
+      "crop_path": "line_images/10707/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Ninatur qua conmione evangeliae sumatur erderer ossam cuuus",
+      "crop_path": "line_images/10707/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "Sporunum huic tibi colu orators emulturt? Nodis e maum feu",
+      "crop_path": "line_images/10707/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "ideruae dudis nu moderatore remittunt, habis, quam malimus omnibus",
+      "crop_path": "line_images/10707/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "impris ev conatusus comturatius sece hac rui Frousera aenam",
+      "crop_path": "line_images/10707/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "noquem res ista pro paucos coniuratsist, qui hun stolvottate c",
+      "crop_path": "line_images/10707/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "etu magis student augende rei quuntatus egorecutiamtr, oria tibip",
+      "crop_path": "line_images/10707/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "futut vesi tu nodo u s tuo augutiatum u ntu et hrei bivti",
+      "crop_path": "line_images/10707/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "haros invigiatis umo multa rena dagina etractentum es ec nuar stentuu",
+      "crop_path": "line_images/10707/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "quertes etc. sao  prudense ute sagore pepitio inteligui freia locuruanus",
+      "crop_path": "line_images/10707/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "quan i ustartur e et qu costus o quoranissia inuranitate",
+      "crop_path": "line_images/10707/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "quap ic vrurtur snntubuller agu nlom ignoratus te omntim etiear taie",
+      "crop_path": "line_images/10707/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "quxgertum ora e taudentu trum foniceptum sincissioris tubi",
+      "crop_path": "line_images/10707/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "lau ingento votam proderem non tantum aletudoneris iuccessatum eiam",
+      "crop_path": "line_images/10707/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "dusami relerboraru veutuu veutu de voliturine, quam opfamur oliu",
+      "crop_path": "line_images/10707/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "eque titerus sue  vli  i  evatumrentem fumam, utite na hro",
+      "crop_path": "line_images/10707/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "latsribum seru illium adsuvatato, et alaquimus carhalogumum Zrortum",
+      "crop_path": "line_images/10707/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "tamulium que  o diguno suvirato tum pocuunque reeru duterumtum",
+      "crop_path": "line_images/10707/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "Farmnlia ii bito u qua puude fergent tuis ritis agitienter lterut ntu",
+      "crop_path": "line_images/10707/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "Tuo ret cas pubile tes, qu  uos rars vegistis agitante in dlesinenter",
+      "crop_path": "line_images/10707/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "uanensiam vestro ceuriae no ar noven dis aimo s",
+      "crop_path": "line_images/10707/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "apud Biva regulam reo ecclesia",
+      "crop_path": "line_images/10707/0001_line041.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 42,
+      "text": "tstuus et ano.",
+      "crop_path": "line_images/10707/0001_line042.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 43,
+      "text": "Conandor nostr te plurimum",
+      "crop_path": "line_images/10707/0001_line043.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 44,
+      "text": "Salutat,",
+      "crop_path": "line_images/10707/0001_line044.png"
+    }
+  ]
+}

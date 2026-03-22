@@ -1,0 +1,183 @@
+{
+  "id": "10141",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 29,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Salve sui Heylryche, Thurcarum vis quanlibus",
+      "crop_path": "line_images/10141/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "viribus nostris maior immeat idque agnoscat iam",
+      "crop_path": "line_images/10141/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Caesar, cupiatque edeo paratam retum si",
+      "crop_path": "line_images/10141/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Germaniam, obstinate tamen sunt adeo papistae",
+      "crop_path": "line_images/10141/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "ducem suae pervicanae nostum Ioachinum Brauden,",
+      "crop_path": "line_images/10141/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Burgium, ut huc usque diferatur negorium concor",
+      "crop_path": "line_images/10141/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "dixę inter nos vel ad concilium usque restitue",
+      "crop_path": "line_images/10141/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Dae Thurcarum inter in tyrannum autem desidere",
+      "crop_path": "line_images/10141/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "forsen fongare nos et ia sensim pexpugnare",
+      "crop_path": "line_images/10141/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "euit. Occasionem querit scicet, ut sint alia",
+      "crop_path": "line_images/10141/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "regna, minimo siore discrimina nos frangot",
+      "crop_path": "line_images/10141/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "et sibi obnoxios reddat. Dominus adsit nobis Hessums",
+      "crop_path": "line_images/10141/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "unus cum paucis Refublica evicit tandem it",
+      "crop_path": "line_images/10141/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "nec vos nel alii pactis huus concordiae excili",
+      "crop_path": "line_images/10141/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "spis, si modo ulla constituantur. unus",
+      "crop_path": "line_images/10141/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "propo (u principes nimerum, de nostrorum fide",
+      "crop_path": "line_images/10141/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "puro me deratis. Sic christiani officium ree obit",
+      "crop_path": "line_images/10141/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "dum op obo credentum prum habet ratione",
+      "crop_path": "line_images/10141/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Propeda eiam nosse, communi nostrum omnium malo",
+      "crop_path": "line_images/10141/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "comitia solu oportebi. Dominus det, ut na",
+      "crop_path": "line_images/10141/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "deenoquae sunt egloria Christi. Narra tum hic",
+      "crop_path": "line_images/10141/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "est de perculo, in quo fueritis ipsi obsecro",
+      "crop_path": "line_images/10141/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "nos tertiores rcedete. Optime valete Arg.",
+      "crop_path": "line_images/10141/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "us Iulii.",
+      "crop_path": "line_images/10141/0001_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "rpintissimo viro",
+      "crop_path": "line_images/10141/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "singulariter docto",
+      "crop_path": "line_images/10141/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "Heylrycho pastori ecsliae",
+      "crop_path": "line_images/10141/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "Tigurinae fratri",
+      "crop_path": "line_images/10141/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "obsertia d",
+      "crop_path": "line_images/10141/0002_line004.png"
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "id": "11832",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 58,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "244.",
+      "crop_path": "line_images/11832/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Gratiam et pacem a domino. Etiamsi nolim tibi meis litere molestie esse",
+      "crop_path": "line_images/11832/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Venerandum dominas ac pater elrarissimum, eum seiam te multis aliis negotiis",
+      "crop_path": "line_images/11832/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "plus minmima otcupatun, tamen, quia den res meas singulari studio proms",
+      "crop_path": "line_images/11832/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "lie et quia luiusmodo mihi  contingunt, quę mento ad te utpotem sercliu",
+      "crop_path": "line_images/11832/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "episcopum in metropoli nostra, referenda videbantur te diutus celare",
+      "crop_path": "line_images/11832/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ea non visumedotumen pestlicaberen statum tibi indicatum aegreferres.",
+      "crop_path": "line_images/11832/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Paucis itaque negotium honplitabom, quo consilio eu reliquiquem domini era",
+      "crop_path": "line_images/11832/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "vennatore vos, ut humestissimi ita et prudentissimmis ne ad Zichs",
+      "crop_path": "line_images/11832/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "palitanos miservo oblemire neudiom puto tradidisti videlicet ut ludo",
+      "crop_path": "line_images/11832/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "literario praesim ad tempus aliquod interm autem ride licoricione bulo",
+      "crop_path": "line_images/11832/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "publice, si saccasio donue eraceum) e suo temperes ipse commnedius.",
+      "crop_path": "line_images/11832/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "ecclesiaeus dum et santis. nomo, u facerem in urbe imbire nolui er",
+      "crop_path": "line_images/11832/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "tquibudama e cause meque etiam ambiendum videbature, ut in",
+      "crop_path": "line_images/11832/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "paru vererena od enim vaberitonem, domini expectandam iudicavi,",
+      "crop_path": "line_images/11832/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "currerem domine non iubente. Accidit itaque nuper,ut occesia",
+      "crop_path": "line_images/11832/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "diatitur tagne men ambiemagom sea adiis e tantamnon cogentibus, concio",
+      "crop_path": "line_images/11832/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "titaque sum bis in pago proxime urbemu in dixorus amen",
+      "crop_path": "line_images/11832/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Shaplum sia rerpo siro, quo locodo autem et quibus iubentibus mumie",
+      "crop_path": "line_images/11832/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "conunnandi suspeturime nomr d cobuo  eo pues nareatunt it focitque",
+      "crop_path": "line_images/11832/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Senatus Luthepolitaniu  iniquo feet animo, non vult me concionaribus",
+      "crop_path": "line_images/11832/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "quolibvaremne cetra, qua derim aer utem derefectionem multerunt he ieta nespondi",
+      "crop_path": "line_images/11832/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "ad singula iuer pretet privatore suos affectus nihil haberent Tumd",
+      "crop_path": "line_images/11832/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "quie imarestrtatus est ego obremperatirer riberes, denec consilerem tatintur",
+      "crop_path": "line_images/11832/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "qudam loquoban num laansale qu diligenter singula cogrosscere ultum",
+      "crop_path": "line_images/11832/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "qud valia fecem suom haboren, quod luceret commendo. Qolcerem tu",
+      "crop_path": "line_images/11832/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "acuptium affectum suos dissimmulams, eumepitur in hec toendem, neu",
+      "crop_path": "line_images/11832/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "Geungeich zueeldirden e anchtein werdend sich nit lassen",
+      "crop_path": "line_images/11832/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "Zünden, e. wad iynd ero sarbwüte müßerd zun, ass en",
+      "crop_path": "line_images/11832/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "sudiean nebn weecke ein gehunmeister zeigind, der mich on",
+      "crop_path": "line_images/11832/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "predicant stena velle rege atinum cesuli n ffeilatus cup sn",
+      "crop_path": "line_images/11832/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "qu an vesterebi, me gram conturum Genatun tanestreru ud nerie",
+      "crop_path": "line_images/11832/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "mbt ro pratatem facturum tiis netiam finsumerie quicquam contra ipsi",
+      "crop_path": "line_images/11832/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "voluntatem facturumbus hoc etiam numeris aliist, quibus oue",
+      "crop_path": "line_images/11832/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "temperandume fugerit, quo emdeie e suscepisse t atque eo animus une diiu,",
+      "crop_path": "line_images/11832/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "pricucius, ier aar, quae nusceps lieras eclogerem veluntatim possum duum",
+      "crop_path": "line_images/11832/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "crodarem dudi curam me suscepisse, es ergo soli qumieessint a",
+      "crop_path": "line_images/11832/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "interquam parlem diligenter confeturnem, quam diu id mei offici",
+      "crop_path": "line_images/11832/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "fueret. Tandem adduc s autem velim aliquando se opru effecit.",
+      "crop_path": "line_images/11832/0001_line038.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "semel aut bio concionari vel in pago vel in oppido habeam co",
+      "crop_path": "line_images/11832/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Ego me facturum id negavi; non enim ita acbie",
+      "crop_path": "line_images/11832/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "neque etiam posse ex improviso non exercitatum suggestum",
+      "crop_path": "line_images/11832/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "conscendere. Haec te celare nolui, cum nolint me perpetuo con",
+      "crop_path": "line_images/11832/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "conadas neciam se in ludi nihil negligam. rogo mihi in hace",
+      "crop_path": "line_images/11832/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "Guis larasiem trmicnili oplaceri, posthac concionari, dum lude",
+      "crop_path": "line_images/11832/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "lue praser  unicor cessarum, ut quinquid est labore em cau",
+      "crop_path": "line_images/11832/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "pateeaterum feerem poratum deviora mihi erum, quo aciut sa",
+      "crop_path": "line_images/11832/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "liberandum fore speravere per literam lygerenem ni hie ul ribus",
+      "crop_path": "line_images/11832/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "eip sebo, quod mobemide uo visum fiter discedere, hoc tempore",
+      "crop_path": "line_images/11832/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "nepsec pore nolien dero visuma fueret faciam. u ergi meci",
+      "crop_path": "line_images/11832/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "suo tempatuque memieneres, quod se re mea  fore novorum facturum",
+      "crop_path": "line_images/11832/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "scios quataque unta semperra porro commendatum habe. pro lix",
+      "crop_path": "line_images/11832/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "scripsi, quam in animo erat, tantum nust singulam dilicerere i",
+      "crop_path": "line_images/11832/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "goscas. Beale invuldemino. Saluta meo idabi gerarerum",
+      "crop_path": "line_images/11832/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "tuam liberos singulos et famulam. Inde oppido ihopolicanorum",
+      "crop_path": "line_images/11832/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "19. sepembris 1543.",
+      "crop_path": "line_images/11832/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "Th deditissimus",
+      "crop_path": "line_images/11832/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "Christianus Hochholzer.",
+      "crop_path": "line_images/11832/0002_line018.png"
+    }
+  ]
+}

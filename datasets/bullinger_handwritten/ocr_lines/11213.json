@@ -1,0 +1,327 @@
+{
+  "id": "11213",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 53,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "33.",
+      "crop_path": "line_images/11213/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Gratia et paximo",
+      "crop_path": "line_images/11213/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Haud quaque, vir doctissime, videtur recte sentire athes",
+      "crop_path": "line_images/11213/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "ille, qui parginiam istam. Non sunt amici, amici, qui degunt",
+      "crop_path": "line_images/11213/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "procul, omnium inhumanissimam esse adserit, quasi scilicet a",
+      "crop_path": "line_images/11213/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "sntamicorum memoriam e cordis humani tabella expungere",
+      "crop_path": "line_images/11213/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "soleat, quum non adagium ipsum hominibus occasionem inhumani.",
+      "crop_path": "line_images/11213/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "agendi prębuerit, sed inhumana quorundam levum ami,",
+      "crop_path": "line_images/11213/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "loblivio et locum et usum invenerit proverbuo. Reddu",
+      "crop_path": "line_images/11213/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "etenim quidam tepidi amatores adeo statim torpidi ac fere",
+      "crop_path": "line_images/11213/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "etiam Lethargici, ut amici, ubi primum ex oculis illorum longio",
+      "crop_path": "line_images/11213/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "paululum loci intervallo fuerint semoti oblivia in eorum",
+      "crop_path": "line_images/11213/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "animis subrepant etiam repentina, non aliter atque prioris viti",
+      "crop_path": "line_images/11213/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "preteritavimque ierum immemores fieri adserunt eos ex e",
+      "crop_path": "line_images/11213/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "ho, qui biberunt amne. Talem itaque interverna meę non",
+      "crop_path": "line_images/11213/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "excidionem in mete tua factam, quum timuerim propterea",
+      "crop_path": "line_images/11213/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "quod audiveram, ultro citroque et salutationes et epistolas mitti",
+      "crop_path": "line_images/11213/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "et tamen nullam penitus tieri mentionem deati, licetur nuc",
+      "crop_path": "line_images/11213/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "amici cgerissimi, tamen solim commilitonis tui fidelissimi ac",
+      "crop_path": "line_images/11213/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "laboriosissimi, non potui temperare nuhi, quin istis meis liter",
+      "crop_path": "line_images/11213/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "novum mei memoraculum suppeditare ac suppeditatam",
+      "crop_path": "line_images/11213/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "excitarem, ne diutius inani spe flagrando et pręstolatione",
+      "crop_path": "line_images/11213/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "Fraterbertereane Helandnomuilul aliud facere, quam u, qui",
+      "crop_path": "line_images/11213/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Resprrbereters et admodum fertinos expectantur fructus.",
+      "crop_path": "line_images/11213/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Siquidem non tam molestus tamque importunus fuissem",
+      "crop_path": "line_images/11213/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "ut te scribendo sic praevertissem, si meum nomen nondum ex",
+      "crop_path": "line_images/11213/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "amicorum tuorum albo deletum autumassem. Nolo hic (ut mut",
+      "crop_path": "line_images/11213/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "otiosissimi laboratores prętendere consuerierunt) negotia",
+      "crop_path": "line_images/11213/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "tam ardua prętenxere, quasi vel mihi non tantillum otii super",
+      "crop_path": "line_images/11213/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "H.",
+      "crop_path": "line_images/11213/0001_line029.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Qx.",
+      "crop_path": "line_images/11213/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "fuerit, quo scribere potuerim ego aut tu amicorum literas",
+      "crop_path": "line_images/11213/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "queas. Ambobus enim vacat utrunque agere, si id modo",
+      "crop_path": "line_images/11213/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "voluerimus. Prior itaque quum non solum te pręveniam, sed pro",
+      "crop_path": "line_images/11213/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "taliter provocem, adprime rogo, ut id boni consulas et",
+      "crop_path": "line_images/11213/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "respondeas ac mihi instructionem sive informationem mi",
+      "crop_path": "line_images/11213/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "minstres, quo modo vestrę synodo reconciliarii queam. Vix",
+      "crop_path": "line_images/11213/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "Ieum mihi res ulla magis dolet, quam quod excludor a pe",
+      "crop_path": "line_images/11213/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "sbyterorum congregatione. Sed frugiferum mihi fortassis est",
+      "crop_path": "line_images/11213/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "ut veluti excommunicatus inter sordes delitescam ad tempus,",
+      "crop_path": "line_images/11213/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "ibique cum labore mihi utcunque victum parem, quo spiritus meus",
+      "crop_path": "line_images/11213/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "salvus fiat in die domini, ut ergo non pereat iste, sicuti",
+      "crop_path": "line_images/11213/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "corrpus adeoque totus homo meus externus cum vupis",
+      "crop_path": "line_images/11213/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "temporaneis ferme interiere, tu pro christiana",
+      "crop_path": "line_images/11213/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "charitate, quantum poteris satagere iuvando et auxiliam.",
+      "crop_path": "line_images/11213/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "in negotiis istis, per quam difficillimis sumopere rogo",
+      "crop_path": "line_images/11213/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "delic ac cgneris, id ubi feceris et Christum pastore nostri",
+      "crop_path": "line_images/11213/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "imitaberis et peato rem gratissimam exhibebis.",
+      "crop_path": "line_images/11213/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "et mei semper sis, memor. Saluta, quęso meo nomine",
+      "crop_path": "line_images/11213/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "fratrem tuum, charissimum meum socium ac compatre ma",
+      "crop_path": "line_images/11213/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "tuam et uxore cum omnibus tibi charis.asilęex",
+      "crop_path": "line_images/11213/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "officina Hervagiana 8. septembris anno 1535.",
+      "crop_path": "line_images/11213/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "Beatus Gerungius tibi deditissim.",
+      "crop_path": "line_images/11213/0002_line022.png"
+    }
+  ]
+}

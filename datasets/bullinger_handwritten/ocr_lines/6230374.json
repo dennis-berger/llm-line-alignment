@@ -1,0 +1,189 @@
+{
+  "id": "6230374",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 30,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "salbs tistert eth drunnach loben henen. sind die ist e",
+      "crop_path": "line_images/6230374/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "usach diß slybens, wie her bott har koen, hat imen pott zu",
+      "crop_path": "line_images/6230374/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "hesberg uffgnommen erntwegers üwer thun zeerfaren, ofer",
+      "crop_path": "line_images/6230374/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "daei gägen och zenerkligen esorte insirem bittem",
+      "crop_path": "line_images/6230374/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": ". Wie qus tun ichgelt nöchtt i wer gschacten selb in",
+      "crop_path": "line_images/6230374/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "das yr unsre herren lagt und kärger, fugnon er han",
+      "crop_path": "line_images/6230374/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "tus Rähisren  , u darterlih",
+      "crop_path": "line_images/6230374/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "trvyl sy mißßer itt zeich und mie silhen in",
+      "crop_path": "line_images/6230374/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "er conödi gsandbern ol wedeennt erbndkuh. Wir au",
+      "crop_path": "line_images/6230374/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "i est Zuch sosunler gphern), by i lelligem deputatum",
+      "crop_path": "line_images/6230374/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "unerrucht ze blyben, alß gen uff ien fargo tag byimm",
+      "crop_path": "line_images/6230374/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "wie ir uch ger gäberen urteyl sähend, bstaft und also oben als",
+      "crop_path": "line_images/6230374/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "wol von Kuthern oder sinen fürnungten betrögen find, als ouch",
+      "crop_path": "line_images/6230374/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "kilchen etc. . Derteuwend keiner gschrifft, die üch",
+      "crop_path": "line_images/6230374/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "nöchee jer ieeishen pfoffern zugschriben werten",
+      "crop_path": "line_images/6230374/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "beg eren so u enmen s wol sichs üch unverzogen.",
+      "crop_path": "line_images/6230374/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "us kundthhen, höeffend mir kein bottenbrog shrüde.",
+      "crop_path": "line_images/6230374/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "Samitr fug gott empfolhen, wachend uff ulste kürigen",
+      "crop_path": "line_images/6230374/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "nitt truwen. so hoff ich gott weren gndem ge. At",
+      "crop_path": "line_images/6230374/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "zu Bernn kra i weret  d l ch die fru und",
+      "crop_path": "line_images/6230374/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "suß zu Eratung predigen, deßsalb ich von brieff itt",
+      "crop_path": "line_images/6230374/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "lassen überläßsen kond. Ich han inn ouch eantmo",
+      "crop_path": "line_images/6230374/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "unwüshens ehure ollet et udere  un",
+      "crop_path": "line_images/6230374/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "e botten imzogen, ob villicht sorhorstanhe, etwas fiant",
+      "crop_path": "line_images/6230374/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "ichs an üher gefrüs er, de tretroger bursicher erung",
+      "crop_path": "line_images/6230374/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "pog in diger gfordn, fi uns zetrafen.",
+      "crop_path": "line_images/6230374/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "Johanns wäber, üwer",
+      "crop_path": "line_images/6230374/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "allhyt.",
+      "crop_path": "line_images/6230374/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "pott het Luhers bins langist",
+      "crop_path": "line_images/6230374/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "vor uns gsan etc.",
+      "crop_path": "line_images/6230374/0001_line029.png"
+    }
+  ]
+}

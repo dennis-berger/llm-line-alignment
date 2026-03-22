@@ -1,0 +1,315 @@
+{
+  "id": "10860",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 51,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Wir truwende ouch",
+      "crop_path": "line_images/10860/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Herrichen nit, do",
+      "crop_path": "line_images/10860/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "halb bott es keiner gut",
+      "crop_path": "line_images/10860/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "suldigung bedörffen.",
+      "crop_path": "line_images/10860/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "208.",
+      "crop_path": "line_images/10860/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Min gantz wellig unverdrossen diense allit zuvor ersamen hat",
+      "crop_path": "line_images/10860/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Grdwer gelerten eusunders krnstig glieb herren und cristliche",
+      "crop_path": "line_images/10860/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "bruder, ich bas ll min bebtag sie har, das ich zur vernunft bu",
+      "crop_path": "line_images/10860/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "nüt halers und eberders heacht; dann versprorhur tru und",
+      "crop_path": "line_images/10860/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "gloub zer halteit ich ie Liberch mich ouch alieg gegen zederman",
+      "crop_path": "line_images/10860/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Gefegenndir wil ich sust weder ich nach gschickt, dasch min trüwelustere",
+      "crop_path": "line_images/10860/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "Gotlhemch uschar ninwerig genützt. Des belb sin ich marhen i",
+      "crop_path": "line_images/10860/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "sins, was ich verheisse gegen der welt, das wil ich leisten, fo als wit dermin",
+      "crop_path": "line_images/10860/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "hab und gut langt. Darum günstig lieb herren und christliche beu",
+      "crop_path": "line_images/10860/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "der sond ir kein zwisel han, was ich üch zu gesagt, wil ich drulich leisten",
+      "crop_path": "line_images/10860/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "Hr hoff enrbrrch habs naleuß barwe user salb than und wils ob golt",
+      "crop_path": "line_images/10860/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "wil mich witer thun, das kein schuld an mir erhunden werd.  verl",
+      "crop_path": "line_images/10860/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "Vogt ist ouch nach des sins, das er üch halten well was wir er üch verheisen",
+      "crop_path": "line_images/10860/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "hab ist aber ewas ein wenig geyrt, daran tragen wir kein schuld, und ist",
+      "crop_path": "line_images/10860/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "unß nit minder leid dan üch kich dunckt aber der sache were nach wo",
+      "crop_path": "line_images/10860/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "ze thun, namlich uff die wi. dan ichs recht verstanden, so wirt der",
+      "crop_path": "line_images/10860/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "bernegt nachmel Meyens zu üch Uberhen kon, da were min rat, das",
+      "crop_path": "line_images/10860/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "man in anstrar gueutir, birerdas unde, s ire irt wegen an die früntschafft",
+      "crop_path": "line_images/10860/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "wurbe von des meitliegwegen, und so ers üch verheiß, das ir dan mit",
+      "crop_path": "line_images/10860/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "im uberritten und selbs underongen bi der handlung weren. So han",
+      "crop_path": "line_images/10860/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "ich kein zwyffel od wurde gan. Was wir dan bed ich und der vofft gäten",
+      "crop_path": "line_images/10860/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "können handlen, wend wir unß mit sparen. Solichs hand wi i",
+      "crop_path": "line_images/10860/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "vor mals und yetz verheissen, ewentz ouch trilich leisten, des sönd jruch",
+      "crop_path": "line_images/10860/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "genheilen zu erneersacher, e wußsend ouch das mine her burgermeister",
+      "crop_path": "line_images/10860/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "sehruber an eeberggt vor hatt ersechossen, dan die sach hatt umb ein guth",
+      "crop_path": "line_images/10860/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "germiltret. des halb wer min rat, wie, ob er lütret Demnach günstigen",
+      "crop_path": "line_images/10860/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "liherren, ist unser gar ernstlich bitt, ir wellen mirs und dem vogtini",
+      "crop_path": "line_images/10860/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "zu argem uffnemen, ddas wir nach dem meicli schicken, dann das selbig",
+      "crop_path": "line_images/10860/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "daricher einburhen  heißwun anderlwird dem bereuman dem burgern",
+      "crop_path": "line_images/10860/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "meister entziechen unds neißwan anderschwo bin vermächlen wellen",
+      "crop_path": "line_images/10860/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "dann niemants von gottes gnaden, dan des burgermeisters sun, darum wirbt",
+      "crop_path": "line_images/10860/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "under alrinig darum das wir des ober voges ougen erhiken. Wir hads",
+      "crop_path": "line_images/10860/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "uc wör an zeen od eser bschriben, warumb wird bschicken, der wirte",
+      "crop_path": "line_images/10860/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "üch wor en zergen. Zur retst bitt ich gott den allmechtigen unser aller vat",
+      "crop_path": "line_images/10860/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "syr es sin wil und diene es zu siner er, das er den handel mit sine",
+      "crop_path": "line_images/10860/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "gnaderr gar in guren gefang und zu eirn glücklichen und bring. in",
+      "crop_path": "line_images/10860/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "Gott wer Zurch zau sarrem zueanlach ub eind, hatt ich schier verges",
+      "crop_path": "line_images/10860/0001_line041.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 42,
+      "text": "see irist darber das kurringen wartlich minethalben bit ich üch belsamen",
+      "crop_path": "line_images/10860/0001_line042.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 43,
+      "text": "So ir min üwer brieffen mer wirdigen wellen, das ir üwere hoff,",
+      "crop_path": "line_images/10860/0001_line043.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 44,
+      "text": "Erebeur i gruder ihen halb gelerter und herr mäsigen wellen, dann",
+      "crop_path": "line_images/10860/0001_line044.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 45,
+      "text": "die mir nit, sunder üch zummen. Ich sin ein armer gndiner velönnen.",
+      "crop_path": "line_images/10860/0001_line045.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 46,
+      "text": "derund unwrirdiger liewer und desehals virwudige, das ich ein provißse",
+      "crop_path": "line_images/10860/0001_line046.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 47,
+      "text": "genempe werd ein gleiter herr tlarun v wa aimo de ze zuh",
+      "crop_path": "line_images/10860/0001_line047.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 48,
+      "text": "gleichwirtz üwer armer",
+      "crop_path": "line_images/10860/0001_line048.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 49,
+      "text": "uderdienstiger.",
+      "crop_path": "line_images/10860/0001_line049.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 50,
+      "text": ". 1379.",
+      "crop_path": "line_images/10860/0001_line050.png"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": "11084",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 32,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "2015.",
+      "crop_path": "line_images/11084/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "S d ider gunstger e und bader, das ih min schriben bidich",
+      "crop_path": "line_images/11084/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "So fang, verzogen hab ist kein andere ursach, dan das ich alwegen verhoffett hab",
+      "crop_path": "line_images/11084/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Hans schund wurde hinuber kommen, das ich mine brief Zurch ein gwüsser",
+      "crop_path": "line_images/11084/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "bötte üch überantwürten möcht, das aber nüt beschechen etc. u sömlichs",
+      "crop_path": "line_images/11084/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "so schiben ich üch min sublicacis an mine herren mit sampt ih copy wie",
+      "crop_path": "line_images/11084/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ürzdelletst inder wir ab geraen harum, sitte also üch zu aller hösten ir wellend",
+      "crop_path": "line_images/11084/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "im betts in der sachehanden, als ich och valt wal vertuwen, hamlichs",
+      "crop_path": "line_images/11084/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "em und zu verdienen, sond ir mich gantz willig finden. Witer liber herr",
+      "crop_path": "line_images/11084/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "und bruder, so ist üch wol ze wüssen, wie das icher mir üch gerett, hab, wie",
+      "crop_path": "line_images/11084/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "das ich in willen sye ein evagelisten für mich ze nemen. Ich hab es mitt",
+      "crop_path": "line_images/11084/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "Pellicano ouch gerett. So ichs nin gegen ein anderen besich, ist mir keiner",
+      "crop_path": "line_images/11084/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "emtrüttiger dann der lucas aber uf üwer verbesserug und bin also deß",
+      "crop_path": "line_images/11084/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "willend und fürnemens dem selbige mitt goltes bilt und gras, hätt",
+      "crop_path": "line_images/11084/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "zu thur, beschicht es nüt uff den nechsten advent, so sols es doch uf",
+      "crop_path": "line_images/11084/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "die zubünstigen vasten beschechen, ritte üch hierim um rath und bil",
+      "crop_path": "line_images/11084/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "dar mit die ding dester fügblicher möchtind volfuet und erstattet werden,",
+      "crop_path": "line_images/11084/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "dan ich entlich deß fürnemens bin und gott lassen walten, wil üch abe",
+      "crop_path": "line_images/11084/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "ein anders besser bedunlen, land michs wüssen, so wil ich von minem für",
+      "crop_path": "line_images/11084/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "nee abstan und üwer gutdunlen annemen. Wite so schiken ich üh",
+      "crop_path": "line_images/11084/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "hersmintt die herenon, so ich als ein vebunnender zu schreitz us der kilchwelig",
+      "crop_path": "line_images/11084/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "gethan hab, weie ir begeret hand, bitte üch ir wellends im besten uff",
+      "crop_path": "line_images/11084/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "nund sden buchstaben an sechen, sunder das hertz und den ghuter",
+      "crop_path": "line_images/11084/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "willen, und ob etwas ungeschibs darin were, das nüt adforman diente",
+      "crop_path": "line_images/11084/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "man bitt ir welfrats corigiere, uß das ich harnach mals dester sa",
+      "crop_path": "line_images/11084/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "lerneter arbbesere hermn zuh staellens dann alle dingr uff da aller enfaltist",
+      "crop_path": "line_images/11084/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "minet thalb beschen ist. Ich han es aber in minem hertzon vast glit",
+      "crop_path": "line_images/11084/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "gemeint silso verstands ouch. sind alwegen min vatter und wras üch",
+      "crop_path": "line_images/11084/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "gemir anmütig ist zeigends mir gschriftlich an, so wil ich mich alzit",
+      "crop_path": "line_images/11084/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "ewer halten, hie mit sind gott befolen. Grützend min mine günstigen",
+      "crop_path": "line_images/11084/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "heren in gebrider Bellicarin leonen und in sunders si w et.",
+      "crop_path": "line_images/11084/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "Satu zug 10. septembris 1534.",
+      "crop_path": "line_images/11084/0001_line031.png"
+    }
+  ]
+}

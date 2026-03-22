@@ -1,0 +1,225 @@
+{
+  "id": "10133",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 36,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "GUnnd und frid von got mar sl i allen zuten bin unß",
+      "crop_path": "line_images/10133/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Allen ansunders getruwer her und frund ich wund uß herbeichtold",
+      "crop_path": "line_images/10133/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "schryben bericht albean min herrn von Eeen virstanden hande zu",
+      "crop_path": "line_images/10133/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "tagen, daß wir go Züningen werden inn bebschuchen eningen",
+      "crop_path": "line_images/10133/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "und für bewenr vo Sig ein unß wir daß mer und niman",
+      "crop_path": "line_images/10133/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "der kinders wölle. uff buß habent unsero höret d dendettehe",
+      "crop_path": "line_images/10133/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "zu Bern ebeun uff dem ügerg buchmoere un de man",
+      "crop_path": "line_images/10133/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "uff den ingigen buden in befelcht geben, ze begeien e ma",
+      "crop_path": "line_images/10133/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "uff gbetten iun uns veroidin, einer vodtruch er zegeuren",
+      "crop_path": "line_images/10133/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "anderer von lenderen miner h, de wettionder dun de zudlock",
+      "crop_path": "line_images/10133/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "und da z bfaren wies um unß sunde und würhrotuch",
+      "crop_path": "line_images/10133/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "kunst bin usß zu meren und daranen üch ire silbe und ft",
+      "crop_path": "line_images/10133/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "und eien gotz möcht gehollffen werden. Hatwauche zuns",
+      "crop_path": "line_images/10133/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "be en  sölcher ir menig einfurgang, wern uzuh",
+      "crop_path": "line_images/10133/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "wyn des handelth halb nit über fallen un beätten und desr",
+      "crop_path": "line_images/10133/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "verß desterfuret ze zunnen halben, dar und biwmuent dur",
+      "crop_path": "line_images/10133/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "Gandos geife min heen von Lendend wewernfurtmen",
+      "crop_path": "line_images/10133/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "vestader und witter meren lassett und mangern fürien rüch",
+      "crop_path": "line_images/10133/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "zettanen unbew mindr heien otr erbete uch wide disch",
+      "crop_path": "line_images/10133/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "fürseschlichen zu Auewder zeyben uch vilichtn",
+      "crop_path": "line_images/10133/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "n  üch in der abschuifft su frihen zu rurdluc duch",
+      "crop_path": "line_images/10133/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "bruth wur belluchen witter zu dern siden deszu ugden",
+      "crop_path": "line_images/10133/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "wusent, uns wir nüntür h und ir dessch als han",
+      "crop_path": "line_images/10133/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "wirshuißnund sind alwegen unse nüwe errefelches .",
+      "crop_path": "line_images/10133/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "u nich sotzlich vertruwen, danin sin so zeihelh",
+      "crop_path": "line_images/10133/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "vernender euce von den user dien von aind",
+      "crop_path": "line_images/10133/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "belen geschwetz vor minen köen vonüng gesir döt du",
+      "crop_path": "line_images/10133/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "bil ein sich erbötten hind nun sin oör dir wil  du",
+      "crop_path": "line_images/10133/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "mend und heitz ein ein andern. si gtz uff zistug",
+      "crop_path": "line_images/10133/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "miten gunt vodardus tag in z jat..",
+      "crop_path": "line_images/10133/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "huß mersteb.",
+      "crop_path": "line_images/10133/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "D libiil er",
+      "crop_path": "line_images/10133/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "und frund.",
+      "crop_path": "line_images/10133/0001_line032.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Din waltgelertt eit",
+      "crop_path": "line_images/10133/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Zenich Bullinger, miren",
+      "crop_path": "line_images/10133/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "kueich zu und frunten.",
+      "crop_path": "line_images/10133/0002_line002.png"
+    }
+  ]
+}

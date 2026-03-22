@@ -1,0 +1,405 @@
+{
+  "id": "10229",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 66,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Salus per Christum captivitatum nostrarum omnium",
+      "crop_path": "line_images/10229/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "liberator en",
+      "crop_path": "line_images/10229/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Qu Hulderichus ectstam literas meas perdidit",
+      "crop_path": "line_images/10229/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "aut negligentia aut malitia hominis factum est",
+      "crop_path": "line_images/10229/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "negligentiae indulgendum quidem malicis non",
+      "crop_path": "line_images/10229/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "item, ego vero nentram culpam timeo, quamis",
+      "crop_path": "line_images/10229/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "um nesciam, quid scripserim, tamen ilo me",
+      "crop_path": "line_images/10229/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "nisil mendaciter scripsisse. Amani hominem",
+      "crop_path": "line_images/10229/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "non ob ingenium, sed miseriam, et quotquot",
+      "crop_path": "line_images/10229/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "nostrum sunt studuimus in bono vinicere mata.",
+      "crop_path": "line_images/10229/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Nunc audio illum nostrę beneficentiae insigniter",
+      "crop_path": "line_images/10229/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "ingratum. sed hoc non nisi suo malo. Valeat",
+      "crop_path": "line_images/10229/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "autem in domino. Paulus ras docter  Campidon",
+      "crop_path": "line_images/10229/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "electus est in ministrum verbi dei, ablegatis duobus",
+      "crop_path": "line_images/10229/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "istis, qui partes foverunt Lutheranas idque divino",
+      "crop_path": "line_images/10229/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "consilio. Scripserant enim campidonentes. Nuren",
+      "crop_path": "line_images/10229/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "ebrgensibus, Augustanis et Argentoralensibus, ut",
+      "crop_path": "line_images/10229/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "pro ecclesiae suae concordia consulerent, quę verior",
+      "crop_path": "line_images/10229/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "esset in negotio sacramenti sententia; nam et mini",
+      "crop_path": "line_images/10229/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "ecclesiae in hoc negotio dissenserunt, obtinen",
+      "crop_path": "line_images/10229/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "tamen Lutheranis. Augustani toti consen",
+      "crop_path": "line_images/10229/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "et senteniae nostrę Nurenbergenses toti",
+      "crop_path": "line_images/10229/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "senentiae contrariae, Argentoratentes nostrę quoque",
+      "crop_path": "line_images/10229/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "adslipulati funt firmiter, adiuncta tamen amica",
+      "crop_path": "line_images/10229/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "exhortatione pro ecclesiae pace et illorum",
+      "crop_path": "line_images/10229/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "consilium (neglectis prioribus) ministris utrinque.",
+      "crop_path": "line_images/10229/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "partis praelectum d, qui nostrae partis est, obniis utin",
+      "crop_path": "line_images/10229/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "complexa est istud,  qui adversuriae partis",
+      "crop_path": "line_images/10229/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "similiter, sed post dies paucos coemerunt pali",
+      "crop_path": "line_images/10229/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "ium magistratus itaque indignatione motus,",
+      "crop_path": "line_images/10229/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "trosque prinerunt offico. Hoc scipus ego, curavi",
+      "crop_path": "line_images/10229/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "ut ex ulma vosaretur. Dantur. Utinam",
+      "crop_path": "line_images/10229/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "elix et fausta sit vocatioem. Nunc de vito,",
+      "crop_path": "line_images/10229/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "quoque, qui fuit in diessendis sollicitum nusam dominus",
+      "crop_path": "line_images/10229/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "at emittat operarios in messem suam",
+      "crop_path": "line_images/10229/0001_line034.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "CParrochus potusilentis, postquam suos misere seduxit.ine",
+      "crop_path": "line_images/10229/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "in hoc est, ut papatum repetut. Utinam nullos habat",
+      "crop_path": "line_images/10229/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "comites. De rebus Cęsarii, ne verbum audimus",
+      "crop_path": "line_images/10229/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "Tamen aliquid de colloquio Cęsaris cum pontificii",
+      "crop_path": "line_images/10229/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "referet hic tabellio, Quę ipse mihi ex te rebulor",
+      "crop_path": "line_images/10229/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "forte profutura sunt suo loco, habeo gratiam libi",
+      "crop_path": "line_images/10229/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "pro sollicitudine. Sed nos rogemus dominum, ne",
+      "crop_path": "line_images/10229/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "desit cue suae. Orate pro ecclesiae nostra, idem nos",
+      "crop_path": "line_images/10229/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "quoque faciemus pro vestra. Nam sic sunt rei",
+      "crop_path": "line_images/10229/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "nostrę composuae, ut non nisi orationibus pugnetnerom",
+      "crop_path": "line_images/10229/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "sit, Christus pro nobis oret, ut servemur",
+      "crop_path": "line_images/10229/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "gationibus pissimis. Utinqua nos non sumus magistrati",
+      "crop_path": "line_images/10229/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "beneficiis dei et ille non defuturus necessitatibus",
+      "crop_path": "line_images/10229/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "hatis. Parensi meo Pellicano die mille",
+      "crop_path": "line_images/10229/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "salutes. Dabit veniam, quod non proprias hieras vapiat,",
+      "crop_path": "line_images/10229/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "In quoque veniam dabis indoctis et literis istis,",
+      "crop_path": "line_images/10229/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "Vicisti me bonitate tua, ut anxie cupiam",
+      "crop_path": "line_images/10229/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "innisere. P Leonem quoque salvum vole",
+      "crop_path": "line_images/10229/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "Teodorum, Carolstadium et omnes bonos fratres",
+      "crop_path": "line_images/10229/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "Lutherus plus quam acerbum librum scripsit,",
+      "crop_path": "line_images/10229/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "fieri non posse, ut in hoc negotio lacrumeta",
+      "crop_path": "line_images/10229/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "concordemus. Er manit mir mussis gloabe",
+      "crop_path": "line_images/10229/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "das wirs och mit dem mul issend den lilagen",
+      "crop_path": "line_images/10229/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "liChristi ech und schribt wir gangind.",
+      "crop_path": "line_images/10229/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "mMum Minu Mun um Sedhoc",
+      "crop_path": "line_images/10229/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "ad te. Ego pro meo exiguo indiis Volim",
+      "crop_path": "line_images/10229/0002_line025.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 26,
+      "text": "illi, quoquam respondere",
+      "crop_path": "line_images/10229/0002_line026.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 27,
+      "text": "Pargee insribile scriptioni. Et vale in Christo",
+      "crop_path": "line_images/10229/0002_line027.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 28,
+      "text": "sernatore nostro. Constantiae",
+      "crop_path": "line_images/10229/0002_line028.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 29,
+      "text": "10. martii 1533.",
+      "crop_path": "line_images/10229/0002_line029.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 30,
+      "text": "Tuus Ioch zwick.",
+      "crop_path": "line_images/10229/0002_line030.png"
+    }
+  ]
+}

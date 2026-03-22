@@ -1,0 +1,303 @@
+{
+  "id": "10676",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 49,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "flagitanes in hoc negotio amice syncareque consulat suque con",
+      "crop_path": "line_images/10676/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "quam primum certiores reddat. Quid ad haec Scurmius illis",
+      "crop_path": "line_images/10676/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "consuluerit aut scripserit non mihi patefacium est. Sed meo iudicio, pe",
+      "crop_path": "line_images/10676/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "pensiculatis probe conditionibus, hac vin re non multa deliberatione",
+      "crop_path": "line_images/10676/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "consultationeque opus fuisse coniectassem. Quum autem parum prudens",
+      "crop_path": "line_images/10676/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "in e quod faciundum foret, sibi verte inspectis perpensittique",
+      "crop_path": "line_images/10676/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "condictionibus et conducti ex ceptionibus, consuleor posset. Indica",
+      "crop_path": "line_images/10676/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "eutem ad hac literae, id facti apud Parisiens, paucis piis placere",
+      "crop_path": "line_images/10676/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "eam profecto ob causam, quod timeant clandestinas prarticatione et tisi",
+      "crop_path": "line_images/10676/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "facentes enim id negotii haud suspitione carere, quod disputatio",
+      "crop_path": "line_images/10676/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "praescriptis iniquis legibus sit admissa et conduntum regium condiciobus",
+      "crop_path": "line_images/10676/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "sic sancitam, nempe, quod papam cum suis veviis, decretis mendatiisque",
+      "crop_path": "line_images/10676/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "protrattutur praplodere de falsitateque convincere non sit concessum.",
+      "crop_path": "line_images/10676/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "Quis hic congressus est futurus, quum non libere omni ex parce verita",
+      "crop_path": "line_images/10676/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "parocindri liceatur, fortisse omne lana caprina dissatio cum",
+      "crop_path": "line_images/10676/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "Fabinis futura est. Nihil enim hac tempestate magis necessorium in",
+      "crop_path": "line_images/10676/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "erit, quam deplernae maliquitanis lonificim, haerenior cicerdulorumque",
+      "crop_path": "line_images/10676/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "terinatiam tartinatiamque erroremque devincere atque confutare. Nam",
+      "crop_path": "line_images/10676/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "ecclesia nullos aequę patitur hostes atque pontificios, qui veritati semper",
+      "crop_path": "line_images/10676/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "adversantes eiisque casum noctu duique medicantes, quos si steiutura.",
+      "crop_path": "line_images/10676/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "sacrę armus propugnare atque vincere deque omnibus fidei vostrae articuti.",
+      "crop_path": "line_images/10676/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "disputare liberum non erit, meo quidem iuditio affirmarim hunc",
+      "crop_path": "line_images/10676/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "conventum sophistarum rei christianę plus dispendii, quam commo",
+      "crop_path": "line_images/10676/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "d allaturum fere. ecclesiae etiam tam frugiferum, ut olim papistia",
+      "crop_path": "line_images/10676/0001_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "2013.",
+      "crop_path": "line_images/10676/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Gratiam et pacem a domino etc. landidi atque ornatissimes vir, nova quadam et",
+      "crop_path": "line_images/10676/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "haud quidem comenticia, sed fortassis inuspilatissima nobs et Lutetia",
+      "crop_path": "line_images/10676/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "du die ig per virum pium synccumque significata, eadem aequi nun",
+      "crop_path": "line_images/10676/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "humanitati transmittenda, opera precium fore duxi. Histe nempe cogni",
+      "crop_path": "line_images/10676/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "impios quorundam conatus consiliaque intempestiva, eo maturius feli",
+      "crop_path": "line_images/10676/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "tuisque propugnare potes. Quum equidem ornures pii boni atque do",
+      "crop_path": "line_images/10676/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "hanc tibi pronunciam delegarunt, ut tu, quae dogmata in reipublia",
+      "crop_path": "line_images/10676/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "christianęs provitiem damumve excogitata eroctaque praesentirus tanquam",
+      "crop_path": "line_images/10676/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "veritatis stoenus propugnator ea impugnare eliminareque obvi.",
+      "crop_path": "line_images/10676/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "vincabas. Quo quidem officio hactenus sans dextre bonisque auspini,",
+      "crop_path": "line_images/10676/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "functus es. Sed ut rem aggrediar. Summa itque novarum, quae inter",
+      "crop_path": "line_images/10676/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "alia tibi stitu digna aestimaveram. haec enim sut, iam praedem Buser",
+      "crop_path": "line_images/10676/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "et Melanctonem diversa via Gallorum ergis favorem oblandi.",
+      "crop_path": "line_images/10676/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "ea praecipur gratia, quo de religionis vostrae summa cum parisimis",
+      "crop_path": "line_images/10676/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "Rabiuis theologisque conflictari dissereque copia daretur hac vero",
+      "crop_path": "line_images/10676/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "immpenara sibi polliciti sunt, alcercatione convintia contentionemque",
+      "crop_path": "line_images/10676/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "pro rebus sacris, non alia via vemedioque meline atque faciliums",
+      "crop_path": "line_images/10676/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "terminari posse) iam animi factos compotes, conductitiasque ad",
+      "crop_path": "line_images/10676/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "epistopos esse literas, quibus probe cortificati, tutum iam illis atque",
+      "crop_path": "line_images/10676/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "liberum parere aditum. Ea tamen lege, ut pontifucrim Romi",
+      "crop_path": "line_images/10676/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "impietatis sede caeremoniarum mendatiorumque sentinam intac",
+      "crop_path": "line_images/10676/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "sinant, imo ne verbulo quidem damnare obpugnareque lice",
+      "crop_path": "line_images/10676/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "Super hac re dilatione sumpta, interim ad Sturmium virum",
+      "crop_path": "line_images/10676/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "ut aiunt bonum consilii ab eo captandi gratia scripsisse autie",
+      "crop_path": "line_images/10676/0002_line024.png"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "id": "11632",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 24,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "1552.",
+      "crop_path": "line_images/11632/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Min willig dinnst sampt, was ich lieb unndguts vermöcht zue",
+      "crop_path": "line_images/11632/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "grender liber herr. Es hat vor ettlicher zuten her Nicelaus",
+      "crop_path": "line_images/11632/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Grieffer deran zu Sant putter zu daser mir im Wagenbucg faruff",
+      "crop_path": "line_images/11632/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "gesandt unnd ettlich zitts gelychen mit bevelch, so ich das gebrucht",
+      "crop_path": "line_images/11632/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "imne solchs wider hinab bis gen Zürich zefercken zu handen herren",
+      "crop_path": "line_images/11632/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Jörgen Wullers wylund alt zu werdugen gesin. Der dann söllich",
+      "crop_path": "line_images/11632/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "unnd als ich",
+      "crop_path": "line_images/11632/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "euch, vellendto gen Basell wider schicken sölt",
+      "crop_path": "line_images/11632/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "sydher vernomen, inmittherutt bedachten beynch enheratennuffen",
+      "crop_path": "line_images/11632/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "worden. So ich nin bericht bin, das obgemelter herr decan",
+      "crop_path": "line_images/11632/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "zu Basell uüwer lieb wol bekant. Schick ich sollich buch hiemitsamp",
+      "crop_path": "line_images/11632/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "einem brieffe an inn gehörende uch zu. Mitt ernstlicher pitt",
+      "crop_path": "line_images/11632/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "ir wollind mir ze lieb mütler zitt ettwa by geligned für.So",
+      "crop_path": "line_images/11632/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "Froschower oder ander ettwas gan Baselb vercker wurdendt sölchs",
+      "crop_path": "line_images/11632/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "buch mithenden zu handen dick gedachts derhans, dampt dem brieffen",
+      "crop_path": "line_images/11632/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "willich gern ein par bathen, oder was es ist zefur bezalan. be daf",
+      "crop_path": "line_images/11632/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "uch nit so jlends sin; dann so es sich ingenend wol begut.",
+      "crop_path": "line_images/11632/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Wie woll nit billich, das ich üch söllich müge zumutten. wo ich aber",
+      "crop_path": "line_images/11632/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "in derglich unnd merermn üch angenem dienst bewysen möcht",
+      "crop_path": "line_images/11632/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "welt ich irburtig sin. Gitt ir welld min begern nit zergen",
+      "crop_path": "line_images/11632/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "uffnemmen. Hiemit gott alzitt bevolchen. Datum Glarus",
+      "crop_path": "line_images/11632/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "us derembus. aun 1 pli",
+      "crop_path": "line_images/11632/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Filgtschidybrnglerg",
+      "crop_path": "line_images/11632/0001_line023.png"
+    }
+  ]
+}

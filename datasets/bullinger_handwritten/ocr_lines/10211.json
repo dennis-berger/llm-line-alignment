@@ -1,0 +1,135 @@
+{
+  "id": "10211",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 21,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "S. lieber bruder Heinrich. Es hett mir zu gschriben, Venner Hanß Hugi vosoloturn",
+      "crop_path": "line_images/10211/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "ich sölle verhelfen, so verr möglich  das Paulg Rasdoffer, mitt zeiger diss brieffs",
+      "crop_path": "line_images/10211/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "edornigg uff das schlosß keren welle, der habe in sind vogty ettlid pfarren, so",
+      "crop_path": "line_images/10211/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "noch nitt versähen und so panto gefellig, begärend sy inn also in irem bielt",
+      "crop_path": "line_images/10211/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "ze versähen. Dann die von Sploturus habend ob 35 pfarren, sind nitt uber. 2. da mun",
+      "crop_path": "line_images/10211/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "meer messhalte und bedörfftind eins sömlichen. Er hatt od mir zugschriben,",
+      "crop_path": "line_images/10211/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "devogt, uff dornigg werd im die zerung abtragen. Habid dir nittwellen verhalten",
+      "crop_path": "line_images/10211/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "In unsermbiet, ist noh nitt möglide inn ze versähen, dann wir noch meer stat und",
+      "crop_path": "line_images/10211/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "handkind her. Aber, so er möcht ein ingang han, in soloturn biet zrbeliben, wär mir",
+      "crop_path": "line_images/10211/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "träftlich lieb in hoffnung, wo die andren bruder ein sömlichen gehilffen heltind, wurde",
+      "crop_path": "line_images/10211/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "gg handel träffelich fürdren. Hiemitt bitt ich, did umb gotswillen. shrib mir",
+      "crop_path": "line_images/10211/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "und bi gwösser bottsafft, wie es stande aller dingen halb. Datum in ib 23. ianuarii",
+      "crop_path": "line_images/10211/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Tuus Bert.",
+      "crop_path": "line_images/10211/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "ermag allein hinb kere",
+      "crop_path": "line_images/10211/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "und alle dige besirgtigen",
+      "crop_path": "line_images/10211/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "Id welte inn nitt gern e",
+      "crop_path": "line_images/10211/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "wysen. Si frustra jerot",
+      "crop_path": "line_images/10211/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "postulabo cum solotię",
+      "crop_path": "line_images/10211/0001_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "An den getruwen heinrc",
+      "crop_path": "line_images/10211/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Bullinger, prein",
+      "crop_path": "line_images/10211/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "dicanten zu Zürich.",
+      "crop_path": "line_images/10211/0002_line002.png"
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "id": "10335",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 38,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "S. Fuerunt, ut nuper ad te perscripsi, legati nostri Bernae, praeter catera diligenter",
+      "crop_path": "line_images/10335/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "egerunt, quae spectant ad communem concordiam. Huc impulit, quod viderunt.",
+      "crop_path": "line_images/10335/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "iscordiam nostram et quod nescio quo singulari vitio, alter de altero non",
+      "crop_path": "line_images/10335/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "si pessima loquitur et credit, Pagorum robur esse, tyrannidem in bonos omnes",
+      "crop_path": "line_images/10335/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "subinde fovens et augens. Invenerunt autem hoc apud Bernenses, ut moti",
+      "crop_path": "line_images/10335/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "sint et ad vos proficisci, si quid pro commodo verbi dei et omnium nostrum queant",
+      "crop_path": "line_images/10335/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "conficere. Veniet igitur Tigurum consulum alter. pater ille piorum sabba",
+      "crop_path": "line_images/10335/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "sel dominica proxima post nativitatem Christi et ea de re pro virili tracha",
+      "crop_path": "line_images/10335/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "st; utinam res cedat in laudem dei et profectum evangelii. Causa iam",
+      "crop_path": "line_images/10335/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "cur hunc nuncium ad te mittam haec est. Quia pro ordinatione dei fere",
+      "crop_path": "line_images/10335/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "omnes, qui huic nostro familiares et amici fuerunt, occisi sunt,",
+      "crop_path": "line_images/10335/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "quos primum adeatur, cum quibus agat, quibus fidere possit et rem ita",
+      "crop_path": "line_images/10335/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "ordiri, ut finem optatum consequatur. Tales ergo tuum irit ita parare,",
+      "crop_path": "line_images/10335/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "ut postquam advenerit, sint, quos indices, ut bonos probatos et taci",
+      "crop_path": "line_images/10335/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "viros usque, dum tempus erit omnia palam agere. Vide, qualem",
+      "crop_path": "line_images/10335/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "animum hic nostri sint adepti. Sciunt, quod nihil celetur, hac praesertim te",
+      "crop_path": "line_images/10335/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "eestate, quod pessime sint audituri, postquam ad hostes conatus ille pervenerit,",
+      "crop_path": "line_images/10335/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "nihilominus tamen communi bono, in primis autem rei divinae tam sunt",
+      "crop_path": "line_images/10335/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "dit, ut illis contemptis, libenter haec subeant et sine trepidatione.",
+      "crop_path": "line_images/10335/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "oeis, quos praemonebis, dices omnia, quae monemus. Erga reliques",
+      "crop_path": "line_images/10335/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "muutus eris? Publice tamen in concionibus (nam alterum hoc oneris iam impo",
+      "crop_path": "line_images/10335/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "non sermonem fac instituas, qui exhortetur ad condonationem, quamvis gra",
+      "crop_path": "line_images/10335/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "quis in alium peccaverit. Ad spem bonam, etiamsi saepe falsus fueris.",
+      "crop_path": "line_images/10335/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Nam haec eorum esse, qui titulum ferunt Christi et evangelii eius. Verum",
+      "crop_path": "line_images/10335/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "hoc posterius tu pro tua prudentia institues, prout conducere et res clam ma",
+      "crop_path": "line_images/10335/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "videbitur. Fac igitur, mi Bullingere sic omnia prosequaris, ut",
+      "crop_path": "line_images/10335/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "noster hic adveniens tuam diligentiam sentiat, omnes vero nos simul gaude",
+      "crop_path": "line_images/10335/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "possimus, dum ex ea proveniat, quod speramus. Vale semper. asileae2.",
+      "crop_path": "line_images/10335/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "decembris anno m.",
+      "crop_path": "line_images/10335/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "D. Marcus Bersius noster",
+      "crop_path": "line_images/10335/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "rogavit diligenter, ut nomine ipsis",
+      "crop_path": "line_images/10335/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "Salutem tibi ad scribam.",
+      "crop_path": "line_images/10335/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "Os. Deyconi.",
+      "crop_path": "line_images/10335/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "tuus.",
+      "crop_path": "line_images/10335/0001_line033.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "An her Heinrich Bulinger,",
+      "crop_path": "line_images/10335/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Bulnge predicanten zuzu",
+      "crop_path": "line_images/10335/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "sine gunstigen lie",
+      "crop_path": "line_images/10335/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "herren.",
+      "crop_path": "line_images/10335/0002_line003.png"
+    }
+  ]
+}

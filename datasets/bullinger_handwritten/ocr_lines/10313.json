@@ -1,0 +1,141 @@
+{
+  "id": "10313",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 22,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "e Iesu Christum omne salute. Scipsi nuper Denedicti evimi causa ad tes succrssi",
+      "crop_path": "line_images/10313/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "huc itenum ecclesiae nostri, desperabur de salute plumuni, intercurbatur ecclesia. Lebi",
+      "crop_path": "line_images/10313/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "qudaptistinum et altorum doctina per decemium predicatur un deo sine",
+      "crop_path": "line_images/10313/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "fuunctu adhuc omnia pendent sus prao seculo. Geremonie noostant adhuc cum misi",
+      "crop_path": "line_images/10313/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "se novenclacura in monasterio, luhtur, bibitur, peieratur i nec ulle censi",
+      "crop_path": "line_images/10313/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "e apud seciones populi memenia habetur, timent cesarem, quod plura, audiut",
+      "crop_path": "line_images/10313/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "un dei, sed non cierunt, timeo in damnationis testimonium denuncietr, ut ubique",
+      "crop_path": "line_images/10313/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "inscius quom faciemu, ita sanctum dare cavibus. Vellem potius esse tecum agro",
+      "crop_path": "line_images/10313/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "Domumo, si vos velesia. consuli itaquer optime, se boni, si quod habes, nin adsit deus",
+      "crop_path": "line_images/10313/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "nis modis decuit emnis spesi magistracus timore perculsus misera gens perilet a me",
+      "crop_path": "line_images/10313/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "sePetaro ex Christi precepto Brevi abeundum censeo. Scribito paucis, si vacas er",
+      "crop_path": "line_images/10313/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "hschede laterem. Ore sedul nisi pro sate ecclesiae nostre etiam pro nobis itiem",
+      "crop_path": "line_images/10313/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "et nos faciimus. Cupio salvos aties dimes, quogo tecum sunt Leonem, Erasmum fabuium",
+      "crop_path": "line_images/10313/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "carotamum. Salutantur et te tuosque fraties mei, etiam genitiece tuam cum coxorem ada",
+      "crop_path": "line_images/10313/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "mata omniam gratiam vale Paampidoni 6 novembis 33, raptim",
+      "crop_path": "line_images/10313/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "unb Ragerller",
+      "crop_path": "line_images/10313/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "vo de miistr.",
+      "crop_path": "line_images/10313/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "tus dick.",
+      "crop_path": "line_images/10313/0001_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Heinricho Bullingero, episcopi",
+      "crop_path": "line_images/10313/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "scooTigurino viro canio",
+      "crop_path": "line_images/10313/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "ddiligentissimo, quo fratri",
+      "crop_path": "line_images/10313/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "Zürich.",
+      "crop_path": "line_images/10313/0002_line003.png"
+    }
+  ]
+}

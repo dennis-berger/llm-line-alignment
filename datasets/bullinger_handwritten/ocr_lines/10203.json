@@ -1,0 +1,171 @@
+{
+  "id": "10203",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 27,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Suletro habeto advanis quatenque ad Angariam futuram. Pream see lanti",
+      "crop_path": "line_images/10203/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "apud nos cum familia et supellicile comparat, ubi provicia illi disignata",
+      "crop_path": "line_images/10203/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "plauerit, nempe ad angariam quamquam 2 libręmovetę nostrę, habi",
+      "crop_path": "line_images/10203/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "senatum prpicium, ubi fidelier insudaveit puerum edocnda. Cęterum, quae scribibu",
+      "crop_path": "line_images/10203/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "em rerum et communium statu? terruerunt fratres. Tierint et hodie, quod si nos",
+      "crop_path": "line_images/10203/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "nulla set fides usque vadeo magram, ut vomnus quippiam de nobis pollicesi",
+      "crop_path": "line_images/10203/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "possimus? Cordati sunt multi, quod dum vos hostis divixari niti",
+      "crop_path": "line_images/10203/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "aderunt, quiquid unquam seniores deliberarint. Movit ad lachrinatis lus",
+      "crop_path": "line_images/10203/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "epistola tua d, qui terte multa autem apud nos polles. Nihil potueruto",
+      "crop_path": "line_images/10203/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "cosulum fratres, quid quo nuc tuę responderem epistopę. Scribendo videder nobis",
+      "crop_path": "line_images/10203/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "cesis. Rra hoc iusurrant fratres, quod dum ingrueret hactus lacetirumu",
+      "crop_path": "line_images/10203/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "desicuiores Ierqum alioqum vodemuti visum fuerint. Synodus sant placetlace",
+      "crop_path": "line_images/10203/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "qr anieredissundere. porerus  vimum amorem sic rapti persum, ut nihil iantulageat",
+      "crop_path": "line_images/10203/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "quod tuum s redoleat ingenium. Tandem Zvingli uxsaar",
+      "crop_path": "line_images/10203/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "quomnd helioli regdideturi, quod optimu ivadent studio et vita, Saltrarnatem",
+      "crop_path": "line_images/10203/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "fridi hatere Trecpius. Imen adoptitia Trapio exot, idilicernate",
+      "crop_path": "line_images/10203/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "suimimun tuiunt eidem . sommensi, quam eam et tegcolimu diligatt",
+      "crop_path": "line_images/10203/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "caen u, anteit pro denes omnibus missioi. Ae rgo auimi vectissim",
+      "crop_path": "line_images/10203/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "gratias idlio rlainc et a filiolo sacutum fles gratiasu decadnsi. missi",
+      "crop_path": "line_images/10203/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Dileidoam tranes epst i scribiatur. Indem u ego dus et praesto",
+      "crop_path": "line_images/10203/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Vilus, quo edem possus 1 6. ianuarii anno 33.",
+      "crop_path": "line_images/10203/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Tuus B. Hallius.",
+      "crop_path": "line_images/10203/0001_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Heinrico Balingero,",
+      "crop_path": "line_images/10203/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Bulingero, ecclesia",
+      "crop_path": "line_images/10203/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "acę Tigurino",
+      "crop_path": "line_images/10203/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "fratri suo charisimo",
+      "crop_path": "line_images/10203/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "Isuno.",
+      "crop_path": "line_images/10203/0002_line004.png"
+    }
+  ]
+}

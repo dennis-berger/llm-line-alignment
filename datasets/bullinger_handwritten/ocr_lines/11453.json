@@ -1,0 +1,321 @@
+{
+  "id": "11453",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 52,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Quicquid est, dicere certo nec possim, nec si possi",
+      "crop_path": "line_images/11453/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "libenter ialterius inessem falcem innitere medam",
+      "crop_path": "line_images/11453/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "vellem. De cessatione item aliorum peofesserum nihil",
+      "crop_path": "line_images/11453/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "effirimate ceti queo, me solorum medicorum, quidus a",
+      "crop_path": "line_images/11453/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "pratrontionebeststrtere, sint dugia Etoro sun",
+      "crop_path": "line_images/11453/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "froqueari utdore domino. Ego toto hoc anno",
+      "crop_path": "line_images/11453/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "non cessiv, quam eo lecpore, quo et opu vos tu et",
+      "crop_path": "line_images/11453/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "nuper omnibo dies, dum Hegenoam essem profectus",
+      "crop_path": "line_images/11453/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "equam neglectione totum iam mensem, quo aliqui",
+      "crop_path": "line_images/11453/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "quiester etiam Acadinę privlegio licebatur, lectu",
+      "crop_path": "line_images/11453/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "meam contravo, nempe quoa summo mane minus",
+      "crop_path": "line_images/11453/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "nobis inteslus esse calor ille potest. Haec habii",
+      "crop_path": "line_images/11453/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "doctrirsem atque et hauissere Bullingere, quę sumperbutu",
+      "crop_path": "line_images/11453/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "progatis tuis subito nimesque tuillunter et.",
+      "crop_path": "line_images/11453/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "spanderem. Tu igitur antmum potius aestima tibi ac",
+      "crop_path": "line_images/11453/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "vesaris omnibus deditissimum. Vale, neque redemati",
+      "crop_path": "line_images/11453/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "ut fies perge. Basileę et. iulii 154.",
+      "crop_path": "line_images/11453/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "Ioanns Oporius tuus.",
+      "crop_path": "line_images/11453/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "D rebus Hegenoicis meliussax Zuirio.",
+      "crop_path": "line_images/11453/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "intelliges et amicorum literis. nam ego",
+      "crop_path": "line_images/11453/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "quod vel narratione dignum sii, nihil iui",
+      "crop_path": "line_images/11453/0001_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "35.",
+      "crop_path": "line_images/11453/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "S. Quod me horteris, doctissime Bullingere, ut de",
+      "crop_path": "line_images/11453/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "puerorum vestrorum apud Myconium iam agentium su",
+      "crop_path": "line_images/11453/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "deque publicis etiam lectionibus nostris ad",
+      "crop_path": "line_images/11453/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "certi aliquid scribam, libenter cerde facerem,",
+      "crop_path": "line_images/11453/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "niisi vel odiosum esset de aliorum vel neglectum",
+      "crop_path": "line_images/11453/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "vel etiam diligentia nimis curiose inquicere, eorum",
+      "crop_path": "line_images/11453/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "co, quorum curam sit aliis commissa, vel si per",
+      "crop_path": "line_images/11453/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "privatas etiam occipationes mihi quid ab aliis aga",
+      "crop_path": "line_images/11453/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "huc inspcare atque observare liberum esset. Itaque",
+      "crop_path": "line_images/11453/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "quas lectiones vel audiant vel non audianit",
+      "crop_path": "line_images/11453/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "affirmare cilius ac verius ignorare me qua",
+      "crop_path": "line_images/11453/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "sare possim. Puto autem Lyconium eorum hospitem e",
+      "crop_path": "line_images/11453/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "quaquam ipsos negligere. Alioqui certe lectiones pubis",
+      "crop_path": "line_images/11453/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "lice sunt sitis multa. In dialicticis quotidie praeliu",
+      "crop_path": "line_images/11453/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "Haronu e Rhelus in hure Amerbachius, in",
+      "crop_path": "line_images/11453/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "Philosphia Arislotelica Gerusarus in oratoria",
+      "crop_path": "line_images/11453/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "suo Cuerois oriabis affimius, in mathematies",
+      "crop_path": "line_images/11453/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "Vitus in Hebraicis Monsterus, in Ga ego",
+      "crop_path": "line_images/11453/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "in thedogio cardeadius et Grynas altur e",
+      "crop_path": "line_images/11453/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "septimanis, Tacro lectiones paedagogii, quas",
+      "crop_path": "line_images/11453/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "omnia anme ccessare arbitror. De mea possumt dicer",
+      "crop_path": "line_images/11453/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "puerorum vestrorum unum tantum adesse ei vollerdi",
+      "crop_path": "line_images/11453/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "cęlere. Et to fatolus alioqui estu autor, quam prali",
+      "crop_path": "line_images/11453/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "ut privato studio assequi facillim posst",
+      "crop_path": "line_images/11453/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "neque interprete forte alio aut viva evarrantis nomine",
+      "crop_path": "line_images/11453/0002_line025.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 26,
+      "text": "hbere opus videantur. Forsutan autem domi Baveri,",
+      "crop_path": "line_images/11453/0002_line026.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 27,
+      "text": "studis, qui fere Tigurinorum hactenus apud nos degentur",
+      "crop_path": "line_images/11453/0002_line027.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 28,
+      "text": "suos fuit, plus se perficere quam audiendis aliis poss putant.",
+      "crop_path": "line_images/11453/0002_line028.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 29,
+      "text": "Zuicquis est",
+      "crop_path": "line_images/11453/0002_line029.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 30,
+      "text": "8.",
+      "crop_path": "line_images/11453/0002_line030.png"
+    }
+  ]
+}

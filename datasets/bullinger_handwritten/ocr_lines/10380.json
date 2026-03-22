@@ -1,0 +1,291 @@
+{
+  "id": "10380",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 47,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Gratiam et pacem a domino clarissime frater, per deus sese missi",
+      "crop_path": "line_images/10380/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "enmlator obtulit eti multis ocpationibus impeditus tamen",
+      "crop_path": "line_images/10380/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Volui ad te meas dare literas, quibus meaem rerum certior",
+      "crop_path": "line_images/10380/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "fieres. in prmis vehementer daleo te hactenus meis prtera",
+      "crop_path": "line_images/10380/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "tum diienis, quas extorqueres, tuas ad me scripsisti oedi",
+      "crop_path": "line_images/10380/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "igitur, quem plane hactenus sopitum putaveras et ut prochrasti",
+      "crop_path": "line_images/10380/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "raationis mere tustam causam habeas, te scire volo. dum Lar",
+      "crop_path": "line_images/10380/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "maatur decum a ianuarii vel ad quattuor sextimanobo neai",
+      "crop_path": "line_images/10380/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "tam vanis tabellionumque peniria praeventus fui, ut eeu",
+      "crop_path": "line_images/10380/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "brosio nostro veluit (quod iter attinet viciniori scribere pomuerim",
+      "crop_path": "line_images/10380/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Poea vero adversa valetudine corporis per deum adobrutus ad",
+      "crop_path": "line_images/10380/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "sextimanas docto plane decibens. vehhementer egrotavi non",
+      "crop_path": "line_images/10380/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "sie magno fratrum merore, poaquam vere convatui em licet",
+      "crop_path": "line_images/10380/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "egrre, item refarcientis a, quę tue egrotarotum negecor",
+      "crop_path": "line_images/10380/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "fuerant tam anxie oportuit laborare at iterum. Vi pemi",
+      "crop_path": "line_images/10380/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "respirare plenius ogonotties cum egrotare; non sie lachrin",
+      "crop_path": "line_images/10380/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "presentiam inenarrabilibus votis oxtavi, ec autim",
+      "crop_path": "line_images/10380/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "veram corpis convolescentias fateri, nisi ubilaemgaris",
+      "crop_path": "line_images/10380/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "velunt prebentem literis introspexerim, ut plane peteret",
+      "crop_path": "line_images/10380/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "michi ad resartiendam pristinam sanitatem inpreter",
+      "crop_path": "line_images/10380/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Tuliteras plane nichil defuisse. fac igitur. Amici",
+      "crop_path": "line_images/10380/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "ncerperabilis, ut his te memeria i vetiis amnicari nostrę",
+      "crop_path": "line_images/10380/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "suspecto nina colletur ecardie nosr eius",
+      "crop_path": "line_images/10380/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "tu tuum tnquam iterum egretare et animo et corpere. Accipe doo",
+      "crop_path": "line_images/10380/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Veluti  ad alias, que mox incustanter sequentur",
+      "crop_path": "line_images/10380/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "Svenckfeldiu iacanistanatus, libelobaptis muuguena",
+      "crop_path": "line_images/10380/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "ad me misit manu scriptum, quae pedobaxus nqueri",
+      "crop_path": "line_images/10380/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "pottem exscripti (nam iterum Augustam cum eentias furr",
+      "crop_path": "line_images/10380/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "mitteilus est, non tamen plenius propter renas",
+      "crop_path": "line_images/10380/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "Quox vero, ubi excriptus fuerit mittam ad",
+      "crop_path": "line_images/10380/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "non multis aliis Blasphemiis etc. oschouerum nomne",
+      "crop_path": "line_images/10380/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "meo roga, ut panim temporis tolleret debitum, nequ",
+      "crop_path": "line_images/10380/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "sese srandari. ego nondum propriu eeceemnonertu",
+      "crop_path": "line_images/10380/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "xor cum labevis valet detine ue euram unano",
+      "crop_path": "line_images/10380/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "Soelicem parentem tuam de me oxtime eira cum",
+      "crop_path": "line_images/10380/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "Liberis migieset nobis saluta pe one",
+      "crop_path": "line_images/10380/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "incenxrabilem amicum nostrum huma arum Era",
+      "crop_path": "line_images/10380/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "murit Theodorum Bibliarorum, vic enu, ut or",
+      "crop_path": "line_images/10380/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "liberis et Salutat tecum retera uiciu",
+      "crop_path": "line_images/10380/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "cpearius meus in domino noobilis premeei v",
+      "crop_path": "line_images/10380/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "belringet zell dem bserver iuderurs eclesie",
+      "crop_path": "line_images/10380/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "saitum incolumem. Vale delitie meę in domino 4. aprilis",
+      "crop_path": "line_images/10380/0001_line041.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 42,
+      "text": "anno 1534.",
+      "crop_path": "line_images/10380/0001_line042.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 43,
+      "text": "Scribsit ad me Buserus hisce diebus nonnum tamen suene",
+      "crop_path": "line_images/10380/0001_line043.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 44,
+      "text": "Felilii prantiam apud nos certus",
+      "crop_path": "line_images/10380/0001_line044.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Ich wölt von Hertz vern danwegen zuankfende in",
+      "crop_path": "line_images/10380/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "ta by dir und Erosio Blaurero sin, wo eß wir gott keye",
+      "crop_path": "line_images/10380/0002_line001.png"
+    }
+  ]
+}

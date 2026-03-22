@@ -1,0 +1,195 @@
+{
+  "id": "10100",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 31,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Gnnd und für von got meie sich zu allen ziten güistig het",
+      "crop_path": "line_images/10100/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "uff duß hin, als ic mit noch hertt hab ist uff den zehisen",
+      "crop_path": "line_images/10100/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Sintil belernett ein gschrifft lutt man unß buch",
+      "crop_path": "line_images/10100/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Alltein bruch vor elossen ellir allso, wir von den orte",
+      "crop_path": "line_images/10100/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "miit bericht werden, daß ir zu kiamgarten fleisten und erge",
+      "crop_path": "line_images/10100/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "essen in vebettnen zitten nach ordnug und uff gu",
+      "crop_path": "line_images/10100/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "der hellgen cristerlichen kelthind euch danby nit bichten",
+      "crop_path": "line_images/10100/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "euch die hellgen wedigen enckemant und ander",
+      "crop_path": "line_images/10100/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "crsteliche ordnungen nit thun wellen gutwen erwagen",
+      "crop_path": "line_images/10100/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "war lild ir vellean von uderen fürnemen, ern und",
+      "crop_path": "line_images/10100/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "tun mul eidnug deß allten getlichen wuricbnn hut",
+      "crop_path": "line_images/10100/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "burhun iu unß gross gefallen, we daß nit zwulfert",
+      "crop_path": "line_images/10100/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "unser straff ewunckten sin dan üch wor kungssicht",
+      "crop_path": "line_images/10100/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "ist duß wol unsere hund gegen üch ofin derr u",
+      "crop_path": "line_images/10100/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "bennäten ür üch schribten darnach wrin melueshure",
+      "crop_path": "line_images/10100/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "haben. Uff dass habend min hee bebeleder",
+      "crop_path": "line_images/10100/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "zehallten und wer duß über soten ir straff zu d varti",
+      "crop_path": "line_images/10100/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "sin und welcher vermeintz, solches ni s thundu",
+      "crop_path": "line_images/10100/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "stande eher uffde möge allse inweg zuchen duß hr",
+      "crop_path": "line_images/10100/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "euch ind guter meinig  verstan, daramir uer etc.",
+      "crop_path": "line_images/10100/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "des sach wissen se hallten. Gamir sind got dem herr",
+      "crop_path": "line_images/10100/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "befolcher San uff den virten tag mertzo) iund z2 jar",
+      "crop_path": "line_images/10100/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "willig.",
+      "crop_path": "line_images/10100/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Darit.",
+      "crop_path": "line_images/10100/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Hunß mütschlyn",
+      "crop_path": "line_images/10100/0001_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Sen prieff schick",
+      "crop_path": "line_images/10100/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "mir wider.",
+      "crop_path": "line_images/10100/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "Dem ersummen wolgelerten",
+      "crop_path": "line_images/10100/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "Giister Zurichen Bullinger,",
+      "crop_path": "line_images/10100/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "preditant zum hrmnni guste",
+      "crop_path": "line_images/10100/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "Heren.",
+      "crop_path": "line_images/10100/0002_line005.png"
+    }
+  ]
+}

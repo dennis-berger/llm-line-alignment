@@ -1,0 +1,657 @@
+{
+  "id": "10693",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 4,
+  "num_lines": 108,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "De usu coenae petis certior fiereat saapistutir",
+      "crop_path": "line_images/10693/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "nos simpglex est, quinquam non cureati paristius",
+      "crop_path": "line_images/10693/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "quabusdam vestigiis. Primum contie hom ad nop",
+      "crop_path": "line_images/10693/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "rastino cum iam celebranda eimc.",
+      "crop_path": "line_images/10693/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "contione finitu viri separantur a indierdi",
+      "crop_path": "line_images/10693/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "maanentibus ses in eccdesia, illic vera ineprediennu",
+      "crop_path": "line_images/10693/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Banthorum. Merba cęnae proferuntur iux paulu",
+      "crop_path": "line_images/10693/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "hiic per mensae circuitum. duxis gnrim",
+      "crop_path": "line_images/10693/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "panem accipiunt per ministrum mtu pellimuum",
+      "crop_path": "line_images/10693/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "postiam poculum, quo facto abemntibus mutiatu",
+      "crop_path": "line_images/10693/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "ne alii. verba coenae non repetim habenatum",
+      "crop_path": "line_images/10693/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "host qua, quod reliquum est panis uu",
+      "crop_path": "line_images/10693/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "tdoru ministri, Vinum funditur in Canthari",
+      "crop_path": "line_images/10693/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "idque sine omni ecclesiae offensa. Inter cęnandum",
+      "crop_path": "line_images/10693/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "cantatur vel te deum landamis vel aliquod",
+      "crop_path": "line_images/10693/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "passione et morte Christi, finitis omnibus",
+      "crop_path": "line_images/10693/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "concluditur convivium brevissimam gratiarum actione",
+      "crop_path": "line_images/10693/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "etiam si tempus superest, etiam contione brevi gratiae",
+      "crop_path": "line_images/10693/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "aguntur.",
+      "crop_path": "line_images/10693/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "quod not omnia tecum libre. Vellem, ruae",
+      "crop_path": "line_images/10693/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "loenę onim quibusdam minitutum, sed commodum",
+      "crop_path": "line_images/10693/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "monduisti mee de scribendum ad te ratione coenae.",
+      "crop_path": "line_images/10693/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "Auditurus enim sum tanum iuditium.",
+      "crop_path": "line_images/10693/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Primo mallem verba coenae non tam superti",
+      "crop_path": "line_images/10693/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "proferri, ne incantatio quędam potius quam",
+      "crop_path": "line_images/10693/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "exhortatio videantur. Itaque ego verba,",
+      "crop_path": "line_images/10693/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "pellixius proferenda putarem idque ob evitandam",
+      "crop_path": "line_images/10693/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "verborum istorum superstitionem nocentissimam.",
+      "crop_path": "line_images/10693/0001_line027.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Namlich also",
+      "crop_path": "line_images/10693/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Libe Cristęn mn und dandigen filend e vetten, wyg",
+      "crop_path": "line_images/10693/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "habendter von dem hernen. Is dabiten laewert zuninden",
+      "crop_path": "line_images/10693/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "zufangen (si mutatis sine addich in dande diren",
+      "crop_path": "line_images/10693/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "seridntem verda pro ederrati ohrstendam vidicendum.",
+      "crop_path": "line_images/10693/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "buwterader and  halsissmam illa opuriene durichlaler",
+      "crop_path": "line_images/10693/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "eerbardi anden danbig, das der her esen zu darocher ans",
+      "crop_path": "line_images/10693/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "verdaten und verkoufft wnd Satz er sich zu",
+      "crop_path": "line_images/10693/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "usgwerd zu Zölkeva i eer pprach u zu halt",
+      "crop_path": "line_images/10693/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "iß har kertzlich verlaiget, das soseren ot zuschuche",
+      "crop_path": "line_images/10693/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "nuch han heklad. Sann ich, sad des und n das iy hin hur nit",
+      "crop_path": "line_images/10693/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "einen davon essen wurd etch. Siit so dat",
+      "crop_path": "line_images/10693/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "i zeaoß zum assend. Nan leszu das bret damketz s",
+      "crop_path": "line_images/10693/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "brachen Babin Mur sinder de gergend r uß lücsend",
+      "crop_path": "line_images/10693/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "grafs mu wö derulich gebin oder brogen wirt, sollich",
+      "crop_path": "line_images/10693/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "band min zugedencken.",
+      "crop_path": "line_images/10693/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "nanglichen uch e abers ar nan ie ochorug titukacken",
+      "crop_path": "line_images/10693/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "Da eche dur ker hat gas e vo uch spius, Kanckih",
+      "crop_path": "line_images/10693/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "ud darn lande berch zu min. deur eser i",
+      "crop_path": "line_images/10693/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "almodarestamens d gundte oder da trucki",
+      "crop_path": "line_images/10693/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "gynoru estamenter in minem blut. Soh aec studio s",
+      "crop_path": "line_images/10693/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "Saviaemes vscriptus ra). welchs hur uch ue uge",
+      "crop_path": "line_images/10693/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "vaadergossen wurt zu vergebing der landen, sollichs",
+      "crop_path": "line_images/10693/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "tund soofft ies trinckend, min zugedencken",
+      "crop_path": "line_images/10693/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "ewarlich ich sag uch ich wurd riche wy uff",
+      "crop_path": "line_images/10693/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "ober swar woge wüd, es wir stae wirben biuff dein",
+      "crop_path": "line_images/10693/0002_line025.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 26,
+      "text": "dug di so ich üw tüncken wund, wir veza aderderek",
+      "crop_path": "line_images/10693/0002_line026.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 27,
+      "text": "gotter munes varters. Etiam hye rido anderestit",
+      "crop_path": "line_images/10693/0002_line027.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 28,
+      "text": "Qridque sunt, qui ad abrogationem pascatur, non institui",
+      "crop_path": "line_images/10693/0002_line028.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 29,
+      "text": "sacramenti referantur.",
+      "crop_path": "line_images/10693/0002_line029.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 30,
+      "text": "Grofft ie nu diss brot essend ich, ut he zogli",
+      "crop_path": "line_images/10693/0002_line030.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 31,
+      "text": "er Nune putirem exhortationem rudendin",
+      "crop_path": "line_images/10693/0002_line031.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 32,
+      "text": "frend u n zur ein Zuroen et u",
+      "crop_path": "line_images/10693/0002_line032.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 33,
+      "text": "siewelend oner lübe Chusten, un, qutn sund",
+      "crop_path": "line_images/10693/0002_line033.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 34,
+      "text": "geewösten londer, Eu rö su hut yuder gorden dis si",
+      "crop_path": "line_images/10693/0002_line034.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 35,
+      "text": "das wester lebwurdind. So ssoll ain örend z wattind dolch",
+      "crop_path": "line_images/10693/0002_line035.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 36,
+      "text": "ag weistlen gleichen ud d de hälbe pott den vatter von",
+      "crop_path": "line_images/10693/0002_line036.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "kratzen got dem vatter danck sagen, In loben und zwysecha",
+      "crop_path": "line_images/10693/0003_line000.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 1,
+      "text": "und wie er erkeut, das  got gelöbt, wod in e deren hat",
+      "crop_path": "line_images/10693/0003_line001.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 2,
+      "text": "aeso soll ain weder sin nechtten glüben un don Zweillan",
+      "crop_path": "line_images/10693/0003_line002.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 3,
+      "text": "allo sollian und sin duen. Sinu suh liber nimandr",
+      "crop_path": "line_images/10693/0003_line003.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 4,
+      "text": "dann wie sant Paals sagt, wir und",
+      "crop_path": "line_images/10693/0003_line004.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 5,
+      "text": "wurdig, das ist on glouben und liebe et",
+      "crop_path": "line_images/10693/0003_line005.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 6,
+      "text": "Sowilles min got an hailigs daer ole haben ed sich",
+      "crop_path": "line_images/10693/0003_line006.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 7,
+      "text": "der gloubens und der liebe on glisner deseies gd",
+      "crop_path": "line_images/10693/0003_line007.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 8,
+      "text": "din kleechtsschaffen von Christo Jesum und siner Beavnd",
+      "crop_path": "line_images/10693/0003_line008.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 9,
+      "text": "gsimuet ist der gange mit grod sulo hertze ds tö",
+      "crop_path": "line_images/10693/0003_line009.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 10,
+      "text": "bönrisch der lorten. Und der gloubn das zareben",
+      "crop_path": "line_images/10693/0003_line010.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 11,
+      "text": "des litzer Christi, den er aiie mat aim Launtzow w",
+      "crop_path": "line_images/10693/0003_line011.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 12,
+      "text": "geben hat, des wir lie ingedorck sade sysbenwer",
+      "crop_path": "line_images/10693/0003_line012.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 13,
+      "text": "bund erstduge üwere lib und seet in das ewig leben",
+      "crop_path": "line_images/10693/0003_line013.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 14,
+      "text": "Des glich, der gloub 1 dedat Cersti d 8 aimahan",
+      "crop_path": "line_images/10693/0003_line014.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 15,
+      "text": "Eutzer ie unse sind wossen hatund den kürton",
+      "crop_path": "line_images/10693/0003_line015.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 16,
+      "text": "byndes herren tranck Mnedenck sinde sten kelekenke",
+      "crop_path": "line_images/10693/0003_line016.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 17,
+      "text": "derhrwer Wwere lib und soel in das ewig leben,",
+      "crop_path": "line_images/10693/0003_line017.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 18,
+      "text": "Hius generis exhortationis aliquad additu Erisi",
+      "crop_path": "line_images/10693/0003_line018.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 19,
+      "text": "Avoniam vetus superstitio verionis altas radi",
+      "crop_path": "line_images/10693/0003_line019.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 20,
+      "text": "etiamnum habes in multorum animis",
+      "crop_path": "line_images/10693/0003_line020.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 21,
+      "text": "Panis apud nos datur rolindus, non fractus.",
+      "crop_path": "line_images/10693/0003_line021.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 22,
+      "text": "quood mallem; num nec rotunda hęc portio",
+      "crop_path": "line_images/10693/0003_line022.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 23,
+      "text": "sua caret superstitiosa cogitatione.",
+      "crop_path": "line_images/10693/0003_line023.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 24,
+      "text": "Domis ore non manu exciptiue a nolleis, requo",
+      "crop_path": "line_images/10693/0003_line024.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 25,
+      "text": "dommine mutatum optarem. Nam certissimae reliquique",
+      "crop_path": "line_images/10693/0003_line025.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 26,
+      "text": "sunt ista obominationis papisticae",
+      "crop_path": "line_images/10693/0003_line026.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 27,
+      "text": "Deinde et hoc vellem mitatu, morehu genilus lexis",
+      "crop_path": "line_images/10693/0003_line027.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 28,
+      "text": "Lome deremus pauc domini, sed progress quodum",
+      "crop_path": "line_images/10693/0003_line028.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 29,
+      "text": "coeea de aubulatione, ut ita dicamuntur mu",
+      "crop_path": "line_images/10693/0003_line029.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 30,
+      "text": "altaris cormi singulis daretur panis, quibus",
+      "crop_path": "line_images/10693/0003_line030.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 31,
+      "text": "p altarii crenitum ad aliud cornum venitraum",
+      "crop_path": "line_images/10693/0003_line031.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 32,
+      "text": "Pareturur potus.. Viri autem admitterentur",
+      "crop_path": "line_images/10693/0003_line032.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 33,
+      "text": "cdeinde mulieres, ordine s uleta",
+      "crop_path": "line_images/10693/0003_line033.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 34,
+      "text": "Iservato",
+      "crop_path": "line_images/10693/0003_line034.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "In istis sollicitem sum, dann ich sich, das der tufel",
+      "crop_path": "line_images/10693/0004_line000.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 1,
+      "text": "davochte gem etwai don das alten ab gotern bhalten",
+      "crop_path": "line_images/10693/0004_line001.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 2,
+      "text": "wylt.",
+      "crop_path": "line_images/10693/0004_line002.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 3,
+      "text": "Haec raptim ad te et Leonem charissimum conn",
+      "crop_path": "line_images/10693/0004_line003.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 4,
+      "text": "fratrem meum, sed expecto censurum vestram",
+      "crop_path": "line_images/10693/0004_line004.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 5,
+      "text": "Valete.",
+      "crop_path": "line_images/10693/0004_line005.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 6,
+      "text": "Parce, obsecro, quo nihil omnine",
+      "crop_path": "line_images/10693/0004_line006.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 7,
+      "text": "bienit relegere.",
+      "crop_path": "line_images/10693/0004_line007.png"
+    }
+  ]
+}

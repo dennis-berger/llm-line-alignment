@@ -1,0 +1,423 @@
+{
+  "id": "12241",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 69,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "excepit alter, qui Echo videlicet repięsentabat, cacantem",
+      "crop_path": "line_images/12241/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "dis hatelli audiqnicas humuo maloque editionem extorsit. sed",
+      "crop_path": "line_images/12241/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "obstrigo satis eud iuvis evine impiobe duestu uis savctissi nehoi",
+      "crop_path": "line_images/12241/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "obstrepo. Deus vos ecclesiae sue dii et anime entrpo",
+      "crop_path": "line_images/12241/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "usconservatonis commendat se vebis meu et patronus et",
+      "crop_path": "line_images/12241/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "evelium studionique sociu Corvelius Gvalterus. Argentin",
+      "crop_path": "line_images/12241/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ex aedibus Pauli fadii. Quod si cui vectrum ad vos scribere",
+      "crop_path": "line_images/12241/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "libeat, (quod non potent nobis non esse gratissimum ad ędes",
+      "crop_path": "line_images/12241/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "hu Pauli fagii ministri apud prectrum iuniorem, apud que",
+      "crop_path": "line_images/12241/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Hebraicoram studiorum gratia commoramur, Fransmittere",
+      "crop_path": "line_images/12241/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Picebit.",
+      "crop_path": "line_images/12241/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "sexto idus iulias anno 1.",
+      "crop_path": "line_images/12241/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "agistratui vestro gravissime et prudentissime, cumis miram in nos",
+      "crop_path": "line_images/12241/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "mumatermexpatus, summu felicia omnia imprecamur, cui vo",
+      "crop_path": "line_images/12241/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "ex animo commendatos cupiums.",
+      "crop_path": "line_images/12241/0001_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "14548.",
+      "crop_path": "line_images/12241/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Eruditissim et banc hissim viris annictus et",
+      "crop_path": "line_images/12241/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "professordoos  cclesiae Tigurinae",
+      "crop_path": "line_images/12241/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "Georgius Cassander.",
+      "crop_path": "line_images/12241/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "S. P.",
+      "crop_path": "line_images/12241/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "Im menses alquoot sunt, cum ad vos Golomider a vobis redien",
+      "crop_path": "line_images/12241/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "homitate verceram. Caltra tuonimete en aluitus de salute e",
+      "crop_path": "line_images/12241/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "dolumuitate vestua faustannobis omnia renuunciavit, quod iscum",
+      "crop_path": "line_images/12241/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "Gerardus Lund muddo cunurdi pius cum in nos agenti",
+      "crop_path": "line_images/12241/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "ena cum suamele Chonuradi Pelicani venerandi ulius et suncti",
+      "crop_path": "line_images/12241/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "vecti semumalio prter utriusque nostrum opinionem me",
+      "crop_path": "line_images/12241/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "sset, confirmavit de dlo non sive  aximam amumu nocei dotupti",
+      "crop_path": "line_images/12241/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "Nam eximuas det ldotes quas ad fulciendam et fuctentat",
+      "crop_path": "line_images/12241/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "eius ecclesiam fideliter confertis agnoscunt unet",
+      "crop_path": "line_images/12241/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "Sed o felicem illum diem, cum naudare licebit vos omne, qui Christ",
+      "crop_path": "line_images/12241/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "regum adversus antichristi tyrannidem tuendum defendendumque su",
+      "crop_path": "line_images/12241/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "copietimadem o domino et sapere et loqui, pręsertim de hoc sacrantisime",
+      "crop_path": "line_images/12241/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "communonimoicum Christo mysterio. Quis enim non veherlienter",
+      "crop_path": "line_images/12241/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "doleatedabili antem profccisse et hoc saciitissimu concordum pacis",
+      "crop_path": "line_images/12241/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "et vineidadaramenum id magevam et instrumentum conversum",
+      "crop_path": "line_images/12241/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "em,quamquid quise cogitari potest absuulius.",
+      "crop_path": "line_images/12241/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "Multum tamen nobis spei sedumde misericordiam in vectla pu",
+      "crop_path": "line_images/12241/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "dutia, modestia et pietate positum est. Quod si nondum per omia",
+      "crop_path": "line_images/12241/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "consentiu potestu. Hoc certe plecique oves pii optant, ut effectus esm",
+      "crop_path": "line_images/12241/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "usus huius sacramenti, de quo propemodum convenitis cuusque cogni",
+      "crop_path": "line_images/12241/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "populo perquam est necessaria, diligenter et assidue inculcentur. u",
+      "crop_path": "line_images/12241/0002_line025.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 26,
+      "text": "overo illae quam utilioces quęssiones de modo pręsentiae, id",
+      "crop_path": "line_images/12241/0002_line026.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 27,
+      "text": "paum suprte vedissi maletum vel certer serivatisimvel lites ve",
+      "crop_path": "line_images/12241/0002_line027.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 28,
+      "text": "collaima maci aittes rer remutu pprectur ac interim omnes con",
+      "crop_path": "line_images/12241/0002_line028.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 29,
+      "text": "viat diigenter pertententur. nos interim, quod possumus",
+      "crop_path": "line_images/12241/0002_line029.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 30,
+      "text": "deubratum tcclesiam suam ab omnibus adversis et hosr",
+      "crop_path": "line_images/12241/0002_line030.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 31,
+      "text": "pustilaberet, atque etiam quod iutecclesia vesra fieri et cupib estco",
+      "crop_path": "line_images/12241/0002_line031.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 32,
+      "text": "a tyrannis et persecutoribus quibus iam, ut nosse vos puto",
+      "crop_path": "line_images/12241/0002_line032.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 33,
+      "text": "ermame Calari subicta, a piesertim in nostra plar",
+      "crop_path": "line_images/12241/0002_line033.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 34,
+      "text": "lle Christi grx, qui alic passim palabundm ob",
+      "crop_path": "line_images/12241/0002_line034.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 35,
+      "text": "atatende omo dlaceratur trucidatur, quam crade",
+      "crop_path": "line_images/12241/0002_line035.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 36,
+      "text": "Colonienses quoque (apud quos hanc hyemem et magila",
+      "crop_path": "line_images/12241/0002_line036.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 37,
+      "text": "estatis partem egimus gestiunt, si modo animis par esse",
+      "crop_path": "line_images/12241/0002_line037.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 38,
+      "text": "facultis, certe, quod in se est zelum suum erga sacram illam",
+      "crop_path": "line_images/12241/0002_line038.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 39,
+      "text": "Romanam diteden bustreenio detiarantur. suo concionibuum modo asi",
+      "crop_path": "line_images/12241/0002_line039.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 40,
+      "text": "communditiensibuimum editis propositis et civibus.",
+      "crop_path": "line_images/12241/0002_line040.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 41,
+      "text": "noinoneniusque seccrei civitate exturbatis, e quibus est",
+      "crop_path": "line_images/12241/0002_line041.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 42,
+      "text": "et hanctua iuationa eximii illius vini Ciso  ongolum",
+      "crop_path": "line_images/12241/0002_line042.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 43,
+      "text": "iudalitate sunac max imnonotum civitati orna mero",
+      "crop_path": "line_images/12241/0002_line043.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 44,
+      "text": "oanamordernierunt, tum mortuo sepultimam negareut. quo",
+      "crop_path": "line_images/12241/0002_line044.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 45,
+      "text": "marquentem teriadumvisset, qui evangelico ita corpus",
+      "crop_path": "line_images/12241/0002_line045.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 46,
+      "text": "anlovicudianmi nstrant. ed erim qui mun",
+      "crop_path": "line_images/12241/0002_line046.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 47,
+      "text": "quatuqidem Celooniensium nomimlave Ceec, libello coquoscetis",
+      "crop_path": "line_images/12241/0002_line047.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 48,
+      "text": "quo subudemulus et seriitus est lautem let tei suno nmuando neque",
+      "crop_path": "line_images/12241/0002_line048.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 49,
+      "text": "roneu imii dialoguntur est antem adicersui imprmissimo eu",
+      "crop_path": "line_images/12241/0002_line049.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 50,
+      "text": "bipplentiduerum, quidequm seiquie sedutum persave, martim et p",
+      "crop_path": "line_images/12241/0002_line050.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 51,
+      "text": "ipsimanancti, quo nihil unquam visum est imeptius fuia",
+      "crop_path": "line_images/12241/0002_line051.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 52,
+      "text": "locintominus, alud efiere vero shxissico colugas, quum eu nte",
+      "crop_path": "line_images/12241/0002_line052.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 53,
+      "text": "locutonim alteri in fine versus dixissetur. Qdim idrificantem",
+      "crop_path": "line_images/12241/0002_line053.png"
+    }
+  ]
+}

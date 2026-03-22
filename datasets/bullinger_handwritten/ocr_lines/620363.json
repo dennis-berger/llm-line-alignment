@@ -1,0 +1,267 @@
+{
+  "id": "620363",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 43,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "150.",
+      "crop_path": "line_images/620363/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Calenas Secundus Curio S. d. Perchristion Iesum",
+      "crop_path": "line_images/620363/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Ego et T Stancarus, qui mecum est, superioribus diebus",
+      "crop_path": "line_images/620363/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "ad te literas dedimus, quibus uterque tuis respondebamus.",
+      "crop_path": "line_images/620363/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Expectabamus autem responsum presertim quod Stancarus,",
+      "crop_path": "line_images/620363/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "valde suspensus haeret, de eo quod tua humanitate ultro",
+      "crop_path": "line_images/620363/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ipsius caussa curandum suscepisti. Sed quia valde est",
+      "crop_path": "line_images/620363/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "occupatus, non potuit hodie tibi scribere, rogavit autem",
+      "crop_path": "line_images/620363/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": ", qui alioquin ad te literas dabum, tuam humanitatem",
+      "crop_path": "line_images/620363/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "suo nomine salutarem rogaremque, si quid spe habeas no",
+      "crop_path": "line_images/620363/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "primo quoque tempore significes, ut sibi quid sit agendum",
+      "crop_path": "line_images/620363/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "intelligatt. Quod reliquum est, cum haberem literas in",
+      "crop_path": "line_images/620363/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "aaaittere nec haberem nuntium, mi optime Bullingere",
+      "crop_path": "line_images/620363/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "ad te eas mittere cogitav, ut, si quo pacte hine abua",
+      "crop_path": "line_images/620363/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "Curiam ad aliquem tuum ad d. Commandrum autem aliam",
+      "crop_path": "line_images/620363/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "ferendas curares, ut illinc ad Iullium nostrum mediola",
+      "crop_path": "line_images/620363/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "qui Rusclare rethorum evangelium docetur.",
+      "crop_path": "line_images/620363/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "Quod er quapetam facias t etiam iagioeet atque",
+      "crop_path": "line_images/620363/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "sngulic ori e novis rebus multa quotibu",
+      "crop_path": "line_images/620363/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "singulilitiores (utrica magnis caluuitatibus fueresolet,",
+      "crop_path": "line_images/620363/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "possismalis enim dicunt, adeo ut quid credas vix scie",
+      "crop_path": "line_images/620363/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "possisseadicuntgu m duobus es replus rar",
+      "crop_path": "line_images/620363/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "missas celebrari, Augustę tumultum extramplis runter",
+      "crop_path": "line_images/620363/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Caesenianos Augustanosque milites esse adiate",
+      "crop_path": "line_images/620363/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Angusoula Ferdinandum Caesaris igentem petuati",
+      "crop_path": "line_images/620363/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "vpostulare teferdinadum militem ragnum colligere.",
+      "crop_path": "line_images/620363/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "mseaiio suppetias ferat et demum omnia",
+      "crop_path": "line_images/620363/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "nedeornis se alii Caesarem i Flandria cogilare",
+      "crop_path": "line_images/620363/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "scie d auerori Germania tu a Gallo, tu",
+      "crop_path": "line_images/620363/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "a Lantgortanio Hesiorum tumens et subobllo, si",
+      "crop_path": "line_images/620363/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "et alia repter nunc  maietatem fuga adornare",
+      "crop_path": "line_images/620363/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "foalante e multa, quę dominus vertatur bee.",
+      "crop_path": "line_images/620363/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "Hoctenses regatos, nec duubito te id accepisse, ugento",
+      "crop_path": "line_images/620363/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "vau autatos serpeterae de pace misisse",
+      "crop_path": "line_images/620363/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "Irandes mortetos esse propter gravvelami absentis et",
+      "crop_path": "line_images/620363/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "vetves mortem, qui domini Augustan uniotisime pecoficisse.",
+      "crop_path": "line_images/620363/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "rogo ab noerguterist, . S s tu Crysionafilis",
+      "crop_path": "line_images/620363/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "rego adaros aliquid scribas, tuum quam dertior labelia",
+      "crop_path": "line_images/620363/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "empeamader valde cupio, mi optimu et doctissimu ericae",
+      "crop_path": "line_images/620363/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "sn noentissime tobseradissimu. valet de Thomter",
+      "crop_path": "line_images/620363/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "Basilego dominus quntartaram et sqa fratres isto doctissimus",
+      "crop_path": "line_images/620363/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "Basileę, die 4. martii 1547.",
+      "crop_path": "line_images/620363/0001_line041.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 42,
+      "text": "Coelius ex animo tuus.",
+      "crop_path": "line_images/620363/0001_line042.png"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "id": "11461",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 42,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "36.",
+      "crop_path": "line_images/11461/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Tametsi non orat mihi animum aliquid ad te scribere",
+      "crop_path": "line_images/11461/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "doctissimo Bullingere, tu cum conrandum e ecclesiasten",
+      "crop_path": "line_images/11461/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Seburgensem apud te verba fecisse de causa mea",
+      "crop_path": "line_images/11461/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "comperissem, adhortante ad hoc me se orniaes vio",
+      "crop_path": "line_images/11461/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "omnium, doctissime non potui non has breves literas ad te",
+      "crop_path": "line_images/11461/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "praesertim cum tamen commodur habern",
+      "crop_path": "line_images/11461/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "tabellarimu de causa mequm fortasse olim plura.",
+      "crop_path": "line_images/11461/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "audies, mihi de ea scribere, qua vellem. qu licet",
+      "crop_path": "line_images/11461/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "ilud tamen in mullus contumeliam ebitron",
+      "crop_path": "line_images/11461/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "me dictu inteligi me esse invocentem hac",
+      "crop_path": "line_images/11461/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "mega et animen non admissum ob metum formen",
+      "crop_path": "line_images/11461/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "(cum ante confessionis quantum formentis sar",
+      "crop_path": "line_images/11461/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "carcere fuissem cruciatus, cum non ampliun",
+      "crop_path": "line_images/11461/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "laturum me illa esse sperarem. Deinde non",
+      "crop_path": "line_images/11461/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "ant fore rem istam putabam propter quam",
+      "crop_path": "line_images/11461/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "suxt",
+      "crop_path": "line_images/11461/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "in me ita excandesceret, tot doctis atque",
+      "crop_path": "line_images/11461/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "clarissimo viris pro me rogantibus Arttria",
+      "crop_path": "line_images/11461/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "etiam uxori meę et liberis, quos duos",
+      "crop_path": "line_images/11461/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "habeo consultius esse integris adhuc qua",
+      "crop_path": "line_images/11461/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "omnino comminutis membris me cum ipsis",
+      "crop_path": "line_images/11461/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "vinere. Sed longe mea me fefellit, opino",
+      "crop_path": "line_images/11461/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "et profecto praestiterat ob veritatem, moni",
+      "crop_path": "line_images/11461/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Qed quid guarar d taum est, quod humiliamt",
+      "crop_path": "line_images/11461/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "medominos atibasca in iustifficationem u",
+      "crop_path": "line_images/11461/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "scribo, rubente Grinaeo, ut si ferte ceis",
+      "crop_path": "line_images/11461/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "vacaret aliqua conditio eii commode possere.",
+      "crop_path": "line_images/11461/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "praefici tu quoque qua es erga studiosos benevo",
+      "crop_path": "line_images/11461/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "editur iuvanes. Mitto tibi ingenuo",
+      "crop_path": "line_images/11461/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "mei specimen aliquod, ex quo coniicere possis",
+      "crop_path": "line_images/11461/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "quid ferre iumeni me possint. nolim enim quoque",
+      "crop_path": "line_images/11461/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "ultra vires meas tractarem. Vale et han",
+      "crop_path": "line_images/11461/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "meam bbarbarie boni consule. Argentorati",
+      "crop_path": "line_images/11461/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "ape Bedrotum aut Basileę apu Gringum vobis",
+      "crop_path": "line_images/11461/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "tine nelicisces. Basileę raptim quia testinana",
+      "crop_path": "line_images/11461/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "abine anno 1540. quarto caleni septembru",
+      "crop_path": "line_images/11461/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": ".",
+      "crop_path": "line_images/11461/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "Humanitati tuę",
+      "crop_path": "line_images/11461/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "deditisimo.",
+      "crop_path": "line_images/11461/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "Michae. Togites et olim, dud",
+      "crop_path": "line_images/11461/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "magistim racteri reciser etinfli",
+      "crop_path": "line_images/11461/0001_line041.png"
+    }
+  ]
+}

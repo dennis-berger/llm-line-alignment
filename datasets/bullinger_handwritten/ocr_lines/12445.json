@@ -1,0 +1,177 @@
+{
+  "id": "12445",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 28,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "2084.",
+      "crop_path": "line_images/12445/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "S. D Epistolam tuam summo cum gaudio recepi",
+      "crop_path": "line_images/12445/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "legique, quę quantum prolixior erat, tantum magis arri",
+      "crop_path": "line_images/12445/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "t, quum hinc et maxime ex laboribus, quas meis",
+      "crop_path": "line_images/12445/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "nugis impendere dignatus es colligere possim amo.",
+      "crop_path": "line_images/12445/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "in me non vulgarem, quem dudum nunc",
+      "crop_path": "line_images/12445/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "tamen certius comperi. Cuare gratiam, non",
+      "crop_path": "line_images/12445/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "immerito summam tibi habeo hanc aliquando",
+      "crop_path": "line_images/12445/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "si oportunitas occurrat relaturus. Caeterum consi",
+      "crop_path": "line_images/12445/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "tuo obtemperaturus qunque otium, erit omniu",
+      "crop_path": "line_images/12445/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "recognoscam, tibi forsan denuo summa lima polienda",
+      "crop_path": "line_images/12445/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "Chamanitas enim tua talia mihi promittere videtur,",
+      "crop_path": "line_images/12445/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "quam itidem oro has literas adiacentes consuli",
+      "crop_path": "line_images/12445/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "senatuique det, quibus respondeo de catena aurea quam",
+      "crop_path": "line_images/12445/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "a me petierunt spero tamen illos ab incepto",
+      "crop_path": "line_images/12445/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "destituros. Quare cum res sit tibi nota fac ut",
+      "crop_path": "line_images/12445/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "et hic amicum te tuis intercessionibus sentiams",
+      "crop_path": "line_images/12445/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "eum apud senatum tumi illos huic rei seleentes",
+      "crop_path": "line_images/12445/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "quorum linus est d. Holyhalii, quem cum ceteris",
+      "crop_path": "line_images/12445/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "hominatim salutabis. His diebus apud me fuit",
+      "crop_path": "line_images/12445/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Meinradus schriber, huic ad te ferendum Nomeru",
+      "crop_path": "line_images/12445/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "tradidi, quem dono tibi mitto munus quidem",
+      "crop_path": "line_images/12445/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "parvum pignus tamen erit magni amoris, plura",
+      "crop_path": "line_images/12445/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "scriberem nin rudior sectos previtasque temporis",
+      "crop_path": "line_images/12445/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "impedirentitque vale ac ceteram, ut nostes agere inteligu",
+      "crop_path": "line_images/12445/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "Eaernę 3. calensis apri anno 1548.",
+      "crop_path": "line_images/12445/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "Tuus intimus anius",
+      "crop_path": "line_images/12445/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "Iodoc a Meggens.",
+      "crop_path": "line_images/12445/0001_line027.png"
+    }
+  ]
+}

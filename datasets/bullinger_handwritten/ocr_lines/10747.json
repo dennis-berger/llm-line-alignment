@@ -1,0 +1,207 @@
+{
+  "id": "10747",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 33,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "12.",
+      "crop_path": "line_images/10747/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Ego cum nullis ventiler calamitatibus quitidie gubus pro anmi mei temutate plubus distrahor onsci,",
+      "crop_path": "line_images/10747/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Cęlacuit tua en omnibus selecta, alacu util benevolentiam. prisertim vero eam de causa, quod nescio quod optumi",
+      "crop_path": "line_images/10747/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "De Tyguro mihi prisigiat animus non solum quam vestra de Christo integra ac syncera mea indies",
+      "crop_path": "line_images/10747/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "fidem fruciat doctrina, ser etiam, quod saner mamerię virum d. Zurychum Zwinglium fide",
+      "crop_path": "line_images/10747/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "meę suncerum habuerim patrem; is enim suis articulis mihi veluti frudamentum iecit, quemadmod",
+      "crop_path": "line_images/10747/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "itaque is santu memerit, vix sua alaitate et faulitate ergam quub ventatis studiosos suum namen",
+      "crop_path": "line_images/10747/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "sercere praestitit, ut hald rych et ognoscereter et amaretur, veritate vero, quam sic augustam a",
+      "crop_path": "line_images/10747/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "bilundam ex tam atra fucatę hopicrisis caligine constanter prodire fecit, adeo omnium onnios compalit",
+      "crop_path": "line_images/10747/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "ut etiam adversarii nihil habeant, quibus etiam ipsis testibus commodum responsent unde recte Zwinger",
+      "crop_path": "line_images/10747/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "dictus sit; nam etsi meo et eius sapientibus hic videri possint vocabula fortunta, spiritu tamen documur",
+      "crop_path": "line_images/10747/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "omnia praefinitis consiliis a deo fieri. Quod enim abre nomen dedit Abraham, Iacos Itahil, quod",
+      "crop_path": "line_images/10747/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Anglis e celo Iominis et domini novum praedixit; namne idem potuit et hic rete intelligi, ut ipsa nomine",
+      "crop_path": "line_images/10747/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "mssionis officii et operum rationem ostenderent, praesertim vero cum ipsa rerum expiventia, idem ebius",
+      "crop_path": "line_images/10747/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "testetur. Hic, si rete sentio, etem de te interpretari nullus culparit, quod enim est Pheim rych, quo",
+      "crop_path": "line_images/10747/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "mystericus dei opulentus, quod si quis inficias ierit, probatur red ipsius experimenti et facti ostentatione",
+      "crop_path": "line_images/10747/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "quaa esim ubique a seculis abscondia mysteria eiucleas indient me doctiores habes causam",
+      "crop_path": "line_images/10747/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "qua tua liberis retor autoritate. En optime vir res nostrę plurimum primumur. Suffragoneus quem dicunt",
+      "crop_path": "line_images/10747/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Ioachim Gottilus, etasi de nullo crum me accusore possit, tamen odit et execratur non meum, adeo, ut",
+      "crop_path": "line_images/10747/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Utimeam me nunquam posse saltem syncera conscia cum illo in gratiam redire, unde eius furorem ego libenter",
+      "crop_path": "line_images/10747/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "cedendo, ut non nulli suadent avertere impiens. rogat vero plebs multa sibi de me promitteres",
+      "crop_path": "line_images/10747/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "studet me sibi retinele. Ego utrinque actus, quid faciam nescio, insicurum est illiusmondi et tethnis",
+      "crop_path": "line_images/10747/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "tot praestigiis ad nocendum  commorari. Indignum videtur relinqure, qui te diligant evangelii gratia retione",
+      "crop_path": "line_images/10747/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "iac timendum item, ne quod ouatur tumultus, ne tedes cersentur quidam expictandum, quod res",
+      "crop_path": "line_images/10747/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "ferat, quo numer ac fata ducant, aliui rectius locum mutandum fore rei nihil confideiores.",
+      "crop_path": "line_images/10747/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "tuo iudicio, quod tinge precor, libens obsequor. Si quis esset, cui in voto fuerit ad",
+      "crop_path": "line_images/10747/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "nos transire nihil sucenselo. si res postilat ego idius locum supplebe, quaqui ad rem",
+      "crop_path": "line_images/10747/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "quam syncere intelliges ex Sulberto tuo commodum esse decreveris, morem geram",
+      "crop_path": "line_images/10747/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "Vivit martinus tuus usque huc, quem audio apud vos mortuum denunciari. Inde quau",
+      "crop_path": "line_images/10747/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "candide agant nobiscum homines isti facile perspicis. Vale cum fęlici anno cum omnibus",
+      "crop_path": "line_images/10747/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "tis Winfelde 2. die ianuarii anno h.",
+      "crop_path": "line_images/10747/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "Chaanus Mottes tu",
+      "crop_path": "line_images/10747/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "observantissimus.",
+      "crop_path": "line_images/10747/0001_line032.png"
+    }
+  ]
+}

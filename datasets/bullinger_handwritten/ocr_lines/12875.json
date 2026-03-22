@@ -1,0 +1,525 @@
+{
+  "id": "12875",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 86,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "der hertzog",
+      "crop_path": "line_images/12875/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "und sere",
+      "crop_path": "line_images/12875/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "syn syen",
+      "crop_path": "line_images/12875/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "heyde ge",
+      "crop_path": "line_images/12875/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "sopff zur",
+      "crop_path": "line_images/12875/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Woay.",
+      "crop_path": "line_images/12875/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "1546.",
+      "crop_path": "line_images/12875/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Nielber zytund, weis ich euch niths zu scriben, den das",
+      "crop_path": "line_images/12875/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "es warr syden, das unser kunniug in zutglandt gestorben",
+      "crop_path": "line_images/12875/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "ist soff derib tag janudan und uff mientar nachbolgend",
+      "crop_path": "line_images/12875/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "veect in ranlich als bibinchürtn utgwne und bebublen",
+      "crop_path": "line_images/12875/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "furtag werrandtr als billich gewesen ist und wirt uf",
+      "crop_path": "line_images/12875/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "kannitz gegangen offentlich getöndt, als mir auf lugel",
+      "crop_path": "line_images/12875/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "bevt gestuh zu zur vair has es ao iin ob ese",
+      "crop_path": "line_images/12875/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "gemader ung kummng zeisit eh gdward der sechser",
+      "crop_path": "line_images/12875/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "her genater zuwing ferlich dir noch oder zeeyn, vor das",
+      "crop_path": "line_images/12875/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "der eraan kurin heidrih gesarher it habt eöt jach",
+      "crop_path": "line_images/12875/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "sein lasteut, vill ilich sagen ein hertzög, der z",
+      "crop_path": "line_images/12875/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "mortfolck nit landt hertz e von zezriher o derz",
+      "crop_path": "line_images/12875/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "tüüzent bewarit nu der der graben von Zürregg",
+      "crop_path": "line_images/12875/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "naant ist gewonsen inn züglandt.",
+      "crop_path": "line_images/12875/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Die regemet von Inglaudt ist durchs kunnings",
+      "crop_path": "line_images/12875/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "testerndt und dernach auch durch parlianent oderr",
+      "crop_path": "line_images/12875/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "shetagund deolt vom seheles, das der jüng kuning",
+      "crop_path": "line_images/12875/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "der sollen wieaait bört sichsehen herrn imm landt",
+      "crop_path": "line_images/12875/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "zuie sodten ziie von srgt, acht bisschoff sien, dern",
+      "crop_path": "line_images/12875/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "furrennddt herg ader under sich allend, der ist kein bisschoff",
+      "crop_path": "line_images/12875/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "sundero o jüng kunnings an odermutters ersser",
+      "crop_path": "line_images/12875/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "der seldige st dumn verordnt zum obtrsten groferkorn oder",
+      "crop_path": "line_images/12875/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "gubernator des kumirds sin eobtu dis vetetter",
+      "crop_path": "line_images/12875/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "handts und virselbyg zuter des zurgen due de heysset",
+      "crop_path": "line_images/12875/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "ie sugaren ze zuberdasen, j due erdern nit käß",
+      "crop_path": "line_images/12875/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "gustig wender vert babst zu dom lyn grösser frd.",
+      "crop_path": "line_images/12875/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "auch wyß üchn wiste, das irs nit vor hean wisset, ich wölt",
+      "crop_path": "line_images/12875/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "nvetsr von  furd erstwas mir ain g tays diserm",
+      "crop_path": "line_images/12875/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "modac von irfur geschriben ist, nelich das zer thurfurst",
+      "crop_path": "line_images/12875/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "Zu jädur namcs, dewo das er vör eir nut grede g",
+      "crop_path": "line_images/12875/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "hadt und daan pabtin er zur zukuster, dren wother gelege",
+      "crop_path": "line_images/12875/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "habt sind dere tadtgrächt halten ke o ödrer wolhien eleden.",
+      "crop_path": "line_images/12875/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "ist vom darr woloser ven vil hatsern da beled geth.",
+      "crop_path": "line_images/12875/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "ma rlicht ve  it zuer err allen sene ecken.",
+      "crop_path": "line_images/12875/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "Maanride ret Euurde wecge undei züw eckg",
+      "crop_path": "line_images/12875/0001_line041.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 42,
+      "text": "va i budt i uderie hohck niemen wür und zuecges",
+      "crop_path": "line_images/12875/0001_line042.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 43,
+      "text": "der maw wir ralliden bi duruc irra vi woge",
+      "crop_path": "line_images/12875/0001_line043.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 44,
+      "text": "Bolkk.",
+      "crop_path": "line_images/12875/0001_line044.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 45,
+      "text": "zue saren al deoligac. r aut demderhog",
+      "crop_path": "line_images/12875/0001_line045.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 46,
+      "text": "Baxisch dehalt des brinnung von dernark uder dider",
+      "crop_path": "line_images/12875/0001_line046.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 47,
+      "text": "baptisch seiten als bien ham burger briackichund derlich",
+      "crop_path": "line_images/12875/0001_line047.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 48,
+      "text": "als start die dess ie aueynt doundeuaurd fastic",
+      "crop_path": "line_images/12875/0001_line048.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 49,
+      "text": "alsferk sie als die andern und wennd uurt dasfasne",
+      "crop_path": "line_images/12875/0001_line049.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 50,
+      "text": "zu raichtertliche hotter, das id willen doch zabe bäidls",
+      "crop_path": "line_images/12875/0001_line050.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 51,
+      "text": "ei raicht geben, des ist mur nuch wuerulben döchs Sö tuen",
+      "crop_path": "line_images/12875/0001_line051.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "wie das der kunut vor Anlandt und der kuunung",
+      "crop_path": "line_images/12875/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "die sy Francrrichs botschafft syen imm suder vilacht. B",
+      "crop_path": "line_images/12875/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "Hamburg zu samen gewesen mit der churfurst s",
+      "crop_path": "line_images/12875/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "sarde und die obgemelten fat saxisch grolen rhat.",
+      "crop_path": "line_images/12875/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "von des wart selbs, was pursonlich gelbessen, der kunnung",
+      "crop_path": "line_images/12875/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "vorn destössert haben, was syd aber under süch ethant",
+      "crop_path": "line_images/12875/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "har beflosd gözhen gebt der zest zu erkeddthan.",
+      "crop_path": "line_images/12875/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "Bergezert und de dem dumachtuen zevolecke dousges",
+      "crop_path": "line_images/12875/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "keidehe, und d ui zuren undlüngruen",
+      "crop_path": "line_images/12875/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "friden, allenthabs ain",
+      "crop_path": "line_images/12875/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "eder, won. der. Rirhaat hillig",
+      "crop_path": "line_images/12875/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "aus iuglandt.",
+      "crop_path": "line_images/12875/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "valulen nomm desuservatore et spe nostro. de",
+      "crop_path": "line_images/12875/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "aripique serebi ex Anglia pro certissime h",
+      "crop_path": "line_images/12875/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "tus berideerleudig ader te ut tigronis tueis",
+      "crop_path": "line_images/12875/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "hiterit scripsulter iusicuta alius negotię t s",
+      "crop_path": "line_images/12875/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "is, utauc epectuse Frissonum. Interim tamen ne eri",
+      "crop_path": "line_images/12875/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "ite m cescires  ut atamen putovi",
+      "crop_path": "line_images/12875/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "158.",
+      "crop_path": "line_images/12875/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "fürtuente aignet wiszu anderl ertug hulc",
+      "crop_path": "line_images/12875/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "quaientto ac pucatu cotam r",
+      "crop_path": "line_images/12875/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "quarumdemias une eli colitera",
+      "crop_path": "line_images/12875/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "mehi hasaas iam illic moranti ab agenti",
+      "crop_path": "line_images/12875/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "civii haberas  anum affectuofissime datu",
+      "crop_path": "line_images/12875/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "E.",
+      "crop_path": "line_images/12875/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "commerdatu.",
+      "crop_path": "line_images/12875/0002_line025.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 26,
+      "text": "husttinus, fratribus cellegi n quaquet",
+      "crop_path": "line_images/12875/0002_line026.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 27,
+      "text": "pisluteras niuque Ioannis duuis deari quide",
+      "crop_path": "line_images/12875/0002_line027.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 28,
+      "text": "certibite factus tur clva rcepisse per quidem",
+      "crop_path": "line_images/12875/0002_line028.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 29,
+      "text": "tuten aludtimt eirn salvo dell apulissen.",
+      "crop_path": "line_images/12875/0002_line029.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 30,
+      "text": "vertus dorks finhotrieribul ante decaeurdisken",
+      "crop_path": "line_images/12875/0002_line030.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 31,
+      "text": "heluter rtrue oerdi zuue dem diebillen",
+      "crop_path": "line_images/12875/0002_line031.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 32,
+      "text": "febiuem soluisse eetu valrimu suo datum ercdi",
+      "crop_path": "line_images/12875/0002_line032.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 33,
+      "text": "februarii 1544 per tumume.",
+      "crop_path": "line_images/12875/0002_line033.png"
+    }
+  ]
+}

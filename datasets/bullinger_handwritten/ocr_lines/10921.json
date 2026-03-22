@@ -1,0 +1,225 @@
+{
+  "id": "10921",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 36,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "30.",
+      "crop_path": "line_images/10921/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Quc rana fels iel Dalgli, quam ae",
+      "crop_path": "line_images/10921/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "daminus pelos missum non absuc se saltum velum ęxistimet.",
+      "crop_path": "line_images/10921/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "dulitiabar enim hostema me habiturum ęditionem, mulo",
+      "crop_path": "line_images/10921/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "allustuorem e completiorem, tabulis etiam in decem praedicamenterum",
+      "crop_path": "line_images/10921/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "ordines pellucidis ab ipso autore pulche ornatum.",
+      "crop_path": "line_images/10921/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Hanc",
+      "crop_path": "line_images/10921/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "emitermum, aliam mitere non degravalori. Deum qu",
+      "crop_path": "line_images/10921/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "primum alterius pe The noni ero, ad te illico, feretr",
+      "crop_path": "line_images/10921/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Ci  Ballineudeemveniendi, agum et desisturum",
+      "crop_path": "line_images/10921/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "nelequum e Drdestica item Meolrii duo ves  parissii",
+      "crop_path": "line_images/10921/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "Praeptori astua natri quiderationem prinsili lud puuli tae ba",
+      "crop_path": "line_images/10921/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Ledeum qualum tradendu ratione prma ella pulecties puni",
+      "crop_path": "line_images/10921/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "hobent. Hhanc autem ab causam mittere volui non nond tibi",
+      "crop_path": "line_images/10921/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "Preulum meum tere eae qui si no difelicerit e",
+      "crop_path": "line_images/10921/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "logendam tueris traderes; habe enim localos Maturam pr",
+      "crop_path": "line_images/10921/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "hoc auditędiu deventa ido quada vel in hoc isse senties facem",
+      "crop_path": "line_images/10921/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "compendium pero, Barto Latonum. Quod ale de facted",
+      "crop_path": "line_images/10921/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Qua Agricolę denis  auxit e revisu, iam iam accepi",
+      "crop_path": "line_images/10921/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "ie im exemplari e iguur iga, ut plorum veturi",
+      "crop_path": "line_images/10921/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "epudinos ait te tapogries duis demio asum fulioru",
+      "crop_path": "line_images/10921/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "ipime Cpcon nundeis sit quod possus bsolee",
+      "crop_path": "line_images/10921/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "Nolui nihil habeo, quod cile illud u Botho necbsolue",
+      "crop_path": "line_images/10921/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "holie Gallis allatę ut litera, quibus praececto accepi",
+      "crop_path": "line_images/10921/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Biplerum sractime hu vea deo setuntur et",
+      "crop_path": "line_images/10921/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "voredutiumque veli.",
+      "crop_path": "line_images/10921/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "re mihi cebre ditiem varare.",
+      "crop_path": "line_images/10921/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "itque Buli",
+      "crop_path": "line_images/10921/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "repiu.",
+      "crop_path": "line_images/10921/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "1536.",
+      "crop_path": "line_images/10921/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "haec polesore quisa",
+      "crop_path": "line_images/10921/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "vix potui, quari aequi",
+      "crop_path": "line_images/10921/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "Babiliae 20. augusi.",
+      "crop_path": "line_images/10921/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "Tuus et a",
+      "crop_path": "line_images/10921/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "uus .",
+      "crop_path": "line_images/10921/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": ".",
+      "crop_path": "line_images/10921/0001_line035.png"
+    }
+  ]
+}

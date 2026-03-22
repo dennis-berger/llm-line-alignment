@@ -1,0 +1,147 @@
+{
+  "id": "10123",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 23,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Petrus Huberus Heinrycho Bullingero, S. .",
+      "crop_path": "line_images/10123/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "li prexemidum accedese medo lactissime Bullinger, atque chemistolu olim. Qui qu",
+      "crop_path": "line_images/10123/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "huc deventui esse cerneretur, ut aut contra petriam sua de se optime merita sumenda",
+      "crop_path": "line_images/10123/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "essent arma aut regem, apud quem honorifice susceptus exulabat, hostem suu",
+      "crop_path": "line_images/10123/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "faciendum paquar or equusor obet lros lte, ut habet plutarchus. Voluit",
+      "crop_path": "line_images/10123/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "fortissimus heros libentius mori, quam egregia sua facta turpiter reliquum vitae suae",
+      "crop_path": "line_images/10123/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "spacium, quod exiguum restabat, ducedo contaminare. Quodumque enim fecisset, iepitudine",
+      "crop_path": "line_images/10123/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "non carvisset. itaque, ut meae res nactae sunt facie, quid ega magis mi cequabi",
+      "crop_path": "line_images/10123/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "existime nunc non in promptu est dicere. Tanto enim me aere alieno oppressi,",
+      "crop_path": "line_images/10123/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "istic literis operam navando et hoc spe ampla salarii ex Burchgaeanorum coenobiis",
+      "crop_path": "line_images/10123/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "a senatu Tigurino constituti, ut me eo phelosophus ille Aristophanicus sua illa infe",
+      "crop_path": "line_images/10123/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "causa liberare, et si maxime cupiat, non possi. aut enim inhoneste querenda est",
+      "crop_path": "line_images/10123/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "irra alio sole calens aut vincula expectandam perpetuo duratura. Quod in infor",
+      "crop_path": "line_images/10123/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "me intrusit tuus ille senatus Tigurinsę, qui me nunc sum auxilium accdlaman",
+      "crop_path": "line_images/10123/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "turpiter spservit. Cum tamen, quod magis dolendum me multo indoctiores etiam aliquando",
+      "crop_path": "line_images/10123/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "in sui pernitiem alat foveatque. sed non mirum idiocs et epistos hoc facere cum et iis, qui",
+      "crop_path": "line_images/10123/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "spedioruum columnae videri volunt, studiosi ipsi parum sint curae, quantumvis foris ad racedinem",
+      "crop_path": "line_images/10123/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "usque reclamitent. Id inde maxime pacet Heinryche, quod omnes, qui istic politiori literaturae",
+      "crop_path": "line_images/10123/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "studuerunt mecum nunc fortiter esuriat cum interem Oenelopes sponsi bene curate cate obabu",
+      "crop_path": "line_images/10123/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "rebus ardius passim praeficiantur. Haec obiter tibi scripsi hac suspicione careti, ut mihi",
+      "crop_path": "line_images/10123/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "literis in hęce angustiis versanti consulas. Vale ex Vituduro. die ascensionis",
+      "crop_path": "line_images/10123/0001_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Heinrycho Bullingero,",
+      "crop_path": "line_images/10123/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "fratri suo charissimo.",
+      "crop_path": "line_images/10123/0002_line001.png"
+    }
+  ]
+}

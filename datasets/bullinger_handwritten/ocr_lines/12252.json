@@ -1,0 +1,141 @@
+{
+  "id": "12252",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 22,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Se d po tit Christo",
+      "crop_path": "line_images/12252/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "r.",
+      "crop_path": "line_images/12252/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Sera sudutnam Hclum nostra tibi serem chirissimum est, leas quoque ducetarum, vuu comen",
+      "crop_path": "line_images/12252/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "sesuo quid nonerti accesit. quaa artim i et serum conitere vedubitimdi dmertatero labeblatom,",
+      "crop_path": "line_images/12252/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "exse det. Mirifice cum odtudatu o tent Pecu literis sevitur ne non tane voluterata i, quo",
+      "crop_path": "line_images/12252/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "vel a Tyigurina e cclesia literar, ad illum daretur,  id ego pulchre curatum velem",
+      "crop_path": "line_images/12252/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Quam quidem in re, ut in nulla alia, meum officium huic viro, quem perntertis loco habe",
+      "crop_path": "line_images/12252/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "ugare nequaquam possum. Sic tibi quoqum eadem, ut ce sili et utin culacritatem polliceri illud",
+      "crop_path": "line_images/12252/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "placuitur. Guitto itaque ad te literas, quibus ipse (ut arbitror) negligentiae nomen",
+      "crop_path": "line_images/12252/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "desolutr, quoo illum tibi sicsendum freliremanicire datio. Quterum rede eius efficiam",
+      "crop_path": "line_images/12252/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "teeum inevudius fuerit quam molestum accusari. Caeterum tabelloriorum perfidiae",
+      "crop_path": "line_images/12252/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "id potium adscribas, rogo, quam de tam candido viro tuique amantissimo quicquam minus",
+      "crop_path": "line_images/12252/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "caudidem suspicari velis. Quod, ne posthac contigigat, ad me literas eas perfer,",
+      "crop_path": "line_images/12252/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "curadis, quas Argentoratum transmerti volueris. De me vero illud tibi pr",
+      "crop_path": "line_images/12252/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "mittas velem quodua de domino ac tui studiosissimo viro promittendum censes. Vincam",
+      "crop_path": "line_images/12252/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "mihi crede offeqis meis cogitationes tuas. B pastor sanctissimo",
+      "crop_path": "line_images/12252/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "Salutabis, quaeso, meo nomine emeritum patrem Pellicanum, doctissimum Bibliandrum,",
+      "crop_path": "line_images/12252/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "Sulac eudiissinua, Gvalterune eun religuis e scaectalu Gecbriae vestra fratribus.",
+      "crop_path": "line_images/12252/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Quas dominus deus confirmet verbo et spirita ois sui. Amen",
+      "crop_path": "line_images/12252/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Resilia apud episcopum puibili fl angati 15.",
+      "crop_path": "line_images/12252/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Tuus ac totus Trguinae ceeliae senus",
+      "crop_path": "line_images/12252/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Throdostis cedelustidu",
+      "crop_path": "line_images/12252/0001_line021.png"
+    }
+  ]
+}

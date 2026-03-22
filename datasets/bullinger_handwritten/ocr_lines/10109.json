@@ -1,0 +1,279 @@
+{
+  "id": "10109",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 45,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Gratiam et pacem addumino. Referiandae veteris amicirae munus (tro frater.",
+      "crop_path": "line_images/10109/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "gratamer excepi, tamtique habeo, ut quotties tuturar viar michi. Te coram",
+      "crop_path": "line_images/10109/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "introspicere. In hoc enim quod tuxta tuam excimatione munuscribus mittis. plurim",
+      "crop_path": "line_images/10109/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "multimas sturtiorum meorii conatus, sic animum exhilaras, ut michi plane",
+      "crop_path": "line_images/10109/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "btus videat. inter praecipuos certe cum tu summim mei scirtiosum agas, qui fieri",
+      "crop_path": "line_images/10109/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "pest.ut erga te meus flaccescat animis. Perge igitur marte vir Genasium",
+      "crop_path": "line_images/10109/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "vestiro amore pro sequi atque tam suavis timis epichermatur suffulcire",
+      "crop_path": "line_images/10109/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "temeos conatus adeoque et inttet hominii turbas fortem redetere",
+      "crop_path": "line_images/10109/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "Cerem me functionis meae nihil tertere, scias, maxime cum fiete percensea",
+      "crop_path": "line_images/10109/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Inefatabili fato omnia gubernari tonque carni plane inogię vis",
+      "crop_path": "line_images/10109/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "sam gloniam evecturum esse. Porro quod Grinei sententiam ex me scire",
+      "crop_path": "line_images/10109/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "tis sic accipe paucis frater, eos, qui abhorrent publicam gratiam",
+      "crop_path": "line_images/10109/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "actionem abhenent. sicque sunt offendinilo ecclesie puus sufficientem",
+      "crop_path": "line_images/10109/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "admonitionem, quodd obsaritatis amissis ferre potest, exclutendos",
+      "crop_path": "line_images/10109/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "esse censemus in eosque censura ecclesiastica animadverendam esse. Velit",
+      "crop_path": "line_images/10109/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "in eos, qui fut maliiae stuntiosi aut Hypocucę comerturbant oratinem",
+      "crop_path": "line_images/10109/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "ecclesie velitHec nostra est sementia. Contra Grineris contenfit",
+      "crop_path": "line_images/10109/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "Eiusmodi nostrae ecclesiae fine non contineri modo nemo possit extra",
+      "crop_path": "line_images/10109/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "eum comuniovie eiici, nisi qui in ea etim fient recensitus",
+      "crop_path": "line_images/10109/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Hinc concturlit ministros ecclesie in eos nullum habere tus excoi",
+      "crop_path": "line_images/10109/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "icani.Ego pro mea tenuitate non video, qui fieri possit, ut",
+      "crop_path": "line_images/10109/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "paapistas puto vel etiam eos, qui nostram religionem proficentur ab ecclesię",
+      "crop_path": "line_images/10109/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "miro segregari possit, Bonitatius Amorbachius. Alias vir mire erudi",
+      "crop_path": "line_images/10109/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "consentet veritati. Interimm pertinaciter adiersatur nostro instituto cenę",
+      "crop_path": "line_images/10109/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "fortassis quod Erasmianus est, est quoque sic offendiculo ecclesię",
+      "crop_path": "line_images/10109/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "collegimus vestrae sententięm aliquot rationes simul atque scripture loca,",
+      "crop_path": "line_images/10109/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "quibus vestra stabilita putamus. interim ego, que apud me conceperar",
+      "crop_path": "line_images/10109/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "Tuę charitati mittere minime gonror, ex quibus Bela eccls ocula",
+      "crop_path": "line_images/10109/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "Gorinei nostri sententiam videre potes. Scribsi nobis hisce diebus",
+      "crop_path": "line_images/10109/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "charissimum, frater in domino, Buienus super hoc negotio, que ctaus",
+      "crop_path": "line_images/10109/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "deecterat, certe a nostris non aliena dehideranter expecto, quę tibi furge",
+      "crop_path": "line_images/10109/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "dei sempitus. Scribe igitur, si per occasione uspias licuenit. Ceenius",
+      "crop_path": "line_images/10109/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "Epistolam ad hobreos tuo labore pristino nitari restitutam. sic anxius",
+      "crop_path": "line_images/10109/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "expecto, ut fere non acsim michi polliceri, et tantum sitae nosturum suo",
+      "crop_path": "line_images/10109/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "sales ad facietatem usque detur lergendi facultos, Amitum reditisti meum",
+      "crop_path": "line_images/10109/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "certe animum, cum nuper tuę charitatis erga me specimen mitteres. Ioannis",
+      "crop_path": "line_images/10109/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "epistolam tuo emunctas stuctio, ut exinde apud me sic perficafus, tuas ad me",
+      "crop_path": "line_images/10109/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "literas non absque foevare sperem rerticuras. Srarentim tuum optime de me",
+      "crop_path": "line_images/10109/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "meratrem. infuxer uxorem tuam nooine eo plurimum salutare",
+      "crop_path": "line_images/10109/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "non senneris salutantte fratres. Dominus e senet te in bono opere",
+      "crop_path": "line_images/10109/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "etiam incotumem. Gale Vicesima 3. die martii anno 1532.",
+      "crop_path": "line_images/10109/0001_line040.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Doctissimo Heynricho Bullingero,",
+      "crop_path": "line_images/10109/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "urbis Tigurinę concio",
+      "crop_path": "line_images/10109/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "Gratori filetissimo, fratri",
+      "crop_path": "line_images/10109/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "In domino",
+      "crop_path": "line_images/10109/0002_line003.png"
+    }
+  ]
+}

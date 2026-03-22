@@ -1,0 +1,159 @@
+{
+  "id": "11666",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 25,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "2o60.",
+      "crop_path": "line_images/11666/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Fraater teune gnatissime Lasili, comporut apud nos dilictus frate pame",
+      "crop_path": "line_images/11666/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Fruenger preseten Cator ac conditionis suę rationem nobis recitavunt, quomodo puate",
+      "crop_path": "line_images/11666/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "zuvischingene Relitus econsante nonnullam fructuum penunam archi mandrita",
+      "crop_path": "line_images/11666/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Fueris hroper haofitio suo hic desitutus, quamvis ecclsia  sua multis iadise e tuxa",
+      "crop_path": "line_images/11666/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "liguni funturus confuribus usussie scrupturum suli dionem vestrandissemum.",
+      "crop_path": "line_images/11666/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "aliquando funitmem ipsiopuis uum contungen insidi unem ust deesus",
+      "crop_path": "line_images/11666/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Si liertitistiameti facilius provisu set  si consultus tum puutanisset.",
+      "crop_path": "line_images/11666/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "senensi trstimnonale primertation deu ac conunsnd mu afacen tisuis t tr",
+      "crop_path": "line_images/11666/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "frunfuerit, unvleprtima patremus tuis ingustroris fcutur iuneni cut",
+      "crop_path": "line_images/11666/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "feentir diculum tam  litrum omi diti im nstum cerleti si esi cęiu",
+      "crop_path": "line_images/11666/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "sn humertane sest motuatum ei tusime tutium vistisi tess,",
+      "crop_path": "line_images/11666/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Cu omali ramiobi natorum orium tuli reposutus fongattus vessimas u.",
+      "crop_path": "line_images/11666/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "metrctarenus fatmundustintum ver temuli tistimanis christiquem commanine, no",
+      "crop_path": "line_images/11666/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "atcefirum fugrim, opum faturum ile omgsaremserum ummaitur.",
+      "crop_path": "line_images/11666/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "u iestu pra siquatum sutus lustum, uud in ati sentionibus suse esa",
+      "crop_path": "line_images/11666/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "egum seudemm nta tugium u nis sucutem funt  uiplidiantu",
+      "crop_path": "line_images/11666/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "deium audiuo numppriuletim a lerdatom prifiratur fueritre  quicaipuet u",
+      "crop_path": "line_images/11666/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Sumi dic erur sungu, manu onus et supprintirus trincerigitarus esis",
+      "crop_path": "line_images/11666/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "qu Cium commenutamus ner amlixendus quaquide um fitum rguo tilicelacis,",
+      "crop_path": "line_images/11666/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Dater an ragse ltrum vussi eali clirarum elum in euesionib eisiti",
+      "crop_path": "line_images/11666/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Date ac inguam Alexandi sigilli munitum 2ec sprulum prcigionums nesibi.",
+      "crop_path": "line_images/11666/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "halbrum Amantius",
+      "crop_path": "line_images/11666/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "MAegander z zunitz",
+      "crop_path": "line_images/11666/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Ioannes Fabricius",
+      "crop_path": "line_images/11666/0001_line024.png"
+    }
+  ]
+}

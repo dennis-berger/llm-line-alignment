@@ -1,0 +1,219 @@
+{
+  "id": "6230409",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 35,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "1554.",
+      "crop_path": "line_images/6230409/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Primum quod vulgato primium calechismo et permne",
+      "crop_path": "line_images/6230409/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "dedtionem, ni fallor, sparso, statim et evestigio",
+      "crop_path": "line_images/6230409/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "alius obtruditur, quo exemplo non petest surbi",
+      "crop_path": "line_images/6230409/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "quin muhi offendavitar ateergum in centitiones",
+      "crop_path": "line_images/6230409/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Galas trahatur, prior catechismus et omnino",
+      "crop_path": "line_images/6230409/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "odiosissimę sunt istius modi mutationes iubiton",
+      "crop_path": "line_images/6230409/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "et sperant palinodiam quandam etiam si su",
+      "crop_path": "line_images/6230409/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "pfsunt manisello. Reformationems nomsnaa",
+      "crop_path": "line_images/6230409/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "demnanda, sed ita iustimendae suntimait aaereant",
+      "crop_path": "line_images/6230409/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Inconstantiae virum, id quod prudentia docum",
+      "crop_path": "line_images/6230409/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "ancenstamalla sunt in paturus angutin usfebi",
+      "crop_path": "line_images/6230409/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "antemporela locutumur.Pal lirum, quod offendit",
+      "crop_path": "line_images/6230409/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "hoc et, quod Bernates statim offitio ixerent, quinot",
+      "crop_path": "line_images/6230409/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "quoot, uqu  isti negotio subscrberer et",
+      "crop_path": "line_images/6230409/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "quaum esse vir bonis ed doctios eia  lertam, qui",
+      "crop_path": "line_images/6230409/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "tamen nequeatur solide capire, quae pluriumque",
+      "crop_path": "line_images/6230409/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "liguntur nis ideo ablegandus? nd",
+      "crop_path": "line_images/6230409/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Osummus alterius onera ferre? Haec gratia non",
+      "crop_path": "line_images/6230409/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "nuunquam reptnditus  de elesia nptima mecitis",
+      "crop_path": "line_images/6230409/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Megandetur, quocunque ingenio sit, itamen ecclesia",
+      "crop_path": "line_images/6230409/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Berunenhis multu illi debet? Si quis sessionim",
+      "crop_path": "line_images/6230409/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "ecclesia contentiosis posset ille fremim imponi",
+      "crop_path": "line_images/6230409/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "vetut nihil reclamaretur sententiae ab ecclesiae receptae,",
+      "crop_path": "line_images/6230409/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "vel, ut omnino sileret ad hanc, aliamne caum",
+      "crop_path": "line_images/6230409/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "hoc i velletur. Iam excnsabili esset retudicum",
+      "crop_path": "line_images/6230409/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "seavendae sassionis ratione. Fateor multa esse, quę",
+      "crop_path": "line_images/6230409/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "supra captum meum; in istis si velimerote",
+      "crop_path": "line_images/6230409/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "sertii aptium ersum herenbrissi esti vero  sine ecclesia",
+      "crop_path": "line_images/6230409/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "erbatione, non possum quibusvis (quae meo iuditio",
+      "crop_path": "line_images/6230409/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "solida non videamur subscribere. An ideoli",
+      "crop_path": "line_images/6230409/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "dignis sum functione ecclesiastica. Habetis",
+      "crop_path": "line_images/6230409/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "meam mentem paucis et quanquam mallemi",
+      "crop_path": "line_images/6230409/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "istis negotiis mutum agere, tamen vicit me",
+      "crop_path": "line_images/6230409/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "charitas ecclesiarum denique rogatus sum",
+      "crop_path": "line_images/6230409/0001_line034.png"
+    }
+  ]
+}

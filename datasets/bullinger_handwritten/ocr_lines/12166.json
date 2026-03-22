@@ -1,0 +1,273 @@
+{
+  "id": "12166",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 44,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "1452.",
+      "crop_path": "line_images/12166/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "d mi anime, mi omni Bullingere salue millies ac decies millies epistolam quam",
+      "crop_path": "line_images/12166/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "vides ad omnes ministros scripsi, sed postra mihi visum st indignum, ut tuis",
+      "crop_path": "line_images/12166/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "nupae ad alios prrurniant. itaque tu mihi res salutum diligenter et literas lorus",
+      "crop_path": "line_images/12166/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "cobu. Rogo, ut tu ipse ad dominu a Lascoscribus Hermanum aquibu modami",
+      "crop_path": "line_images/12166/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "conbulia salutevit dium valae bonum et diligentem. i se totum ibi commetun",
+      "crop_path": "line_images/12166/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Poloniae  esario tomo pransussum apud comite ab oenborgo sarors",
+      "crop_path": "line_images/12166/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "loceri ae teoque fetu Sumuo utri quam parti applandit, ut mensusu lecebeti",
+      "crop_path": "line_images/12166/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "fortasse tu illum movere possis eio cum eum admonerem mox offenarbatur",
+      "crop_path": "line_images/12166/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Spero de modestum fuisse in responsione, si quam ad Lutheri libellum adornastue",
+      "crop_path": "line_images/12166/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Sciunt quidam me abs te in amicitiam suscptum cum itaque vi rogaverunt issem",
+      "crop_path": "line_images/12166/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "admoneam nostra tue munnis etiam levitatis christianae, quam alioqui serro ab",
+      "crop_path": "line_images/12166/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "nunquam defuturam. Adversarii hoc imper exerunt, ut hac occasione",
+      "crop_path": "line_images/12166/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "vost a reliquis Germani se pararentur ne se indut necessitas, alter",
+      "crop_path": "line_images/12166/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "alteri opem ferre quiat. vehementer offendit luteri scriptum multo",
+      "crop_path": "line_images/12166/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "animos. Quare putant offitii tui etiam non nimis acriter illi usu",
+      "crop_path": "line_images/12166/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "ita de tua sententia pluris bee iudicaturos. Mihi sempri oci",
+      "crop_path": "line_images/12166/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "nitro ialia pauria seerios in virr mordetis avare not abinvicem consummamu",
+      "crop_path": "line_images/12166/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Spero atque utinum sperare lirat futuram aliquando inter fratris concordian",
+      "crop_path": "line_images/12166/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "u Colloniensis mihi pollicitus est se curaturum ut omnius ecclesiarum",
+      "crop_path": "line_images/12166/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "praecipui ministri convocentur et cigerunt de concordi doctrinae forma",
+      "crop_path": "line_images/12166/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "o vos etiam invitandos setia se ipsi lupetibus freridebeat. Quod ta",
+      "crop_path": "line_images/12166/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "tibi soli dictum irli. ne si non sorciatur effectum pur alii",
+      "crop_path": "line_images/12166/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "fratrrs a hic lectum et. Multi vobis austeritatem et pretuctam terotiam",
+      "crop_path": "line_images/12166/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "in hac caussa tribuunt et gratia culpa ecclesias in tot factiorem scindi. Eso",
+      "crop_path": "line_images/12166/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "vero non innenio hoc  scriptis memine minloquiis, quam",
+      "crop_path": "line_images/12166/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "H",
+      "crop_path": "line_images/12166/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "psuo non defendere innocentiam nostram mihi iamquidemin parte non",
+      "crop_path": "line_images/12166/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "pessimtur egnitur; sed dum hoc ago nocor et ego. suscitionem",
+      "crop_path": "line_images/12166/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "fro ad elibere mihi ae, et noro ita scribo, ut e et animo amose ci.",
+      "crop_path": "line_images/12166/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "bis",
+      "crop_path": "line_images/12166/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "aquad facendum qus, ut multorum inbecillitati succurratur omnio",
+      "crop_path": "line_images/12166/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "non est prodenda doctrinae puritus, sed ipse dispicr et quid heniri",
+      "crop_path": "line_images/12166/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "aliuo modo queat caussu. Obtestor a me dominu noster haec fratras",
+      "crop_path": "line_images/12166/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "idigur neque cuiquam ostendes, qui indignanter acciprir possit. Dolent",
+      "crop_path": "line_images/12166/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "mihi scindi it uter studiam ecclesias, maxime cum itam saniut alioqui autim",
+      "crop_path": "line_images/12166/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "Cheistus. Vestrum cert erit, quo ad emnius fieri queat, contudere nutim",
+      "crop_path": "line_images/12166/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "ecclesiae est quae praecipuum facit locum tenrtis. Quod equidem non dissimulatur",
+      "crop_path": "line_images/12166/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "colitor apud quoscunque etiam mortalium. Neque enum cotca conscientiam possem",
+      "crop_path": "line_images/12166/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "aut debio. Deus conteruet e cum tua optima familia, venerabiles domnos",
+      "crop_path": "line_images/12166/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "fratres et amicos viros, quaeso, ut quam diligenter salutes maximu d Pellici",
+      "crop_path": "line_images/12166/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "Thrto Waltherum Mrpundrum et alios omnes, ut in conspectum venieru",
+      "crop_path": "line_images/12166/0001_line041.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 42,
+      "text": ". gutternacht man alder libse her brutter ad Bonae 23. marth",
+      "crop_path": "line_images/12166/0001_line042.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 43,
+      "text": "Ger hardo salutem lurimum. Tus Albretus Hurdenbergus",
+      "crop_path": "line_images/12166/0001_line043.png"
+    }
+  ]
+}

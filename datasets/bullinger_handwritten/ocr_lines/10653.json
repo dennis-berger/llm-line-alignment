@@ -1,0 +1,225 @@
+{
+  "id": "10653",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 36,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "1011.",
+      "crop_path": "line_images/10653/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Zuren bymend mit duder varmep fur und liste",
+      "crop_path": "line_images/10653/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "undemand anene een suwig sib aet is rustern",
+      "crop_path": "line_images/10653/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "annanndender gedidt ach aller findhast, unsas  nestnder",
+      "crop_path": "line_images/10653/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "budndnckunde zu awener wihrt un gröste dreten bendden",
+      "crop_path": "line_images/10653/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "dide uw undeie vil dewer werawu",
+      "crop_path": "line_images/10653/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "glb gedult und gar ken undgedilt weger holler doch krange",
+      "crop_path": "line_images/10653/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "das isflerchen mit oe anfestung für und fü nd",
+      "crop_path": "line_images/10653/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "vedrüwut wan, wede sunst gelorb het is den handtel",
+      "crop_path": "line_images/10653/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Sheriner dirgewereen, dan der wa ist nit dharff",
+      "crop_path": "line_images/10653/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "fwren si de geelag handt, sa so gi über rytrung h i",
+      "crop_path": "line_images/10653/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "a ueder und a mine wers das dd  e",
+      "crop_path": "line_images/10653/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "das gott den een so hoff ich denchtt zu minen rütigen hellen",
+      "crop_path": "line_images/10653/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "und de er werd mich daegt nit ire in ladr u schitten hert",
+      "crop_path": "line_images/10653/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "dides sind mie gusten und mit benott sed der schure d",
+      "crop_path": "line_images/10653/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "fieserdind gatzsen und hab i zu vegt zo vir vune",
+      "crop_path": "line_images/10653/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "wuet dies e zydird oer se dis da niter",
+      "crop_path": "line_images/10653/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "voir zu ub bit ih üch und onder min deb herren.",
+      "crop_path": "line_images/10653/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Supfut udind gott für e das müterer wider feren",
+      "crop_path": "line_images/10653/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "üwen in una ud hern edugen kesen wög würn",
+      "crop_path": "line_images/10653/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "itel gez es gceipt ulß allss min iur gilt laer heenlen.",
+      "crop_path": "line_images/10653/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "in eder e ut z ies glungen. wier bi 5 d at",
+      "crop_path": "line_images/10653/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "di wir sy euder dudeenstiake, es ir zöeen la",
+      "crop_path": "line_images/10653/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "ees nd mang Chien der, ob ir leis se haudel",
+      "crop_path": "line_images/10653/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "keschet Maz hie in zu sund oder loten, wi g de",
+      "crop_path": "line_images/10653/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "it fucht zu du ub die entender chik ic hi",
+      "crop_path": "line_images/10653/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "ih nichten wellen dlozn e s inken",
+      "crop_path": "line_images/10653/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "d h nit hes meer rüter, und ich k is nitt en",
+      "crop_path": "line_images/10653/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "erten daner dan da guß imer und noch zu witt",
+      "crop_path": "line_images/10653/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "weger wur ich den hardten ku flungegn, s i",
+      "crop_path": "line_images/10653/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "hilt de där örs, diemit das all wes hen",
+      "crop_path": "line_images/10653/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "haben, das üch ich were fudegen mörder und erken",
+      "crop_path": "line_images/10653/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "die schsen danck, ir wellend ach man schikn beer mens",
+      "crop_path": "line_images/10653/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "und ech iren einem bekünten meitschen versan, das re",
+      "crop_path": "line_images/10653/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "der jeht w 1tag i soo da s",
+      "crop_path": "line_images/10653/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "S. . Lohan",
+      "crop_path": "line_images/10653/0001_line035.png"
+    }
+  ]
+}

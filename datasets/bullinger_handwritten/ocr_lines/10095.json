@@ -1,0 +1,75 @@
+{
+  "id": "10095",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 11,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Getam et pacem achuo epistolam quam Littecus exposcebas. Ninciii iux ortu",
+      "crop_path": "line_images/10095/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "tum laborum meorum asfictuitas in causa fuit, ne mitterem",
+      "crop_path": "line_images/10095/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "proximo tamen minstio voti te compotem recditere volo. Epistola sacis",
+      "crop_path": "line_images/10095/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "gratixa, quę exscribendo opera opus habet, sed ut polliceor praestati",
+      "crop_path": "line_images/10095/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Vale in domino. et Gervatium prestina studio prosequere dare",
+      "crop_path": "line_images/10095/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Vicetina proma Zebonarii o i Gtruß mir von",
+      "crop_path": "line_images/10095/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "hertzen din huß Frow myner triebsal ein trüwe mitt lyder",
+      "crop_path": "line_images/10095/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Geernahius Iolasticis",
+      "crop_path": "line_images/10095/0001_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Plane docto At pio viro",
+      "crop_path": "line_images/10095/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Heynriho Bullingero,",
+      "crop_path": "line_images/10095/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "Domino primim observando",
+      "crop_path": "line_images/10095/0002_line002.png"
+    }
+  ]
+}

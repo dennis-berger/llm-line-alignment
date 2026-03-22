@@ -1,0 +1,249 @@
+{
+  "id": "10838",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 40,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "29.",
+      "crop_path": "line_images/10838/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Bunectus Kemais Pirvensis hucio Bullingero ecesuste",
+      "crop_path": "line_images/10838/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Tigurino S.",
+      "crop_path": "line_images/10838/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Liber hir Henricus Bullinger ich hab, euch eyns mals ethelet die",
+      "crop_path": "line_images/10838/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "wisle ech nach mahs i nochs ich acs handlse halben ot dem sid",
+      "crop_path": "line_images/10838/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "das wie ee mich uß sern wurlich gescholten und doch kietul gin",
+      "crop_path": "line_images/10838/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ghen daras gehabt, sonder weyter mich gheschimehet muyth achlich dunn",
+      "crop_path": "line_images/10838/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "worten sen ich die selben sölt ninn der belick rere baden dien",
+      "crop_path": "line_images/10838/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "heerten wir gabde sölen on woder mustsich baden und nach sey",
+      "crop_path": "line_images/10838/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "im mitwyllen un echwan gfhogen und de selbenlih ist rhent",
+      "crop_path": "line_images/10838/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "rucken under ey oberfred gebrocht, über das alles ist ihweyt",
+      "crop_path": "line_images/10838/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "gesitigt worden, sonder auch li zeselt komen und mich dis selben",
+      "crop_path": "line_images/10838/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "handels weder et ghitragten in beidic boniß yomen in zu Mar",
+      "crop_path": "line_images/10838/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "un an Sastuan und in dem kirchter mich nun gesiber göt",
+      "crop_path": "line_images/10838/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "quam dicfen untryd huchen vermint zu ur hinde uh welhe.",
+      "crop_path": "line_images/10838/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "Lin von etzlichen angheheychet ist worden, und ich miuch gessen e",
+      "crop_path": "line_images/10838/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "zur dörzetzlich voraufzügfket i ben vorden wir erlichem gesellen zu",
+      "crop_path": "line_images/10838/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "shayt abir ec vorwundert mich niht eyn weynig, wu dd",
+      "crop_path": "line_images/10838/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "kirn. ich, so hae e zalen ungetrow huth zu seynen ley m",
+      "crop_path": "line_images/10838/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "haben, synen felschlich zu vorraten, zu deruckt dir ys müp mut zu",
+      "crop_path": "line_images/10838/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "zaltig winr zuschlychen, vnete, wor ist dsiche zur miche dut sich",
+      "crop_path": "line_images/10838/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Ss werh herr in Zulich, die ich sulh lut sott hut das nos üch dir",
+      "crop_path": "line_images/10838/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "so keschlich hundein solteinn in sit gilut, so istes alquos irorter",
+      "crop_path": "line_images/10838/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "sokelssbis hanndren sölm gl diel asn musten us vowworten",
+      "crop_path": "line_images/10838/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "dransol, darunb byt ich euch meyn zurr Henrir unb wotes",
+      "crop_path": "line_images/10838/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "willb siche wolten mi sulchen umüthen mesh und gricsten",
+      "crop_path": "line_images/10838/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "Zwillkoyt wolt sachen mustigr handen it schanden  sonei",
+      "crop_path": "line_images/10838/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "sinder zucter gelod ich sin yhen vorhoffen, ech sylt man syf deihen",
+      "crop_path": "line_images/10838/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "kraghen, sonder yln und wir r gluch schowöllen kyteh bißhen",
+      "crop_path": "line_images/10838/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "So halffen, s m nit, darumb byt ich euch ihr wöllen sölh deßlo",
+      "crop_path": "line_images/10838/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "helfen strafen von gottes weges des dyner yr syndt, derlwo",
+      "crop_path": "line_images/10838/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "sind zu gutter wassen wol, das ich i Zürrich, das kucher chat et üch",
+      "crop_path": "line_images/10838/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "habe du des böteh rester, und s mi, das mich hat mösfen",
+      "crop_path": "line_images/10838/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "gebrden und zuh die von Zürich keeynet frembden an mehnn",
+      "crop_path": "line_images/10838/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "hewug, nas in nndermoen worgemet ocden, de dit su",
+      "crop_path": "line_images/10838/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "Godt krelen. Vale Patem Basileę annorem 1535 den sot",
+      "crop_path": "line_images/10838/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "Aprilis",
+      "crop_path": "line_images/10838/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "Benedictus Fromer.",
+      "crop_path": "line_images/10838/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "E W.",
+      "crop_path": "line_images/10838/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": ".",
+      "crop_path": "line_images/10838/0001_line039.png"
+    }
+  ]
+}

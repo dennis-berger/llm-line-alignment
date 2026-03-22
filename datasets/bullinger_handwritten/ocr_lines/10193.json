@@ -1,0 +1,141 @@
+{
+  "id": "10193",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 22,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Der allmechtige gutig her und gott verlich üch und allen üwerm verwanten",
+      "crop_path": "line_images/10193/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "ein au glükhafer jör i zu vor wolglerten esemer min sunders dinsag",
+      "crop_path": "line_images/10193/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "und lieber hoer ich schi üch und üwer zust frowen hiemit den kes und",
+      "crop_path": "line_images/10193/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "baxinen zu guten jor mit gantz früntlicher pitt sonich iller follerb",
+      "crop_path": "line_images/10193/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "verut zu emen dann üch und dem üwern alle zut frünschaft direr",
+      "crop_path": "line_images/10193/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "zenstlichen wellen zu bewisten, wer ich in sonders kirig und zumm höchtel",
+      "crop_path": "line_images/10193/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "gütöliger, demn nach lieber möster Heinrich, hab ich gesern zn wintethin rt",
+      "crop_path": "line_images/10193/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "nomen, wie sicher min herren begeben zn recht zu lester nüt dem",
+      "crop_path": "line_images/10193/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "dan ob ich ser übel erschroken, dann wir mit den rechten an kuggen sgen",
+      "crop_path": "line_images/10193/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "musend here, ub ist nu füüntlich pitt ann üch mich zu berichten, wie",
+      "crop_path": "line_images/10193/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "darumb gstaltodt ouch wyl ler und ander Crißtenlich stett hier zu Saxin",
+      "crop_path": "line_images/10193/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "und wie es sa de land mich ouch wüssen, wie min handel zwüschend",
+      "crop_path": "line_images/10193/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "und mir stande, und sind hiemit dem allmechtigen göt",
+      "crop_path": "line_images/10193/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "in sinen schiem befolchen der üch gnediklich breftigen, damit ir sinbe handel",
+      "crop_path": "line_images/10193/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "rapfer verstreken mögindt das z ille stuntags noch thome anon",
+      "crop_path": "line_images/10193/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "uwer gutwliger diemer",
+      "crop_path": "line_images/10193/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "hand B. logatar",
+      "crop_path": "line_images/10193/0001_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Dem walglerten ssmen herren",
+      "crop_path": "line_images/10193/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "meister Hinrichen Bulinger peedicant",
+      "crop_path": "line_images/10193/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "sin gnosen kunster Zünich minem",
+      "crop_path": "line_images/10193/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "Snsonder, lieben und vertrundt",
+      "crop_path": "line_images/10193/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "churzen.",
+      "crop_path": "line_images/10193/0002_line004.png"
+    }
+  ]
+}

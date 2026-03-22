@@ -1,0 +1,261 @@
+{
+  "id": "10116",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 42,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Gratia et pax adei patrecipur Christum et Vihecolam clarissime",
+      "crop_path": "line_images/10116/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "ve quod clarissimi phereunt Zvinglii moe upadii puors",
+      "crop_path": "line_images/10116/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "animo meo iampridem inflexeietyialem timores idies fericant",
+      "crop_path": "line_images/10116/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "quadeceandesu famus. Ex Hiliertiis proumdectum et qudeit",
+      "crop_path": "line_images/10116/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "e rues de restirndam. Nectum enimstripsa, t doinum Breve aurenta danduue",
+      "crop_path": "line_images/10116/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "adtitue dam omnibus. Verbis minsteres quo trescirem. Nit erseenta hiberi",
+      "crop_path": "line_images/10116/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "prtostiunque audarium inpurtus exceeremusqud rescedee idil est cestres fimi",
+      "crop_path": "line_images/10116/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "glestum denoum meendus. Selacieter hicque cirtu co solatum st",
+      "crop_path": "line_images/10116/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "quod imnpiorum volutanti. Slu Christo t us srecenselatum ferer, u",
+      "crop_path": "line_images/10116/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "onimat  onfiderem de talener edit? Spertu esseiisu",
+      "crop_path": "line_images/10116/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "animum homn see edctu. ente ho equta sumus Monam",
+      "crop_path": "line_images/10116/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "quum in hoc on uo terea infencti. falis s vigilentii",
+      "crop_path": "line_images/10116/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "u divereius et et quoo exfurmeris, Falerinus. 15 e cusi",
+      "crop_path": "line_images/10116/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "agimueren dei nostir e nduti Mayleceerden. Sua",
+      "crop_path": "line_images/10116/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "agunt inm vecit, ut suis notis pededditur u de huic e seiat",
+      "crop_path": "line_images/10116/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "su ciris dei conisturum odim cearunt suu audirit melu",
+      "crop_path": "line_images/10116/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "coelis dipit honis  proleutanatum o suum itidecilę hael",
+      "crop_path": "line_images/10116/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "heveus, vel sum euri les qu",
+      "crop_path": "line_images/10116/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "labellum veris, visum et vulicataturu dedilerem duqunom. Vlum carutu",
+      "crop_path": "line_images/10116/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "miti iem qu carit saludicat padetu a madistię duunum de",
+      "crop_path": "line_images/10116/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "srudna et anni samu ponitus  isiosti sies",
+      "crop_path": "line_images/10116/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "s edum dessem. Cęrarum dixe doneritem, ut nostis per dominus",
+      "crop_path": "line_images/10116/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "iudus ditellarem, u Cereriea terede iuporat dutingetur  t faateru",
+      "crop_path": "line_images/10116/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "hocti c debelliis Helvetios iam delectis, quood isili su gende et",
+      "crop_path": "line_images/10116/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "pas fue ieeptimo pedices Walentii, Ioudinibus Christi e",
+      "crop_path": "line_images/10116/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "uto frre prtud d nonveritus vicreur, quo denditatem ia piorum",
+      "crop_path": "line_images/10116/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "emum peeeceratibus Noc  ver saentes, qua cniitatem fertu",
+      "crop_path": "line_images/10116/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "e prit quous rera dluo veram aubimus. Fu menu omnii",
+      "crop_path": "line_images/10116/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "seeen den e u z deremerulder ecclesiaum vesterm",
+      "crop_path": "line_images/10116/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "Caren erune vter e en,  lut.",
+      "crop_path": "line_images/10116/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "trvitu qua uus cebi meleaa aflarunt.",
+      "crop_path": "line_images/10116/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "cuili. Ti s melter oime te unauma",
+      "crop_path": "line_images/10116/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "serelicime. Cqu praeteum valet oxture us",
+      "crop_path": "line_images/10116/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "caplirie pallimum siatris omnu stiliis",
+      "crop_path": "line_images/10116/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "qua erdatum pus adectes amoristias et expresisuis cimp",
+      "crop_path": "line_images/10116/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "ilims anno 15.",
+      "crop_path": "line_images/10116/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "Chunradus som vester totus.",
+      "crop_path": "line_images/10116/0001_line036.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Eximiam pietate et sereditione",
+      "crop_path": "line_images/10116/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Christis, Leoni lud et Hie",
+      "crop_path": "line_images/10116/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "Bullingero, Tigurinorum",
+      "crop_path": "line_images/10116/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "auti stitibus fratribus suis",
+      "crop_path": "line_images/10116/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "semper observandis.",
+      "crop_path": "line_images/10116/0002_line004.png"
+    }
+  ]
+}

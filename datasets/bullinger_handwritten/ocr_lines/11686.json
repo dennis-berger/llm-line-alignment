@@ -1,0 +1,441 @@
+{
+  "id": "11686",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 72,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "154.",
+      "crop_path": "line_images/11686/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "BUnnd und frid durch hristi von gott sampt brudeliche",
+      "crop_path": "line_images/11686/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "huw und lieb nitt allen guten zuvor sandes",
+      "crop_path": "line_images/11686/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "freuntlicher getruwer lieber h und bruder, eweren",
+      "crop_path": "line_images/11686/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "chreiben sind min bende wol zu komen, sats ouch der",
+      "crop_path": "line_images/11686/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "fleissigen hochen danckn, sonderlich mitt getrilter zeyti",
+      "crop_path": "line_images/11686/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "so ch dann etlichen vertranmetesten nover herren ouch azög",
+      "crop_path": "line_images/11686/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "und sy danir erfröwt hab, dann wir all den herren",
+      "crop_path": "line_images/11686/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "loben, das die ewer der stantmütigen dapferkait i",
+      "crop_path": "line_images/11686/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Rdluchan sind und sich das üpig gellt und ainen nün",
+      "crop_path": "line_images/11686/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "nitt aberwunden, noch von dem das recht und billich ab",
+      "crop_path": "line_images/11686/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "furen lassend, darzu ouch sovyl an inen, die e ander",
+      "crop_path": "line_images/11686/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "uch von sölicher böser sucht mitt erast und trumen alze",
+      "crop_path": "line_images/11686/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "ziechen begerend, der rych gott des frydens well ih",
+      "crop_path": "line_images/11686/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "un alles guts in inen töglich in der crafft seines gante",
+      "crop_path": "line_images/11686/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "mehren und sy darinn gnedigklich erhalten. Amen",
+      "crop_path": "line_images/11686/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "Bys unß ist michts, sonderer zeytung unsere hoptlent",
+      "crop_path": "line_images/11686/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "so der hurthesten und landtgramen koncht angenomen",
+      "crop_path": "line_images/11686/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "sind diß wochen zugezogen, ungefur ewwas uff",
+      "crop_path": "line_images/11686/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "dren hnndert under dene etwas uff frukltzug unst",
+      "crop_path": "line_images/11686/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "statt bunger ufr böwellig  aines rats, irem were",
+      "crop_path": "line_images/11686/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "gern mehr gezogen eso gantz kriegisch ist alle wellen",
+      "crop_path": "line_images/11686/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "aber güger hatbderebgettheiengan orthain behalten",
+      "crop_path": "line_images/11686/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "uff güssere not, deren man teglich in sigen steht",
+      "crop_path": "line_images/11686/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Zie was krigsübeng die unsern standind gegen",
+      "crop_path": "line_images/11686/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "dem hertzoger und Brumschwig habend unsee ka",
+      "crop_path": "line_images/11686/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "den ewere entzverruktie tag angezöt. Es ist",
+      "crop_path": "line_images/11686/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "ain handel, das man sich hat chriee e der",
+      "crop_path": "line_images/11686/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "gündtnussen halb mussen unmend, damitt",
+      "crop_path": "line_images/11686/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "doch derwergroff krinen und mörwalle des gran",
+      "crop_path": "line_images/11686/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "stmen würterichs und tyomen sewerf werde.",
+      "crop_path": "line_images/11686/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "dann er die fromen von Gosslar lang zyt herrn",
+      "crop_path": "line_images/11686/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "und delicher weyß angrffen und beschwert hat",
+      "crop_path": "line_images/11686/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "welchs die unseren für ain religion sach erkeut zug",
+      "crop_path": "line_images/11686/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "engerneimen und demnach hilff zu bedtseiwun se",
+      "crop_path": "line_images/11686/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "zuersthütten und vorslichen tradecher gundat",
+      "crop_path": "line_images/11686/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "zerreddten zutlich gedacht und turgnerdern zubrad",
+      "crop_path": "line_images/11686/0001_line036.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "dann ob wol die sach an ir selbs nitt ain religion sich",
+      "crop_path": "line_images/11686/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "ist sy doch allso geschaffen, das die fromen von Goslar",
+      "crop_path": "line_images/11686/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "von wegen, das sy zu dem evangelio koommen in all diß",
+      "crop_path": "line_images/11686/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "unbillicheit und schwären lasscht gerathen sind",
+      "crop_path": "line_images/11686/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "dann vor und eh sy unser religion angenommen",
+      "crop_path": "line_images/11686/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "habend sy vor dem caniegricht geren hertzog",
+      "crop_path": "line_images/11686/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "Hainrichen ir elangte recht gehapt, wiewol der",
+      "crop_path": "line_images/11686/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "Eiiser ouch dommals, namlich vor gehaltnem rychstag",
+      "crop_path": "line_images/11686/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "zu Augspurg wider der von Gosslar bewillignung",
+      "crop_path": "line_images/11686/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "De plenitudine potestatis an sillctandu mitt der",
+      "crop_path": "line_images/11686/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "exeguntion wder den hertzog von Brunschneg",
+      "crop_path": "line_images/11686/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "schafft hat. nachmals als der truw gott die v",
+      "crop_path": "line_images/11686/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "Gosslar ouch mitt seinem wort brymbt, hat es",
+      "crop_path": "line_images/11686/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "sich ouch by dem unseligen camergricht alles ien",
+      "crop_path": "line_images/11686/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "halb unbert, das sy zu kaimen elichen noch rechen.",
+      "crop_path": "line_images/11686/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "guler kons er bervögen, danniwe sy in ertadung",
+      "crop_path": "line_images/11686/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "kommen, das sy ser hertzog uberzuchen wöllen.",
+      "crop_path": "line_images/11686/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "haben by ain closter an der statt und uff iren boden",
+      "crop_path": "line_images/11686/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "gelegen verbreut, darmitt der statt duselbst der",
+      "crop_path": "line_images/11686/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "kandemachtiul und schad vom hertzogen zugefugt möcht",
+      "crop_path": "line_images/11686/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "werden, wie nu der hertzog in ire hergwerkwerk",
+      "crop_path": "line_images/11686/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "und hatten ingefallen, sind die burger ouch zuuß",
+      "crop_path": "line_images/11686/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "jehellen hat yeder, das syn weetten wellen, haben altß",
+      "crop_path": "line_images/11686/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "ettlich erwirgt ettlich in den schmelyhitten verbut ec.",
+      "crop_path": "line_images/11686/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "Alls aber die sach für das canvergricht geichst",
+      "crop_path": "line_images/11686/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "ist baider parteyen, elag uff ain tag ein gebracht",
+      "crop_path": "line_images/11686/0002_line025.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 26,
+      "text": "das yede parthey zu der anderen elagt, sy haben",
+      "crop_path": "line_images/11686/0002_line026.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 27,
+      "text": "den landkndr vergrohen etc. Da hat aber der zetz",
+      "crop_path": "line_images/11686/0002_line027.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 28,
+      "text": "sen epruticiert, das die cangerichter an ercten",
+      "crop_path": "line_images/11686/0002_line028.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 29,
+      "text": "den betenenn i der die von gessar geben und sy ir die",
+      "crop_path": "line_images/11686/0002_line029.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 30,
+      "text": "acht erkeut und damitt ader agender untüchtigh gemucht",
+      "crop_path": "line_images/11686/0002_line030.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 31,
+      "text": "guben; dann ier ge der hertzegewyter in das recht",
+      "crop_path": "line_images/11686/0002_line031.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 32,
+      "text": "Got wart ze hriben wättschuldig gewest. vermig",
+      "crop_path": "line_images/11686/0002_line032.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 33,
+      "text": "der ahrtwwer synd alls due frommen von gösser myt",
+      "crop_path": "line_images/11686/0002_line033.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 34,
+      "text": "mutwilliger büberyn verutuwt und ilt worde",
+      "crop_path": "line_images/11686/0002_line034.png"
+    }
+  ]
+}

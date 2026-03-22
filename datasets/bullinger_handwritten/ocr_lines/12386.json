@@ -1,0 +1,339 @@
+{
+  "id": "12386",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 55,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "custachis",
+      "crop_path": "line_images/12386/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Imardius .",
+      "crop_path": "line_images/12386/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "1553.",
+      "crop_path": "line_images/12386/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Set e. absemper manr fuit animum Genoro Bullingere, eu",
+      "crop_path": "line_images/12386/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "vel eonerim nelfugerie inicuncta (erget, quanvi te eren qutalicos",
+      "crop_path": "line_images/12386/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "nera granerisso nel fugerum. e nero e  motum quem uqum tur",
+      "crop_path": "line_images/12386/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "qunis eapoe accurem. ua ertan u no queturt nu",
+      "crop_path": "line_images/12386/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "perentum uore mum en tam peter me sura ed quia altin",
+      "crop_path": "line_images/12386/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "letugu Latinu inere menem. imanu enim nis moster  t aliu",
+      "crop_path": "line_images/12386/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "linguę Lertinem locedonem habeomunteren q te ac horeas hpeos",
+      "crop_path": "line_images/12386/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "tamen solu ampli velits luaturo ultra sx agam, ut uqurabu dene rode",
+      "crop_path": "line_images/12386/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "tamen solite amplius ostrs sufficio. Quaaproster est uatum  tu",
+      "crop_path": "line_images/12386/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "e consulindi sit gratii, quom culm quotaquai istatur, ut nun et axim",
+      "crop_path": "line_images/12386/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "eredimunnum sit spatii, quoqud respitem stato, ut mueroi",
+      "crop_path": "line_images/12386/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "ille quidi nitete dei concreta postipotum u dlec intu nege gav",
+      "crop_path": "line_images/12386/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "illi doi pai fidener ns reditit suat, quos lamen, ta edistero",
+      "crop_path": "line_images/12386/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "ut nosos possime meriter, diutines autem persemerare n tantera",
+      "crop_path": "line_images/12386/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "no dituteudiane nosr Pętero ed eratecoissi tamblio cum nobisa",
+      "crop_path": "line_images/12386/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": ". iudicanta ie grra cederat cosi um, quo accederetdum",
+      "crop_path": "line_images/12386/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "corsreien sele alcher vade e et ut is huic providus",
+      "crop_path": "line_images/12386/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "et ddi dapaliterchoo ita in eii consis deranda et",
+      "crop_path": "line_images/12386/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "cittera midreit. Luthopobitania enim domum nostris no",
+      "crop_path": "line_images/12386/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "te invareret, quai bona perdereripit. leec quod superer",
+      "crop_path": "line_images/12386/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "uam qeederetutur, aubbo meo perderentur, ingendiam od iupe",
+      "crop_path": "line_images/12386/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "digit en aibus si usque eertio nuetu hande videtus",
+      "crop_path": "line_images/12386/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "Sunt enim quibus (si absque praemio hunc meum ludic",
+      "crop_path": "line_images/12386/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "nisi tare liceat, ut hactenus factum est ingredi permitteretur.",
+      "crop_path": "line_images/12386/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "parent veorterst, din angeibeat, sect pangeres, qui discunt",
+      "crop_path": "line_images/12386/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "quo carere operteret, si ertatou rgentum bona profecto.g",
+      "crop_path": "line_images/12386/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "vaet docibilia, si satis otii horarumque daro.a",
+      "crop_path": "line_images/12386/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "saepius corat decpior o; is autem hisce diebus hoc",
+      "crop_path": "line_images/12386/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "veditur consilium tibi significandum. Est apud  hs roiccor",
+      "crop_path": "line_images/12386/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "peratus imomasteriem vonacus grendnas non admiae.",
+      "crop_path": "line_images/12386/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "vicimus, fenenus bonois ecclesiasticis nihil laboravs",
+      "crop_path": "line_images/12386/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "Petes cum ad nihili prosit subiunde, isque accedet",
+      "crop_path": "line_images/12386/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "dominos nostros degueinos cum ad nos pervenerint, ut",
+      "crop_path": "line_images/12386/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "sibi suam augeant venetitoonem, cui commodissi me hc",
+      "crop_path": "line_images/12386/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "siponeretu laboret (unmos tuum o  plutes exhor ent",
+      "crop_path": "line_images/12386/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "fortassis aptues est adedu cerdem. Alphaben stas iter ut",
+      "crop_path": "line_images/12386/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "perrgatu et praescribetmiteruas llegere et anum doceat post",
+      "crop_path": "line_images/12386/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "autem nihil aliud am nu em ponium succuratur. Ho",
+      "crop_path": "line_images/12386/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "qua que si sit mooadetas vel divertambum aut m Gorgen",
+      "crop_path": "line_images/12386/0001_line041.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 42,
+      "text": "Squdi rem indices, alternatri, nemi eti autem Georgio",
+      "crop_path": "line_images/12386/0001_line042.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 43,
+      "text": "ut periepius ex nutebus protlabordie solis. Interim tamen",
+      "crop_path": "line_images/12386/0001_line043.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 44,
+      "text": "egol quum prlebo et labrortu convenientem sutt re",
+      "crop_path": "line_images/12386/0001_line044.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 45,
+      "text": "poenitebet. Tuum catempeatissime sequo coni",
+      "crop_path": "line_images/12386/0001_line045.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 46,
+      "text": "Quogue eatque edero na mpicate schedulum scribere igneri.",
+      "crop_path": "line_images/12386/0001_line046.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 47,
+      "text": "quaqm tuam mentem percipere possim, in te quid agendi",
+      "crop_path": "line_images/12386/0001_line047.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 48,
+      "text": "sit sciam.",
+      "crop_path": "line_images/12386/0001_line048.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 49,
+      "text": "Salvam omnem tuam procor famil. Iuprimis anie thodolphum",
+      "crop_path": "line_images/12386/0001_line049.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 50,
+      "text": "aandim cumprimis charism.",
+      "crop_path": "line_images/12386/0001_line050.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 51,
+      "text": "Satę 5 calendas februa",
+      "crop_path": "line_images/12386/0001_line051.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 52,
+      "text": "Tuus Berhardus.",
+      "crop_path": "line_images/12386/0001_line052.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 53,
+      "text": "1546.",
+      "crop_path": "line_images/12386/0001_line053.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 54,
+      "text": "Ludouler",
+      "crop_path": "line_images/12386/0001_line054.png"
+    }
+  ]
+}

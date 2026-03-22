@@ -1,0 +1,255 @@
+{
+  "id": "11231",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 41,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "2028.",
+      "crop_path": "line_images/11231/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Erwördiger, wolg lerter fürneme insunder slüben herr",
+      "crop_path": "line_images/11231/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "und bruder die gund gar durch ustrundesin unßerzu",
+      "crop_path": "line_images/11231/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "kingen erlöser, dar zu min frunt buhgruß und geutt",
+      "crop_path": "line_images/11231/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "willger dienst sugent uh r gunstiger, lieber her ich damber",
+      "crop_path": "line_images/11231/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Uiwor sftüntlichen bericht der concor dy, so ir mir zu nächst",
+      "crop_path": "line_images/11231/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "und derude heiben zu dem wer sheintlichen übie t",
+      "crop_path": "line_images/11231/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "sos dedurzurr getadeidersiche von üch körsehilden.",
+      "crop_path": "line_images/11231/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "s rdienen esgefaldt mur buuch gon den fürsten und",
+      "crop_path": "line_images/11231/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "rende unserer völlgvon zezigen erlüterren dassti unser",
+      "crop_path": "line_images/11231/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "butwürtt für gutt ufgenomen. gott meye für und fir cristen",
+      "crop_path": "line_images/11231/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "zun beit on ich han auch stund erlich hern gehörtten doß",
+      "crop_path": "line_images/11231/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Das wort gottaß zu enngelland, so biten dd dasar uden",
+      "crop_path": "line_images/11231/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "zusegsug, sy neß nit babe aenedr und dankgarsend",
+      "crop_path": "line_images/11231/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "Go oder eu zu durund wirben dh bermutt heffen",
+      "crop_path": "line_images/11231/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "herend nütt zu etc. daßsd ze rehschrudt geschriben",
+      "crop_path": "line_images/11231/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "ganedan ich de zemal nit denn burd und anderchrn",
+      "crop_path": "line_images/11231/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "zuhussten, daaden dan o darn ußsend ach",
+      "crop_path": "line_images/11231/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "hass Roen, se der evangelauen dagenaben shächt",
+      "crop_path": "line_images/11231/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "gaen i der waltung zun minen sor faren aben shhächt",
+      "crop_path": "line_images/11231/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "bager halten dar de uen derme ich u guider secfuttan",
+      "crop_path": "line_images/11231/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "urshuff alsmaglich ritt belluug i pflietzuthen",
+      "crop_path": "line_images/11231/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "udie hidoelundr  duder duscherliebet herr",
+      "crop_path": "line_images/11231/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "und bu d wo derblauer herförgen eher",
+      "crop_path": "line_images/11231/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "sunderdin leste hanh din sy schriben vescforhernenen",
+      "crop_path": "line_images/11231/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "aderen gehondlog und so de der selb er sehen oersüken",
+      "crop_path": "line_images/11231/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "ede abstan gefieleir, die sachar der ortmäne über",
+      "crop_path": "line_images/11231/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "Sacht aber ich wed ongefärlich uff einteraren fn",
+      "crop_path": "line_images/11231/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "Zürich krine, so wid ih mit seugth zr ornderengseinden.",
+      "crop_path": "line_images/11231/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "ziih und und wasungliche undrimlich üh ott",
+      "crop_path": "line_images/11231/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "zur ze dnemen und handlen zu nüt üch gott",
+      "crop_path": "line_images/11231/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "Den heern zu veharren göttlichen eczefir dern",
+      "crop_path": "line_images/11231/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "wollen zulen grussend mir meister owenn",
+      "crop_path": "line_images/11231/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "und alter herren eamntores zu letscht jon ich",
+      "crop_path": "line_images/11231/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "Dos unruw geseldt in grossen unruw birdchen",
+      "crop_path": "line_images/11231/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "kömen got  meister also daß erdemmentsche",
+      "crop_path": "line_images/11231/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "nüt ladt noc seinen willen bridlen de geben",
+      "crop_path": "line_images/11231/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "zu ine ger sontag den 20 aoberißi i z.",
+      "crop_path": "line_images/11231/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "er altzit gutt williger fründ.",
+      "crop_path": "line_images/11231/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "und bruder zeiß has landtsogt.",
+      "crop_path": "line_images/11231/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "den kintal",
+      "crop_path": "line_images/11231/0001_line040.png"
+    }
+  ]
+}

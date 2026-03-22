@@ -1,0 +1,321 @@
+{
+  "id": "11560",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 52,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "1353.",
+      "crop_path": "line_images/11560/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Olerim tu, qua ad me ite prędariss me commendadi",
+      "crop_path": "line_images/11560/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "patruelio mei Georgii Mulleri caussa iam dedisti, accepi",
+      "crop_path": "line_images/11560/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "glogi summo cum gaudio et voluptate ac verbis eloqui",
+      "crop_path": "line_images/11560/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "nequeci, quarum dulcedunis illarum lectio mihi attulerit",
+      "crop_path": "line_images/11560/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "prau quod a viro doctissimo, cuius per lucubrationes",
+      "crop_path": "line_images/11560/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "in ren christiana iam immortale nomen factum, qui et",
+      "crop_path": "line_images/11560/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "ut loetam inquit summo ferit sydera vertiae, expetendo",
+      "crop_path": "line_images/11560/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "inchoandeque communis divicicię gratia ad me veneritit.",
+      "crop_path": "line_images/11560/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Quad sane literas mihi fore initium vinculi amicicię",
+      "crop_path": "line_images/11560/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "et summę inter nos consuetudinis ingenue promittor",
+      "crop_path": "line_images/11560/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "Seinde, quod tam diligenter mihi patrudem et consen.",
+      "crop_path": "line_images/11560/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "puinerem meum, quem fratris loco habeo ac non aliter",
+      "crop_path": "line_images/11560/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "go apposito sermone commendas, fecisti rem mihi lige",
+      "crop_path": "line_images/11560/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "gratissimam. Nam etsi illum eius virtutis integritatis pie",
+      "crop_path": "line_images/11560/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "quarum nomine tu mihi illum celebrasti, non compecisse",
+      "crop_path": "line_images/11560/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "tamen vel tua hac gravissima syncerissimaque commendatione",
+      "crop_path": "line_images/11560/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "fuisset mihi quam acceptissimus, te vicissim rogans",
+      "crop_path": "line_images/11560/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "plurimum, ut hunc tibi propter eius integritatem et fidem",
+      "crop_path": "line_images/11560/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "in Christum cum uxore liberis et omnibus amicis ac ne",
+      "crop_path": "line_images/11560/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "dessariis suis commendatissimum habere velis. Nunc quia",
+      "crop_path": "line_images/11560/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "te ad officia mea ofers benevolum, quoso te, ne du",
+      "crop_path": "line_images/11560/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "nuscule feras, si de quibusdam, quorum sum dubius nec",
+      "crop_path": "line_images/11560/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "quidum certi in animo constituere possum te interrogavero.",
+      "crop_path": "line_images/11560/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "ac animi tui sententiam consiliumque audatius expetero.",
+      "crop_path": "line_images/11560/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "Ac primum quidem constare tibi non est mihi dubium.",
+      "crop_path": "line_images/11560/0001_line025.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "quadnens quidam, quosi gladiatorio animo interse iuxent",
+      "crop_path": "line_images/11560/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "de Christo, an is creatura sit necne, et quomodo divi",
+      "crop_path": "line_images/11560/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "in eo eum humanitate coaluerit. Hęc contentio,",
+      "crop_path": "line_images/11560/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "tanquam nostrę religionis res non parva me non parum",
+      "crop_path": "line_images/11560/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "habet sollicitum animumque perturbat. Tuum super hac contro",
+      "crop_path": "line_images/11560/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "vrs iudicium et sententiam desyderans. Deinde diversi",
+      "crop_path": "line_images/11560/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "sunt hoc tempere ritus eucharistię, quorum nonnulli",
+      "crop_path": "line_images/11560/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "mihi videntur verbo domini concordes, nonnulli autem",
+      "crop_path": "line_images/11560/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "mnimo  u papisticam opinione ad unguem usque latum",
+      "crop_path": "line_images/11560/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "nihil cedere. Quia nostri aperte urgent, ut credatur",
+      "crop_path": "line_images/11560/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "panem formari in corpus et vinum in sanguinem Christi.",
+      "crop_path": "line_images/11560/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "Reliqui vero, quales sunt Argentinenses, id quidem",
+      "crop_path": "line_images/11560/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "etsi non sentiant, tamen sub prętertu cuiusdam con",
+      "crop_path": "line_images/11560/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "dnolunt argui dissensionis cum nostris. Queadmo",
+      "crop_path": "line_images/11560/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "autem verbum domini hunc prętextum ferre possit, tuum",
+      "crop_path": "line_images/11560/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "sit iudicare et expecto ea de re tuum prudeno piu",
+      "crop_path": "line_images/11560/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "et exactum iudicium. Retulit etiam mihi consanguinem",
+      "crop_path": "line_images/11560/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "meus ecclesiasticam solitiam a senatum riguniros maagnia",
+      "crop_path": "line_images/11560/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "prudentia institutam ordinatamque atque statuta iudic",
+      "crop_path": "line_images/11560/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "er materimomalium piissima et sapientissimum prcescri",
+      "crop_path": "line_images/11560/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "pocere publicatonordine conscriptam esse, quorum exeplar",
+      "crop_path": "line_images/11560/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "si fieri possit, una cum latalogo omniu librorum a te",
+      "crop_path": "line_images/11560/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "Ocolumpadio et Hulderi hro Zvinglio Latinem et vula",
+      "crop_path": "line_images/11560/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "Germanico editorum primo quoque fortuito nuncio",
+      "crop_path": "line_images/11560/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "ut ad me mitteres maxime vellem? Hac re summam",
+      "crop_path": "line_images/11560/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "apud me gratiam initurus. Me quoque tibi, quem in",
+      "crop_path": "line_images/11560/0002_line025.png"
+    }
+  ]
+}

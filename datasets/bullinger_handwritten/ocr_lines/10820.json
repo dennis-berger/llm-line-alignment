@@ -1,0 +1,177 @@
+{
+  "id": "10820",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 28,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "16.",
+      "crop_path": "line_images/10820/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": ".",
+      "crop_path": "line_images/10820/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Garisto demini. Munia, un domi illibs suis sepistilere, quod minlili praecersaris",
+      "crop_path": "line_images/10820/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Wulungerter hrisinum icipii, pro qro tubi non silum gratias abii sua tunum eiquiba",
+      "crop_path": "line_images/10820/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "felaturum Gondeo prpiau, Lotorum, quad it dereutaartem huique sinpeidum doluanti, s",
+      "crop_path": "line_images/10820/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "cutiqui oluisi distium auu si csiieiarum, quoom quiud dettur, quod",
+      "crop_path": "line_images/10820/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "tu daicedati t dut roqutur ut et ipstum ati, quod dedum esprvere",
+      "crop_path": "line_images/10820/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "tuu ectene, de et mode iurmuinatum, non audivi Thanris illu loes s",
+      "crop_path": "line_images/10820/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "etrero eius et culginum  mulum can, quote ipidi iuumo",
+      "crop_path": "line_images/10820/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "i neu ituiutur, crutur   udi, qu qu no i tu utenu",
+      "crop_path": "line_images/10820/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "tantigntum sua cili qumumi symdi e cnm uferio",
+      "crop_path": "line_images/10820/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "puunum, iuturum ne tuo e docene iste elore deconaret quo",
+      "crop_path": "line_images/10820/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "quam iuemur anim deuinum us ad citeni entigro prprsi",
+      "crop_path": "line_images/10820/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "sgui t cogndussum et niiu udme node untum dtexorum eti",
+      "crop_path": "line_images/10820/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "P auius quu n ut, utuuedtem orcamisti.",
+      "crop_path": "line_images/10820/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "pu Cęstra salutum non cunterbi, qu uxi respator deracubis.",
+      "crop_path": "line_images/10820/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "Ci elr cerar i celelli de apri eu dicucurit",
+      "crop_path": "line_images/10820/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "Caven liben ssi ut sen lete ne luu ut cormenunis est",
+      "crop_path": "line_images/10820/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "utim u ue eta civilar quo dieriet eu ipsu fęe",
+      "crop_path": "line_images/10820/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "de quom autem cacuendum hu consaltum idqui set nurio veligim susulum.",
+      "crop_path": "line_images/10820/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "quod menchi ciliue iutu unt, qua e cum laporu one deeti",
+      "crop_path": "line_images/10820/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "quu isis ri soc vee iurum. Quatent ad ere mum aerio,",
+      "crop_path": "line_images/10820/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "Golestin nostr desidereri nobi platue da vutictur dopisime, quad",
+      "crop_path": "line_images/10820/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Cefeharum et e vestri aliarutum, tuturum tamo ter conerotum, su",
+      "crop_path": "line_images/10820/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "u iudia. es essa, quau su prastuturum, tibi tudu rtem be",
+      "crop_path": "line_images/10820/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "qi hilindio cacal puotu cat alitur spilicam uporę",
+      "crop_path": "line_images/10820/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "salu dolecato, su ilu qui es,",
+      "crop_path": "line_images/10820/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "Blgans Bug.",
+      "crop_path": "line_images/10820/0001_line027.png"
+    }
+  ]
+}

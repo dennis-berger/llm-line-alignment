@@ -1,0 +1,159 @@
+{
+  "id": "10069",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 25,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Pacem et gratiam per Christum",
+      "crop_path": "line_images/10069/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Cunctis nostris afflictionibus accedit adhuc alia omnium tristissimu simul ett",
+      "crop_path": "line_images/10069/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "perniciosissime; nam Oecolampadius noster totius pietatis ac eruditionis",
+      "crop_path": "line_images/10069/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "unica columena et omnium ecclesiarum vigilantissime pastor, mortem oppetut 24.",
+      "crop_path": "line_images/10069/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "novembris, quem doctorem, si iustis ac dignis lachnynus persequi vellem, omnes",
+      "crop_path": "line_images/10069/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "me mee deficerent vircs; sed quid aliud fidelibus aut cogitandum vel lequendum",
+      "crop_path": "line_images/10069/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "uam idm tobi. dominus dedit dominus abstulit, sict domino etc. Nec te latere potest, pyssim",
+      "crop_path": "line_images/10069/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "et studiosissime Bronimi nostri potavi, miserabilis interitus, quo fratum est u",
+      "crop_path": "line_images/10069/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "ecclesia nostra duobus nunquam satis poenitendis episcopo et ministro sit orbata",
+      "crop_path": "line_images/10069/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "in his doloribus constituti, tui potissime eruditissimu Heinrice memumus, ut quibus",
+      "crop_path": "line_images/10069/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "nedum tua eruditio vervetir et pietas fervor spiritus, modestia ac dexteritas",
+      "crop_path": "line_images/10069/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "spectata sint. Gratissimu itaque nobis foret, si quam primum advolares, ut, si forti",
+      "crop_path": "line_images/10069/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "ano tuo collibitum fuerit ecclesie nostre infervire, ut cora de ea re conferre",
+      "crop_path": "line_images/10069/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "ac dispicere lieret. e te offendat, optimu vir, nomen meum tibi for",
+      "crop_path": "line_images/10069/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "cognitum aut nullius neccessitudinis familiaritas, satis amici sunt et famili",
+      "crop_path": "line_images/10069/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "quos Christi spiritus et eadem studia conplutiat, hac fiducia ingenui fr",
+      "crop_path": "line_images/10069/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "inprimis ades meas invisere poteris ac fratris hospiciolo frui, fac tamen",
+      "crop_path": "line_images/10069/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "ut interea animum tuum cognoscamus. Cale 27. novembris anno 31.",
+      "crop_path": "line_images/10069/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Tuus",
+      "crop_path": "line_images/10069/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Martus Bersius ecclesię",
+      "crop_path": "line_images/10069/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Apud dominum Leonardum",
+      "crop_path": "line_images/10069/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "minister.",
+      "crop_path": "line_images/10069/0001_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Eruditione et integritate spectato",
+      "crop_path": "line_images/10069/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Viro, domino Heinrico Bullingero,",
+      "crop_path": "line_images/10069/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "fratri suo dilecto etc.",
+      "crop_path": "line_images/10069/0002_line002.png"
+    }
+  ]
+}

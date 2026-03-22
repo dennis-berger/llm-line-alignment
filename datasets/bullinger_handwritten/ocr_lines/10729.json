@@ -1,0 +1,405 @@
+{
+  "id": "10729",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 66,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "min herren inkant, mo die saffoyer neiswas unfrünglichs hardlind nitt der odemferente wellend",
+      "crop_path": "line_images/10729/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "min herren von siuder an ir bine he sudaren und sih mitte beraren. Qu atr de denter locianas",
+      "crop_path": "line_images/10729/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "nitt hieltia, wellind min herren erburgrecht imm uff gäben. zu zwishe der dyn uffend",
+      "crop_path": "line_images/10729/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "reden bochz globwirdiger, das ettlich Franzosen ze ross und fusß bi 300 minder oder meere",
+      "crop_path": "line_images/10729/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "häbe hen der dan reiff welle zu zuen dand aufe n use duch den saffs zu gres gewind",
+      "crop_path": "line_images/10729/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "ande ginderich gewyse. )edoch gatt die reede, Canttel und aruckel o  gestelt vorden frantzost",
+      "crop_path": "line_images/10729/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "und zeferr gegeenandren? Sawurdint wir ein guten nartbroren, han. wörend ist autewer",
+      "crop_path": "line_images/10729/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Quromnum habeis et eto ina utrum u qu et sichistemt  cramos adlebrumore e ardistimum vome voes regi",
+      "crop_path": "line_images/10729/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "erom hab Es lecfend all vesel dar wis her sit bas edes lri unermaidtr vaser.  ne otu",
+      "crop_path": "line_images/10729/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "dale wörl uff Cesolfe wir willind uff den flüsglanck guter  d weiß nit masen. u autura",
+      "crop_path": "line_images/10729/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "qua  nus tuam nonsuum fessut quam sine elugam evonire escribem cestin, Monumore ver u",
+      "crop_path": "line_images/10729/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "su  antum etiam nosium pestet ecosire setigi Gveneim camptum vai 9. nonenbiris vurtum armisuo",
+      "crop_path": "line_images/10729/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Tb.",
+      "crop_path": "line_images/10729/0001_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "4.",
+      "crop_path": "line_images/10729/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "S. 29. novembrę per nuncium Lenzburgensem libros, thesurum cente seletissimus nihilo firmi, quad tua",
+      "crop_path": "line_images/10729/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "opera comperatum solvos accepi, pro quibus tamen eodem mane nunium propum, ut adferrat omiseriana. Quq geo",
+      "crop_path": "line_images/10729/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "mihi gratificatus sis hoc munum, vis, ne ut scribam cum id mimie possit, Accepi diemavos desiggr",
+      "crop_path": "line_images/10729/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "quid opperatur hoc remirter, cum iuplus papiti, imo nomine sumpleris taceo tot commentarios et libris",
+      "crop_path": "line_images/10729/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "qubus que inmisiantissime gravas, ut nullus venum redendi relinquitur locus. Audeo vos iamprdetus",
+      "crop_path": "line_images/10729/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "quaus nerantior tagria  tum n idiqu quuusi pattuum  crisfuntu e iuser et dt",
+      "crop_path": "line_images/10729/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "atias Gaudees ne lges haere aque id tuo ienfici. Qu i seper santo crissima, quam tu irsis esse",
+      "crop_path": "line_images/10729/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "attans Gaudeo tu degeberime situum vis, ut iuftia sctami e s nou isud quius meo dnum",
+      "crop_path": "line_images/10729/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "eeddich zebeiteten diesucia qu burgrecht st ut don barsitten nun lusterna p us pra e",
+      "crop_path": "line_images/10729/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "pütig eiger wügigen praite doder rih geticanen din zunthon  urbich gu deriht gortasen.",
+      "crop_path": "line_images/10729/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "Suav ve , quid dem  i det eodum apio, iugur? do u t tiar uu que et det",
+      "crop_path": "line_images/10729/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "lenen aro alledroden regl daber less uns undr lar den sattel uff den rus arden wi",
+      "crop_path": "line_images/10729/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "wie och Alebrecher eren labgelen, delgenn de denn ecnsteng und sralan we. Jat wo turigut",
+      "crop_path": "line_images/10729/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "wien st ingerdm rere ad aes ruare. Munlu aada udoo ve perm",
+      "crop_path": "line_images/10729/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "viis de e topum mite ist  de maie   nie no t see ze e,  o et oo ustu u a",
+      "crop_path": "line_images/10729/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "äer gee zristen. tr bestum yer par repusi ) nuee  ie lamenus et nomon ao lera",
+      "crop_path": "line_images/10729/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "u veschisfe tuc grs us euo puti euuodem patu n hiquam mntum sillecasotis , qud  sugum",
+      "crop_path": "line_images/10729/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "emnes due u i  u  geid uonder vale nu istd",
+      "crop_path": "line_images/10729/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "pude , qu antecro, qua vius s  i visse uto u usiore mincori duu, uod i literu",
+      "crop_path": "line_images/10729/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "qubis sai et gnorus csirium    o   te uti um  eu et cumia crmendius teut",
+      "crop_path": "line_images/10729/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "kin unnerder syn dee, do ers tuer ur eri un udtuned se ien si hi",
+      "crop_path": "line_images/10729/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "quanuse. tam da  , duu iges nm ut otuu, catudum oo deut oms lou",
+      "crop_path": "line_images/10729/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "und vil ingenn zesst gesgier gen gruff, s der donan  am, das vo Müwiebig zogent",
+      "crop_path": "line_images/10729/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "a kürgotischaft geschder ec  vit juff einnen eg . göper und une gezogen",
+      "crop_path": "line_images/10729/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "and bargwee by deuff müt für ein worzegen göbun in würzag ubesiber zogen üt",
+      "crop_path": "line_images/10729/0002_line025.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 26,
+      "text": "Pgor s iu tuer mihil est qu  et stmiu atque e si ui qu gnor",
+      "crop_path": "line_images/10729/0002_line026.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 27,
+      "text": "sysicher gen drif, wenaten möchutt sy gewärten uf du geu sugen, dag g s gewung",
+      "crop_path": "line_images/10729/0002_line027.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 28,
+      "text": "ies nd dröns oun disen durh wie edianus detur disse zetut  dain s",
+      "crop_path": "line_images/10729/0002_line028.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 29,
+      "text": "une wögen diy gune keuger, die sich egadee d it eyndersen zo kern. Gekurn spis",
+      "crop_path": "line_images/10729/0002_line029.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 30,
+      "text": "ierond Mhötu ec. Die midr üddii der wars gebid riger tuo deren och h",
+      "crop_path": "line_images/10729/0002_line030.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 31,
+      "text": "Sodewe sl wondind erhi aner läbendis Colas dud rstris krnen, lyreer de",
+      "crop_path": "line_images/10729/0002_line031.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 32,
+      "text": "suree wären mi gebunden anderutze angfaugen löffen o den hön estonzen yshe",
+      "crop_path": "line_images/10729/0002_line032.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 33,
+      "text": "weten wi ü anguse  t u gud un es socgen an ist he u",
+      "crop_path": "line_images/10729/0002_line033.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 34,
+      "text": "beder shabed dier gaffiyer by 300. zun lagen uff da ab donsalse gefult,",
+      "crop_path": "line_images/10729/0002_line034.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 35,
+      "text": "Daras hi sein. dy han it du uger glser, den si ingeliateen sie mi",
+      "crop_path": "line_images/10729/0002_line035.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 36,
+      "text": "Frartzea einen müstend derwosen alossen undligen gete  e doent hie",
+      "crop_path": "line_images/10729/0002_line036.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 37,
+      "text": "uweregten die Saployer (deren by 1500 il sagenenbin r0d",
+      "crop_path": "line_images/10729/0002_line037.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 38,
+      "text": "gtter uf  die fluhter g Hlarce  bii 4uo elich sarncis o.",
+      "crop_path": "line_images/10729/0002_line038.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 39,
+      "text": "gstidee sind und aher, uff der anzeigten ec taman. Qaa sinen gensi bone",
+      "crop_path": "line_images/10729/0002_line039.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 40,
+      "text": "Sedas uder u und tug deder wus anung dan dunse so dn der",
+      "crop_path": "line_images/10729/0002_line040.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 41,
+      "text": "uglöffen benich födrit. Habe das die kerchtitt gewelend habindm das ha",
+      "crop_path": "line_images/10729/0002_line041.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 42,
+      "text": "zugligen indigfie der i ze derm hert srder, u dr rin eg od non habt",
+      "crop_path": "line_images/10729/0002_line042.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 43,
+      "text": "Sichehöwer bröltiger, uder de zen s o lind die wedren töächt, och üungetten",
+      "crop_path": "line_images/10729/0002_line043.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 44,
+      "text": "die siffoyer du n von hand u ens eaeis im zu zu e zogeren",
+      "crop_path": "line_images/10729/0002_line044.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 45,
+      "text": "Z w  e Zumtur mineer lrcher id vuas iuden ie  e e",
+      "crop_path": "line_images/10729/0002_line045.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 46,
+      "text": "So wulum in nude su am u suanore istorodu von dee d un wgu m dffis.",
+      "crop_path": "line_images/10729/0002_line046.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 47,
+      "text": "demmen witt u glissen ze beiden sien, doch vast wele ger personemen lyderen allericher",
+      "crop_path": "line_images/10729/0002_line047.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 48,
+      "text": "göbi ges benoben dimage, sells kodih enditer ole batischaffiwen beren underliugern",
+      "crop_path": "line_images/10729/0002_line048.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 49,
+      "text": "zu hass tde mu ere    tvallicitur, esti bent hase ris et vunen bugi,",
+      "crop_path": "line_images/10729/0002_line049.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 50,
+      "text": "u e eu ze den heegen u uaer du proses dersetiat Meend i altas",
+      "crop_path": "line_images/10729/0002_line050.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 51,
+      "text": "din bugen uz suden höend. Die wör aer der wögin zrich krege volken it zunla",
+      "crop_path": "line_images/10729/0002_line051.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 52,
+      "text": "Joh sust ur vof hynarten höter, oß die jener erlicher zu sätger, flabend sich",
+      "crop_path": "line_images/10729/0002_line052.png"
+    }
+  ]
+}

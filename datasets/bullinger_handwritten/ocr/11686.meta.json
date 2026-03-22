@@ -1,0 +1,13 @@
+{
+  "id": "11686",
+  "dataset": "bullinger_handwritten",
+  "segmenter": "none",
+  "recognizer": "pylaia",
+  "recognizer_model": "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-bullinger/epoch=170-lowest_va_cer.ckpt",
+  "num_pages": 2,
+  "num_lines": 72,
+  "timestamp_utc": "2026-03-22T11:40:27.653781+00:00",
+  "cache_root": "outputs/cache/bullinger_handwritten/lines",
+  "ocr_path": "datasets/bullinger_handwritten/ocr/11686.txt",
+  "transcription_path": "datasets/bullinger_handwritten/transcription/11686.txt"
+}

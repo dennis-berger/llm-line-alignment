@@ -1,0 +1,51 @@
+{
+  "id": "12868",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "vucer",
+      "crop_path": "line_images/12868/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "plr literarum ex augusta nestro, e quo missavumus",
+      "crop_path": "line_images/12868/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "in quibus leges, quomodo inter Caesarem et papam conveniat",
+      "crop_path": "line_images/12868/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "si utique his credendum est. Sed quiaiam tyrannidem exerenit",
+      "crop_path": "line_images/12868/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "et in religionem grassare incepit, metuendum ne compositis",
+      "crop_path": "line_images/12868/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "paulispor in Germania robus, non prostot ei fidem quam dedit",
+      "crop_path": "line_images/12868/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "I. Suander.",
+      "crop_path": "line_images/12868/0001_line006.png"
+    }
+  ]
+}

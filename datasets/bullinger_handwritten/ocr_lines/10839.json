@@ -1,0 +1,315 @@
+{
+  "id": "10839",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 51,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "nec nosus gaudeo factum mos consilio, ut occin",
+      "crop_path": "line_images/10839/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "iam et paratar ad scribendum, hac in parte cala",
+      "crop_path": "line_images/10839/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "adhibuerim et in nei etiam gratiam munus te ladere",
+      "crop_path": "line_images/10839/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "eistrium istud fregerit. Audio vero Paulum",
+      "crop_path": "line_images/10839/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "iimperatoris hostem factum totum se Gallo dedi",
+      "crop_path": "line_images/10839/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Quae si vera sunt, quam facile foret. Caroli",
+      "crop_path": "line_images/10839/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ad illos converti, toto impetum, qui ferre papam",
+      "crop_path": "line_images/10839/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "amplius nolunt et olfacio, iam nunc eam obrasi",
+      "crop_path": "line_images/10839/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "ne observani quibusdam christianis magratibus",
+      "crop_path": "line_images/10839/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "quoniam spes sit maioris dissidii, hoc inde pr",
+      "crop_path": "line_images/10839/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "pensior evangelio futurus sit impeator, quo",
+      "crop_path": "line_images/10839/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "magis dolusum contemptumque ab illo sentut",
+      "crop_path": "line_images/10839/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "dignitate antea tam religiose est tutatus. S",
+      "crop_path": "line_images/10839/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "vaarvusue honinpu consilia, quibus haud",
+      "crop_path": "line_images/10839/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "ad magis preor, quam ut per vesinu gratiam vel te val",
+      "crop_path": "line_images/10839/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "donumo artes antim Christi sint, ligdo cognita,",
+      "crop_path": "line_images/10839/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "et quadundturum de scripturis dephrni",
+      "crop_path": "line_images/10839/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "qud vtr saltem historia necentionem prevorte",
+      "crop_path": "line_images/10839/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "vascant erum vale et me tuum isse sante s",
+      "crop_path": "line_images/10839/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Galli 1 die aprilis anno .",
+      "crop_path": "line_images/10839/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Ioachimus Vadianus.",
+      "crop_path": "line_images/10839/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "viro d. Henrycho",
+      "crop_path": "line_images/10839/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "ro, sanctę eccesimę",
+      "crop_path": "line_images/10839/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "episcopo, domino suo",
+      "crop_path": "line_images/10839/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "colendo.",
+      "crop_path": "line_images/10839/0001_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "13.",
+      "crop_path": "line_images/10839/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "S. Quamborum eo Bullingere Lastsenem opum n",
+      "crop_path": "line_images/10839/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "v,si id meis apud te literis sum assecutus, ut epistolis apo",
+      "crop_path": "line_images/10839/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "ad Thessalor, Timothrus et Philemionem, enarrandus hoc",
+      "crop_path": "line_images/10839/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "plusoperae impenderis, quo ego te ardentius inhortatus",
+      "crop_path": "line_images/10839/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "fuerim, ne Romanum illud idolum levi manum trachares,",
+      "crop_path": "line_images/10839/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "sed suis coloribus orbi depingeres. Dipunaistim et a",
+      "crop_path": "line_images/10839/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "minatione illam universam, tanta fide, gratia libersu",
+      "crop_path": "line_images/10839/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "iuducioni frduea anno dubittem casum quem spiritus do",
+      "crop_path": "line_images/10839/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "mini viginti iam annis molitur, te primum ceu colophone",
+      "crop_path": "line_images/10839/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "adhibito et brevem et certo per omnem Germania sif",
+      "crop_path": "line_images/10839/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "affuturum esse, qui omnem illam simulatas pretatim",
+      "crop_path": "line_images/10839/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "Cameriara non momeat olum, sed etiam absorben",
+      "crop_path": "line_images/10839/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "quidem papa et a Luthero petitus, sed amarulontius",
+      "crop_path": "line_images/10839/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "qua ut vel etia ciuaminbum erudutorum ia in ne putanit o",
+      "crop_path": "line_images/10839/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "sedendum ac rescio an ex profisso inquam Zvgliums nossu",
+      "crop_path": "line_images/10839/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "meeu secapserit saties enim ei fuit dogimata subvendsime",
+      "crop_path": "line_images/10839/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "quae talem eum effecerant, et exarmarem honuerum ealis",
+      "crop_path": "line_images/10839/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "artibus elatu, si nullus et spoliatus adigo fortusse ediu",
+      "crop_path": "line_images/10839/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "sipicentiam poseet. Qua vuro srabsim adulationem diligentu",
+      "crop_path": "line_images/10839/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "factum est, ut facilem et atra contnoversia id optima t",
+      "crop_path": "line_images/10839/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "pientissimi quique sensuri sint, de nullo antichristo s",
+      "crop_path": "line_images/10839/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "lile perdomuo certuue posterus aplum admonuiss quam",
+      "crop_path": "line_images/10839/0002_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 23,
+      "text": "de lope Romano, quipe ad vertum quadiuntur istiu",
+      "crop_path": "line_images/10839/0002_line023.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 24,
+      "text": "quiquid at alaulo a homuni pecta praeductum prom",
+      "crop_path": "line_images/10839/0002_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 25,
+      "text": "ex animo gratulor studiosis tuam istam laculbration e",
+      "crop_path": "line_images/10839/0002_line025.png"
+    }
+  ]
+}

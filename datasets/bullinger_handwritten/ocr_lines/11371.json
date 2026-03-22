@@ -1,0 +1,99 @@
+{
+  "id": "11371",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 15,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "155.",
+      "crop_path": "line_images/11371/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Graaistum ę inquillam constianum i",
+      "crop_path": "line_images/11371/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Asynodo, ut cum molesta poslagra medes re facillaturus sitim cum frribus",
+      "crop_path": "line_images/11371/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Mathię Vitaduro humanissimu vir redii idem scripturam teadui",
+      "crop_path": "line_images/11371/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Mat mado comineptom prisimaimio medam  mum",
+      "crop_path": "line_images/11371/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "mihi ligem dominim pro pristima necpe aude simitrate iuui",
+      "crop_path": "line_images/11371/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "quum odero ne nu tatilliomi uanlue on hoe et fraetere dlicetus uterunt",
+      "crop_path": "line_images/11371/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "onamiacim focere alis ignerem facit. ocu isse",
+      "crop_path": "line_images/11371/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "Longaun dio, quam ir homin lones panere funit e docri phuice cin quom",
+      "crop_path": "line_images/11371/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "longa nes dicis s fdei  Christo mos cini et simpau parecriare quoo velim",
+      "crop_path": "line_images/11371/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "superemnidium hunc iu raxisse pplibuissem ipsa quoma met utonunquem",
+      "crop_path": "line_images/11371/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "supertinis nuverna, delatus etg apud te mneliacem habe elelatorem",
+      "crop_path": "line_images/11371/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "numaris  preceptor Exfickenbris. Marimi ic. 3.",
+      "crop_path": "line_images/11371/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "Huldrichus werdmulle",
+      "crop_path": "line_images/11371/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "ulus",
+      "crop_path": "line_images/11371/0001_line014.png"
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "id": "10333",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 3,
+  "num_lines": 54,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Heinricho Bullingero, christianio Hochhol",
+      "crop_path": "line_images/10333/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "domino et patri suo codendissimo.",
+      "crop_path": "line_images/10333/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "S. P. D.",
+      "crop_path": "line_images/10333/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Quanquam tanta est tuorum in me beneficiorumma",
+      "crop_path": "line_images/10333/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "pater observande. Ctu enim mihi solus",
+      "crop_path": "line_images/10333/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "patris loco, ut nullam partem tuorum erga me",
+      "crop_path": "line_images/10333/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "meritorum, non modo non referenda, sed nen cogi",
+      "crop_path": "line_images/10333/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "quidem gratia consequi possim, tamen quia",
+      "crop_path": "line_images/10333/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "te semper tautorem ac mecoenate omnium studio",
+      "crop_path": "line_images/10333/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "etpimprimis mei senti; maiora si ullo",
+      "crop_path": "line_images/10333/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "pacto fieri possum, a te (per literas, quo melius",
+      "crop_path": "line_images/10333/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "petere haud dum dedignatus, non quin mihi ipsi",
+      "crop_path": "line_images/10333/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "tantum apud te tribuerem authoritatis, sed quod",
+      "crop_path": "line_images/10333/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "te adeo benevolum sum expectus, ut nullis non bene",
+      "crop_path": "line_images/10333/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "facere concupiscas. Quod autem per literas tecum",
+      "crop_path": "line_images/10333/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "colloquor, duplex me ratio movit, primo quo",
+      "crop_path": "line_images/10333/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "meluus et consyderatius tecum loquerer, deinde",
+      "crop_path": "line_images/10333/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "ut stilum exercerem. Quandoquidem itaque iam",
+      "crop_path": "line_images/10333/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "ferme annus suum integrum perfecit cursum, ex",
+      "crop_path": "line_images/10333/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "quo ex meia tua gratia et benevolentia coepi inter",
+      "crop_path": "line_images/10333/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "domesticos tuos recenderi et quoniam ad exitum",
+      "crop_path": "line_images/10333/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "nunc vergit annus, optimum visum est, ut te precibus",
+      "crop_path": "line_images/10333/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "summis aggederet rogaremque, ut, si ullo possie",
+      "crop_path": "line_images/10333/0001_line022.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "fieri modo, denuo concedas ultra etiam inter tuos",
+      "crop_path": "line_images/10333/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "recenderi commentales. Video enim quaentae et",
+      "crop_path": "line_images/10333/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "fortunę et eruditionis multi futurę sint accessiones,",
+      "crop_path": "line_images/10333/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "si diutius tecum licuerit conversari. Quare tam",
+      "crop_path": "line_images/10333/0002_line003.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 4,
+      "text": "supplex ad te venio, quam qui maxime. Qum",
+      "crop_path": "line_images/10333/0002_line004.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 5,
+      "text": "haud me fugiat, me aliquibus in rebus forsan",
+      "crop_path": "line_images/10333/0002_line005.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 6,
+      "text": "contra te peccasse minusque tuę obedivisse volunta",
+      "crop_path": "line_images/10333/0002_line006.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 7,
+      "text": "id tamen si factum ex ignorantia contigit",
+      "crop_path": "line_images/10333/0002_line007.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 8,
+      "text": "Maxime enim, quantum fieri potuit in id intentus",
+      "crop_path": "line_images/10333/0002_line008.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 9,
+      "text": "fui omnem operam eo collocavi summisque vivibus",
+      "crop_path": "line_images/10333/0002_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 10,
+      "text": "id conatus tum, ut tuae obtemperarem volunta",
+      "crop_path": "line_images/10333/0002_line010.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 11,
+      "text": "tuique effugerem offensionem, quod etiam",
+      "crop_path": "line_images/10333/0002_line011.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 12,
+      "text": "potro me facturum, certo de me habeo polliceri.",
+      "crop_path": "line_images/10333/0002_line012.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 13,
+      "text": "Praecium vero (quod admodum parvum ex tua",
+      "crop_path": "line_images/10333/0002_line013.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 14,
+      "text": "beneficentia per hunc a me accepisti annum, pro quo",
+      "crop_path": "line_images/10333/0002_line014.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 15,
+      "text": "ingentes tibi et habeo gratias et habiturus sum",
+      "crop_path": "line_images/10333/0002_line015.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 16,
+      "text": "quod vixero. Redeve enim non potere) vel du",
+      "crop_path": "line_images/10333/0002_line016.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 17,
+      "text": "plo maius solvere non recusabo, modo detur inter",
+      "crop_path": "line_images/10333/0002_line017.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 18,
+      "text": "tuos recenderi. Si enim a te repudiatus fuero,",
+      "crop_path": "line_images/10333/0002_line018.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 19,
+      "text": "quo me vertam, quo me recipiam? quę domus",
+      "crop_path": "line_images/10333/0002_line019.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 20,
+      "text": "me suscipiet? Nulla certe cequę guata ac tuas",
+      "crop_path": "line_images/10333/0002_line020.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 21,
+      "text": "maiori tamen dat scio precio. Quare ad sumum",
+      "crop_path": "line_images/10333/0002_line021.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 22,
+      "text": "te oratui velim (non enim multis utar verbis",
+      "crop_path": "line_images/10333/0002_line022.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "hoc multi tribuas et concedas, si ullo modo",
+      "crop_path": "line_images/10333/0003_line000.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 1,
+      "text": "potis est fieri. Me certe habebis in omnibus",
+      "crop_path": "line_images/10333/0003_line001.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 2,
+      "text": "rebus mongerum; Iam enim totus tibi debeo,",
+      "crop_path": "line_images/10333/0003_line002.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 3,
+      "text": "meque tibi habes implicatum gratia et benevo",
+      "crop_path": "line_images/10333/0003_line003.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 4,
+      "text": "tua, ut nil non (si quid potero) tui cau",
+      "crop_path": "line_images/10333/0003_line004.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 5,
+      "text": "sim facturus. Vale pater observande,",
+      "crop_path": "line_images/10333/0003_line005.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 6,
+      "text": "Christianumque tuum, ita ut hactenus ames velim",
+      "crop_path": "line_images/10333/0003_line006.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 7,
+      "text": "tibique habeas commendatum.",
+      "crop_path": "line_images/10333/0003_line007.png"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "id": "401210002",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 39,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "una neini",
+      "crop_path": "line_images/401210002/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": ".",
+      "crop_path": "line_images/401210002/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Efuteri it ta a de han veto er don heu Chrsto i tu",
+      "crop_path": "line_images/401210002/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "fretuer vero nemerit orastom puel animo din iss dulism. ferius e",
+      "crop_path": "line_images/401210002/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "quodi egn die cu omnor, mare esum et fuam cemner non",
+      "crop_path": "line_images/401210002/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "quvus eu ve, un    en eo e",
+      "crop_path": "line_images/401210002/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "pibus",
+      "crop_path": "line_images/401210002/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "mee inries cris veter, euum erum seru nu eter iso e",
+      "crop_path": "line_images/401210002/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "me is frrse, de es sur me dentes e se em set sesus hae",
+      "crop_path": "line_images/401210002/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Qus ce inte e uim neri",
+      "crop_path": "line_images/401210002/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "noi craer. se es et si qu iius u pruus",
+      "crop_path": "line_images/401210002/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "e te u rers se co m pesu peeseradis deu vestro u u",
+      "crop_path": "line_images/401210002/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "peteue iro ide et  dere phise, us e , dos ir su",
+      "crop_path": "line_images/401210002/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "ie dewne uner sy dis Is in adend dices den ren",
+      "crop_path": "line_images/401210002/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "etis ornen mu uu in un mis di done u e",
+      "crop_path": "line_images/401210002/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "un  vemeren, eo etm pue frerus  e",
+      "crop_path": "line_images/401210002/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "ialiu.",
+      "crop_path": "line_images/401210002/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "nosi e vuea eo et. aes  in in e",
+      "crop_path": "line_images/401210002/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "sune eo ietu et e e non st  o",
+      "crop_path": "line_images/401210002/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "ue et e ure eres, vo e do e",
+      "crop_path": "line_images/401210002/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "fistis sis sendm, qui euu adm, quo ssi mepus, semem ste d",
+      "crop_path": "line_images/401210002/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "s in corerper seine mu ses ex ss dienter seebes",
+      "crop_path": "line_images/401210002/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "te dem s uensem e de, e",
+      "crop_path": "line_images/401210002/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "i e  etur euum e d. ee hi exerme, me e P",
+      "crop_path": "line_images/401210002/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "et ex e qu senee ee  eem et curum e",
+      "crop_path": "line_images/401210002/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "SSu o ceisese  m m u ao e.",
+      "crop_path": "line_images/401210002/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "vie i qut qoio verum. Ne eti nec it cum ere",
+      "crop_path": "line_images/401210002/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "uu    un eu",
+      "crop_path": "line_images/401210002/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "odo eceri euu  eo quooe u qun ho e u",
+      "crop_path": "line_images/401210002/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "eces ac prates deminas. Qun eerum eum et cetur un",
+      "crop_path": "line_images/401210002/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "n pe s es, quod en m, d iem reger u  vo",
+      "crop_path": "line_images/401210002/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "Soetem o e misum vestrum tuis preferibum ex rsta, etur es ade",
+      "crop_path": "line_images/401210002/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "sueere  duosis aste tiu et sumsero ha aum cm",
+      "crop_path": "line_images/401210002/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "domini 1545.",
+      "crop_path": "line_images/401210002/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "Mernstucum Christi orco sustes noni et tam",
+      "crop_path": "line_images/401210002/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "veertint nes.  hus verisur tu",
+      "crop_path": "line_images/401210002/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "intermoriturus.",
+      "crop_path": "line_images/401210002/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "s penus vet.",
+      "crop_path": "line_images/401210002/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "ex animo tuus totus.",
+      "crop_path": "line_images/401210002/0001_line038.png"
+    }
+  ]
+}

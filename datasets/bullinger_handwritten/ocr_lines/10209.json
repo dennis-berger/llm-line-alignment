@@ -1,0 +1,87 @@
+{
+  "id": "10209",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 13,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Gratiam et pacem. modis omnibus de opirami, ut animi tuorum",
+      "crop_path": "line_images/10209/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "commitigentur. Sunt enim nimium veterim carritabilis. Dissi",
+      "crop_path": "line_images/10209/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "mlando gravissima incendia restinguuntur, etsi ullo",
+      "crop_path": "line_images/10209/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "modo fieri potest effice, ut magistratus publico",
+      "crop_path": "line_images/10209/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "nomire aut per literas aut quod malleu per cordatum",
+      "crop_path": "line_images/10209/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "aliquem civem suppetias nostrorum petiret, qui silier abn",
+      "crop_path": "line_images/10209/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "darthinc ad Hessum. Frrvissima praesidia hac",
+      "crop_path": "line_images/10209/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "comparare possetis. Vale et fratris omnos salita",
+      "crop_path": "line_images/10209/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "pluribus",
+      "crop_path": "line_images/10209/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Tu quem nosti",
+      "crop_path": "line_images/10209/0001_line009.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Henrico Bullingero,",
+      "crop_path": "line_images/10209/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Charissimo fratri",
+      "crop_path": "line_images/10209/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "domino",
+      "crop_path": "line_images/10209/0002_line002.png"
+    }
+  ]
+}

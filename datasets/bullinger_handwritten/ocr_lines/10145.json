@@ -1,0 +1,183 @@
+{
+  "id": "10145",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 2,
+  "num_lines": 29,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Gratiam et pace a domino. Longus a me exige harras, longiores praestasse",
+      "crop_path": "line_images/10145/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "ubi perocium licuisset, hoc saltem nuncio, qui a senatu amandatus et aiistimu iti",
+      "crop_path": "line_images/10145/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "arripuit, hunc remorari non libat. Toto vero mane et cotioni et consistorio nom respodiissem",
+      "crop_path": "line_images/10145/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "non potui praestari, quod animus meu summe desiderabat. Omnia placit, cuua Buero responisti",
+      "crop_path": "line_images/10145/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Belit et magistranum de Turcicam expeditior, tucandem sententiam nobiscum egit. Migundum procontiorem",
+      "crop_path": "line_images/10145/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Super omnia dero placeunt, quae inhebreos congedi ge et age, ut habeam quatidie q",
+      "crop_path": "line_images/10145/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ti hactenus nunquam ausus fui per suggestu illam pribus proponem epistolam. Nunc autem cum omnia alum",
+      "crop_path": "line_images/10145/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "claram reddas tanteque cogitandi ansam ministres tentabo sequenti septimana. Cęterum quam policu",
+      "crop_path": "line_images/10145/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "es, nempe te mihi futurum hospitem benię. hoc praestare matura, ut vicissimum Ilolicinem",
+      "crop_path": "line_images/10145/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "qu anabapisti Zofingę per 9 dies egius, iam imodinem redigertur, ut itfrmatu",
+      "crop_path": "line_images/10145/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Scribo nunem denuo Cristchero. Qua egius destatu disputationis, fide daar",
+      "crop_path": "line_images/10145/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "itabaptistatm mussionem si3 de ecclesia d. 4 de epxicopicatione et illius executione nus",
+      "crop_path": "line_images/10145/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "elesitatauur releguos nomine ecces, Tquitum perpetuo stundem huic ver. sit tibi ethisu",
+      "crop_path": "line_images/10145/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "anin aliam veltari possit melum etc. S. De magistratum 6 de sue iurando.",
+      "crop_path": "line_images/10145/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": ". Decensibus, S. de missione et victu noster 9 de polobapismo. Magnda si",
+      "crop_path": "line_images/10145/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "decemonus lactores trangedię fuere. Acatabaptisti Lunggius homn doc persipell e",
+      "crop_path": "line_images/10145/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "s et virus hiponrita ad imponemus aptissimus. Alter Ioanes Hot uss gruning an",
+      "crop_path": "line_images/10145/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "hollinge von Zollickum in summa, illi 28. In actio omnia video, quae dumcpfit",
+      "crop_path": "line_images/10145/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "inrmenda suscipit tua committo limę et Leonis. Ne potui renitiem, quae visisti",
+      "crop_path": "line_images/10145/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Transcribam per amanensem. Vale et perpotuo mitte in hebreos. Pellicano scripsissti",
+      "crop_path": "line_images/10145/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Sed expictant mu. Id mein nitt, das mit zitt mög widen zischrb",
+      "crop_path": "line_images/10145/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Vale 2. iuli",
+      "crop_path": "line_images/10145/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "Tus Willig.",
+      "crop_path": "line_images/10145/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Salvum sint omnes",
+      "crop_path": "line_images/10145/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": ".",
+      "crop_path": "line_images/10145/0001_line024.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "Heinrico Bullingero,",
+      "crop_path": "line_images/10145/0002_line000.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 1,
+      "text": "Tiguri, fratri suo",
+      "crop_path": "line_images/10145/0002_line001.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 2,
+      "text": "omnium longedi",
+      "crop_path": "line_images/10145/0002_line002.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 3,
+      "text": "issimo.",
+      "crop_path": "line_images/10145/0002_line003.png"
+    }
+  ]
+}

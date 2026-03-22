@@ -1,0 +1,159 @@
+{
+  "id": "12301",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 25,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "mali spetione integram servare; illam vero i quis in",
+      "crop_path": "line_images/12301/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "eo vere iudicet, talem esse, quae Christi amplituri ne i ma",
+      "crop_path": "line_images/12301/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "me celebret et eiis magnam salutis lucem afferat, ua",
+      "crop_path": "line_images/12301/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "metsi in praese utia meum iudicium inter poneri.",
+      "crop_path": "line_images/12301/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "non debeo; his literis tamen praestare studeo, ut inellua",
+      "crop_path": "line_images/12301/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "e me animo esse, qui multum ut par in cupium con",
+      "crop_path": "line_images/12301/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "coraam inter ves ex Swrenchidatem sanciri, et eam",
+      "crop_path": "line_images/12301/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "iaam ceepit aliscere et carut medio criter excellere ocier,",
+      "crop_path": "line_images/12301/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "discordiam perninalem pariat, quae evamgelii hic",
+      "crop_path": "line_images/12301/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "gaudium, ecclesiae tristiciam ac luctum perpiriat.",
+      "crop_path": "line_images/12301/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Hro, ut audio, iam paruti sunt libri et ab ipso supe",
+      "crop_path": "line_images/12301/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "ab iis, qui illius doctrinam sequantur, qui eror",
+      "crop_path": "line_images/12301/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "quoque tempore prodituri, u in lucem. Qui sane si cu",
+      "crop_path": "line_images/12301/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "possint, quacunque ratione nin priusquam quid de huiusmodidi",
+      "crop_path": "line_images/12301/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "meas stamuatur, inter vos conveniat, divulgenter non u",
+      "crop_path": "line_images/12301/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "id ex dignitate Christi et et usu ecclesiarum corea",
+      "crop_path": "line_images/12301/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "itror. Navi, ut cuma est, doctrina Surenchili",
+      "crop_path": "line_images/12301/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "qu pervasatur, quo eto oimone et alia mulas in ruque",
+      "crop_path": "line_images/12301/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "prolatuor esse, quod iesa erimo aspectu er se ferat. cuo",
+      "crop_path": "line_images/12301/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "selaborandum enim, ut eius libri positis animi quęsit",
+      "crop_path": "line_images/12301/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "iatonibus magna nira legantur, et istius hominis",
+      "crop_path": "line_images/12301/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "fedes ac spes in domino temere non continatur, quo",
+      "crop_path": "line_images/12301/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "m altirum ad iudicium, alterum ad amorem ecu",
+      "crop_path": "line_images/12301/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Itque utroque sane huiusmodi ex, quod homineslique",
+      "crop_path": "line_images/12301/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "spirtu prediti minime debeant negligere, quinimu",
+      "crop_path": "line_images/12301/0001_line024.png"
+    }
+  ]
+}

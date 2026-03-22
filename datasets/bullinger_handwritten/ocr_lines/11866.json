@@ -1,0 +1,117 @@
+{
+  "id": "11866",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 18,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "139.",
+      "crop_path": "line_images/11866/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "O Niili Midensep buligure, e litiqus adene us d iusri de r sumrtnis",
+      "crop_path": "line_images/11866/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "quod duve verum est vehementer doleo vulgius pristimum denio invovam",
+      "crop_path": "line_images/11866/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "dxine nos me est, qui corporalem et grassam illam praesentiam corporis",
+      "crop_path": "line_images/11866/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "in coena amplexetur. pacatam est nostra ecclesia atque de spirituali copans",
+      "crop_path": "line_images/11866/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "prasentia optime grata contentionis omnis nescia; sed ubi recuxerit inveteratus",
+      "crop_path": "line_images/11866/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Ille conflictus vereor vos denuo turbaturos ecclesias Svevicasi, obsecro",
+      "crop_path": "line_images/11866/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "igitur rer communem seratorem nostrum, ut prudenter agas cogitando quam forendum",
+      "crop_path": "line_images/11866/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "sit tum conspectu tenni animas Christo eincratas iritare et inquietare. Q",
+      "crop_path": "line_images/11866/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "fratres in ditione Caterum meditati liberim pro poliigania quod ubi verum",
+      "crop_path": "line_images/11866/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "est, qquę putas malorum sacum planstra Latinum hunc tam vobis omnia videtur",
+      "crop_path": "line_images/11866/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "tanquilla, ut semel liceat scinosę quoque canus rominem habere? S ratres",
+      "crop_path": "line_images/11866/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "cogitate obsecre quam plena sint omnia turbis dolis, frande. Nunctius abetum festinats",
+      "crop_path": "line_images/11866/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "vix ruet tantum scribere, sed proximo nunctio plura. Vale iu dominu",
+      "crop_path": "line_images/11866/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "Comentorio in Iiateram lege, quę profecto sumopere michi plecet sperant eium",
+      "crop_path": "line_images/11866/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "sigulare donum a domino tibi collatum. Dominus diu te sue ecclesię servet incolumen.",
+      "crop_path": "line_images/11866/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "Datum Mimunge 24. novembris anno 1543 praesente nunctio rescribe",
+      "crop_path": "line_images/11866/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "Grasii Tuus suler.",
+      "crop_path": "line_images/11866/0001_line017.png"
+    }
+  ]
+}

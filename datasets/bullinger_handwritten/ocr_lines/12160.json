@@ -1,0 +1,351 @@
+{
+  "id": "12160",
+  "dataset": "bullinger_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 57,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "pusiarum io",
+      "crop_path": "line_images/12160/0001_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Simo dim monach",
+      "crop_path": "line_images/12160/0001_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "pquam mep dicar.",
+      "crop_path": "line_images/12160/0001_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "nosumio sumo .",
+      "crop_path": "line_images/12160/0001_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "apud vos dixit so",
+      "crop_path": "line_images/12160/0001_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "resiurum in eo opa",
+      "crop_path": "line_images/12160/0001_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Zunserus Psilip B",
+      "crop_path": "line_images/12160/0001_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "le ętios vodi.",
+      "crop_path": "line_images/12160/0001_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "crverissimo sripturu.",
+      "crop_path": "line_images/12160/0001_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "146.",
+      "crop_path": "line_images/12160/0001_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Salutem in Christo Iesu domino et servatore nostro",
+      "crop_path": "line_images/12160/0001_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "Repper, nupir in taberna cudam apud nos bibliepoe",
+      "crop_path": "line_images/12160/0001_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "libellumo clle, quo ad tuum adversus ipsum de authoritate",
+      "crop_path": "line_images/12160/0001_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "scripturę respondit, verum nondum legi, sed resonuuma hact",
+      "crop_path": "line_images/12160/0001_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "docir tuam ad utu responsionem accipiu, vir opta",
+      "crop_path": "line_images/12160/0001_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "et eruditissime. Multi ex me pei quotdu siscitantr.",
+      "crop_path": "line_images/12160/0001_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "tua in conlucti commentaria prodderint, aut si nondu",
+      "crop_path": "line_images/12160/0001_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "oui prodaunt, an non aliquando prcodibunt. Quibus",
+      "crop_path": "line_images/12160/0001_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "tesponderi soleo et me quoque ea aude expectate",
+      "crop_path": "line_images/12160/0001_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": ".sed vereor noster labor nimi onerint atque gravit",
+      "crop_path": "line_images/12160/0001_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "te plus iquo. et non dubito, quin his munonuti quadra",
+      "crop_path": "line_images/12160/0001_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "prsimatabus aliquid tuarum lucubrationum expectatur. si",
+      "crop_path": "line_images/12160/0001_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "Ingie labeti est atque oput in eos scribere authorum.",
+      "crop_path": "line_images/12160/0001_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "ubsque commentariis explavari, qui idem fia argumentum",
+      "crop_path": "line_images/12160/0001_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "tractarum. Qui modi enunt iuituor uensi",
+      "crop_path": "line_images/12160/0001_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "prus. Sviu meneent usum Coloniensis",
+      "crop_path": "line_images/12160/0001_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "mondu causam suam planem destituit autem deserit, nu n",
+      "crop_path": "line_images/12160/0001_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "pantissime perseverat, et ut ex magne virio mani",
+      "crop_path": "line_images/12160/0001_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "illum iam constanter sio ingicere peoposito, ut mori un",
+      "crop_path": "line_images/12160/0001_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "ut sciveri causam cadere. Bene optumus maxm illi a",
+      "crop_path": "line_images/12160/0001_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "confortet atque confirmet. De Cęsare vehementer",
+      "crop_path": "line_images/12160/0001_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "demiror, quod tam severiam Lutheranos quos vocant,",
+      "crop_path": "line_images/12160/0001_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "in hernum itioque, ut in complure ex illis qui perseration",
+      "crop_path": "line_images/12160/0001_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "i expermem, patriam relinquunt cum uxortu et liberio.",
+      "crop_path": "line_images/12160/0001_line033.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 34,
+      "text": "Idem deus ac dominus itius audimum in meliu mitet onia",
+      "crop_path": "line_images/12160/0001_line034.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 35,
+      "text": "ist. demror muum nua cu Cimo faciat",
+      "crop_path": "line_images/12160/0001_line035.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 36,
+      "text": "pręsertim cum concilia iamta et, id quod ipse ut",
+      "crop_path": "line_images/12160/0001_line036.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 37,
+      "text": "ferununt veriturus est, ubi sporatur forem, ut res ista",
+      "crop_path": "line_images/12160/0001_line037.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 38,
+      "text": "quę sactinus inter magnos et doctissimos vitocn",
+      "crop_path": "line_images/12160/0001_line038.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 39,
+      "text": "brneisa est, componarunt et ad unionem edigatur.",
+      "crop_path": "line_images/12160/0001_line039.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 40,
+      "text": "Christistie pro sua floria principius et vine illio quam ad",
+      "crop_path": "line_images/12160/0001_line040.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 41,
+      "text": "illam tractanda delegentur, panam et piam iuntem",
+      "crop_path": "line_images/12160/0001_line041.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 42,
+      "text": "uti iudicio non ex affectu 2e craminentur et dicidatur",
+      "crop_path": "line_images/12160/0001_line042.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 43,
+      "text": "Salenu Iesce diebus, quod iit in lucem liberllus laconu cont",
+      "crop_path": "line_images/12160/0001_line043.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 44,
+      "text": "Bucra, iuru multo pist prodibit quoque liberi priorae car",
+      "crop_path": "line_images/12160/0001_line044.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 45,
+      "text": "erelitatim irtur omne nostu paphui quę unganta, ut",
+      "crop_path": "line_images/12160/0001_line045.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 46,
+      "text": "ex ipso ex cusore audiri. A sic ulem tuteo librs contra",
+      "crop_path": "line_images/12160/0001_line046.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 47,
+      "text": "Buxit i errs et atenum a deulorus in mi istousultum",
+      "crop_path": "line_images/12160/0001_line047.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 48,
+      "text": "Nu reum timee arium nos quidam non indectus se ige",
+      "crop_path": "line_images/12160/0001_line048.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 49,
+      "text": "nper aliquot ute uonie, semu lagind",
+      "crop_path": "line_images/12160/0001_line049.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 50,
+      "text": "potuisse a visu abstinere. Quid hoc tibi e it ofrum",
+      "crop_path": "line_images/12160/0001_line050.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 51,
+      "text": "c possumus uni cum Honio eieere pospuant potus er",
+      "crop_path": "line_images/12160/0001_line051.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 52,
+      "text": "Quid quu tanto furit hic promissor hobatu. Q",
+      "crop_path": "line_images/12160/0001_line052.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 53,
+      "text": "idem protinu subuigit, partium moles nons ecurridicut",
+      "crop_path": "line_images/12160/0001_line053.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 54,
+      "text": "Salutas meis verbis Gvalterum meum cum culnaperum",
+      "crop_path": "line_images/12160/0001_line054.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 55,
+      "text": "cuusdam authes contra Mahomenticam ceetam. Bene vilo",
+      "crop_path": "line_images/12160/0001_line055.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 56,
+      "text": "Pl eam sca p litare. Iooves Cęsaris totus tuus",
+      "crop_path": "line_images/12160/0001_line056.png"
+    }
+  ]
+}
