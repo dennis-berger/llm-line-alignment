@@ -35,9 +35,11 @@ ENV/
 .vscode/
 .idea/
 
-# Dataset images and PDFs
+# Dataset images and bulky generated artifacts
 datasets/*/images/
 datasets/*/pdf/
+datasets/*/line_images/
+datasets/*/previews/
 datasets/IAM_original/forms/
 datasets/children_handwritten/raw_data/
 

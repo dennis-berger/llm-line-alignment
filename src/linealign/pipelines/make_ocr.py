@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
@@ -11,7 +12,7 @@ from typing import Dict, List, Optional
 from utils.common import write_text
 
 from linealign.data.datasets import DatasetSpec
-from linealign.segmentation.segmenter import LineCrop, Segmenter
+from linealign.segmentation.segmenter import LineCrop, PassthroughSegmenter, Segmenter
 from linealign.recognition.recognizer import Recognizer
 
 logger = logging.getLogger(__name__)
@@ -23,6 +24,56 @@ def _page_cache_dir(cache_root: Path, sample_id: str, image_path: Path) -> Path:
 
 def _assemble_page_text(recognized_lines: List[str]) -> str:
     return "\n".join(line.strip() for line in recognized_lines if line is not None).strip()
+
+
+def _discover_existing_line_images(line_root: Path) -> list[Path]:
+    exts = ("*.png", "*.jpg", "*.jpeg", "*.tif", "*.tiff")
+    files: list[Path] = []
+    for ext in exts:
+        files.extend(sorted(path for path in line_root.glob(ext) if not path.name.startswith(".")))
+    return files
+
+
+def _infer_page_stem_from_crop_path(crop_path: Path) -> str:
+    stem = crop_path.stem
+    match = re.match(r"(.+?)(?:[_-]line\d+)$", stem)
+    if match:
+        return match.group(1)
+    return stem
+
+
+def _existing_sample_pages(segmenter: Segmenter, sample_id: str) -> list[tuple[str, list[LineCrop]]]:
+    if not isinstance(segmenter, PassthroughSegmenter) or segmenter.existing_lines_root is None:
+        return []
+
+    sample_dir = segmenter.existing_lines_root / sample_id
+    if not sample_dir.exists():
+        return []
+
+    nested_pages: list[tuple[str, list[LineCrop]]] = []
+    for page_dir in sorted(path for path in sample_dir.iterdir() if path.is_dir()):
+        files = _discover_existing_line_images(page_dir)
+        if files:
+            nested_pages.append(
+                (page_dir.name, [LineCrop(path=path, line_index=index) for index, path in enumerate(files)])
+            )
+    if nested_pages:
+        return nested_pages
+
+    flat_files = _discover_existing_line_images(sample_dir)
+    if not flat_files:
+        return []
+
+    page_groups: dict[str, list[Path]] = {}
+    for path in flat_files:
+        page_groups.setdefault(_infer_page_stem_from_crop_path(path), []).append(path)
+
+    pages: list[tuple[str, list[LineCrop]]] = []
+    for page_stem in sorted(page_groups):
+        pages.append(
+            (page_stem, [LineCrop(path=path, line_index=index) for index, path in enumerate(page_groups[page_stem])])
+        )
+    return pages
 
 
 def _ensure_dataset_relative_crop_path(
@@ -57,10 +108,19 @@ def generate_ocr_for_id(
     write_meta: bool = True,
 ) -> Dict[str, object]:
     images = dataset.image_paths(sample_id)
-    if not images:
+    page_inputs: list[tuple[str, Path | None, list[LineCrop] | None]] = []
+    if images:
+        if max_pages:
+            images = images[:max_pages]
+        page_inputs = [(image_path.stem, image_path, None) for image_path in images]
+    else:
+        existing_pages = _existing_sample_pages(segmenter, sample_id)
+        if max_pages:
+            existing_pages = existing_pages[:max_pages]
+        page_inputs = [(page_stem, None, crops) for page_stem, crops in existing_pages]
+
+    if not page_inputs:
         raise FileNotFoundError(f"No images found for {sample_id} under {dataset.images_root}")
-    if max_pages:
-        images = images[:max_pages]
 
     ocr_path = dataset.ocr_output_path(sample_id)
     ocr_lines_path = dataset.ocr_lines_output_path(sample_id)
@@ -76,11 +136,11 @@ def generate_ocr_for_id(
         }
 
     if dry_run:
-        logger.info("[dry-run] would process %s with %d page(s)", sample_id, len(images))
+        logger.info("[dry-run] would process %s with %d page(s)", sample_id, len(page_inputs))
         return {
             "id": sample_id,
             "dry_run": True,
-            "num_pages": len(images),
+            "num_pages": len(page_inputs),
             "ocr_lines_path": ocr_lines_path,
         }
 
@@ -88,17 +148,20 @@ def generate_ocr_for_id(
     total_lines = 0
     line_records: list[dict[str, object]] = []
 
-    for page_idx, image_path in enumerate(images):
-        cache_dir = _page_cache_dir(cache_root, sample_id, image_path)
-        crops: List[LineCrop] = segmenter.segment_page(Path(image_path), cache_dir)
+    for page_idx, (page_stem, image_path, existing_crops) in enumerate(page_inputs):
+        if image_path is not None:
+            cache_dir = _page_cache_dir(cache_root, sample_id, image_path)
+            crops: List[LineCrop] = segmenter.segment_page(Path(image_path), cache_dir)
+        else:
+            crops = list(existing_crops or [])
         if not crops:
-            logger.warning("No lines found on page %s for %s", image_path, sample_id)
+            logger.warning("No lines found on page %s for %s", page_stem, sample_id)
             continue
         line_paths = [c.path for c in crops]
         rec_lines = recognizer.recognize_lines(line_paths)
         if len(rec_lines) != len(crops):
             raise ValueError(
-                f"Recognizer returned {len(rec_lines)} line(s) for {len(crops)} crop(s) on page {image_path}"
+                f"Recognizer returned {len(rec_lines)} line(s) for {len(crops)} crop(s) on page {page_stem}"
             )
         total_lines += len(rec_lines)
         page_texts.append(_assemble_page_text(rec_lines))
@@ -112,7 +175,7 @@ def generate_ocr_for_id(
                         dataset,
                         sample_id,
                         crop.path,
-                        image_path.stem,
+                        page_stem,
                         overwrite=overwrite,
                     ),
                 }
@@ -128,7 +191,7 @@ def generate_ocr_for_id(
                 "id": sample_id,
                 "dataset": dataset.name,
                 "recognizer": getattr(recognizer, "name", recognizer.__class__.__name__),
-                "num_pages": len(images),
+                "num_pages": len(page_inputs),
                 "num_lines": total_lines,
                 "lines": line_records,
             },
@@ -144,7 +207,7 @@ def generate_ocr_for_id(
         "segmenter": getattr(segmenter, "name", segmenter.__class__.__name__),
         "recognizer": getattr(recognizer, "name", recognizer.__class__.__name__),
         "recognizer_model": getattr(recognizer, "model_id", None),
-        "num_pages": len(images),
+        "num_pages": len(page_inputs),
         "num_lines": total_lines,
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "cache_root": str(cache_root),
@@ -160,6 +223,6 @@ def generate_ocr_for_id(
         "output_path": ocr_path,
         "ocr_lines_path": ocr_lines_path,
         "meta_path": meta_path,
-        "num_pages": len(images),
+        "num_pages": len(page_inputs),
         "num_lines": total_lines,
     }
