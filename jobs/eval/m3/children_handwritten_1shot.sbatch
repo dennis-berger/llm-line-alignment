@@ -8,71 +8,15 @@
 #SBATCH --exclude=diufrd205
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=64G
-
 set -uo pipefail
-set -x
 
-echo "=== Node ==="
-hostname
-nvidia-smi || true
-echo "============"
+REPO_ROOT="${REPO_ROOT:-${SLURM_SUBMIT_DIR:-$PWD}}"
 
-# Make conda available
-[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
-if ! command -v conda >/dev/null 2>&1; then
-  echo "ERROR: 'conda' not found. Load your conda module or install Miniconda."
-  exit 1
-fi
-eval "$(conda shell.bash hook)"
-conda activate bullinger-mwe
+export REPO_ROOT
+export RESUBMIT_SCRIPT="${RESUBMIT_SCRIPT:-$REPO_ROOT/jobs/eval/m3/children_handwritten_1shot.sbatch}"
+export DATA_DIR="${DATA_DIR:-datasets/children_handwritten}"
+export DATASET_TAG="${DATASET_TAG:-children_handwritten}"
+export N_SHOTS="${N_SHOTS:-1}"
+export SHOTS_SEED="${SHOTS_SEED:-42}"
 
-# Ensure OpenAI package is available (for API models)
-pip install -q openai>=1.0.0 google-genai>=0.3.0 mistralai>=1.0.0
-
-# HF cache in project dir
-export HF_HOME="$PWD/.hf"
-export TRANSFORMERS_CACHE="$HF_HOME/transformers"
-mkdir -p "$TRANSFORMERS_CACHE"
-
-# Reduce CUDA fragmentation
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-
-# Use orchestrator-provided model or default
-# MODEL_LOCAL and MODEL_NAME can be set by orchestrator via --export
-MODEL="${MODEL_LOCAL:-./.hf/Qwen3-VL-8B-Instruct}"
-[ -d "$MODEL" ] || MODEL="${MODEL_NAME:-Qwen/Qwen3-VL-8B-Instruct}"
-MODEL_SUFFIX="${MODEL_SUFFIX:-qwen3-vl-8b-instruct}"
-
-which python
-python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
-
-MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-800}"
-python run_eval_m3.py \
-  --data-dir datasets/children_handwritten \
-  --model "$MODEL" \
-  --device cuda \
-  --n-shots 1 \
-  --shots-seed 42 \
-  --out-dir children_handwritten_predictions_m3_1shot_${MODEL_SUFFIX} \
-  --eval-csv children_handwritten_eval_m3_1shot_${MODEL_SUFFIX}.csv \
-  --max-new-tokens "$MAX_NEW_TOKENS"
-
-PYTHON_EXIT=$?
-
-# Handle daily quota exhaustion (exit code 75) - auto-resubmit for tomorrow
-if [ "$PYTHON_EXIT" -eq 75 ]; then
-  echo "Daily quota exhausted. Attempting to resubmit job for tomorrow..."
-  SCRIPT_PATH="${BASH_SOURCE[0]}"
-  if sbatch --begin=now+24hours "$SCRIPT_PATH"; then
-    echo "Job resubmitted successfully. Will resume tomorrow."
-  else
-    echo "Auto-resubmit failed. To resume manually, run:"
-    echo "  sbatch $SCRIPT_PATH"
-  fi
-  exit 75
-elif [ "$PYTHON_EXIT" -ne 0 ]; then
-  echo "Python script failed with exit code $PYTHON_EXIT"
-  exit $PYTHON_EXIT
-fi
-
-echo "Done."
+exec bash "$REPO_ROOT/jobs/eval/m3/common_m3_eval.sbatch"

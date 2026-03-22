@@ -1,85 +1,16 @@
 #!/bin/bash
 
 set -euo pipefail
-set -x
-
-echo "=== Node ==="
-hostname
-nvidia-smi || true
-echo "============"
-
-[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
-if ! command -v conda >/dev/null 2>&1; then
-  echo "ERROR: 'conda' not found. Load your conda module or install Miniconda."
-  exit 1
-fi
-eval "$(conda shell.bash hook)"
-
-REPO_ROOT="${REPO_ROOT:-${SLURM_SUBMIT_DIR:-$PWD}}"
-cd "$REPO_ROOT"
-if [ ! -f "run_eval_m4.py" ]; then
-  echo "ERROR: could not find run_eval_m4.py in REPO_ROOT='$REPO_ROOT'"
-  echo "Submit the job from the repository root or pass REPO_ROOT=/absolute/path/to/llm-line-alignment"
-  exit 1
-fi
-mkdir -p logs
-
-CONDA_BASE="$(conda info --base)"
-CONDA_EXE="$CONDA_BASE/bin/conda"
-CONDA_INSTALL_BIN="conda"
-if command -v mamba >/dev/null 2>&1; then
-  CONDA_INSTALL_BIN="mamba"
-fi
-
-CONDA_ENV_NAME="${CONDA_ENV_NAME:-bullinger-mwe}"
-ENV_CREATED=0
-if ! conda env list | sed 's/\*//g' | awk 'NF && $1 !~ /^#/ {print $1}' | grep -Fxq "$CONDA_ENV_NAME"; then
-  echo "Creating conda environment '$CONDA_ENV_NAME'..."
-  "$CONDA_INSTALL_BIN" create -y -n "$CONDA_ENV_NAME" python=3.11 pip
-  ENV_CREATED=1
-fi
-conda activate "$CONDA_ENV_NAME"
-
-if [ "$ENV_CREATED" = "1" ]; then
-  echo "Installing repo Python requirements into '$CONDA_ENV_NAME'..."
-  python -m pip install -q -r requirements.txt
-elif ! python - <<'PY'
-import importlib
-
-REQUIRED_MODULES = [
-    "PIL",
-    "torch",
-    "torchvision",
-    "transformers",
-    "openai",
-    "mistralai",
-]
-
-for module_name in REQUIRED_MODULES:
-    importlib.import_module(module_name)
-
-from google import genai  # noqa: F401
-PY
-then
-  echo "Installing repo Python requirements into '$CONDA_ENV_NAME' because one or more packages are missing..."
-  python -m pip install -q -r requirements.txt
-fi
-
-python -m pip install -q "openai>=1.0.0" "google-genai>=0.3.0" "mistralai>=1.0.0"
-
-export HF_HOME="$PWD/.hf"
-export TRANSFORMERS_CACHE="$HF_HOME/transformers"
-mkdir -p "$TRANSFORMERS_CACHE"
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-
-which python
-python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../common_eval_env.sh"
+common_eval_bootstrap "run_eval_m4.py"
 
 DATASET_KEY="${DATASET_KEY:?Must set DATASET_KEY to a supported dataset name.}"
 DATA_DIR="${DATA_DIR:?Must set DATA_DIR to a dataset directory.}"
 DATASET_TAG="${DATASET_TAG:-$(basename "$DATA_DIR")}"
 SEGMENTER="${SEGMENTER:-kraken}"
 EXISTING_LINES_DIR="${EXISTING_LINES_DIR:-}"
+TRANSCRIPTION_DIR="${TRANSCRIPTION_DIR:-}"
 OCR_LINES_DIR="${OCR_LINES_DIR:-$DATA_DIR/ocr_lines}"
 OCR_CACHE_DIR="${OCR_CACHE_DIR:-outputs/cache/$DATASET_TAG/lines}"
 OCR_BATCH_SIZE="${OCR_BATCH_SIZE:-8}"
@@ -88,15 +19,9 @@ FORCE_OCR="${FORCE_OCR:-0}"
 SKIP_EVAL="${SKIP_EVAL:-0}"
 CHECKPOINT_DIR="${CHECKPOINT_DIR:-checkpoints}"
 IDS="${IDS:-}"
-
-# Use orchestrator-provided model or default
-# MODEL_LOCAL and MODEL_NAME can be set by orchestrator via --export
-MODEL="${MODEL_LOCAL:-./.hf/Qwen3-VL-8B-Instruct}"
-[ -d "$MODEL" ] || MODEL="${MODEL_NAME:-Qwen/Qwen3-VL-8B-Instruct}"
-MODEL_SUFFIX="${MODEL_SUFFIX:-qwen3-vl-8b-instruct}"
 N_SHOTS="${N_SHOTS:-0}"
 SHOTS_SEED="${SHOTS_SEED:-42}"
-MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-800}"
+
 SHOT_SUFFIX="${N_SHOTS}shot"
 OUT_DIR="${OUT_DIR:-${DATASET_TAG}_predictions_m4_${SHOT_SUFFIX}_${MODEL_SUFFIX}}"
 EVAL_CSV="${EVAL_CSV:-${DATASET_TAG}_eval_m4_${SHOT_SUFFIX}_${MODEL_SUFFIX}.csv}"
@@ -240,7 +165,7 @@ RUN_ARGS=(
   python run_eval_m4.py
   --data-dir "$DATA_DIR"
   --model "$MODEL"
-  --device cuda
+  --device "$DEVICE"
   --n-shots "$N_SHOTS"
   --out-dir "$OUT_DIR"
   --eval-csv "$EVAL_CSV"
@@ -248,6 +173,9 @@ RUN_ARGS=(
   --checkpoint-dir "$CHECKPOINT_DIR"
   --max-new-tokens "$MAX_NEW_TOKENS"
 )
+if [ -n "$TRANSCRIPTION_DIR" ]; then
+  RUN_ARGS+=(--transcription-dir "$TRANSCRIPTION_DIR")
+fi
 if [ "$N_SHOTS" -gt 0 ]; then
   RUN_ARGS+=(--shots-seed "$SHOTS_SEED")
 fi
@@ -260,19 +188,4 @@ set +e
 PYTHON_EXIT=$?
 set -e
 
-if [ "$PYTHON_EXIT" -eq 75 ]; then
-  echo "Daily quota exhausted. Attempting to resubmit job for tomorrow..."
-  SCRIPT_PATH="${RESUBMIT_SCRIPT:-${BASH_SOURCE[0]}}"
-  if sbatch --begin=now+24hours "$SCRIPT_PATH"; then
-    echo "Job resubmitted successfully. Will resume tomorrow."
-  else
-    echo "Auto-resubmit failed. To resume manually, run:"
-    echo "  sbatch $SCRIPT_PATH"
-  fi
-  exit 75
-elif [ "$PYTHON_EXIT" -ne 0 ]; then
-  echo "Python script failed with exit code $PYTHON_EXIT"
-  exit "$PYTHON_EXIT"
-fi
-
-echo "Done."
+common_eval_handle_exit "$PYTHON_EXIT"

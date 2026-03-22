@@ -12,7 +12,9 @@ jobs/
 │   ├── eval_all_1shot.sbatch    # Submit all 1-shot jobs (18 jobs)
 │   └── eval_all_2shot.sbatch    # Submit all 2-shot jobs (18 jobs)
 ├── eval/                         # Evaluation jobs organized by method
+│   ├── common_eval_env.sh        # Shared runtime/bootstrap helper for M1-M4
 │   ├── m1/                       # Method 1: Image + Transcription
+│   │   ├── common_m1_eval.sbatch
 │   │   ├── bullinger_handwritten_0shot.sbatch
 │   │   ├── bullinger_handwritten_1shot.sbatch
 │   │   ├── bullinger_print_0shot.sbatch
@@ -23,6 +25,7 @@ jobs/
 │   │   ├── iam_print_1shot.sbatch
 │   │   └── ... 2-shot variants
 │   ├── m2/                       # Method 2: Image + Transcription + HTR
+│   │   ├── common_m2_eval.sbatch
 │   │   ├── bullinger_handwritten_0shot.sbatch
 │   │   ├── bullinger_handwritten_1shot.sbatch
 │   │   ├── bullinger_print_0shot.sbatch
@@ -35,6 +38,7 @@ jobs/
 │   │   ├── iam_print_1shot.sbatch
 │   │   └── ... 2-shot variants
 │   ├── m3/                       # Method 3: Transcription + HTR (no images)
+│   │   ├── common_m3_eval.sbatch
 │   │   ├── bullinger_handwritten_0shot.sbatch
 │   │   ├── bullinger_handwritten_1shot.sbatch
 │   │   ├── bullinger_print_0shot.sbatch
@@ -147,7 +151,14 @@ The canonical Bullinger dataset stays flat under `datasets/bullinger_handwritten
 - `datasets/bullinger_handwritten/subsets/subset1_ids.txt`
 - `datasets/bullinger_handwritten/subsets/subset2_ids.txt`
 
-All Bullinger M1-M4 wrappers now accept `IDS`, `DATA_DIR`, `OUT_DIR`, `EVAL_CSV`, and `CHECKPOINT_DIR` env overrides, so subset reruns can reuse the same job files:
+All `jobs/eval/m{1,2,3,4}/*shot.sbatch` leaf wrappers now share the same core env override pattern:
+
+- shared: `REPO_ROOT`, `RESUBMIT_SCRIPT`, `DATA_DIR`, `DATASET_TAG`, `OUT_DIR`, `EVAL_CSV`, `CHECKPOINT_DIR`, `IDS`, `N_SHOTS`, `SHOTS_SEED`, `MODEL_NAME`, `MODEL_LOCAL`, `MODEL_SUFFIX`, `MAX_NEW_TOKENS`, `DEVICE`
+- `M1`-`M4`: `TRANSCRIPTION_DIR`
+- `M2` / `M3`: `OCR_DIR`
+- `M4`: `OCR_LINES_DIR`, `SKIP_OCR`, `FORCE_OCR`, `SKIP_EVAL`, `DATASET_KEY`, `SEGMENTER`, `EXISTING_LINES_DIR`, and `PYLAIA_*`
+
+That means Bullinger subset reruns can reuse the same job files without editing them:
 
 ```bash
 IDS=datasets/bullinger_handwritten/subsets/subset1_ids.txt \
@@ -212,8 +223,8 @@ squeue -u $USER
 
 **Watch job output in real-time:**
 ```bash
-tail -f logs/bullinger_m1_1shot_<job_id>.out
-tail -f logs/bullinger_m1_1shot_<job_id>.err
+tail -f logs/bullinger_handwritten_m1_1shot_<job_id>.out
+tail -f logs/bullinger_handwritten_m1_1shot_<job_id>.err
 ```
 
 **Cancel jobs:**
@@ -262,12 +273,14 @@ This makes it easy to compare:
 
 ## Resource Allocation
 
-All evaluation jobs use:
+`M1`-`M3` evaluation jobs, plus Bullinger `M4`, use:
 - **GPU:** 1 GPU (any available)
 - **Memory:** 64GB RAM
 - **CPUs:** 6 cores
 - **Time:** 2 hours
 - **Partition:** GPU
+
+IAM/Washington `M4` jobs use the same GPU/CPU/memory profile with a 6 hour wall clock limit so inline OCR refresh can finish comfortably.
 
 The NNTP baseline jobs use the same GPU/CPU/memory profile, but with a 4 hour wall clock limit to cover PyLaia netout plus Java alignment.
 
