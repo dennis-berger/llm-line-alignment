@@ -85,7 +85,7 @@ PY
   export MODEL
   export MODEL_SUFFIX="${MODEL_SUFFIX:-qwen3-vl-8b-instruct}"
   export DEVICE="${DEVICE:-cuda}"
-  export MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-800}"
+  export MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-1600}"
 
   which python
   python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
