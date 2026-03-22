@@ -72,3 +72,46 @@ def test_generate_ocr_for_id_uses_existing_line_images_without_page_images(tmp_p
         "line_images/10069/0001_line001.png",
         "line_images/10069/0002_line000.png",
     ]
+
+
+def test_generate_ocr_for_id_prefers_existing_line_images_over_empty_page_image(tmp_path: Path):
+    data_dir = tmp_path / "dataset"
+    (data_dir / "gt").mkdir(parents=True, exist_ok=True)
+    (data_dir / "transcription").mkdir(parents=True, exist_ok=True)
+    (data_dir / "images" / "10333").mkdir(parents=True, exist_ok=True)
+    (data_dir / "gt" / "10333.txt").write_text("dummy\n", encoding="utf-8")
+    (data_dir / "transcription" / "10333.txt").write_text("dummy\n", encoding="utf-8")
+
+    save_image(data_dir / "images" / "10333" / "0001.jpg")
+    save_image(data_dir / "images" / "10333" / "0002.jpg")
+    save_image(data_dir / "images" / "10333" / "0003.jpg")
+    save_image(data_dir / "images" / "10333" / "0004.jpg")
+
+    save_image(data_dir / "line_images" / "10333" / "0001_line000.png")
+    save_image(data_dir / "line_images" / "10333" / "0002_line000.png")
+    save_image(data_dir / "line_images" / "10333" / "0003_line000.png")
+
+    dataset = get_dataset_spec("bullinger_handwritten", data_dir)
+    segmenter = PassthroughSegmenter(existing_lines_root=data_dir / "line_images")
+    recognizer = EchoRecognizer()
+
+    result = generate_ocr_for_id(
+        dataset,
+        "10333",
+        segmenter,
+        recognizer,
+        cache_root=tmp_path / "cache",
+        overwrite=True,
+    )
+
+    assert result["num_pages"] == 3
+    assert result["num_lines"] == 3
+
+    payload = json.loads(dataset.ocr_lines_output_path("10333").read_text(encoding="utf-8"))
+    assert payload["num_pages"] == 3
+    assert payload["num_lines"] == 3
+    assert [line["crop_path"] for line in payload["lines"]] == [
+        "line_images/10333/0001_line000.png",
+        "line_images/10333/0002_line000.png",
+        "line_images/10333/0003_line000.png",
+    ]

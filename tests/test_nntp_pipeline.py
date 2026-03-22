@@ -162,6 +162,43 @@ def test_load_pagexml_lines_resolves_renamed_source_images(tmp_path: Path):
     assert [record.source_text for record in content_lines] == ["first line", "second line"]
 
 
+def test_extract_prepared_lines_overwrite_prunes_stale_crops(tmp_path: Path):
+    """Overwrite rebuilds should remove stale line-image leftovers for a sample."""
+
+    sample_root = tmp_path / "dataset" / "images" / "0001"
+    sample_root.mkdir(parents=True, exist_ok=True)
+    save_image(sample_root / "0001.png", size=(100, 100))
+
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15">
+  <Page imageFilename="0001.png" imageWidth="100" imageHeight="100">
+    <TextRegion id="r1">
+      <TextLine id="l1">
+        <Coords points="0,0 50,0 50,10 0,10"/>
+        <TextEquiv><Unicode>only line</Unicode></TextEquiv>
+      </TextLine>
+    </TextRegion>
+  </Page>
+</PcGts>
+"""
+    write_text(sample_root / "page" / "0001.xml", xml_content)
+
+    stale_dir = tmp_path / "out" / "line_images" / "0001"
+    stale_dir.mkdir(parents=True, exist_ok=True)
+    save_image(stale_dir / "stale.png", size=(20, 20))
+
+    prepared = extract_prepared_lines(
+        tmp_path / "dataset",
+        "0001",
+        tmp_path / "out" / "line_images",
+        overwrite=True,
+        pad=0,
+    )
+
+    assert len(prepared) == 1
+    assert sorted(path.name for path in stale_dir.glob("*.png")) == ["0001_line000.png"]
+
+
 def test_extract_prepared_lines_uses_presegmented_images_when_available(tmp_path: Path):
     """Presegmented datasets should stage sorted line images without PAGE XML."""
 

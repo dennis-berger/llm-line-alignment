@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import logging
 import re
+import shutil
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Iterable, Sequence
@@ -241,6 +242,9 @@ def extract_prepared_lines(
     per_page_counts: dict[str, int] = {}
     prepared: list[PreparedLineRecord] = []
     output_dir.mkdir(parents=True, exist_ok=True)
+    sample_output_dir = output_dir / sample_id
+    if overwrite and sample_output_dir.exists():
+        shutil.rmtree(sample_output_dir)
 
     lines_by_page: dict[Path, list[PageXmlLineRecord]] = {}
     for line in content_lines:
@@ -263,7 +267,7 @@ def extract_prepared_lines(
                 right = min(width, x2 + pad)
                 bottom = min(height, y2 + pad)
                 crop_bbox = (left, top, right, bottom)
-                crop_path = output_dir / sample_id / f"{line.page_stem}_line{page_line_index:03d}.png"
+                crop_path = sample_output_dir / f"{line.page_stem}_line{page_line_index:03d}.png"
                 crop_path.parent.mkdir(parents=True, exist_ok=True)
                 if overwrite or not crop_path.exists():
                     image.crop(crop_bbox).save(crop_path)

@@ -107,17 +107,18 @@ def generate_ocr_for_id(
     dry_run: bool = False,
     write_meta: bool = True,
 ) -> Dict[str, object]:
-    images = dataset.image_paths(sample_id)
     page_inputs: list[tuple[str, Path | None, list[LineCrop] | None]] = []
-    if images:
-        if max_pages:
-            images = images[:max_pages]
-        page_inputs = [(image_path.stem, image_path, None) for image_path in images]
-    else:
-        existing_pages = _existing_sample_pages(segmenter, sample_id)
+    existing_pages = _existing_sample_pages(segmenter, sample_id)
+    if existing_pages:
         if max_pages:
             existing_pages = existing_pages[:max_pages]
         page_inputs = [(page_stem, None, crops) for page_stem, crops in existing_pages]
+    else:
+        images = dataset.image_paths(sample_id)
+        if images:
+            if max_pages:
+                images = images[:max_pages]
+            page_inputs = [(image_path.stem, image_path, None) for image_path in images]
 
     if not page_inputs:
         raise FileNotFoundError(f"No images found for {sample_id} under {dataset.images_root}")
