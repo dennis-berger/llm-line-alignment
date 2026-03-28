@@ -1,0 +1,51 @@
+{
+  "id": "3B_19_2-3",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Eine Hene gesehen hat sie kauberte",
+      "crop_path": "line_images/3B_19_2-3/3B_19_2-3_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "das das schuhanz ausamnander falte",
+      "crop_path": "line_images/3B_19_2-3/3B_19_2-3_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Mle haben die Hete mangastart",
+      "crop_path": "line_images/3B_19_2-3/3B_19_2-3_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "abei das gefalte der Hene gai bicht. t",
+      "crop_path": "line_images/3B_19_2-3/3B_19_2-3_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Sie rerhente alle Kinder in Mürmer. r",
+      "crop_path": "line_images/3B_19_2-3/3B_19_2-3_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "fiösche Maden. Und dan war das genee",
+      "crop_path": "line_images/3B_19_2-3/3B_19_2-3_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "schulaus foler",
+      "crop_path": "line_images/3B_19_2-3/3B_19_2-3_line006.png"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "1A_17_2",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Der Schneman blokirt die",
+      "crop_path": "line_images/1A_17_2/1A_17_2_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "türe. Der man lauft im",
+      "crop_path": "line_images/1A_17_2/1A_17_2_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Schne. Am Hus ist eine",
+      "crop_path": "line_images/1A_17_2/1A_17_2_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "unr. Das Haus ist orang und",
+      "crop_path": "line_images/1A_17_2/1A_17_2_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "vob. Das H aue hat blaue",
+      "crop_path": "line_images/1A_17_2/1A_17_2_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "fenster Es liegt überal Schnee",
+      "crop_path": "line_images/1A_17_2/1A_17_2_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Der Schneman ist frech",
+      "crop_path": "line_images/1A_17_2/1A_17_2_line006.png"
+    }
+  ]
+}

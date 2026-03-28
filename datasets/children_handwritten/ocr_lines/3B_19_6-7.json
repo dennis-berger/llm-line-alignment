@@ -1,0 +1,33 @@
+{
+  "id": "3B_19_6-7",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 4,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "tann kelse Botten Mann kann alle kekse",
+      "crop_path": "line_images/3B_19_6-7/3B_19_6-7_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Sattan die mann wil? zum beispiel fockies",
+      "crop_path": "line_images/3B_19_6-7/3B_19_6-7_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Meilanderh. Mann muss nur die zataten daz",
+      "crop_path": "line_images/3B_19_6-7/3B_19_6-7_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "schüten Ni. zum beiseiel Ment. Kubter.",
+      "crop_path": "line_images/3B_19_6-7/3B_19_6-7_line003.png"
+    }
+  ]
+}

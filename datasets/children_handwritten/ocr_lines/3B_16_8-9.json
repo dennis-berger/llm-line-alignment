@@ -1,0 +1,33 @@
+{
+  "id": "3B_16_8-9",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 4,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "I. Fliege i.aus aüs dem Hus Ich fliuge",
+      "crop_path": "line_images/3B_16_8-9/3B_16_8-9_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": ".ber ie wolren Joinin soäter bin Ich bee den",
+      "crop_path": "line_images/3B_16_8-9/3B_16_8-9_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Dergenie Ich mache einenrüi en salo",
+      "crop_path": "line_images/3B_16_8-9/3B_16_8-9_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "da wo ich gelandet bin war ich aus geristet.",
+      "crop_path": "line_images/3B_16_8-9/3B_16_8-9_line003.png"
+    }
+  ]
+}

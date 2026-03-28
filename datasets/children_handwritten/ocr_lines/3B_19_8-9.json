@@ -1,0 +1,45 @@
+{
+  "id": "3B_19_8-9",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 6,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Ichtliege hoch hinaut uber die schöbes",
+      "crop_path": "line_images/3B_19_8-9/3B_19_8-9_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "kan dschaft. Ich fliege über Berge, strand",
+      "crop_path": "line_images/3B_19_8-9/3B_19_8-9_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "felder undsoweiter. Einmal fliege ichzinteinz",
+      "crop_path": "line_images/3B_19_8-9/3B_19_8-9_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Wasserfall & dart ist es gane nass. Dann",
+      "crop_path": "line_images/3B_19_8-9/3B_19_8-9_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "fliege ich in mein Haus und mache eine",
+      "crop_path": "line_images/3B_19_8-9/3B_19_8-9_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Kleinen Snach.Dann gehe ich Schlafen.",
+      "crop_path": "line_images/3B_19_8-9/3B_19_8-9_line005.png"
+    }
+  ]
+}

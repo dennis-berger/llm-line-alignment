@@ -1,0 +1,27 @@
+{
+  "id": "2A_12_6-7",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 3,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "der Man wder Kekse baten",
+      "crop_path": "line_images/2A_12_6-7/2A_12_6-7_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "undu zer Terefon koitet",
+      "crop_path": "line_images/2A_12_6-7/2A_12_6-7_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "und der Hund wie esen",
+      "crop_path": "line_images/2A_12_6-7/2A_12_6-7_line002.png"
+    }
+  ]
+}

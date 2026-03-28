@@ -1,0 +1,51 @@
+{
+  "id": "3B_16_12-13",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "ind dann San er daz siemand",
+      "crop_path": "line_images/3B_16_12-13/3B_16_12-13_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "auur der insel war wao schrie en",
+      "crop_path": "line_images/3B_16_12-13/3B_16_12-13_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "liilteeee da Kam ein pirat her",
+      "crop_path": "line_images/3B_16_12-13/3B_16_12-13_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "fer und sgpte. her was wilste",
+      "crop_path": "line_images/3B_16_12-13/3B_16_12-13_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "auf meiner lasel ddisgt Fom W",
+      "crop_path": "line_images/3B_16_12-13/3B_16_12-13_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Ich bin gesrundet da sugt der",
+      "crop_path": "line_images/3B_16_12-13/3B_16_12-13_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Pi rat lch auch seit B jahren und",
+      "crop_path": "line_images/3B_16_12-13/3B_16_12-13_line006.png"
+    }
+  ]
+}

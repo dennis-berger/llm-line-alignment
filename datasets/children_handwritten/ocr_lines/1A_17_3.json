@@ -1,0 +1,51 @@
+{
+  "id": "1A_17_3",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Es war einmal ein ma der his",
+      "crop_path": "line_images/1A_17_3/1A_17_3_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "lakoe. vokes Ging zines tares ziu",
+      "crop_path": "line_images/1A_17_3/1A_17_3_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "strand. Er fand eine hiber &",
+      "crop_path": "line_images/1A_17_3/1A_17_3_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "muscher doch in der mie&erlel",
+      "crop_path": "line_images/1A_17_3/1A_17_3_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "lebte ein Krebe flozlioh&",
+      "crop_path": "line_images/1A_17_3/1A_17_3_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "sprarg der krebs an vakobs oht Er",
+      "crop_path": "line_images/1A_17_3/1A_17_3_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Kneifte Kkob.",
+      "crop_path": "line_images/1A_17_3/1A_17_3_line006.png"
+    }
+  ]
+}

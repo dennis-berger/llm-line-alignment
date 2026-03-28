@@ -1,0 +1,27 @@
+{
+  "id": "3B_16_0-1",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 3,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "zeigen. Alle Künder ws ein Haustier haben nenen es",
+      "crop_path": "line_images/3B_16_0-1/3B_16_0-1_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "mit in de Schbe mt. Ind daz schezben wir & weges",
+      "crop_path": "line_images/3B_16_0-1/3B_16_0-1_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "geraren isl wie es heist und was es iskt ies Tages&",
+      "crop_path": "line_images/3B_16_0-1/3B_16_0-1_line002.png"
+    }
+  ]
+}

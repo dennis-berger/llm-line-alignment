@@ -1,0 +1,63 @@
+{
+  "id": "3B_19_10-11",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 9,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "de ganee Muertüche ist keer.",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Bie suchen nach den Tieren",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "aber sie finden keins. Wo stecke",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "n die Ziere bloss? Tgendwann",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "in der Nacht fanit der zoauichter &",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "durch denn Sungel. Dodt sieht er",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "gane uete fiere. Sind es die",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "aus dem zoo oder nicht.",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "Doch das sient",
+      "crop_path": "line_images/3B_19_10-11/3B_19_10-11_line008.png"
+    }
+  ]
+}

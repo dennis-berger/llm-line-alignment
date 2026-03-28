@@ -1,0 +1,87 @@
+{
+  "id": "3B_19_12-13",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 13,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "zuerer wolt sabeina es",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "zurück bringen aber der",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "postbote war sehon uber",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "ale Berge. Alss manm",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "sabeina das paket und",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "grg nach hause zchause",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "wolt sabrina& das Paket inrer",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Mutter zeigen aber die",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "uuter war nich da",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "Also machte sabeina",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "das paket auf. Im paket",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "war ein gutschein für",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "in die",
+      "crop_path": "line_images/3B_19_12-13/3B_19_12-13_line012.png"
+    }
+  ]
+}

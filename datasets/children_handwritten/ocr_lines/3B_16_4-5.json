@@ -1,0 +1,33 @@
+{
+  "id": "3B_16_4-5",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 4,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Ich schale nacn den Wer abez ninadus i a",
+      "crop_path": "line_images/3B_16_4-5/3B_16_4-5_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "ds ich wicer in de flahe schanz war der bcef nich.",
+      "crop_path": "line_images/3B_16_4-5/3B_16_4-5_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "merlach sche ichgch ein klzine lerebe in nl genene",
+      "crop_path": "line_images/3B_16_4-5/3B_16_4-5_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "hat. Her Kcek ging weg& .",
+      "crop_path": "line_images/3B_16_4-5/3B_16_4-5_line003.png"
+    }
+  ]
+}

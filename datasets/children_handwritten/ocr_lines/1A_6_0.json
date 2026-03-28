@@ -1,0 +1,27 @@
+{
+  "id": "1A_6_0",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 3,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Eines Tages war einen Schaf",
+      "crop_path": "line_images/1A_6_0/1A_6_0_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "auf die wise und si iste",
+      "crop_path": "line_images/1A_6_0/1A_6_0_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "und war einen menisch",
+      "crop_path": "line_images/1A_6_0/1A_6_0_line002.png"
+    }
+  ]
+}

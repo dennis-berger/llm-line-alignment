@@ -1,0 +1,57 @@
+{
+  "id": "2A_11_16-17",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 8,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Es hat Schnes. Der kleinen",
+      "crop_path": "line_images/2A_11_16-17/2A_11_16-17_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "man hat einen Schneeman ge",
+      "crop_path": "line_images/2A_11_16-17/2A_11_16-17_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "balt darun Komt den andere",
+      "crop_path": "line_images/2A_11_16-17/2A_11_16-17_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "man nicht meer raas. Fs mat",
+      "crop_path": "line_images/2A_11_16-17/2A_11_16-17_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "eine ur Vas renster iist",
+      "crop_path": "line_images/2A_11_16-17/2A_11_16-17_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "blax. Das Halsist rot. Das Tel",
+      "crop_path": "line_images/2A_11_16-17/2A_11_16-17_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "eton ist gerbs Nnd den man",
+      "crop_path": "line_images/2A_11_16-17/2A_11_16-17_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "in der",
+      "crop_path": "line_images/2A_11_16-17/2A_11_16-17_line007.png"
+    }
+  ]
+}

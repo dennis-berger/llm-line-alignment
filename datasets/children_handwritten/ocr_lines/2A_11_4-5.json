@@ -1,0 +1,51 @@
+{
+  "id": "2A_11_4-5",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "der man hab ein",
+      "crop_path": "line_images/2A_11_4-5/2A_11_4-5_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "tor mit kartt Kiecht",
+      "crop_path": "line_images/2A_11_4-5/2A_11_4-5_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "der man kent ssm.",
+      "crop_path": "line_images/2A_11_4-5/2A_11_4-5_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Fenster weio forhan",
+      "crop_path": "line_images/2A_11_4-5/2A_11_4-5_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "In wint bewekt ter",
+      "crop_path": "line_images/2A_11_4-5/2A_11_4-5_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "manist ein dien en",
+      "crop_path": "line_images/2A_11_4-5/2A_11_4-5_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Hat Sachen gestolen.",
+      "crop_path": "line_images/2A_11_4-5/2A_11_4-5_line006.png"
+    }
+  ]
+}

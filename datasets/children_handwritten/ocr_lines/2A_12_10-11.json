@@ -1,0 +1,33 @@
+{
+  "id": "2A_12_10-11",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 4,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Den Ma M",
+      "crop_path": "line_images/2A_12_10-11/2A_12_10-11_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Saine Sider An henger",
+      "crop_path": "line_images/2A_12_10-11/2A_12_10-11_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Wciber & Schpert in",
+      "crop_path": "line_images/2A_12_10-11/2A_12_10-11_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Nachn Fi",
+      "crop_path": "line_images/2A_12_10-11/2A_12_10-11_line003.png"
+    }
+  ]
+}

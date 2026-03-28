@@ -22,24 +22,31 @@ def _jsonargparse_typing_stub():
     existing_typing = sys.modules.get("jsonargparse.typing")
 
     if existing_jsonargparse is None or existing_typing is None:
-        jsonargparse = types.ModuleType("jsonargparse")
-        typing_mod = types.ModuleType("jsonargparse.typing")
+        try:
+            import jsonargparse as real_jsonargparse
+            from jsonargparse import typing as real_typing
+        except Exception:
+            jsonargparse = types.ModuleType("jsonargparse")
+            typing_mod = types.ModuleType("jsonargparse.typing")
 
-        def restricted_number_type(name, base_type, *_constraints):
-            type_name = name or f"Restricted{getattr(base_type, '__name__', 'Number').title()}"
-            return type(type_name, (base_type,), {"__module__": "jsonargparse.typing"})
+            def restricted_number_type(name, base_type, *_constraints):
+                type_name = name or f"Restricted{getattr(base_type, '__name__', 'Number').title()}"
+                return type(type_name, (base_type,), {"__module__": "jsonargparse.typing"})
 
-        def _getattr(name: str):
-            base = str if name.startswith("Path_") else int
-            value = type(name, (base,), {"__module__": "jsonargparse.typing"})
-            setattr(typing_mod, name, value)
-            return value
+            def _getattr(name: str):
+                base = str if name.startswith("Path_") else int
+                value = type(name, (base,), {"__module__": "jsonargparse.typing"})
+                setattr(typing_mod, name, value)
+                return value
 
-        typing_mod.restricted_number_type = restricted_number_type
-        typing_mod.__getattr__ = _getattr  # type: ignore[attr-defined]
-        jsonargparse.typing = typing_mod  # type: ignore[attr-defined]
-        sys.modules["jsonargparse"] = jsonargparse
-        sys.modules["jsonargparse.typing"] = typing_mod
+            typing_mod.restricted_number_type = restricted_number_type
+            typing_mod.__getattr__ = _getattr  # type: ignore[attr-defined]
+            jsonargparse.typing = typing_mod  # type: ignore[attr-defined]
+            sys.modules["jsonargparse"] = jsonargparse
+            sys.modules["jsonargparse.typing"] = typing_mod
+        else:
+            sys.modules.setdefault("jsonargparse", real_jsonargparse)
+            sys.modules.setdefault("jsonargparse.typing", real_typing)
 
     try:
         yield

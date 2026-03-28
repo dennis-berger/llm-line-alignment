@@ -1,0 +1,51 @@
+{
+  "id": "2B_14_4-5",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Es wap ein Mal einen Kleiner",
+      "crop_path": "line_images/2B_14_4-5/2B_14_4-5_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Wan del Hat e Eilstas. Witl",
+      "crop_path": "line_images/2B_14_4-5/2B_14_4-5_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "einen kaptoh Ar ler",
+      "crop_path": "line_images/2B_14_4-5/2B_14_4-5_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Imer witseinen karken",
+      "crop_path": "line_images/2B_14_4-5/2B_14_4-5_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "zinen turm baut eines",
+      "crop_path": "line_images/2B_14_4-5/2B_14_4-5_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "tages War der wintstos",
+      "crop_path": "line_images/2B_14_4-5/2B_14_4-5_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Bo febt wielo ch wi",
+      "crop_path": "line_images/2B_14_4-5/2B_14_4-5_line006.png"
+    }
+  ]
+}

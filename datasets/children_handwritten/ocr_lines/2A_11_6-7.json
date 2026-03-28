@@ -1,0 +1,45 @@
+{
+  "id": "2A_11_6-7",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 6,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Der wn maont ein",
+      "crop_path": "line_images/2A_11_6-7/2A_11_6-7_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Kuchen. Aner das Telefon",
+      "crop_path": "line_images/2A_11_6-7/2A_11_6-7_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Lutet ffreit den Feir",
+      "crop_path": "line_images/2A_11_6-7/2A_11_6-7_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "aus der Htunble Schaut ztu",
+      "crop_path": "line_images/2A_11_6-7/2A_11_6-7_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "der Kugen siet fein awo",
+      "crop_path": "line_images/2A_11_6-7/2A_11_6-7_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "der man getzum tereven",
+      "crop_path": "line_images/2A_11_6-7/2A_11_6-7_line005.png"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "1A_17_1",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Es Waren einmal b",
+      "crop_path": "line_images/1A_17_1/1A_17_1_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Endeker. Die wale in den",
+      "crop_path": "line_images/1A_17_1/1A_17_1_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Bergen. Eines tages Schen",
+      "crop_path": "line_images/1A_17_1/1A_17_1_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Sie ein steinbok. zuerst",
+      "crop_path": "line_images/1A_17_1/1A_17_1_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "agte er die b giaseren",
+      "crop_path": "line_images/1A_17_1/1A_17_1_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "dan aber vante er zum",
+      "crop_path": "line_images/1A_17_1/1A_17_1_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "K einen. Der K",
+      "crop_path": "line_images/1A_17_1/1A_17_1_line006.png"
+    }
+  ]
+}

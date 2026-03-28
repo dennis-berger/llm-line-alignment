@@ -1,0 +1,39 @@
+{
+  "id": "1A_8_3",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 5,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Der man luuft eine maschel",
+      "crop_path": "line_images/1A_8_3/1A_8_3_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "blzls k chömt un choub on",
+      "crop_path": "line_images/1A_8_3/1A_8_3_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "han es chleint inz zuse s",
+      "crop_path": "line_images/1A_8_3/1A_8_3_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "tut egztve Mue er zichokn",
+      "crop_path": "line_images/1A_8_3/1A_8_3_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Asst errf&t ns Mer ge bloust",
+      "crop_path": "line_images/1A_8_3/1A_8_3_line004.png"
+    }
+  ]
+}

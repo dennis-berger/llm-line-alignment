@@ -35,14 +35,42 @@ common_eval_bootstrap() {
   fi
   export CONDA_BASE CONDA_EXE CONDA_INSTALL_BIN
 
+  conda_env_exists() {
+    local env_name="${1:?Missing conda env name}"
+    local prefix=""
+    prefix="$(conda_env_prefix "$env_name" 2>/dev/null || true)"
+    [ -n "$prefix" ] && [ -x "$prefix/bin/python" ]
+  }
+
+  conda_env_prefix() {
+    local env_name="${1:?Missing conda env name}"
+    local listed_prefix=""
+    listed_prefix="$(conda env list | sed 's/\*//g' | awk -v env="$env_name" 'NF && $1 == env {print $NF; exit}')"
+    if [ -n "$listed_prefix" ]; then
+      printf '%s\n' "$listed_prefix"
+      return 0
+    fi
+    if [ -d "$HOME/.conda/envs/$env_name" ]; then
+      printf '%s\n' "$HOME/.conda/envs/$env_name"
+      return 0
+    fi
+    if [ -d "$CONDA_BASE/envs/$env_name" ]; then
+      printf '%s\n' "$CONDA_BASE/envs/$env_name"
+      return 0
+    fi
+    return 1
+  }
+
   CONDA_ENV_NAME="${CONDA_ENV_NAME:-bullinger-mwe}"
   ENV_CREATED=0
-  if ! conda env list | sed 's/\*//g' | awk 'NF && $1 !~ /^#/ {print $1}' | grep -Fxq "$CONDA_ENV_NAME"; then
+  if ! conda_env_exists "$CONDA_ENV_NAME"; then
     echo "Creating conda environment '$CONDA_ENV_NAME'..."
     "$CONDA_INSTALL_BIN" create -y -n "$CONDA_ENV_NAME" python=3.11 pip
     ENV_CREATED=1
   fi
-  conda activate "$CONDA_ENV_NAME"
+  CONDA_ENV_PREFIX="$(conda_env_prefix "$CONDA_ENV_NAME")"
+  export PATH="$CONDA_ENV_PREFIX/bin:$PATH"
+  hash -r
 
   if [ "$ENV_CREATED" = "1" ]; then
     echo "Installing repo Python requirements into '$CONDA_ENV_NAME'..."

@@ -1,0 +1,51 @@
+{
+  "id": "3B_19_14-15",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Deet denkt er wenn er schon nier ist",
+      "crop_path": "line_images/3B_19_14-15/3B_19_14-15_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "kann er auch für eine Hacht bleiben",
+      "crop_path": "line_images/3B_19_14-15/3B_19_14-15_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Mso bleb er plötzlich kamm eine flaschen.",
+      "crop_path": "line_images/3B_19_14-15/3B_19_14-15_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "post er machte sie k auf drmen",
+      "crop_path": "line_images/3B_19_14-15/3B_19_14-15_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "war eine schatzkarte. Auf der Karter",
+      "crop_path": "line_images/3B_19_14-15/3B_19_14-15_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Mar an dunget abgebildet er ging",
+      "crop_path": "line_images/3B_19_14-15/3B_19_14-15_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "also nach karte in 0sten&",
+      "crop_path": "line_images/3B_19_14-15/3B_19_14-15_line006.png"
+    }
+  ]
+}

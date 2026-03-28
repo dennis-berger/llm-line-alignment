@@ -1,0 +1,51 @@
+{
+  "id": "2A_11_0-1",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "eine Afe win ein banane",
+      "crop_path": "line_images/2A_11_0-1/2A_11_0-1_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "den main nen Snert ie",
+      "crop_path": "line_images/2A_11_0-1/2A_11_0-1_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "banane eun den afe wi",
+      "crop_path": "line_images/2A_11_0-1/2A_11_0-1_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "ombebin t die banand ont",
+      "crop_path": "line_images/2A_11_0-1/2A_11_0-1_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "en hat nien ein Schöne",
+      "crop_path": "line_images/2A_11_0-1/2A_11_0-1_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Kehoke nur ein bam ent",
+      "crop_path": "line_images/2A_11_0-1/2A_11_0-1_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "dfr afe",
+      "crop_path": "line_images/2A_11_0-1/2A_11_0-1_line006.png"
+    }
+  ]
+}

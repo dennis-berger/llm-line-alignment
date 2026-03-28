@@ -1,0 +1,33 @@
+{
+  "id": "1A_6_1",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 4,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "ein man get wek won die",
+      "crop_path": "line_images/1A_6_1/1A_6_1_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "zige Ale mlerselzcn&",
+      "crop_path": "line_images/1A_6_1/1A_6_1_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Machen Fotos und",
+      "crop_path": "line_images/1A_6_1/1A_6_1_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "der man ist in dem",
+      "crop_path": "line_images/1A_6_1/1A_6_1_line003.png"
+    }
+  ]
+}

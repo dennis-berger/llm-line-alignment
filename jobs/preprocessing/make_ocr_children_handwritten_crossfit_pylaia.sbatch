@@ -10,27 +10,59 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../eval/common_eval_env.sh"
+REPO_ROOT="${REPO_ROOT:-${SLURM_SUBMIT_DIR:-$PWD}}"
+source "$REPO_ROOT/jobs/eval/common_eval_env.sh"
 common_eval_bootstrap "scripts/run_children_crossfit_ocr.py"
+
+# PyLaia uses an older Torch stack that does not understand expandable_segments.
+unset PYTORCH_CUDA_ALLOC_CONF
+
+conda_env_exists() {
+  local env_name="${1:?Missing conda env name}"
+  local prefix=""
+  prefix="$(conda_env_prefix "$env_name" 2>/dev/null || true)"
+  [ -n "$prefix" ] && [ -x "$prefix/bin/python" ]
+}
+
+conda_env_prefix() {
+  local env_name="${1:?Missing conda env name}"
+  local listed_prefix=""
+  listed_prefix="$(conda env list | sed 's/\*//g' | awk -v env="$env_name" 'NF && $1 == env {print $NF; exit}')"
+  if [ -n "$listed_prefix" ]; then
+    printf '%s\n' "$listed_prefix"
+    return 0
+  fi
+  if [ -d "$HOME/.conda/envs/$env_name" ]; then
+    printf '%s\n' "$HOME/.conda/envs/$env_name"
+    return 0
+  fi
+  if [ -d "$CONDA_BASE/envs/$env_name" ]; then
+    printf '%s\n' "$CONDA_BASE/envs/$env_name"
+    return 0
+  fi
+  return 1
+}
 
 PYLAIA_CONDA_ENV="${PYLAIA_CONDA_ENV:-pylaia-htr}"
 PYLAIA_PYTHON_VERSION="${PYLAIA_PYTHON_VERSION:-3.10}"
 PYLAIA_PIP_SPEC="${PYLAIA_PIP_SPEC:-pylaia==1.1.2}"
 PYLAIA_SOURCE_URL="${PYLAIA_SOURCE_URL:-https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz}"
-if ! conda env list | sed 's/\*//g' | awk 'NF && $1 !~ /^#/ {print $1}' | grep -Fxq "$PYLAIA_CONDA_ENV"; then
+PYLAIA_CONDA_PREFIX="$(conda_env_prefix "$PYLAIA_CONDA_ENV" 2>/dev/null || printf '%s\n' "$HOME/.conda/envs/$PYLAIA_CONDA_ENV")"
+if ! conda_env_exists "$PYLAIA_CONDA_ENV"; then
   echo "Creating dedicated PyLaia environment '$PYLAIA_CONDA_ENV' with Python $PYLAIA_PYTHON_VERSION..."
-  "$CONDA_INSTALL_BIN" create -y -n "$PYLAIA_CONDA_ENV" python="$PYLAIA_PYTHON_VERSION" pip
+  "$CONDA_INSTALL_BIN" create -y -p "$PYLAIA_CONDA_PREFIX" python="$PYLAIA_PYTHON_VERSION" pip
 fi
-if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+PYLAIA_PYTHON="$PYLAIA_CONDA_PREFIX/bin/python"
+
+if ! "$PYLAIA_PYTHON" - <<'PY'
 from importlib.metadata import version
 version("pylaia")
 PY
 then
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "pip<24.1" setuptools wheel
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "$PYLAIA_PIP_SPEC"
+  "$PYLAIA_PYTHON" -m pip install "pip<24.1" setuptools wheel
+  "$PYLAIA_PYTHON" -m pip install "$PYLAIA_PIP_SPEC"
 fi
-"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+"$PYLAIA_PYTHON" - <<'PY'
 from pathlib import Path
 import shutil
 import sysconfig
@@ -64,7 +96,7 @@ for pkg_dir in (scripts_dir, models_dir):
             encoding="utf-8",
         )
 PY
-PYLAIA_ENV_BIN="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+PYLAIA_ENV_BIN="$("$PYLAIA_PYTHON" - <<'PY'
 from pathlib import Path
 import sys
 print(Path(sys.executable).resolve().parent)

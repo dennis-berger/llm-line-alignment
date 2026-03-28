@@ -1,0 +1,63 @@
+{
+  "id": "3B-16_16-17",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 9,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Aber es ist nicht un spase zu hane",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "sonder wer schneler anst leriegte",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "es sind erzelte eins Für die junen&",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "eins Für die Madchen. Am morg",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "zn itet &es plötzlich am zelt won",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "den Mädchen die june wolte",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "die mädchen erschrecken warte",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "mal Onein Ich komme zu späat.",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "tschüs",
+      "crop_path": "line_images/3B-16_16-17/3B-16_16-17_line008.png"
+    }
+  ]
+}

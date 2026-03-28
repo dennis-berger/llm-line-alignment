@@ -1,0 +1,75 @@
+{
+  "id": "2B_14_18-19",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 11,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "es blat eirs mal er",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Kleinen Mans der wobie",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "mmsan einen hiene",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "hau ss pbef er Mächte labe.",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "ens meg ae ar",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "n zisnZunnd fare",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "insMeisdm Srer art",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "er in ein Hotels gerade",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "am meer da nach geter",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "an ein strand de",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "aihtes  file. Muscheln.",
+      "crop_path": "line_images/2B_14_18-19/2B_14_18-19_line010.png"
+    }
+  ]
+}

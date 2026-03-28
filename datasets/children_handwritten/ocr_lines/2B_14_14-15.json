@@ -1,0 +1,69 @@
+{
+  "id": "2B_14_14-15",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 10,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "b menscher gchen eine wan",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "derung machen. vo sie schon",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "lange gewandert sint. sagle",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "der Kleinze id mun etwan in",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "wald machen was Eraglen",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "ie & Anderen weissich. Selt",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ncht sat erma zine",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "weilehMneenwr",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "ein bolten und Krachen",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "und ie gcheh Scauen",
+      "crop_path": "line_images/2B_14_14-15/2B_14_14-15_line009.png"
+    }
+  ]
+}

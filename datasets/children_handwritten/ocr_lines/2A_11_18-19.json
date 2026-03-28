@@ -1,0 +1,51 @@
+{
+  "id": "2A_11_18-19",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Ein grosesnlaues waser",
+      "crop_path": "line_images/2A_11_18-19/2A_11_18-19_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Sitn man. Dernleuchtar mieuchdds",
+      "crop_path": "line_images/2A_11_18-19/2A_11_18-19_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Man Sitt aucn eine inbei",
+      "crop_path": "line_images/2A_11_18-19/2A_11_18-19_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Eim Krepsz mkt den man",
+      "crop_path": "line_images/2A_11_18-19/2A_11_18-19_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "an den oren und den man",
+      "crop_path": "line_images/2A_11_18-19/2A_11_18-19_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Sast aa au uncl weint",
+      "crop_path": "line_images/2A_11_18-19/2A_11_18-19_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "fast um das o roetut",
+      "crop_path": "line_images/2A_11_18-19/2A_11_18-19_line006.png"
+    }
+  ]
+}

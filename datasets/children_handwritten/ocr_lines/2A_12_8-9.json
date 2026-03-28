@@ -1,0 +1,27 @@
+{
+  "id": "2A_12_8-9",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 3,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Es mdi",
+      "crop_path": "line_images/2A_12_8-9/2A_12_8-9_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "",
+      "crop_path": "line_images/2A_12_8-9/2A_12_8-9_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "",
+      "crop_path": "line_images/2A_12_8-9/2A_12_8-9_line002.png"
+    }
+  ]
+}

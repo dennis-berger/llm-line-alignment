@@ -1,0 +1,51 @@
+{
+  "id": "2B_14_10-11",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "es war ein man der Hate",
+      "crop_path": "line_images/2B_14_10-11/2B_14_10-11_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "einen Kleiner Hund und",
+      "crop_path": "line_images/2B_14_10-11/2B_14_10-11_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "ein en sore Murten. unt",
+      "crop_path": "line_images/2B_14_10-11/2B_14_10-11_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "eines lages gel der man",
+      "crop_path": "line_images/2B_14_10-11/2B_14_10-11_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "in sen en Karten Zum beine",
+      "crop_path": "line_images/2B_14_10-11/2B_14_10-11_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Sachen. Aut zin Hengen aber",
+      "crop_path": "line_images/2B_14_10-11/2B_14_10-11_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "ein Wogel Sas aut aer Schnur",
+      "crop_path": "line_images/2B_14_10-11/2B_14_10-11_line006.png"
+    }
+  ]
+}

@@ -39,14 +39,42 @@ if command -v mamba >/dev/null 2>&1; then
   CONDA_INSTALL_BIN="mamba"
 fi
 
+conda_env_exists() {
+  local env_name="${1:?Missing conda env name}"
+  local prefix=""
+  prefix="$(conda_env_prefix "$env_name" 2>/dev/null || true)"
+  [ -n "$prefix" ] && [ -x "$prefix/bin/python" ]
+}
+
+conda_env_prefix() {
+  local env_name="${1:?Missing conda env name}"
+  local listed_prefix=""
+  listed_prefix="$(conda env list | sed 's/*//g' | awk -v env="$env_name" 'NF && $1 == env {print $NF; exit}')"
+  if [ -n "$listed_prefix" ]; then
+    printf '%s\n' "$listed_prefix"
+    return 0
+  fi
+  if [ -d "$HOME/.conda/envs/$env_name" ]; then
+    printf '%s\n' "$HOME/.conda/envs/$env_name"
+    return 0
+  fi
+  if [ -d "$CONDA_BASE/envs/$env_name" ]; then
+    printf '%s\n' "$CONDA_BASE/envs/$env_name"
+    return 0
+  fi
+  return 1
+}
+
 CONDA_ENV_NAME="${CONDA_ENV_NAME:-bullinger-mwe}"
 ENV_CREATED=0
-if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$CONDA_ENV_NAME"; then
+if ! conda_env_exists "$CONDA_ENV_NAME"; then
   echo "Creating conda environment '$CONDA_ENV_NAME'..."
   "$CONDA_INSTALL_BIN" create -y -n "$CONDA_ENV_NAME" python=3.11 pip
   ENV_CREATED=1
 fi
-conda activate "$CONDA_ENV_NAME"
+CONDA_ENV_PREFIX="$(conda_env_prefix "$CONDA_ENV_NAME")"
+export PATH="$CONDA_ENV_PREFIX/bin:$PATH"
+hash -r
 
 if [ "$ENV_CREATED" = "1" ]; then
   echo "Installing repo Python requirements into '$CONDA_ENV_NAME'..."
@@ -77,22 +105,26 @@ PYLAIA_CONDA_ENV="${PYLAIA_CONDA_ENV:-pylaia-htr}"
 PYLAIA_PYTHON_VERSION="${PYLAIA_PYTHON_VERSION:-3.10}"
 PYLAIA_PIP_SPEC="${PYLAIA_PIP_SPEC:-pylaia==1.1.2}"
 PYLAIA_SOURCE_URL="${PYLAIA_SOURCE_URL:-https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz}"
-if ! conda env list | sed 's/*//g' | awk 'NF && $1 !~ /^#/' | grep -Fxq "$PYLAIA_CONDA_ENV"; then
+PYLAIA_CONDA_PREFIX="$(conda_env_prefix "$PYLAIA_CONDA_ENV" 2>/dev/null || printf '%s\n' "$HOME/.conda/envs/$PYLAIA_CONDA_ENV")"
+if ! conda_env_exists "$PYLAIA_CONDA_ENV"; then
   echo "Creating dedicated PyLaia environment '$PYLAIA_CONDA_ENV' with Python $PYLAIA_PYTHON_VERSION..."
-  "$CONDA_INSTALL_BIN" create -y -n "$PYLAIA_CONDA_ENV" python="$PYLAIA_PYTHON_VERSION" pip
+  "$CONDA_INSTALL_BIN" create -y -p "$PYLAIA_CONDA_PREFIX" python="$PYLAIA_PYTHON_VERSION" pip
 fi
+PYLAIA_PYTHON="$PYLAIA_CONDA_PREFIX/bin/python"
+PYLAIA_TRAIN_CTC="$PYLAIA_CONDA_PREFIX/bin/pylaia-htr-train-ctc"
+PYLAIA_VALIDATE="$PYLAIA_CONDA_PREFIX/bin/pylaia-htr-dataset-validate"
 
-if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+if ! "$PYLAIA_PYTHON" - <<'PY'
 from importlib.metadata import version
 version("pylaia")
 PY
 then
   echo "Installing PyLaia into '$PYLAIA_CONDA_ENV' from PyPI package '$PYLAIA_PIP_SPEC'..."
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "pip<24.1" setuptools wheel
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "$PYLAIA_PIP_SPEC"
+  "$PYLAIA_PYTHON" -m pip install "pip<24.1" setuptools wheel
+  "$PYLAIA_PYTHON" -m pip install "$PYLAIA_PIP_SPEC"
 fi
 
-"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+"$PYLAIA_PYTHON" - <<'PY'
 from pathlib import Path
 import shutil
 import sysconfig
@@ -128,7 +160,7 @@ for pkg_dir in (scripts_dir, models_dir):
         )
 PY
 
-if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+if ! "$PYLAIA_PYTHON" - <<'PY'
 from importlib.metadata import version
 import laia
 import laia.models.htr
@@ -144,11 +176,11 @@ then
   exit 1
 fi
 
-if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-train-ctc --help >/dev/null 2>&1; then
+if [ ! -x "$PYLAIA_TRAIN_CTC" ]; then
   echo "ERROR: pylaia-htr-train-ctc is unavailable in '$PYLAIA_CONDA_ENV'."
   exit 1
 fi
-if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-dataset-validate --help >/dev/null 2>&1; then
+if [ ! -x "$PYLAIA_VALIDATE" ]; then
   echo "ERROR: pylaia-htr-dataset-validate is unavailable in '$PYLAIA_CONDA_ENV'."
   exit 1
 fi
@@ -186,7 +218,7 @@ from pathlib import Path
 print(Path("$PYLAIA_CHECKPOINT").resolve())
 PY
 )"
-PYLAIA_IMAGE_HEIGHT="$(python - <<PY
+PYLAIA_IMAGE_HEIGHT="$("$PYLAIA_PYTHON" - <<PY
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path("$REPO_ROOT") / "src"))
@@ -219,7 +251,7 @@ from pathlib import Path
 print(len(Path("$SYMS_OUT").read_text(encoding="utf-8").splitlines()))
 PY
 )"
-python - <<PY
+"$PYLAIA_PYTHON" - <<PY
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path("$REPO_ROOT") / "src"))
@@ -229,6 +261,7 @@ clone_pylaia_model_with_num_outputs(
     Path("$PYLAIA_MODEL_ABS"),
     $SYMS_COUNT,
     Path("$EXPERIMENT_DIR/model"),
+    python_exe=Path("$PYLAIA_PYTHON").resolve(),
 )
 PY
 
@@ -241,7 +274,7 @@ print("[" + ",".join(meta["pylaia_img_dirs"]) + "]")
 PY
 )"
 
-PYLAIA_TORCH_INFO="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+PYLAIA_TORCH_INFO="$("$PYLAIA_PYTHON" - <<'PY'
 import json
 import torch
 
@@ -258,7 +291,7 @@ print(
 PY
 )"
 echo "PyLaia torch info: $PYLAIA_TORCH_INFO"
-PYLAIA_CUDA_AVAILABLE="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+PYLAIA_CUDA_AVAILABLE="$("$PYLAIA_PYTHON" - <<'PY'
 import torch
 
 print(1 if torch.cuda.is_available() else 0)
@@ -278,7 +311,7 @@ if [ "$TRAIN_OVERWRITE" = "1" ]; then
   rm -rf "$EXPERIMENT_DIR"
   mkdir -p "$EXPERIMENT_DIR"
   cp "$SYMS_OUT" "$EXPERIMENT_DIR/syms.txt"
-  python - <<PY
+  "$PYLAIA_PYTHON" - <<PY
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path("$REPO_ROOT") / "src"))
@@ -288,6 +321,7 @@ clone_pylaia_model_with_num_outputs(
     Path("$PYLAIA_MODEL_ABS"),
     $SYMS_COUNT,
     Path("$EXPERIMENT_DIR/model"),
+    python_exe=Path("$PYLAIA_PYTHON").resolve(),
 )
 PY
 fi
@@ -295,7 +329,7 @@ fi
 if [ -f "$EXPERIMENT_DIR/best.ckpt" ]; then
   echo "Reusing existing trained checkpoint: $EXPERIMENT_DIR/best.ckpt"
 else
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-dataset-validate \
+  "$PYLAIA_VALIDATE" \
     "$EXPERIMENT_DIR/syms.txt" \
     "$PYLAIA_IMG_DIRS" \
     "$TRAIN_TXT" \
@@ -325,7 +359,7 @@ else
     TRAIN_ARGS+=(--trainer.auto_select_gpus true)
   fi
 
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" pylaia-htr-train-ctc "${TRAIN_ARGS[@]}"
+  "$PYLAIA_TRAIN_CTC" "${TRAIN_ARGS[@]}"
 
   BEST_CKPT="$(find "$EXPERIMENT_DIR" -type f -name '*lowest_*.ckpt' ! -path '*/pretrained/*' | sort | head -n 1)"
   if [ -z "$BEST_CKPT" ]; then

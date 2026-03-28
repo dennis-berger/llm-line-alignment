@@ -1,0 +1,33 @@
+{
+  "id": "3B_16_6-7",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 4,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "wasser macht. Ind donn aenasss lzt Nas wsser is",
+      "crop_path": "line_images/3B_16_6-7/3B_16_6-7_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "auhzunntrinlen sie kann an d Kis Wüirte",
+      "crop_path": "line_images/3B_16_6-7/3B_16_6-7_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "es ist eine Schlacht maschiene sie heist Schlacht",
+      "crop_path": "line_images/3B_16_6-7/3B_16_6-7_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "aschiene",
+      "crop_path": "line_images/3B_16_6-7/3B_16_6-7_line003.png"
+    }
+  ]
+}

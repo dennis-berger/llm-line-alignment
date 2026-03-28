@@ -40,9 +40,14 @@ logger = logging.getLogger(__name__)
 def parse_ids_arg(ids_arg: Optional[str]) -> Optional[List[str]]:
     if not ids_arg:
         return None
+    if "," in ids_arg:
+        return [p.strip() for p in ids_arg.split(",") if p.strip()]
     path = Path(ids_arg)
-    if path.exists():
-        return [line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    try:
+        if path.exists():
+            return [line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    except OSError:
+        logger.debug("Treating --ids value as an inline list after pathlib error: %s", ids_arg)
     return [p.strip() for p in ids_arg.split(",") if p.strip()]
 
 

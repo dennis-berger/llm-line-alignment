@@ -1,0 +1,57 @@
+{
+  "id": "1A_15_6-7",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 8,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Derman isfamschtrns und",
+      "crop_path": "line_images/1A_15_6-7/1A_15_6-7_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "ha ein Krebs amcht une",
+      "crop_path": "line_images/1A_15_6-7/1A_15_6-7_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "ein mnscheu ind chand eris",
+      "crop_path": "line_images/1A_15_6-7/1A_15_6-7_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "dert wo det &lö ichlnrh ist der",
+      "crop_path": "line_images/1A_15_6-7/1A_15_6-7_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "mann hat ales schwrare ws an",
+      "crop_path": "line_images/1A_15_6-7/1A_15_6-7_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "der wo der mann ist hasckaihan",
+      "crop_path": "line_images/1A_15_6-7/1A_15_6-7_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "dere Dsrsem",
+      "crop_path": "line_images/1A_15_6-7/1A_15_6-7_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "amira",
+      "crop_path": "line_images/1A_15_6-7/1A_15_6-7_line007.png"
+    }
+  ]
+}

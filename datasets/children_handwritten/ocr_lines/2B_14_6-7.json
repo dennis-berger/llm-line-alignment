@@ -1,0 +1,45 @@
+{
+  "id": "2B_14_6-7",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 6,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "tm ist dabel einen Kuchen",
+      "crop_path": "line_images/2B_14_6-7/2B_14_6-7_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "n baken. blüzlich len tdas",
+      "crop_path": "line_images/2B_14_6-7/2B_14_6-7_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Iele Fon un Men Romt",
+      "crop_path": "line_images/2B_14_6-7/2B_14_6-7_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Ier Mund n die& kuch e und",
+      "crop_path": "line_images/2B_14_6-7/2B_14_6-7_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "Aer Hund frist der Teig",
+      "crop_path": "line_images/2B_14_6-7/2B_14_6-7_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "dakomt Tim zn ruk",
+      "crop_path": "line_images/2B_14_6-7/2B_14_6-7_line005.png"
+    }
+  ]
+}

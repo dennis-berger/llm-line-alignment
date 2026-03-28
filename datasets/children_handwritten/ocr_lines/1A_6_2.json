@@ -1,0 +1,39 @@
+{
+  "id": "1A_6_2",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 5,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Es waur ein Man und eir",
+      "crop_path": "line_images/1A_6_2/1A_6_2_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "laufte nur der angert",
+      "crop_path": "line_images/1A_6_2/1A_6_2_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Man und er woltet",
+      "crop_path": "line_images/1A_6_2/1A_6_2_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "telewoniten aden en konte",
+      "crop_path": "line_images/1A_6_2/1A_6_2_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "nich raus gen",
+      "crop_path": "line_images/1A_6_2/1A_6_2_line004.png"
+    }
+  ]
+}

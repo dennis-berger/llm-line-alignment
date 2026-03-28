@@ -1,0 +1,39 @@
+{
+  "id": "1A_17_0",
+  "dataset": "children_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 5,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Es whar einmal ein Schefer",
+      "crop_path": "line_images/1A_17_0/1A_17_0_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "der hate M Schfe eines",
+      "crop_path": "line_images/1A_17_0/1A_17_0_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "tages merkte der & Schefes",
+      "crop_path": "line_images/1A_17_0/1A_17_0_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "oha ich habe kein hoi fur",
+      "crop_path": "line_images/1A_17_0/1A_17_0_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "meine Schafe",
+      "crop_path": "line_images/1A_17_0/1A_17_0_line004.png"
+    }
+  ]
+}
