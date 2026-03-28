@@ -25,6 +25,7 @@ from .pagexml import (
 from .prepare import PREPARE_MODES, detect_prepare_mode, extract_prepared_lines
 from .presegmented import extract_prepared_lines_from_presegmented
 from .pylaia import (
+    clone_pylaia_model_with_num_outputs,
     infer_pylaia_input_height,
     infer_pylaia_input_height_from_kwargs,
     load_pylaia_model_kwargs,
@@ -48,6 +49,7 @@ __all__ = [
     "detect_prepare_mode",
     "bbox_from_points",
     "concatenate_observations",
+    "clone_pylaia_model_with_num_outputs",
     "convert_lattice_block",
     "decode_ctc_indices",
     "decode_alignment_segments",

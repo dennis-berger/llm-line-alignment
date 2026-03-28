@@ -126,6 +126,42 @@ Creates a dataset with:
 
 ---
 
+## build_children_handwritten_dataset.py
+
+Build the canonical `children_handwritten` dataset directly from the original
+`alignment_tests` export.
+
+This script uses:
+
+- `ground_truth/csv_aligned/` for GT lines
+- `data/images/` for page images
+- `output/disjoin/` for presegmented line crops
+
+It also resolves the one raw/source naming alias for `3B-16_16-17` and rewrites
+line-image filenames to zero-padded `<id>_lineNNN.png` names so downstream
+PyLaia OCR and NNTP preparation preserve the correct line order.
+
+### Basic Usage
+
+```bash
+python scripts/build_children_handwritten_dataset.py \
+  --source-dir ../children_hw_original/alignment_tests \
+  --out-dir datasets/children_handwritten \
+  --overwrite
+```
+
+### Output
+
+Creates or refreshes:
+
+- **`gt/`** - newline-separated GT per sample
+- **`transcription/`** - line-break-free transcription per sample
+- **`images/`** - one page image per sample
+- **`line_images/`** - canonical presegmented line crops
+- **`metadata.json`** - source provenance and per-sample counts
+
+---
+
 ## build_washington_handwritten_nntp_dataset.py
 
 Build a scratch Washington NNTP workspace with raw Kraken line-image crops for manual review.
@@ -259,6 +295,34 @@ Each fold directory contains:
 
 ---
 
+## build_children_pylaia_manifests.py
+
+Build deterministic children-handwritten PyLaia manifests plus a dataset-specific
+`syms.txt`.
+
+The folds are document-level and fixed, so the held-out OCR and NNTP artifacts
+can be generated with cross-fitted checkpoints rather than a single in-sample model.
+
+### Basic Usage
+
+```bash
+python scripts/build_children_pylaia_manifests.py \
+  --data-dir datasets/children_handwritten \
+  --out-dir outputs/manifests/children_handwritten_pylaia_cv
+```
+
+### Output
+
+Creates:
+
+- **`outputs/manifests/children_handwritten_pylaia_cv/children.syms.txt`**
+- **`outputs/manifests/children_handwritten_pylaia_cv/fold_a/`**
+- **`outputs/manifests/children_handwritten_pylaia_cv/fold_b/`**
+- **`outputs/manifests/children_handwritten_pylaia_cv/fold_c/`**
+- **`manifest_summary.json`** - top-level fold and alphabet summary
+
+---
+
 ## run_nntp_eval.py
 
 Run the NNTP baseline using either local PAGE XML crops or presegmented line images.
@@ -303,6 +367,52 @@ See [docs/nntp_pipeline.md](docs/nntp_pipeline.md) for stage details and caveats
 
 ---
 
+## run_children_crossfit_ocr.py
+
+Generate held-out `ocr/` and `ocr_lines/` artifacts for `children_handwritten`
+from the trained fold checkpoints.
+
+### Basic Usage
+
+```bash
+python scripts/run_children_crossfit_ocr.py \
+  --data-dir datasets/children_handwritten \
+  --manifest-dir outputs/manifests/children_handwritten_pylaia_cv \
+  --assets-root outputs/pylaia/children_handwritten
+```
+
+### Output
+
+Writes canonical held-out artifacts directly under:
+
+- **`datasets/children_handwritten/ocr/`**
+- **`datasets/children_handwritten/ocr_lines/`**
+
+---
+
+## run_children_nntp_cv.py
+
+Run the NNTP baseline fold-by-fold for `children_handwritten` and optionally
+write a merged macro summary CSV.
+
+### Basic Usage
+
+```bash
+python scripts/run_children_nntp_cv.py \
+  --data-dir datasets/children_handwritten \
+  --manifest-dir outputs/manifests/children_handwritten_pylaia_cv \
+  --assets-root outputs/pylaia/children_handwritten
+```
+
+### Output
+
+- **`children_handwritten_eval_nntp_fold_a.csv`**
+- **`children_handwritten_eval_nntp_fold_b.csv`**
+- **`children_handwritten_eval_nntp_fold_c.csv`**
+- **`children_handwritten_eval_nntp_cv.csv`** - merged macro summary when all folds finish
+
+---
+
 ## summarize_washington_nntp_cv.py
 
 Summarize the two Washington NNTP fold evaluation CSVs into one 3-row CSV.
@@ -316,6 +426,22 @@ python scripts/summarize_washington_nntp_cv.py
 ### Output
 
 - **`washington_handwritten_eval_nntp_cv_macro.csv`** - rows for `train_a_test_b`, `train_b_test_a`, and `macro_avg`
+
+---
+
+## summarize_children_nntp_cv.py
+
+Summarize the three children NNTP fold evaluation CSVs into one macro CSV.
+
+### Basic Usage
+
+```bash
+python scripts/summarize_children_nntp_cv.py
+```
+
+### Output
+
+- **`children_handwritten_eval_nntp_cv.csv`** - rows for `fold_a`, `fold_b`, `fold_c`, and `macro_avg`
 
 ---
 

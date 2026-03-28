@@ -1,0 +1,1745 @@
+{
+  "source_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests",
+  "out_dir": "/Users/dennisberger/Documents/Privat/llm-line-alignment/datasets/children_handwritten",
+  "link_mode": "copy",
+  "sample_count": 63,
+  "line_count": 394,
+  "source_id_aliases": {
+    "3B-16_16-17": "3B_16_16-17"
+  },
+  "samples": [
+    {
+      "sample_id": "1A_15_0-1",
+      "doc_id": "1A_15",
+      "source_sample_id": "1A_15_0-1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_15.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_15_0-1.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_15_0-1/1A_15_0-1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_15_0-1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_15_0-1",
+      "line_count": 4,
+      "gt_lines": [
+        "ein man sizt auf einen",
+        "wello ??? A hate ein",
+        "ena nhe ngar hintendran",
+        "forne fon Dem man hatz"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_15_0-1/1A_15_0-1_line000.png",
+        "datasets/children_handwritten/line_images/1A_15_0-1/1A_15_0-1_line001.png",
+        "datasets/children_handwritten/line_images/1A_15_0-1/1A_15_0-1_line002.png",
+        "datasets/children_handwritten/line_images/1A_15_0-1/1A_15_0-1_line003.png"
+      ]
+    },
+    {
+      "sample_id": "1A_15_2-3",
+      "doc_id": "1A_15",
+      "source_sample_id": "1A_15_2-3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_15.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_15_2-3.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_15_2-3/1A_15_2-3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_15_2-3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_15_2-3",
+      "line_count": 7,
+      "gt_lines": [
+        "Ein Fotograf wollte eine",
+        "geise fotografiren aber di geise w",
+        "ollte das nicht drum rente di geise",
+        "dem fotograf hinten nach ei par",
+        "loite fotagariren di beiden di ge",
+        "is hate noch eine Grocke um dem has",
+        "drum cklinelingelz."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_15_2-3/1A_15_2-3_line000.png",
+        "datasets/children_handwritten/line_images/1A_15_2-3/1A_15_2-3_line001.png",
+        "datasets/children_handwritten/line_images/1A_15_2-3/1A_15_2-3_line002.png",
+        "datasets/children_handwritten/line_images/1A_15_2-3/1A_15_2-3_line003.png",
+        "datasets/children_handwritten/line_images/1A_15_2-3/1A_15_2-3_line004.png",
+        "datasets/children_handwritten/line_images/1A_15_2-3/1A_15_2-3_line005.png",
+        "datasets/children_handwritten/line_images/1A_15_2-3/1A_15_2-3_line006.png"
+      ]
+    },
+    {
+      "sample_id": "1A_15_4-5",
+      "doc_id": "1A_15",
+      "source_sample_id": "1A_15_4-5",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_15.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_15_4-5.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_15_4-5/1A_15_4-5.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_15_4-5",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_15_4-5",
+      "line_count": 10,
+      "gt_lines": [
+        "Der Schneman will in die",
+        "Telefon Kabine aber da sit er",
+        "das da Schon ein anderer",
+        "Man da ist der schneman",
+        "weis nicht was der Macht.",
+        "Aber er lacht die telefon",
+        "Kamine ist aus dem dach ales",
+        "Amira",
+        "mit Schne be dekt und",
+        "der"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line000.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line001.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line002.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line003.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line004.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line005.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line006.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line007.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line008.png",
+        "datasets/children_handwritten/line_images/1A_15_4-5/1A_15_4-5_line009.png"
+      ]
+    },
+    {
+      "sample_id": "1A_15_6-7",
+      "doc_id": "1A_15",
+      "source_sample_id": "1A_15_6-7",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_15.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_15_6-7.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_15_6-7/1A_15_6-7.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_15_6-7",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_15_6-7",
+      "line_count": 8,
+      "gt_lines": [
+        "Der Man ist am Schtrand und",
+        "hat ein Kreps am ohr und",
+        "eine muschel in der hand er ist",
+        "dert wo der Löichturn ist der",
+        "Mann hat ales schwarz weis an",
+        "dert wo der mann ist haz ckein",
+        "andere Person.",
+        "Amira"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_15_6-7/1A_15_6-7_line000.png",
+        "datasets/children_handwritten/line_images/1A_15_6-7/1A_15_6-7_line001.png",
+        "datasets/children_handwritten/line_images/1A_15_6-7/1A_15_6-7_line002.png",
+        "datasets/children_handwritten/line_images/1A_15_6-7/1A_15_6-7_line003.png",
+        "datasets/children_handwritten/line_images/1A_15_6-7/1A_15_6-7_line004.png",
+        "datasets/children_handwritten/line_images/1A_15_6-7/1A_15_6-7_line005.png",
+        "datasets/children_handwritten/line_images/1A_15_6-7/1A_15_6-7_line006.png",
+        "datasets/children_handwritten/line_images/1A_15_6-7/1A_15_6-7_line007.png"
+      ]
+    },
+    {
+      "sample_id": "1A_17_0",
+      "doc_id": "1A_17",
+      "source_sample_id": "1A_17_0",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_17.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_17_0.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_17_0/1A_17_0.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_17_0",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_17_0",
+      "line_count": 5,
+      "gt_lines": [
+        "Es whar einmal ein Schefer",
+        "der hate 16 Schafe eines",
+        "tages merkte der Schefer",
+        "oha ich habe kein hoi für",
+        "meine Schafe"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_17_0/1A_17_0_line000.png",
+        "datasets/children_handwritten/line_images/1A_17_0/1A_17_0_line001.png",
+        "datasets/children_handwritten/line_images/1A_17_0/1A_17_0_line002.png",
+        "datasets/children_handwritten/line_images/1A_17_0/1A_17_0_line003.png",
+        "datasets/children_handwritten/line_images/1A_17_0/1A_17_0_line004.png"
+      ]
+    },
+    {
+      "sample_id": "1A_17_1",
+      "doc_id": "1A_17",
+      "source_sample_id": "1A_17_1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_17.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_17_1.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_17_1/1A_17_1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_17_1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_17_1",
+      "line_count": 7,
+      "gt_lines": [
+        "Es Waren einmal 6",
+        "Endeker. Die ware in den",
+        "Bergen. Eines tages Sahen",
+        "Sie ein steinbok. Zuerst",
+        "iagte er die 5 gröseren",
+        "dan aber rante er zum",
+        "kleinen. Der K"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_17_1/1A_17_1_line000.png",
+        "datasets/children_handwritten/line_images/1A_17_1/1A_17_1_line001.png",
+        "datasets/children_handwritten/line_images/1A_17_1/1A_17_1_line002.png",
+        "datasets/children_handwritten/line_images/1A_17_1/1A_17_1_line003.png",
+        "datasets/children_handwritten/line_images/1A_17_1/1A_17_1_line004.png",
+        "datasets/children_handwritten/line_images/1A_17_1/1A_17_1_line005.png",
+        "datasets/children_handwritten/line_images/1A_17_1/1A_17_1_line006.png"
+      ]
+    },
+    {
+      "sample_id": "1A_17_2",
+      "doc_id": "1A_17",
+      "source_sample_id": "1A_17_2",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_17.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_17_2.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_17_2/1A_17_2.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_17_2",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_17_2",
+      "line_count": 7,
+      "gt_lines": [
+        "Der Schneman blokirt die",
+        "türe. Der man lauft im",
+        "Schne. Am Haus ist eine",
+        "Uhr. Das Haus ist orang und",
+        "rot. Das Haus hat blaue",
+        "fenster. Es liegt überal Schne.",
+        "Der Schneman ist frech."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_17_2/1A_17_2_line000.png",
+        "datasets/children_handwritten/line_images/1A_17_2/1A_17_2_line001.png",
+        "datasets/children_handwritten/line_images/1A_17_2/1A_17_2_line002.png",
+        "datasets/children_handwritten/line_images/1A_17_2/1A_17_2_line003.png",
+        "datasets/children_handwritten/line_images/1A_17_2/1A_17_2_line004.png",
+        "datasets/children_handwritten/line_images/1A_17_2/1A_17_2_line005.png",
+        "datasets/children_handwritten/line_images/1A_17_2/1A_17_2_line006.png"
+      ]
+    },
+    {
+      "sample_id": "1A_17_3",
+      "doc_id": "1A_17",
+      "source_sample_id": "1A_17_3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_17.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_17_3.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_17_3/1A_17_3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_17_3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_17_3",
+      "line_count": 7,
+      "gt_lines": [
+        "Es war einmal ein man der his",
+        "Jakob. Jakob ging eines tages zum",
+        "Strand. Er fand eine hübsche",
+        "muschel doch in der muschel",
+        "lebte ein Krebs. Plözlich",
+        "sprang der Krebs an Jakobs ohr.",
+        "Er kneifte Jakob."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_17_3/1A_17_3_line000.png",
+        "datasets/children_handwritten/line_images/1A_17_3/1A_17_3_line001.png",
+        "datasets/children_handwritten/line_images/1A_17_3/1A_17_3_line002.png",
+        "datasets/children_handwritten/line_images/1A_17_3/1A_17_3_line003.png",
+        "datasets/children_handwritten/line_images/1A_17_3/1A_17_3_line004.png",
+        "datasets/children_handwritten/line_images/1A_17_3/1A_17_3_line005.png",
+        "datasets/children_handwritten/line_images/1A_17_3/1A_17_3_line006.png"
+      ]
+    },
+    {
+      "sample_id": "1A_6_0",
+      "doc_id": "1A_6",
+      "source_sample_id": "1A_6_0",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_6.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_6_0.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_6_0/1A_6_0.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_6_0",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_6_0",
+      "line_count": 3,
+      "gt_lines": [
+        "Eines tages war eine Schaf",
+        "auf die wise und si iste",
+        "und war einen mensch"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_6_0/1A_6_0_line000.png",
+        "datasets/children_handwritten/line_images/1A_6_0/1A_6_0_line001.png",
+        "datasets/children_handwritten/line_images/1A_6_0/1A_6_0_line002.png"
+      ]
+    },
+    {
+      "sample_id": "1A_6_1",
+      "doc_id": "1A_6",
+      "source_sample_id": "1A_6_1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_6.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_6_1.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_6_1/1A_6_1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_6_1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_6_1",
+      "line_count": 4,
+      "gt_lines": [
+        "ein man get wek von die",
+        "Zige Ale Menschen",
+        "Machen Fotos und",
+        "der man ist in dem"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_6_1/1A_6_1_line000.png",
+        "datasets/children_handwritten/line_images/1A_6_1/1A_6_1_line001.png",
+        "datasets/children_handwritten/line_images/1A_6_1/1A_6_1_line002.png",
+        "datasets/children_handwritten/line_images/1A_6_1/1A_6_1_line003.png"
+      ]
+    },
+    {
+      "sample_id": "1A_6_2",
+      "doc_id": "1A_6",
+      "source_sample_id": "1A_6_2",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_6.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_6_2.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_6_2/1A_6_2.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_6_2",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_6_2",
+      "line_count": 5,
+      "gt_lines": [
+        "Es War ein Man und er",
+        "laufte nur der andere",
+        "Mann und er wolte",
+        "teleVoniren ader er konte",
+        "nich raus gen"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_6_2/1A_6_2_line000.png",
+        "datasets/children_handwritten/line_images/1A_6_2/1A_6_2_line001.png",
+        "datasets/children_handwritten/line_images/1A_6_2/1A_6_2_line002.png",
+        "datasets/children_handwritten/line_images/1A_6_2/1A_6_2_line003.png",
+        "datasets/children_handwritten/line_images/1A_6_2/1A_6_2_line004.png"
+      ]
+    },
+    {
+      "sample_id": "1A_6_3",
+      "doc_id": "1A_6",
+      "source_sample_id": "1A_6_3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_6.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_6_3.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_6_3/1A_6_3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_6_3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_6_3",
+      "line_count": 5,
+      "gt_lines": [
+        "Es War einen Man",
+        "er War am Strand",
+        "er hate eine muschel",
+        "In die hand er",
+        "wurde von ein"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_6_3/1A_6_3_line000.png",
+        "datasets/children_handwritten/line_images/1A_6_3/1A_6_3_line001.png",
+        "datasets/children_handwritten/line_images/1A_6_3/1A_6_3_line002.png",
+        "datasets/children_handwritten/line_images/1A_6_3/1A_6_3_line003.png",
+        "datasets/children_handwritten/line_images/1A_6_3/1A_6_3_line004.png"
+      ]
+    },
+    {
+      "sample_id": "1A_8_0",
+      "doc_id": "1A_8",
+      "source_sample_id": "1A_8_0",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_8.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_8_0.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_8_0/1A_8_0.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_8_0",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_8_0",
+      "line_count": 6,
+      "gt_lines": [
+        "Ein Man Frt hitrnat",
+        "mi Einer Ahengr",
+        "Miz Trin ist Ein Man",
+        "Mit Ein Schok Ti Schaf Haben",
+        "Eins bebe Schaf Si a?en",
+        "Zum"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_8_0/1A_8_0_line000.png",
+        "datasets/children_handwritten/line_images/1A_8_0/1A_8_0_line001.png",
+        "datasets/children_handwritten/line_images/1A_8_0/1A_8_0_line002.png",
+        "datasets/children_handwritten/line_images/1A_8_0/1A_8_0_line003.png",
+        "datasets/children_handwritten/line_images/1A_8_0/1A_8_0_line004.png",
+        "datasets/children_handwritten/line_images/1A_8_0/1A_8_0_line005.png"
+      ]
+    },
+    {
+      "sample_id": "1A_8_1",
+      "doc_id": "1A_8",
+      "source_sample_id": "1A_8_1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_8.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_8_1.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_8_1/1A_8_1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_8_1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_8_1",
+      "line_count": 6,
+      "gt_lines": [
+        "Die Manen unt frauen",
+        "föten der man hat angt",
+        "fon die geis di wo obnsit",
+        "laken aus. Mönschen",
+        "sint auf dem falkan.",
+        "Die"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_8_1/1A_8_1_line000.png",
+        "datasets/children_handwritten/line_images/1A_8_1/1A_8_1_line001.png",
+        "datasets/children_handwritten/line_images/1A_8_1/1A_8_1_line002.png",
+        "datasets/children_handwritten/line_images/1A_8_1/1A_8_1_line003.png",
+        "datasets/children_handwritten/line_images/1A_8_1/1A_8_1_line004.png",
+        "datasets/children_handwritten/line_images/1A_8_1/1A_8_1_line005.png"
+      ]
+    },
+    {
+      "sample_id": "1A_8_2",
+      "doc_id": "1A_8",
+      "source_sample_id": "1A_8_2",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_8.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_8_2.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_8_2/1A_8_2.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_8_2",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_8_2",
+      "line_count": 7,
+      "gt_lines": [
+        "Der Man isst in",
+        "Delefn hus er is",
+        "Blaiben stechen in",
+        "Delefnhus blaiben",
+        "Stechen wail ein",
+        "Schnema isst forn",
+        "Tur"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_8_2/1A_8_2_line000.png",
+        "datasets/children_handwritten/line_images/1A_8_2/1A_8_2_line001.png",
+        "datasets/children_handwritten/line_images/1A_8_2/1A_8_2_line002.png",
+        "datasets/children_handwritten/line_images/1A_8_2/1A_8_2_line003.png",
+        "datasets/children_handwritten/line_images/1A_8_2/1A_8_2_line004.png",
+        "datasets/children_handwritten/line_images/1A_8_2/1A_8_2_line005.png",
+        "datasets/children_handwritten/line_images/1A_8_2/1A_8_2_line006.png"
+      ]
+    },
+    {
+      "sample_id": "1A_8_3",
+      "doc_id": "1A_8",
+      "source_sample_id": "1A_8_3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/1A_8.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/1A_8_3.png",
+      "dataset_image": "datasets/children_handwritten/images/1A_8_3/1A_8_3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/1A_8_3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/1A_8_3",
+      "line_count": 5,
+      "gt_lines": [
+        "Der man lupft eine muschel",
+        "blözlik chomt ein chorbion",
+        "heraus es chlemt inz or es",
+        "tut egxtrem we er erschroken",
+        "isst er fast ins Meer geblonst."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/1A_8_3/1A_8_3_line000.png",
+        "datasets/children_handwritten/line_images/1A_8_3/1A_8_3_line001.png",
+        "datasets/children_handwritten/line_images/1A_8_3/1A_8_3_line002.png",
+        "datasets/children_handwritten/line_images/1A_8_3/1A_8_3_line003.png",
+        "datasets/children_handwritten/line_images/1A_8_3/1A_8_3_line004.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_0-1",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_0-1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_0-1.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_0-1/2A_11_0-1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_0-1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_0-1",
+      "line_count": 7,
+      "gt_lines": [
+        "eine Afe wil eine banane",
+        "der man aber stelt die",
+        "banane ont der afe wil",
+        "ombedink die banane & ont",
+        "er hat nich ein Schöne",
+        "Keneke nur ein bam ont",
+        "der afe"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_0-1/2A_11_0-1_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_0-1/2A_11_0-1_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_0-1/2A_11_0-1_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_0-1/2A_11_0-1_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_0-1/2A_11_0-1_line004.png",
+        "datasets/children_handwritten/line_images/2A_11_0-1/2A_11_0-1_line005.png",
+        "datasets/children_handwritten/line_images/2A_11_0-1/2A_11_0-1_line006.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_2-3",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_2-3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_2-3.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_2-3/2A_11_2-3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_2-3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_2-3",
+      "line_count": 5,
+      "gt_lines": [
+        "der himek ist scheun",
+        "ont der dieb hate ein",
+        "Schneman ge macht ont",
+        "dae hasen & haben eine",
+        "rube be gomen der man"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_2-3/2A_11_2-3_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_2-3/2A_11_2-3_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_2-3/2A_11_2-3_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_2-3/2A_11_2-3_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_2-3/2A_11_2-3_line004.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_4-5",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_4-5",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_4-5.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_4-5/2A_11_4-5.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_4-5",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_4-5",
+      "line_count": 7,
+      "gt_lines": [
+        "der man hat ein",
+        "torm mit Karte kemacht",
+        "der man rent zom",
+        "fenster wo die forhange",
+        "im & wint bewekt der",
+        "man ist ein dieb er",
+        "hat sachen ge stolen."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_4-5/2A_11_4-5_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_4-5/2A_11_4-5_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_4-5/2A_11_4-5_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_4-5/2A_11_4-5_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_4-5/2A_11_4-5_line004.png",
+        "datasets/children_handwritten/line_images/2A_11_4-5/2A_11_4-5_line005.png",
+        "datasets/children_handwritten/line_images/2A_11_4-5/2A_11_4-5_line006.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_6-7",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_6-7",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_6-7.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_6-7/2A_11_6-7.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_6-7",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_6-7",
+      "line_count": 6,
+      "gt_lines": [
+        "Der man macht ein",
+        "Kuchen. Aber das Telefon",
+        "lutet. Er rolt den teik",
+        "aus. der Hund & schaut zu.",
+        "der Kugen siet fein aus.",
+        "Der man get zum teleron."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_6-7/2A_11_6-7_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_6-7/2A_11_6-7_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_6-7/2A_11_6-7_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_6-7/2A_11_6-7_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_6-7/2A_11_6-7_line004.png",
+        "datasets/children_handwritten/line_images/2A_11_6-7/2A_11_6-7_line005.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_8-9",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_8-9",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_8-9.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_8-9/2A_11_8-9.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_8-9",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_8-9",
+      "line_count": 4,
+      "gt_lines": [
+        "Eine kaze ond ein Hond",
+        "schtreiten aber man komt zom",
+        "Schauen was los ist. Er & hat ein",
+        "blaues Haus. Die Tür ist Rod."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_8-9/2A_11_8-9_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_8-9/2A_11_8-9_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_8-9/2A_11_8-9_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_8-9/2A_11_8-9_line003.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_10-11",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_10-11",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_10-11.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_10-11/2A_11_10-11.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_10-11",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_10-11",
+      "line_count": 5,
+      "gt_lines": [
+        "Einen Hond hat der man.",
+        "Der Man will die wesche",
+        "an die WaschLein hengen. & Aber",
+        "onein einen Fogel macht",
+        "die WaschLein kapot."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_10-11/2A_11_10-11_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_10-11/2A_11_10-11_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_10-11/2A_11_10-11_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_10-11/2A_11_10-11_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_10-11/2A_11_10-11_line004.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_12-13",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_12-13",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_12-13.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_12-13/2A_11_12-13.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_12-13",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_12-13",
+      "line_count": 6,
+      "gt_lines": [
+        "Das Haus ist rot. Der Man",
+        "vart aur einen blauen Welo.",
+        "Der andere Man hat mega",
+        "viele & schare. Der Man aur",
+        "dem welo hat hinten in",
+        "den"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_12-13/2A_11_12-13_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_12-13/2A_11_12-13_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_12-13/2A_11_12-13_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_12-13/2A_11_12-13_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_12-13/2A_11_12-13_line004.png",
+        "datasets/children_handwritten/line_images/2A_11_12-13/2A_11_12-13_line005.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_14-15",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_14-15",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_14-15.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_14-15/2A_11_14-15.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_14-15",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_14-15",
+      "line_count": 7,
+      "gt_lines": [
+        "Eine zige rend dem",
+        "Man hintenher.",
+        "&",
+        "der Man",
+        "Der Man rend der",
+        "hang hienap so sch",
+        "nel als er kan."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_14-15/2A_11_14-15_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_14-15/2A_11_14-15_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_14-15/2A_11_14-15_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_14-15/2A_11_14-15_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_14-15/2A_11_14-15_line004.png",
+        "datasets/children_handwritten/line_images/2A_11_14-15/2A_11_14-15_line005.png",
+        "datasets/children_handwritten/line_images/2A_11_14-15/2A_11_14-15_line006.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_16-17",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_16-17",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_16-17.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_16-17/2A_11_16-17.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_16-17",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_16-17",
+      "line_count": 8,
+      "gt_lines": [
+        "Es hat Schnee. Der kleiner",
+        "man hat einen schneeman ge",
+        "baut, darum komt der andere",
+        "man nicht meer raus. Es hat",
+        "eine ur. & Das renster ist",
+        "blau. Das Haus ist rot. Das iel",
+        "efon ist gelb. Und der man",
+        "in der"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_16-17/2A_11_16-17_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_16-17/2A_11_16-17_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_16-17/2A_11_16-17_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_16-17/2A_11_16-17_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_16-17/2A_11_16-17_line004.png",
+        "datasets/children_handwritten/line_images/2A_11_16-17/2A_11_16-17_line005.png",
+        "datasets/children_handwritten/line_images/2A_11_16-17/2A_11_16-17_line006.png",
+        "datasets/children_handwritten/line_images/2A_11_16-17/2A_11_16-17_line007.png"
+      ]
+    },
+    {
+      "sample_id": "2A_11_18-19",
+      "doc_id": "2A_11",
+      "source_sample_id": "2A_11_18-19",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_11.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_11_18-19.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_11_18-19/2A_11_18-19.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_11_18-19",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_11_18-19",
+      "line_count": 7,
+      "gt_lines": [
+        "Ein grosses blaues waser",
+        "sit man. Der leuchttarm Jeuchtet.",
+        "Man siet auch eine insel.",
+        "Ein Kreps & pakt den man",
+        "an den Oren und der man",
+        "sagt aaa aua und weint",
+        "fast un das so weetut."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_11_18-19/2A_11_18-19_line000.png",
+        "datasets/children_handwritten/line_images/2A_11_18-19/2A_11_18-19_line001.png",
+        "datasets/children_handwritten/line_images/2A_11_18-19/2A_11_18-19_line002.png",
+        "datasets/children_handwritten/line_images/2A_11_18-19/2A_11_18-19_line003.png",
+        "datasets/children_handwritten/line_images/2A_11_18-19/2A_11_18-19_line004.png",
+        "datasets/children_handwritten/line_images/2A_11_18-19/2A_11_18-19_line005.png",
+        "datasets/children_handwritten/line_images/2A_11_18-19/2A_11_18-19_line006.png"
+      ]
+    },
+    {
+      "sample_id": "2A_12_0-1",
+      "doc_id": "2A_12",
+      "source_sample_id": "2A_12_0-1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_12.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_12_0-1.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_12_0-1/2A_12_0-1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_12_0-1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_12_0-1",
+      "line_count": 2,
+      "gt_lines": [
+        "ESWarainml aine Klon erst in dertzooegangen",
+        "undeshb aren & wohat GesaGt entsuligung"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_12_0-1/2A_12_0-1_line000.png",
+        "datasets/children_handwritten/line_images/2A_12_0-1/2A_12_0-1_line001.png"
+      ]
+    },
+    {
+      "sample_id": "2A_12_2-3",
+      "doc_id": "2A_12",
+      "source_sample_id": "2A_12_2-3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_12.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_12_2-3.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_12_2-3/2A_12_2-3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_12_2-3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_12_2-3",
+      "line_count": 4,
+      "gt_lines": [
+        "es warainmal ain schnema",
+        "Derschnema haT GesaGt & wilstu",
+        "MainFroin sain : ja kanstemir",
+        "ain KaroTe Bringen"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_12_2-3/2A_12_2-3_line000.png",
+        "datasets/children_handwritten/line_images/2A_12_2-3/2A_12_2-3_line001.png",
+        "datasets/children_handwritten/line_images/2A_12_2-3/2A_12_2-3_line002.png",
+        "datasets/children_handwritten/line_images/2A_12_2-3/2A_12_2-3_line003.png"
+      ]
+    },
+    {
+      "sample_id": "2A_12_4-5",
+      "doc_id": "2A_12",
+      "source_sample_id": "2A_12_4-5",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_12.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_12_4-5.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_12_4-5/2A_12_4-5.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_12_4-5",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_12_4-5",
+      "line_count": 4,
+      "gt_lines": [
+        "eswarainmal ain man",
+        "wohTain Turm GeBaut",
+        "erhate zhais und  & Brlözliresha",
+        "winT unT Turm"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_12_4-5/2A_12_4-5_line000.png",
+        "datasets/children_handwritten/line_images/2A_12_4-5/2A_12_4-5_line001.png",
+        "datasets/children_handwritten/line_images/2A_12_4-5/2A_12_4-5_line002.png",
+        "datasets/children_handwritten/line_images/2A_12_4-5/2A_12_4-5_line003.png"
+      ]
+    },
+    {
+      "sample_id": "2A_12_6-7",
+      "doc_id": "2A_12",
+      "source_sample_id": "2A_12_6-7",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_12.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_12_6-7.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_12_6-7/2A_12_6-7.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_12_6-7",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_12_6-7",
+      "line_count": 3,
+      "gt_lines": [
+        "der Man wel Kekse baken",
+        "und & Telefon loitet",
+        "und der Hund wie esen"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_12_6-7/2A_12_6-7_line000.png",
+        "datasets/children_handwritten/line_images/2A_12_6-7/2A_12_6-7_line001.png",
+        "datasets/children_handwritten/line_images/2A_12_6-7/2A_12_6-7_line002.png"
+      ]
+    },
+    {
+      "sample_id": "2A_12_8-9",
+      "doc_id": "2A_12",
+      "source_sample_id": "2A_12_8-9",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_12.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_12_8-9.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_12_8-9/2A_12_8-9.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_12_8-9",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_12_8-9",
+      "line_count": 3,
+      "gt_lines": [
+        "Es warainml ain Ka&Ze",
+        "und ain Hund",
+        "Der Ma"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_12_8-9/2A_12_8-9_line000.png",
+        "datasets/children_handwritten/line_images/2A_12_8-9/2A_12_8-9_line001.png",
+        "datasets/children_handwritten/line_images/2A_12_8-9/2A_12_8-9_line002.png"
+      ]
+    },
+    {
+      "sample_id": "2A_12_10-11",
+      "doc_id": "2A_12",
+      "source_sample_id": "2A_12_10-11",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_12.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_12_10-11.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_12_10-11/2A_12_10-11.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_12_10-11",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_12_10-11",
+      "line_count": 4,
+      "gt_lines": [
+        "Der Man TuT",
+        "Saine Claider An henger",
+        "wailer & SchperT In",
+        "Nacht Ein"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_12_10-11/2A_12_10-11_line000.png",
+        "datasets/children_handwritten/line_images/2A_12_10-11/2A_12_10-11_line001.png",
+        "datasets/children_handwritten/line_images/2A_12_10-11/2A_12_10-11_line002.png",
+        "datasets/children_handwritten/line_images/2A_12_10-11/2A_12_10-11_line003.png"
+      ]
+    },
+    {
+      "sample_id": "2A_12_12-13",
+      "doc_id": "2A_12",
+      "source_sample_id": "2A_12_12-13",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_12.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_12_12-13.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_12_12-13/2A_12_12-13.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_12_12-13",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_12_12-13",
+      "line_count": 4,
+      "gt_lines": [
+        "Es war ein mal",
+        "einen Schneman er war sernet",
+        "& er hat en man gese",
+        "Wo serbös war"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_12_12-13/2A_12_12-13_line000.png",
+        "datasets/children_handwritten/line_images/2A_12_12-13/2A_12_12-13_line001.png",
+        "datasets/children_handwritten/line_images/2A_12_12-13/2A_12_12-13_line002.png",
+        "datasets/children_handwritten/line_images/2A_12_12-13/2A_12_12-13_line003.png"
+      ]
+    },
+    {
+      "sample_id": "2A_12_14-15",
+      "doc_id": "2A_12",
+      "source_sample_id": "2A_12_14-15",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2A_12.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2A_12_14-15.png",
+      "dataset_image": "datasets/children_handwritten/images/2A_12_14-15/2A_12_14-15.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2A_12_14-15",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2A_12_14-15",
+      "line_count": 7,
+      "gt_lines": [
+        "Eswar ein mal ein Man",
+        "er hat einen schneke",
+        "hüsligefunden und drinen",
+        "hatekomisches tir & eshat",
+        "der man die oren gepisen",
+        "der man hat gesagt Aaaa",
+        "utsch."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2A_12_14-15/2A_12_14-15_line000.png",
+        "datasets/children_handwritten/line_images/2A_12_14-15/2A_12_14-15_line001.png",
+        "datasets/children_handwritten/line_images/2A_12_14-15/2A_12_14-15_line002.png",
+        "datasets/children_handwritten/line_images/2A_12_14-15/2A_12_14-15_line003.png",
+        "datasets/children_handwritten/line_images/2A_12_14-15/2A_12_14-15_line004.png",
+        "datasets/children_handwritten/line_images/2A_12_14-15/2A_12_14-15_line005.png",
+        "datasets/children_handwritten/line_images/2A_12_14-15/2A_12_14-15_line006.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_0-1",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_0-1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_0-1.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_0-1/2B_14_0-1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_0-1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_0-1",
+      "line_count": 4,
+      "gt_lines": [
+        "Es war ein Mal ein Kleiner Affe",
+        "der His PiPo der Kleine Affe PiPo",
+        "Hat eines Tages etwas & ander",
+        "es esen Alsn nur banane"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_0-1/2B_14_0-1_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_0-1/2B_14_0-1_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_0-1/2B_14_0-1_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_0-1/2B_14_0-1_line003.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_2-3",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_2-3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_2-3.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_2-3/2B_14_2-3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_2-3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_2-3",
+      "line_count": 7,
+      "gt_lines": [
+        "Es war ein Mal einen Schne",
+        "Man der Schmilzt ni eines",
+        "tages komen zwei Hasen",
+        "Ferbei und klauen Seine &",
+        "Nase bal komt einen Klei",
+        "nen Mah der Holte eine",
+        "Nüie Nase Herfor."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_2-3/2B_14_2-3_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_2-3/2B_14_2-3_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_2-3/2B_14_2-3_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_2-3/2B_14_2-3_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_2-3/2B_14_2-3_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_2-3/2B_14_2-3_line005.png",
+        "datasets/children_handwritten/line_images/2B_14_2-3/2B_14_2-3_line006.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_4-5",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_4-5",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_4-5.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_4-5/2B_14_4-5.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_4-5",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_4-5",
+      "line_count": 7,
+      "gt_lines": [
+        "Es war ein Mal einen Kleiner",
+        "Man der Hat e Fil spas Mit",
+        "Seinen Karten Weil er",
+        "imer Mitseinen Karten",
+        "einen turm baut & eines",
+        "tages ward er wintstos",
+        "so fest wie No ch Ni."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_4-5/2B_14_4-5_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_4-5/2B_14_4-5_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_4-5/2B_14_4-5_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_4-5/2B_14_4-5_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_4-5/2B_14_4-5_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_4-5/2B_14_4-5_line005.png",
+        "datasets/children_handwritten/line_images/2B_14_4-5/2B_14_4-5_line006.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_6-7",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_6-7",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_6-7.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_6-7/2B_14_6-7.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_6-7",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_6-7",
+      "line_count": 6,
+      "gt_lines": [
+        "Tim ist dabei einen Kuchen",
+        "zu baken. blüzlich leutdas",
+        "tele Fon und den Komt",
+        "der Hund in die & Küche und",
+        "der Hund frist der Teig",
+        "da komt Tim zurük"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_6-7/2B_14_6-7_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_6-7/2B_14_6-7_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_6-7/2B_14_6-7_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_6-7/2B_14_6-7_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_6-7/2B_14_6-7_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_6-7/2B_14_6-7_line005.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_8-9",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_8-9",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_8-9.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_8-9/2B_14_8-9.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_8-9",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_8-9",
+      "line_count": 6,
+      "gt_lines": [
+        "Eines Tages wo JaKob",
+        "mit seinem Hund spaz",
+        "iren get laufte der",
+        "Hund ein fach dafon &",
+        "Kurze Zeit speter set der",
+        "man das Sein Hund Otto"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_8-9/2B_14_8-9_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_8-9/2B_14_8-9_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_8-9/2B_14_8-9_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_8-9/2B_14_8-9_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_8-9/2B_14_8-9_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_8-9/2B_14_8-9_line005.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_10-11",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_10-11",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_10-11.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_10-11/2B_14_10-11.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_10-11",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_10-11",
+      "line_count": 7,
+      "gt_lines": [
+        "es war ein man der Hate",
+        "einen Kleinen Hund und",
+        "einen sonen Garten. und",
+        "eines Tages get der man &",
+        "in seinen Garten zum Seine",
+        "Sachen Auf zu Hengen. aber",
+        "ein Vogel Sas auf der Schnur"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_10-11/2B_14_10-11_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_10-11/2B_14_10-11_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_10-11/2B_14_10-11_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_10-11/2B_14_10-11_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_10-11/2B_14_10-11_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_10-11/2B_14_10-11_line005.png",
+        "datasets/children_handwritten/line_images/2B_14_10-11/2B_14_10-11_line006.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_12-13",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_12-13",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_12-13.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_12-13/2B_14_12-13.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_12-13",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_12-13",
+      "line_count": 8,
+      "gt_lines": [
+        "Es war ein mal ein man der wolte",
+        "Nach hause gehon mit dem Farad",
+        "Aber auf dem weg laufte ein Hirt",
+        "mit Filen Schafen und er komte",
+        "nur langsam foran & Aber zum",
+        "glüg bigt der Hirt und seine Schafe",
+        "bald An einer Abzweigun Ap und",
+        "er kam schenl nach hause."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_12-13/2B_14_12-13_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_12-13/2B_14_12-13_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_12-13/2B_14_12-13_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_12-13/2B_14_12-13_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_12-13/2B_14_12-13_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_12-13/2B_14_12-13_line005.png",
+        "datasets/children_handwritten/line_images/2B_14_12-13/2B_14_12-13_line006.png",
+        "datasets/children_handwritten/line_images/2B_14_12-13/2B_14_12-13_line007.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_14-15",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_14-15",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_14-15.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_14-15/2B_14_14-15.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_14-15",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_14-15",
+      "line_count": 10,
+      "gt_lines": [
+        "6 Menschen gehen eine Wan",
+        "derung machen. vo sie schon",
+        "lange gewandert sint. sagte",
+        "der kleinste. ich mun etwan im",
+        "Wald machen? was Fragten",
+        "die &  Anderen weiss ich selbst",
+        "nicht sagt er nach einer",
+        "weile hörten sie was",
+        "ein boltern und krachen",
+        "und sie gehen schauen"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line005.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line006.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line007.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line008.png",
+        "datasets/children_handwritten/line_images/2B_14_14-15/2B_14_14-15_line009.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_16-17",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_16-17",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_16-17.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_16-17/2B_14_16-17.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_16-17",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_16-17",
+      "line_count": 11,
+      "gt_lines": [
+        "es war ein mal ein Mann",
+        "der wonte in einem kleinen",
+        "haus und der andere",
+        "Haus am Statrand eines Tages",
+        "Wolte er mit seiner Tante",
+        "Telefoniren und ging ins",
+        "Telefon haus zum Telefoniren",
+        "dan komt ein & anderen Mann",
+        "der nicht sit ob in Telefon",
+        "haus ein Mann ist und baute",
+        "ein Schnemann for das"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line005.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line006.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line007.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line008.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line009.png",
+        "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line010.png"
+      ]
+    },
+    {
+      "sample_id": "2B_14_18-19",
+      "doc_id": "2B_14",
+      "source_sample_id": "2B_14_18-19",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/2B_14.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/2B_14_18-19.png",
+      "dataset_image": "datasets/children_handwritten/images/2B_14_18-19/2B_14_18-19.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/2B_14_18-19",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/2B_14_18-19",
+      "line_count": 11,
+      "gt_lines": [
+        "es War ein Mal ein",
+        "Kleinen Mann der wonte",
+        "gibtes file Muscheln.",
+        "in einem Kleinen",
+        "haus aber er Möchte lieber",
+        "ans meer da Steigt",
+        "er in einen Zug und farte",
+        "ans Meer Am Meer get",
+        "er in ein Hotel gerade &",
+        "am Meer da nach geter",
+        "an ein Strand da"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line000.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line001.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line002.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line003.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line004.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line005.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line006.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line007.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line008.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line009.png",
+        "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line010.png"
+      ]
+    },
+    {
+      "sample_id": "3B_16_0-1",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_0-1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_0-1.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_16_0-1/3B_16_0-1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_0-1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_16_0-1",
+      "line_count": 3,
+      "gt_lines": [
+        "... zeigen. Alle Kinder wo ein Haustier haben nemen es",
+        "mit in die Schule mit. Und den schreiben wir & wen",
+        "es geboren ist, wie es heist und was es ist. Eines Tages."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_16_0-1/3B_16_0-1_line000.png",
+        "datasets/children_handwritten/line_images/3B_16_0-1/3B_16_0-1_line001.png",
+        "datasets/children_handwritten/line_images/3B_16_0-1/3B_16_0-1_line002.png"
+      ]
+    },
+    {
+      "sample_id": "3B_16_2-3",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_2-3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_2-3.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_16_2-3/3B_16_2-3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_2-3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_16_2-3",
+      "line_count": 4,
+      "gt_lines": [
+        "... etwas forgefürt hate. Dann sagte das Mädchen ich wil morgen",
+        "auch ein zaubertrick machen. Am nächsten Tag machte & das Mädchen",
+        "ein zaubertrick zuerst stelte sie sich vor und began mit dem",
+        "zaubertrick."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_16_2-3/3B_16_2-3_line000.png",
+        "datasets/children_handwritten/line_images/3B_16_2-3/3B_16_2-3_line001.png",
+        "datasets/children_handwritten/line_images/3B_16_2-3/3B_16_2-3_line002.png",
+        "datasets/children_handwritten/line_images/3B_16_2-3/3B_16_2-3_line003.png"
+      ]
+    },
+    {
+      "sample_id": "3B_16_4-5",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_4-5",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_4-5.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_16_4-5/3B_16_4-5.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_4-5",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_16_4-5",
+      "line_count": 4,
+      "gt_lines": [
+        "Ich schaute nach dem Meer aber nimand war im wasser.",
+        "als ich wider in die flasche schaue war der brif nicht",
+        "mer da. Da sehe ich & das ein kleiner Krebs in mit genomen",
+        "hat. Der Krebs ging weg."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_16_4-5/3B_16_4-5_line000.png",
+        "datasets/children_handwritten/line_images/3B_16_4-5/3B_16_4-5_line001.png",
+        "datasets/children_handwritten/line_images/3B_16_4-5/3B_16_4-5_line002.png",
+        "datasets/children_handwritten/line_images/3B_16_4-5/3B_16_4-5_line003.png"
+      ]
+    },
+    {
+      "sample_id": "3B_16_6-7",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_6-7",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_6-7.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_16_6-7/3B_16_6-7.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_6-7",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_16_6-7",
+      "line_count": 4,
+      "gt_lines": [
+        "... Wasser macht. Und dann ale nass sprützt. Das wasser ist",
+        "auch zumm trinken. Sie kann auch & Eis Würfel.",
+        "es ist eine schlacht maschienen. Sie heist Schlacht",
+        "maschiene"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_16_6-7/3B_16_6-7_line000.png",
+        "datasets/children_handwritten/line_images/3B_16_6-7/3B_16_6-7_line001.png",
+        "datasets/children_handwritten/line_images/3B_16_6-7/3B_16_6-7_line002.png",
+        "datasets/children_handwritten/line_images/3B_16_6-7/3B_16_6-7_line003.png"
+      ]
+    },
+    {
+      "sample_id": "3B_16_8-9",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_8-9",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_8-9.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_16_8-9/3B_16_8-9.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_8-9",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_16_8-9",
+      "line_count": 4,
+      "gt_lines": [
+        "Ich fliege raus aus dem Haus. Ich fliege",
+        "über die wolken. 10 min später bin ich bei den",
+        "Bergen. & Ich mache einen rükwerz salto.",
+        "da wo ich gelandet bin war ich aus gerüstet."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_16_8-9/3B_16_8-9_line000.png",
+        "datasets/children_handwritten/line_images/3B_16_8-9/3B_16_8-9_line001.png",
+        "datasets/children_handwritten/line_images/3B_16_8-9/3B_16_8-9_line002.png",
+        "datasets/children_handwritten/line_images/3B_16_8-9/3B_16_8-9_line003.png"
+      ]
+    },
+    {
+      "sample_id": "3B_16_10-11",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_10-11",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_10-11.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_16_10-11/3B_16_10-11.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_10-11",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_16_10-11",
+      "line_count": 6,
+      "gt_lines": [
+        "... sagte wo sind den die tiere hin? plötzlich",
+        "hörte er was kaka kaka was ist den",
+        "das gewesen? plötzlich bemergt er ein",
+        "schmerz am po aaaaaaa er schaut",
+        "nach & hinten wer war da? Bello. Bello",
+        "Ist der hund. Der Hausmeister."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_16_10-11/3B_16_10-11_line000.png",
+        "datasets/children_handwritten/line_images/3B_16_10-11/3B_16_10-11_line001.png",
+        "datasets/children_handwritten/line_images/3B_16_10-11/3B_16_10-11_line002.png",
+        "datasets/children_handwritten/line_images/3B_16_10-11/3B_16_10-11_line003.png",
+        "datasets/children_handwritten/line_images/3B_16_10-11/3B_16_10-11_line004.png",
+        "datasets/children_handwritten/line_images/3B_16_10-11/3B_16_10-11_line005.png"
+      ]
+    },
+    {
+      "sample_id": "3B_16_12-13",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_12-13",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_12-13.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_16_12-13/3B_16_12-13.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_12-13",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_16_12-13",
+      "line_count": 7,
+      "gt_lines": [
+        "Und dann sah er das niemand",
+        "auf der insel war da schrie er",
+        "Hiilfeeee da kam ein pirat her",
+        "for und sagte: hey was willste",
+        "auf meiner Insel da sagt Tom: &",
+        "Ich bin gestrandet da sagt der",
+        "Pirat Ich auch seit 3 jahren und"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_16_12-13/3B_16_12-13_line000.png",
+        "datasets/children_handwritten/line_images/3B_16_12-13/3B_16_12-13_line001.png",
+        "datasets/children_handwritten/line_images/3B_16_12-13/3B_16_12-13_line002.png",
+        "datasets/children_handwritten/line_images/3B_16_12-13/3B_16_12-13_line003.png",
+        "datasets/children_handwritten/line_images/3B_16_12-13/3B_16_12-13_line004.png",
+        "datasets/children_handwritten/line_images/3B_16_12-13/3B_16_12-13_line005.png",
+        "datasets/children_handwritten/line_images/3B_16_12-13/3B_16_12-13_line006.png"
+      ]
+    },
+    {
+      "sample_id": "3B_16_14-15",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_14-15",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_14-15.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_16_14-15/3B_16_14-15.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_14-15",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_16_14-15",
+      "line_count": 6,
+      "gt_lines": [
+        "... den Europapark. Wir waren auf",
+        "yeder bann. aber bei 3 Bannen",
+        "must ich mich übergeben. & aber",
+        "dann habe ich 3 Lutscher beckomen.",
+        "aber im Auto muste ich mich wieder",
+        "übergeben und dann war allen gut"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_16_14-15/3B_16_14-15_line000.png",
+        "datasets/children_handwritten/line_images/3B_16_14-15/3B_16_14-15_line001.png",
+        "datasets/children_handwritten/line_images/3B_16_14-15/3B_16_14-15_line002.png",
+        "datasets/children_handwritten/line_images/3B_16_14-15/3B_16_14-15_line003.png",
+        "datasets/children_handwritten/line_images/3B_16_14-15/3B_16_14-15_line004.png",
+        "datasets/children_handwritten/line_images/3B_16_14-15/3B_16_14-15_line005.png"
+      ]
+    },
+    {
+      "sample_id": "3B-16_16-17",
+      "doc_id": "3B_16",
+      "source_sample_id": "3B_16_16-17",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_16.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_16_16-17.png",
+      "dataset_image": "datasets/children_handwritten/images/3B-16_16-17/3B-16_16-17.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_16_16-17",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B-16_16-17",
+      "line_count": 9,
+      "gt_lines": [
+        "Aber es ist nicht um spass zu habe",
+        "sonder wer schneler anst kriegt.",
+        "es sind 2 zelte eins für die junen",
+        "eins für die Mädchen. Am morg",
+        "en rütet & es plötzlich am zelt von",
+        "den Mädchen. die juns wolten",
+        "die mädchen erschrecken. warte",
+        "mal onein Ich komme zu spät",
+        "tschüs"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line000.png",
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line001.png",
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line002.png",
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line003.png",
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line004.png",
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line005.png",
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line006.png",
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line007.png",
+        "datasets/children_handwritten/line_images/3B-16_16-17/3B-16_16-17_line008.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_0-1",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_0-1",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_0-1.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_0-1/3B_19_0-1.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_0-1",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_0-1",
+      "line_count": 8,
+      "gt_lines": [
+        "... ich in die Schule kam war",
+        "nimand im Klassenzimmer? Aber",
+        "dan habe ich ein bellen gehört.",
+        "Ich ging so schnell auf den",
+        "Pausenplatz & Dort waren alle",
+        "mit iren Tieren und sie warteten",
+        "schon auf mich der Lehrer",
+        "sagte Schon das du da bist."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_0-1/3B_19_0-1_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_0-1/3B_19_0-1_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_0-1/3B_19_0-1_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_0-1/3B_19_0-1_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_0-1/3B_19_0-1_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_0-1/3B_19_0-1_line005.png",
+        "datasets/children_handwritten/line_images/3B_19_0-1/3B_19_0-1_line006.png",
+        "datasets/children_handwritten/line_images/3B_19_0-1/3B_19_0-1_line007.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_2-3",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_2-3",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_2-3.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_2-3/3B_19_2-3.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_2-3",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_2-3",
+      "line_count": 7,
+      "gt_lines": [
+        "... Eine Hexe gesehen hat sie zauberte",
+        "das das Schulhaus auseinander fält.",
+        "Alle haben die Hexe angestart",
+        "aber das gefälte der Hexe garnicht. &",
+        "Sie verhexte alle Kinder in Würmer",
+        "Frösche &(hier hat das Kind ein \"\"&\"\" geschrieben) Maden. Und da war das ganze",
+        "Scvhulhaus foler."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_2-3/3B_19_2-3_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_2-3/3B_19_2-3_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_2-3/3B_19_2-3_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_2-3/3B_19_2-3_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_2-3/3B_19_2-3_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_2-3/3B_19_2-3_line005.png",
+        "datasets/children_handwritten/line_images/3B_19_2-3/3B_19_2-3_line006.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_4-5",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_4-5",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_4-5.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_4-5/3B_19_4-5.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_4-5",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_4-5",
+      "line_count": 8,
+      "gt_lines": [
+        "In der Flaschenpost war eine",
+        "Schatzkarte. Ich schaute mir",
+        "die Karte genaueran dort war",
+        "zum beispiel eine Kreutz darauf.",
+        "Und ein weg aus & roten",
+        "Strichen zu sehen. Ich probierte",
+        "den Schatz zu finden. Was",
+        "mir auch gelang. In einer"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_4-5/3B_19_4-5_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_4-5/3B_19_4-5_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_4-5/3B_19_4-5_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_4-5/3B_19_4-5_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_4-5/3B_19_4-5_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_4-5/3B_19_4-5_line005.png",
+        "datasets/children_handwritten/line_images/3B_19_4-5/3B_19_4-5_line006.png",
+        "datasets/children_handwritten/line_images/3B_19_4-5/3B_19_4-5_line007.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_6-7",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_6-7",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_6-7.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_6-7/3B_19_6-7.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_6-7",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_6-7",
+      "line_count": 4,
+      "gt_lines": [
+        "... kann Kekse Backen. Mann kann alle Kekse",
+        "Backen die mann will. Zum beispiel Cockies, &",
+        "Meilönderli. Mann muss nur die Zutaten dazu",
+        "schüten. Wie zum beispiel Mehl, Zucker."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_6-7/3B_19_6-7_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_6-7/3B_19_6-7_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_6-7/3B_19_6-7_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_6-7/3B_19_6-7_line003.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_8-9",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_8-9",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_8-9.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_8-9/3B_19_8-9.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_8-9",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_8-9",
+      "line_count": 6,
+      "gt_lines": [
+        "Ich fliege hoch hinauf über die schöne",
+        "Landschaft. Ich fliege über Berge, Stränd",
+        "Felder undsoweiter. Einmal fliege ich in ein",
+        "Wasserfall. & dort ist es ganz nass. Dann",
+        "fliege ich in mein Haus und mache eine",
+        "kleinen Snack. Dann gehe ich Schlafen."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_8-9/3B_19_8-9_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_8-9/3B_19_8-9_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_8-9/3B_19_8-9_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_8-9/3B_19_8-9_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_8-9/3B_19_8-9_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_8-9/3B_19_8-9_line005.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_10-11",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_10-11",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_10-11.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_10-11/3B_19_10-11.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_10-11",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_10-11",
+      "line_count": 9,
+      "gt_lines": [
+        "...die ganze Futterküche ist leer.",
+        "Sie suchen nach den Tieren",
+        "aber sie finden keins. Wo stecke",
+        "n die Tiere bloss? Irgendwann",
+        "in der Nacht fahrt der Zoowächter &",
+        "durch denn Jungel. Dort sieht er",
+        "ganz viele Tiere. Sind es die",
+        "aus dem Zoo oder nicht.",
+        "Doch das sieht"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line005.png",
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line006.png",
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line007.png",
+        "datasets/children_handwritten/line_images/3B_19_10-11/3B_19_10-11_line008.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_12-13",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_12-13",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_12-13.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_12-13/3B_19_12-13.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_12-13",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_12-13",
+      "line_count": 13,
+      "gt_lines": [
+        "Zuerst wolte Sabrina es",
+        "zurück bringen aber der",
+        "das Paket auf. Im Paket",
+        "war ein gutschein für",
+        "in die",
+        "Postbote war schon über",
+        "alle Berge. Also nahm",
+        "Sabrina das Paket und",
+        "ging nach hause. zuhause",
+        "wolte Sabrina & das Paket ihrer",
+        "Mutter zeigen aber die",
+        "Mutter war nich da.",
+        "Also machte Sabrina"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line005.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line006.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line007.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line008.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line009.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line010.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line011.png",
+        "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line012.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_14-15",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_14-15",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_14-15.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_14-15/3B_19_14-15.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_14-15",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_14-15",
+      "line_count": 7,
+      "gt_lines": [
+        "Jezt denkt er wenn er schon hier ist",
+        "kann er auch für eine Nacht bleiben.",
+        "Alsoblieb er plötzlich kamm eine Flaschen",
+        "post er machte sie & auf drinen",
+        "war eine Schatzkarte. Auf der Karte",
+        "war ein Jungel abgebildet er ging",
+        "also nach Karte in Osten."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_14-15/3B_19_14-15_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_14-15/3B_19_14-15_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_14-15/3B_19_14-15_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_14-15/3B_19_14-15_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_14-15/3B_19_14-15_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_14-15/3B_19_14-15_line005.png",
+        "datasets/children_handwritten/line_images/3B_19_14-15/3B_19_14-15_line006.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_16-17",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_16-17",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_16-17.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_16-17/3B_19_16-17.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_16-17",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_16-17",
+      "line_count": 9,
+      "gt_lines": [
+        "... Clowns. Wir waren nämlich im Zirkus.",
+        "Und dort haben wir mega lustige",
+        "Clowns gesehn. z.B. sie sin auf mini",
+        "Fahräder gefahren. Oder sie haten",
+        "Schuhe die bei jedem schrit &",
+        "quitschen. Oder er ist auf ein",
+        "Stuhl mit einen Balonn abgesitzt.",
+        "Und sie sind die ganze zeit",
+        "auf's Popo gefallen."
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line005.png",
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line006.png",
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line007.png",
+        "datasets/children_handwritten/line_images/3B_19_16-17/3B_19_16-17_line008.png"
+      ]
+    },
+    {
+      "sample_id": "3B_19_18-19",
+      "doc_id": "3B_19",
+      "source_sample_id": "3B_19_18-19",
+      "source_csv": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/ground_truth/csv_aligned/3B_19.csv",
+      "source_image": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/data/images/3B_19_18-19.png",
+      "dataset_image": "datasets/children_handwritten/images/3B_19_18-19/3B_19_18-19.png",
+      "source_line_dir": "/Users/dennisberger/Documents/Privat/children_hw_original/alignment_tests/output/disjoin/3B_19_18-19",
+      "dataset_line_dir": "datasets/children_handwritten/line_images/3B_19_18-19",
+      "line_count": 10,
+      "gt_lines": [
+        "Die vier Freund hissen Naomi, Anne, Lucie, Naima.",
+        "Sie gingen in denn Wald weil sie mal in der",
+        "Nacht denn Wald sehen wolten. Als erstes als",
+        "sie da waren bauten sie die 2 Zelten",
+        "auf eines für Lucie, Naima das andere für &",
+        "Anne, Naomi. Dann gingen sie schlafen mitten",
+        "in der Nacht hörten sie ein Heulen",
+        "und als sie das Zelt öffneten",
+        "stand ein Rudel Wölfe vor inen",
+        "sie schlisten das Zelt"
+      ],
+      "dataset_line_images": [
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line000.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line001.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line002.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line003.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line004.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line005.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line006.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line007.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line008.png",
+        "datasets/children_handwritten/line_images/3B_19_18-19/3B_19_18-19_line009.png"
+      ]
+    }
+  ]
+}

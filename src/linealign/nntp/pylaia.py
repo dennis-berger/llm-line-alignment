@@ -93,6 +93,70 @@ def infer_pylaia_input_height(model_path: Path) -> int | None:
     return infer_pylaia_input_height_from_kwargs(load_pylaia_model_kwargs(model_path))
 
 
+def clone_pylaia_model_with_num_outputs(
+    model_path: Path,
+    num_outputs: int,
+    output_path: Path,
+    python_exe: Path | None = None,
+) -> Path:
+    """Clone a serialized PyLaia model and rewrite ``num_output_labels``."""
+
+    model_path = model_path.resolve()
+    output_path = output_path.resolve()
+    if num_outputs <= 0:
+        raise ValueError(f"num_outputs must be positive, got {num_outputs}")
+
+    if output_path.exists():
+        try:
+            existing_kwargs = load_pylaia_model_kwargs(output_path)
+            if int(existing_kwargs.get("num_output_labels", -1)) == num_outputs:
+                return output_path
+        except Exception:
+            output_path.unlink(missing_ok=True)
+
+    with _jsonargparse_typing_stub():
+        model_obj = torch.load(model_path, map_location="cpu", weights_only=False)
+    if not isinstance(model_obj, dict):
+        raise TypeError(f"Unexpected PyLaia model payload type: {type(model_obj)!r}")
+    kwargs = model_obj.get("kwargs")
+    if not isinstance(kwargs, dict):
+        raise TypeError(f"Unexpected PyLaia model kwargs payload: {type(kwargs)!r}")
+
+    if python_exe is not None:
+        python_exe = python_exe.resolve()
+        patch_script = """
+from pathlib import Path
+import torch
+import sys
+
+model_path = Path(sys.argv[1])
+output_path = Path(sys.argv[2])
+num_outputs = int(sys.argv[3])
+
+model_obj = torch.load(model_path, map_location="cpu", weights_only=False)
+model_obj["kwargs"]["num_output_labels"] = num_outputs
+output_path.parent.mkdir(parents=True, exist_ok=True)
+tmp_path = output_path.with_suffix(output_path.suffix + ".tmp")
+torch.save(model_obj, tmp_path)
+tmp_path.replace(output_path)
+"""
+        subprocess.run(
+            [str(python_exe), "-c", patch_script, str(model_path), str(output_path), str(num_outputs)],
+            check=True,
+        )
+        return output_path
+
+    patched_model = dict(model_obj)
+    patched_kwargs = dict(kwargs)
+    patched_kwargs["num_output_labels"] = num_outputs
+    patched_model["kwargs"] = patched_kwargs
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = output_path.with_suffix(f"{output_path.suffix}.tmp")
+    torch.save(patched_model, tmp_path)
+    tmp_path.replace(output_path)
+    return output_path
+
+
 def patch_pylaia_model_num_outputs(
     model_path: Path,
     checkpoint_path: Path,

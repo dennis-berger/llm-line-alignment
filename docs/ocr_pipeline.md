@@ -31,6 +31,7 @@ python scripts/make_ocr_outputs.py \
 
 Key flags:
 - `--dataset`: one of bullinger_handwritten, bullinger_print, washington_handwritten, IAM_handwritten, IAM_print.
+  - `children_handwritten` is also supported and can reuse canonical `line_images/` with `--segmenter none`.
 - `--data-dir`: root containing gt/, images/, transcription/, ocr/ (defaults to datasets/<dataset>).
 - `--ids`: comma list or file of IDs to process; defaults to all IDs in gt/ (fallback: transcription/).
 - `--segmenter`: `kraken` (default) or `none` (uses pre-segmented lines or full page as one line).
@@ -51,6 +52,7 @@ Key flags:
   - IAM (handwritten/print): `<id>` is a form/page ID.
 - Bullinger handwritten reproducibility runs should use the precomputed PAGE-derived `line_images/` plus the Bullinger checkpoint in `third_party/pylaia-bullinger/`.
 - IAM handwritten with `line_images/`: if `--segmenter` and `--recognizer` are not given, the script defaults to `--segmenter none` plus `--recognizer pylaia`.
+- Children handwritten cross-fitted PyLaia runs should use `--segmenter none` with `datasets/children_handwritten/line_images/` so OCR and NNTP consume the same presegmented crops.
 - Multi-page outputs: pages concatenate in order with a blank line between pages.
 
 ## Examples
@@ -89,6 +91,20 @@ Key flags:
     --segmenter none \
     --existing-lines-dir datasets/IAM_handwritten_rwth_test_representative_20/line_images \
     --recognizer trocr_handwritten
+  ```
+
+- Children handwritten with held-out PyLaia fold assets:
+  ```bash
+  python scripts/make_ocr_outputs.py \
+    --dataset children_handwritten \
+    --data-dir datasets/children_handwritten \
+    --segmenter none \
+    --existing-lines-dir datasets/children_handwritten/line_images \
+    --recognizer pylaia \
+    --pylaia-root outputs/pylaia/children_handwritten/fold_a \
+    --pylaia-checkpoint outputs/pylaia/children_handwritten/fold_a/best.ckpt \
+    --pylaia-syms outputs/pylaia/children_handwritten/fold_a/syms.txt \
+    --ids "$(paste -sd, outputs/manifests/children_handwritten_pylaia_cv/fold_a/test_ids.txt)"
   ```
 
 ## Tips

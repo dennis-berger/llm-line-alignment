@@ -87,6 +87,18 @@ python scripts/run_nntp_eval.py \
   --nntp-root ../nntp
 ```
 
+### Children handwritten from presegmented line images with cross-fitted checkpoints
+
+Build the canonical dataset and manifests once, then train one fold checkpoint at a time.
+After the fold assets exist under `outputs/pylaia/children_handwritten/`, run:
+
+```bash
+python scripts/run_children_nntp_cv.py \
+  --data-dir datasets/children_handwritten \
+  --manifest-dir outputs/manifests/children_handwritten_pylaia_cv \
+  --assets-root outputs/pylaia/children_handwritten
+```
+
 ## Main Outputs
 
 Generated working files live under `outputs/nntp/<dataset_name>/`:
@@ -141,3 +153,4 @@ For presegmented datasets, the pipeline:
 - The evaluation CSV uses the same schema and macro-average row format as the existing `run_eval_m*.py` scripts.
 - `jobs/eval/nntp/bullinger_handwritten.sbatch` is the cluster launcher matching the existing SLURM job layout.
 - `jobs/eval/nntp/iam_handwritten.sbatch` runs the IAM RWTH test split with the public PyLaia IAM checkpoint.
+- `jobs/eval/nntp/children_handwritten.sbatch` runs the children cross-fitted NNTP workflow once the fold checkpoints are available.

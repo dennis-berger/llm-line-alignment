@@ -60,6 +60,24 @@ python run_eval_m3.py --data-dir datasets/bullinger_handwritten  # Text-only ali
 python run_eval_m1.py --data-dir datasets/bullinger_print
 ```
 
+**6. Build children_handwritten with cross-fitted PyLaia artifacts:**
+```bash
+python scripts/build_children_handwritten_dataset.py \
+  --source-dir ../children_hw_original/alignment_tests \
+  --out-dir datasets/children_handwritten \
+  --overwrite
+
+python scripts/build_children_pylaia_manifests.py \
+  --data-dir datasets/children_handwritten \
+  --out-dir outputs/manifests/children_handwritten_pylaia_cv
+
+# Train one fold at a time on the cluster
+sbatch jobs/training/train_children_handwritten_pylaia_cv.sbatch
+
+# After the three fold checkpoints exist, generate held-out OCR hints
+python scripts/run_children_crossfit_ocr.py
+```
+
 ## Documentation
 
 - **[METHODS.md](METHODS.md)** - Detailed explanation of M1, M2, and M3 approaches
