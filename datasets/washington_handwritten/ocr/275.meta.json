@@ -3,10 +3,10 @@
   "dataset": "washington_handwritten",
   "segmenter": "none",
   "recognizer": "pylaia",
-  "recognizer_model": "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-iam/weights.ckpt",
+  "recognizer_model": "/HOME/bergerd/projects/llm-line-alignment/outputs/pylaia/washington_handwritten_train_b/best.ckpt",
   "num_pages": 1,
   "num_lines": 33,
-  "timestamp_utc": "2026-03-28T15:51:24.388972+00:00",
+  "timestamp_utc": "2026-03-30T09:47:18.728586+00:00",
   "cache_root": "outputs/cache/washington_handwritten/lines",
   "ocr_path": "datasets/washington_handwritten/ocr/275.txt",
   "transcription_path": "datasets/washington_handwritten/transcription/275.txt"
