@@ -33,26 +33,30 @@ if [ "$SKIP_OCR" != "1" ]; then
   PYLAIA_WORK_DIR="${PYLAIA_WORK_DIR:-outputs/cache/$DATASET_TAG/pylaia}"
   PYLAIA_GPUS="${PYLAIA_GPUS:-0}"
   PYLAIA_AUTO_SELECT_GPUS="${PYLAIA_AUTO_SELECT_GPUS:-0}"
+  PYLAIA_NUM_WORKERS="${PYLAIA_NUM_WORKERS:-1}"
   PYLAIA_CONDA_ENV="${PYLAIA_CONDA_ENV:-pylaia-htr}"
   PYLAIA_PYTHON_VERSION="${PYLAIA_PYTHON_VERSION:-3.10}"
   PYLAIA_PIP_SPEC="${PYLAIA_PIP_SPEC:-pylaia==1.1.2}"
   PYLAIA_SOURCE_URL="${PYLAIA_SOURCE_URL:-https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz}"
-  if ! conda env list | sed 's/\*//g' | awk 'NF && $1 !~ /^#/ {print $1}' | grep -Fxq "$PYLAIA_CONDA_ENV"; then
+  PYLAIA_CONDA_PREFIX="$(conda_env_prefix "$PYLAIA_CONDA_ENV" 2>/dev/null || printf '%s\n' "$HOME/.conda/envs/$PYLAIA_CONDA_ENV")"
+  if ! conda_env_exists "$PYLAIA_CONDA_ENV"; then
     echo "Creating dedicated PyLaia environment '$PYLAIA_CONDA_ENV' with Python $PYLAIA_PYTHON_VERSION..."
-    "$CONDA_INSTALL_BIN" create -y -n "$PYLAIA_CONDA_ENV" python="$PYLAIA_PYTHON_VERSION" pip
+    "$CONDA_INSTALL_BIN" create -y -p "$PYLAIA_CONDA_PREFIX" python="$PYLAIA_PYTHON_VERSION" pip
   fi
+  PYLAIA_PYTHON="$PYLAIA_CONDA_PREFIX/bin/python"
+  PYLAIA_ENV_BIN="$PYLAIA_CONDA_PREFIX/bin"
 
-  if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+  if ! "$PYLAIA_PYTHON" - <<'PY'
 from importlib.metadata import version
 version("pylaia")
 PY
   then
     echo "Installing PyLaia into '$PYLAIA_CONDA_ENV' from PyPI package '$PYLAIA_PIP_SPEC'..."
-    "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "pip<24.1" setuptools wheel
-    "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "$PYLAIA_PIP_SPEC"
+    "$PYLAIA_PYTHON" -m pip install "pip<24.1" setuptools wheel
+    "$PYLAIA_PYTHON" -m pip install "$PYLAIA_PIP_SPEC"
   fi
 
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<PY
+  "$PYLAIA_PYTHON" - <<PY
 from pathlib import Path
 import shutil
 import sysconfig
@@ -88,7 +92,7 @@ for pkg_dir in (scripts_dir, models_dir):
         )
 PY
 
-  if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+  if ! "$PYLAIA_PYTHON" - <<'PY'
 from importlib.metadata import version
 import laia
 import laia.models.htr
@@ -104,25 +108,52 @@ PY
     exit 1
   fi
 
-  PYLAIA_ENV_BIN="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
-from pathlib import Path
-import sys
-
-print(Path(sys.executable).resolve().parent)
-PY
-)"
   export PATH="$PYLAIA_ENV_BIN:$PATH"
   if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
     echo "ERROR: pylaia-htr-netout not found even after preparing '$PYLAIA_CONDA_ENV'."
     exit 1
   fi
 
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+  "$PYLAIA_PYTHON" - <<'PY'
 import torch
 
 print("PyLaia CUDA available:", torch.cuda.is_available())
 print("PyLaia CUDA device count:", torch.cuda.device_count())
 PY
+
+  WRAPPER_DIR="${PYLAIA_WORK_DIR}/job-bin"
+  mkdir -p "$WRAPPER_DIR"
+  cat > "$WRAPPER_DIR/run_pylaia_netout.py" <<'PY'
+import os
+import sys
+
+from laia.scripts.htr import common_main
+from laia.scripts.htr.netout import get_args, run
+
+
+def main() -> None:
+    args = get_args(sys.argv[1:])
+    args = common_main(args)
+    args["num_workers"] = max(1, int(os.environ.get("PYLAIA_NUM_WORKERS", "1")))
+    run(**args)
+
+
+if __name__ == "__main__":
+    main()
+PY
+  cat > "$WRAPPER_DIR/pylaia-htr-netout" <<EOF
+#!/bin/bash
+exec "$PYLAIA_PYTHON" "$WRAPPER_DIR/run_pylaia_netout.py" "\$@"
+EOF
+  chmod +x "$WRAPPER_DIR/pylaia-htr-netout"
+  export PYLAIA_NUM_WORKERS
+  export PATH="$WRAPPER_DIR:$PYLAIA_ENV_BIN:$PATH"
+  hash -r
+
+  if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
+    echo "ERROR: pylaia-htr-netout not found even after preparing '$PYLAIA_CONDA_ENV'."
+    exit 1
+  fi
 
   if [ "$SEGMENTER" = "kraken" ] && ! python -c "import kraken" 2>/dev/null; then
     echo "Installing kraken into '$CONDA_ENV_NAME'..."

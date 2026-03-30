@@ -18,6 +18,8 @@ mkdir -p logs
 
 JOBS_DIR="$REPO_ROOT/jobs"
 TARGET_NNTP="${TARGET_NNTP:-washington,children}"
+CONDA_ENV_NAME_BASE="${CONDA_ENV_NAME_BASE:-${CONDA_ENV_NAME:-bullinger-mwe}}"
+CONDA_PKGS_DIRS_BASE="${CONDA_PKGS_DIRS_BASE:-${CONDA_PKGS_DIRS:-$HOME/.conda/pkgs-clean}}"
 
 make_export_list() {
   local export_list="ALL"
@@ -54,10 +56,14 @@ submit_job() {
   local dependency="$1"
   local export_vars="$2"
   local script="$3"
+  local exclude_nodes="${SBATCH_EXCLUDE:-}"
 
   local args=(sbatch --parsable --export="$export_vars")
   if [ -n "$dependency" ]; then
     args+=(--dependency="$dependency")
+  fi
+  if [ -n "$exclude_nodes" ]; then
+    args+=(--exclude="$exclude_nodes")
   fi
   args+=("$script")
 
@@ -79,13 +85,13 @@ if target_nntp_enabled "washington"; then
   WASHINGTON_TRAIN_A_JOB_ID="$(
     submit_job \
       "" \
-      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=train_a" "RUN_EVAL=1" "RUN_SUMMARY=1")" \
+      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=train_a" "RUN_EVAL=1" "RUN_SUMMARY=1" "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE" "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE" "CONDA_ENV_NAME=${CONDA_ENV_NAME_BASE}-washington-train-a" "CONDA_PKGS_DIRS=${CONDA_PKGS_DIRS_BASE}-washington-train-a" "PYLAIA_CONDA_ENV=${CONDA_ENV_NAME_BASE}-washington-train-a-pylaia")" \
       "$JOBS_DIR/training/train_washington_handwritten_pylaia_cv.sbatch"
   )"
   WASHINGTON_TRAIN_B_JOB_ID="$(
     submit_job \
       "" \
-      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=train_b" "RUN_EVAL=1" "RUN_SUMMARY=1")" \
+      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=train_b" "RUN_EVAL=1" "RUN_SUMMARY=1" "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE" "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE" "CONDA_ENV_NAME=${CONDA_ENV_NAME_BASE}-washington-train-b" "CONDA_PKGS_DIRS=${CONDA_PKGS_DIRS_BASE}-washington-train-b" "PYLAIA_CONDA_ENV=${CONDA_ENV_NAME_BASE}-washington-train-b-pylaia")" \
       "$JOBS_DIR/training/train_washington_handwritten_pylaia_cv.sbatch"
   )"
 fi
@@ -99,19 +105,19 @@ if target_nntp_enabled "children"; then
   CHILDREN_FOLD_A_JOB_ID="$(
     submit_job \
       "" \
-      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=fold_a")" \
+      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=fold_a" "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE" "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE" "CONDA_ENV_NAME=${CONDA_ENV_NAME_BASE}-children-fold-a" "CONDA_PKGS_DIRS=${CONDA_PKGS_DIRS_BASE}-children-fold-a" "PYLAIA_CONDA_ENV=${CONDA_ENV_NAME_BASE}-children-fold-a-pylaia")" \
       "$JOBS_DIR/training/train_children_handwritten_pylaia_cv.sbatch"
   )"
   CHILDREN_FOLD_B_JOB_ID="$(
     submit_job \
       "" \
-      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=fold_b")" \
+      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=fold_b" "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE" "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE" "CONDA_ENV_NAME=${CONDA_ENV_NAME_BASE}-children-fold-b" "CONDA_PKGS_DIRS=${CONDA_PKGS_DIRS_BASE}-children-fold-b" "PYLAIA_CONDA_ENV=${CONDA_ENV_NAME_BASE}-children-fold-b-pylaia")" \
       "$JOBS_DIR/training/train_children_handwritten_pylaia_cv.sbatch"
   )"
   CHILDREN_FOLD_C_JOB_ID="$(
     submit_job \
       "" \
-      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=fold_c")" \
+      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "TRAIN_FOLD=fold_c" "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE" "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE" "CONDA_ENV_NAME=${CONDA_ENV_NAME_BASE}-children-fold-c" "CONDA_PKGS_DIRS=${CONDA_PKGS_DIRS_BASE}-children-fold-c" "PYLAIA_CONDA_ENV=${CONDA_ENV_NAME_BASE}-children-fold-c-pylaia")" \
       "$JOBS_DIR/training/train_children_handwritten_pylaia_cv.sbatch"
   )"
 
@@ -124,7 +130,7 @@ if target_nntp_enabled "children"; then
   CHILDREN_EVAL_JOB_ID="$(
     submit_job \
       "$CHILDREN_EVAL_DEPENDENCY" \
-      "$(make_export_list "REPO_ROOT=$REPO_ROOT")" \
+      "$(make_export_list "REPO_ROOT=$REPO_ROOT" "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE" "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE" "CONDA_ENV_NAME=${CONDA_ENV_NAME_BASE}-children-eval" "CONDA_PKGS_DIRS=${CONDA_PKGS_DIRS_BASE}-children-eval" "PYLAIA_CONDA_ENV=${CONDA_ENV_NAME_BASE}-children-eval-pylaia")" \
       "$JOBS_DIR/eval/nntp/children_handwritten.sbatch"
   )"
 fi

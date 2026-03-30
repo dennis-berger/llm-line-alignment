@@ -100,6 +100,7 @@ class FewShotExample:
         ocr_text: Optional[str] = None,
         ocr_lines: Optional[Dict[str, Any]] = None,
         image_paths: Optional[List[Path]] = None,
+        line_image_paths: Optional[List[Path]] = None,
     ):
         self.sample_id = sample_id
         self.gt_text = gt_text
@@ -107,6 +108,7 @@ class FewShotExample:
         self.ocr_text = ocr_text
         self.ocr_lines = ocr_lines
         self.image_paths = image_paths or []
+        self.line_image_paths = line_image_paths or []
 
 
 def load_dataset_samples(data_dir: Path) -> List[str]:
@@ -194,7 +196,7 @@ def select_few_shot_examples(
                 ocr_path = data_dir / "ocr" / f"{sample_id}.txt"
                 if ocr_path.exists():
                     ocr_text = read_text(ocr_path)
-            elif method == "m4":
+            elif method in ["m4", "m5"]:
                 ocr_lines_path = data_dir / "ocr_lines" / f"{sample_id}.json"
                 if not ocr_lines_path.exists():
                     raise FileNotFoundError(f"Missing ocr_lines artifact: {ocr_lines_path}")
@@ -205,6 +207,21 @@ def select_few_shot_examples(
             if method in ["m1", "m2"]:
                 images_root = data_dir / "images"
                 image_paths = find_images_for_id(images_root, sample_id)
+
+            line_image_paths = []
+            if method == "m5":
+                for index, line in enumerate(ocr_lines.get("lines", [])):
+                    crop_path = line.get("crop_path")
+                    if not isinstance(crop_path, str):
+                        raise ValueError(
+                            f"ocr_lines entry {index} for {sample_id} is missing string crop_path"
+                        )
+                    resolved_crop_path = (data_dir / crop_path).resolve()
+                    if not resolved_crop_path.exists():
+                        raise FileNotFoundError(
+                            f"Missing line image for {sample_id}: {resolved_crop_path}"
+                        )
+                    line_image_paths.append(resolved_crop_path)
             
             examples.append(FewShotExample(
                 sample_id=sample_id,
@@ -213,6 +230,7 @@ def select_few_shot_examples(
                 ocr_text=ocr_text,
                 ocr_lines=ocr_lines,
                 image_paths=image_paths,
+                line_image_paths=line_image_paths,
             ))
             
         except Exception as e:

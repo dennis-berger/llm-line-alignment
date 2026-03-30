@@ -119,8 +119,6 @@ def main() -> None:
             args.stop_after,
             "--pylaia-gpus",
             str(args.pylaia_gpus),
-            "--log-level",
-            args.log_level,
         ]
         if args.overwrite:
             cmd.append("--overwrite")

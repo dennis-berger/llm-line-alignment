@@ -1,6 +1,6 @@
 # Line Alignment Methods
 
-Three methods (M1, M2, M3) for inserting line breaks into clean transcriptions. All use vision-language models (Qwen2-VL-7B-Instruct).
+Five methods (M1-M5) for inserting line breaks into clean transcriptions. The newer methods add structured OCR-line hints and ordered line-image crops on top of the original page-image and text-only baselines.
 
 ## Method 1: Image + Transcription
 
@@ -33,6 +33,26 @@ python run_eval_m2.py
 **Usage:**
 ```bash
 python run_eval_m3.py
+```
+
+## Method 4: Transcription + Structured OCR Lines
+
+**Inputs:** Correct transcription + ordered OCR/HTR line hypotheses from `ocr_lines/<id>.json`
+
+**Task:** Align the transcription to the ordered OCR line list and return exactly one output line per OCR line
+
+```bash
+python run_eval_m4.py
+```
+
+## Method 5: Transcription + Line Images
+
+**Inputs:** Correct transcription + ordered line images from `ocr_lines/<id>.json` crop paths
+
+**Task:** Align the transcription to the ordered line-image crops and return exactly one output line per supplied line image
+
+```bash
+python run_eval_m5.py
 ```
 
 ## Few-Shot Learning

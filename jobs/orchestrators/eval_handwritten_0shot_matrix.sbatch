@@ -29,6 +29,8 @@ OPENAI_MODEL_FALLBACK="${OPENAI_MODEL_FALLBACK:-openai/gpt-5.4}"
 MISTRAL_MODEL_NAME="${MISTRAL_MODEL_NAME:-mistral/mistral-large-2512}"
 TARGET_CHAINS="${TARGET_CHAINS:-hf,gemini,openai,mistral}"
 SKIP_SHARED_PREP="${SKIP_SHARED_PREP:-0}"
+CONDA_ENV_NAME_BASE="${CONDA_ENV_NAME_BASE:-${CONDA_ENV_NAME:-bullinger-mwe}}"
+CONDA_PKGS_DIRS_BASE="${CONDA_PKGS_DIRS_BASE:-${CONDA_PKGS_DIRS:-$HOME/.conda/pkgs-clean}}"
 
 to_model_suffix() {
   basename "$1" | tr '[:upper:]' '[:lower:]'
@@ -69,10 +71,14 @@ submit_job() {
   local dependency="$1"
   local export_vars="$2"
   local script="$3"
+  local exclude_nodes="${SBATCH_EXCLUDE:-}"
 
   local args=(sbatch --parsable --export="$export_vars")
   if [ -n "$dependency" ]; then
     args+=(--dependency="$dependency")
+  fi
+  if [ -n "$exclude_nodes" ]; then
+    args+=(--exclude="$exclude_nodes")
   fi
   args+=("$script")
 
@@ -129,6 +135,9 @@ submit_handwritten_chain() {
 
   local model_suffix
   model_suffix="$(to_model_suffix "$model_name")"
+  local chain_env_name="${CONDA_ENV_NAME_BASE}-${chain_label}"
+  local chain_pkgs_dir="${CONDA_PKGS_DIRS_BASE}-${chain_label}"
+  local chain_pylaia_env="${CONDA_ENV_NAME_BASE}-${chain_label}-pylaia"
 
   local base_exports=(
     "REPO_ROOT=$REPO_ROOT"
@@ -140,6 +149,11 @@ submit_handwritten_chain() {
     "SHOTS_SEED=42"
     "TARGET_CHAINS=$chain_label"
     "SKIP_SHARED_PREP=1"
+    "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE"
+    "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE"
+    "CONDA_ENV_NAME=$chain_env_name"
+    "CONDA_PKGS_DIRS=$chain_pkgs_dir"
+    "PYLAIA_CONDA_ENV=$chain_pylaia_env"
   )
 
   local tail_job_id=""
@@ -261,7 +275,16 @@ WASHINGTON_PREP_JOB_ID=""
 IAM_REP20_PREP_JOB_ID=""
 if [ "$SKIP_SHARED_PREP" != "1" ]; then
   echo "Submitting shared M4 OCR prep jobs..."
-  WASHINGTON_PREP_EXPORTS="$(make_export_list "REPO_ROOT=$REPO_ROOT" "SKIP_EVAL=1")"
+  WASHINGTON_PREP_EXPORTS="$(
+    make_export_list \
+      "REPO_ROOT=$REPO_ROOT" \
+      "SKIP_EVAL=1" \
+      "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE" \
+      "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE" \
+      "CONDA_ENV_NAME=${CONDA_ENV_NAME_BASE}-prep-washington" \
+      "CONDA_PKGS_DIRS=${CONDA_PKGS_DIRS_BASE}-prep-washington" \
+      "PYLAIA_CONDA_ENV=${CONDA_ENV_NAME_BASE}-prep-washington-pylaia"
+  )"
   WASHINGTON_PREP_JOB_ID="$(
     submit_job \
       "" \
@@ -278,7 +301,12 @@ if [ "$SKIP_SHARED_PREP" != "1" ]; then
       "DATASET_TAG=$IAM_REP20_TAG" \
       "SEGMENTER=none" \
       "EXISTING_LINES_DIR=$IAM_REP20_LINES_DIR" \
-      "SKIP_EVAL=1"
+      "SKIP_EVAL=1" \
+      "CONDA_ENV_NAME_BASE=$CONDA_ENV_NAME_BASE" \
+      "CONDA_PKGS_DIRS_BASE=$CONDA_PKGS_DIRS_BASE" \
+      "CONDA_ENV_NAME=${CONDA_ENV_NAME_BASE}-prep-iam" \
+      "CONDA_PKGS_DIRS=${CONDA_PKGS_DIRS_BASE}-prep-iam" \
+      "PYLAIA_CONDA_ENV=${CONDA_ENV_NAME_BASE}-prep-iam-pylaia"
   )"
   IAM_REP20_PREP_JOB_ID="$(
     submit_job \

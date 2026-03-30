@@ -4,11 +4,13 @@
 
 ## Overview
 
-Three methods (M1, M2, M3) align line breaks using different input combinations—image only, image + OCR hints, or text-only alignment. Each method is evaluated against multiple datasets (historical handwritten, modern handwritten, and printed) with character-level and line-level metrics.
+Five methods (M1-M5) align line breaks using different input combinations: page image only, page image + OCR hints, text-only OCR alignment, structured OCR-line alignment, and line-image alignment. Each method is evaluated against multiple datasets (historical handwritten, modern handwritten, and printed) with character-level and line-level metrics.
 
 **Key features:**
 - Vision-language models for layout-aware alignment (M1, M2)
 - Text-only alignment using HTR line structure hints (M3)
+- Structured OCR-line alignment with exact line-count control (M4)
+- Vision alignment with ordered line-image crops, optionally plus OCR text hints (M5)
 - Comprehensive metrics: WER/CER, line accuracy, exact line matching (P/R/F1)
 - Support for multi-page documents and various writing styles
 
@@ -29,7 +31,7 @@ python scripts/import_bullinger_iccv_testset.py \
   --overwrite
 ```
 
-**3. Rebuild Bullinger line images and PyLaia OCR outputs (required for M2, M3, and M4):**
+**3. Rebuild Bullinger line images and PyLaia OCR outputs (required for M2, M3, M4, and M5):**
 ```bash
 python scripts/build_bullinger_handwritten_line_images.py \
   --data-dir datasets/bullinger_handwritten \
@@ -57,6 +59,8 @@ python run_eval_m1.py --data-dir datasets/bullinger_handwritten  # Image-only al
 ```bash
 python run_eval_m2.py --data-dir datasets/bullinger_handwritten  # Image + OCR hints
 python run_eval_m3.py --data-dir datasets/bullinger_handwritten  # Text-only alignment
+python run_eval_m4.py --data-dir datasets/bullinger_handwritten  # Structured OCR-line alignment
+python run_eval_m5.py --data-dir datasets/bullinger_handwritten  # Line-image alignment
 python run_eval_m1.py --data-dir datasets/bullinger_print
 ```
 

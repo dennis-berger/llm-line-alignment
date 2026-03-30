@@ -17,6 +17,8 @@ def read_macro_avg_row(csv_path: Path) -> dict[str, float]:
             for key, value in row.items():
                 if key == "id":
                     continue
+                if value in (None, ""):
+                    continue
                 parsed[key] = float(value)
             return parsed
     raise ValueError(f"{csv_path} does not contain a macro_avg row")

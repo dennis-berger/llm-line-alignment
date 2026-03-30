@@ -80,6 +80,30 @@ Return strict JSON only, with no code fences or extra text:
 Ordered PyLaia line hypotheses ({num_lines} lines):
 {line_hints}"""
 
+PROMPT_TEMPLATE_M5 = """# Role and Objective
+Align a correct transcription (no line breaks) to an ordered set of line images.
+
+# Instructions
+- The transcription is the only source of characters.
+- Use the supplied line images to infer where each transcription line should begin and end.
+- Produce exactly {num_lines} output lines in the same reading order as the supplied line images.
+- Do not add, remove, or alter transcription characters.
+- Do not copy metadata into the output.
+- The concatenation of your output lines must exactly equal the transcription.
+- {image_mode_description}
+{ocr_text_instruction}
+
+# Output Format
+Return strict JSON only, with no code fences or extra text:
+{{"lines": ["...", "..."]}}
+
+{examples}Correct transcription:
+{transcription}
+
+Ordered line-image manifest ({num_lines} lines):
+{line_image_manifest}
+{ocr_text_section}"""
+
 
 def format_few_shot_examples_m1(examples) -> str:
     """Format few-shot examples for Method 1 (images + transcription).
@@ -173,4 +197,40 @@ def format_few_shot_examples_m4(examples) -> str:
         )
 
     formatted += "Now, apply the same approach to the following:\n\n"
+    return formatted
+
+
+def format_few_shot_examples_m5(examples, use_ocr_text: bool = False) -> str:
+    """Format few-shot examples for Method 5 (transcription + line images)."""
+    if not examples:
+        return ""
+
+    formatted = (
+        "Here are some examples. Their example line images are supplied before the target images, "
+        "and each example's images are already in reading order.\n\n"
+    )
+
+    for i, ex in enumerate(examples, 1):
+        if not ex.line_image_paths:
+            continue
+        formatted += f"Example {i}:\n"
+        formatted += f"Correct transcription:\n{ex.transcription}\n\n"
+        formatted += (
+            "Ordered line-image manifest:\n"
+            + "\n".join(
+                f"{index + 1}. example line image {index + 1}"
+                for index in range(len(ex.line_image_paths))
+            )
+            + "\n\n"
+        )
+        if use_ocr_text and ex.ocr_lines:
+            formatted += "Optional OCR line hints:\n"
+            formatted += f"{render_ocr_line_hints(ex.ocr_lines['lines'])}\n\n"
+        formatted += "Output JSON:\n"
+        formatted += (
+            json.dumps({"lines": ex.gt_text.splitlines()}, ensure_ascii=False)
+            + "\n\n"
+        )
+
+    formatted += "Now, apply the same approach to the following target sample:\n\n"
     return formatted

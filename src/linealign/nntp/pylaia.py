@@ -288,11 +288,16 @@ def write_pylaia_netout_config(
     model_path: Path,
     pylaia_gpus: int = 0,
     auto_select_gpus: bool = False,
+    pylaia_num_workers: int = 1,
 ) -> None:
     """Write a minimal PyLaia netout config for a batch of line images."""
 
     config_path.parent.mkdir(parents=True, exist_ok=True)
     experiment_dir.mkdir(parents=True, exist_ok=True)
+    data_lines = [
+        "data:",
+        f"  num_workers: {pylaia_num_workers}",
+    ]
     trainer_lines = [
         "trainer:",
         f"  auto_select_gpus: {'true' if auto_select_gpus else 'false'}",
@@ -306,6 +311,7 @@ def write_pylaia_netout_config(
                 f'  model_filename: "{model_path.resolve()}"',
                 "netout:",
                 "  output_transform: softmax",
+                *data_lines,
                 *trainer_lines,
                 "",
             ]

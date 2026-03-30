@@ -129,7 +129,12 @@ common_eval_handle_exit() {
       echo "Auto-resubmit skipped because RESUBMIT_SCRIPT is not set."
       exit 75
     fi
-    if sbatch --begin=now+24hours "$RESUBMIT_SCRIPT"; then
+    local resubmit_args=(sbatch --begin=now+24hours --export=ALL)
+    if [ -n "${SBATCH_EXCLUDE:-}" ]; then
+      resubmit_args+=(--exclude="$SBATCH_EXCLUDE")
+    fi
+    resubmit_args+=("$RESUBMIT_SCRIPT")
+    if "${resubmit_args[@]}"; then
       echo "Job resubmitted successfully. Will resume tomorrow."
     else
       echo "Auto-resubmit failed. To resume manually, run:"
