@@ -4,6 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../common_eval_env.sh"
 common_eval_bootstrap "run_eval_m5.py"
+EVAL_PYTHON="$(command -v python)"
 
 DATASET_KEY="${DATASET_KEY:?Must set DATASET_KEY to a supported dataset name.}"
 DATA_DIR="${DATA_DIR:?Must set DATA_DIR to a dataset directory.}"
@@ -194,7 +195,7 @@ EOF
 fi
 
 RUN_ARGS=(
-  python run_eval_m5.py
+  "$EVAL_PYTHON" run_eval_m5.py
   --data-dir "$DATA_DIR"
   --model "$MODEL"
   --device "$DEVICE"

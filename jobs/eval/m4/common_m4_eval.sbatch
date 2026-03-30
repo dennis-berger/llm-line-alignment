@@ -23,8 +23,21 @@ N_SHOTS="${N_SHOTS:-0}"
 SHOTS_SEED="${SHOTS_SEED:-42}"
 
 SHOT_SUFFIX="${N_SHOTS}shot"
-OUT_DIR="${OUT_DIR:-${DATASET_TAG}_predictions_m4_${SHOT_SUFFIX}_${MODEL_SUFFIX}}"
-EVAL_CSV="${EVAL_CSV:-${DATASET_TAG}_eval_m4_${SHOT_SUFFIX}_${MODEL_SUFFIX}.csv}"
+PROMPT_VARIANT="${PROMPT_VARIANT:-baseline}"
+if [ -z "${OUT_DIR:-}" ]; then
+  if [ "$PROMPT_VARIANT" = "baseline" ]; then
+    OUT_DIR="${DATASET_TAG}_predictions_m4_${SHOT_SUFFIX}_${MODEL_SUFFIX}"
+  else
+    OUT_DIR="${DATASET_TAG}_predictions_m4_${SHOT_SUFFIX}_prompt_${PROMPT_VARIANT}_${MODEL_SUFFIX}"
+  fi
+fi
+if [ -z "${EVAL_CSV:-}" ]; then
+  if [ "$PROMPT_VARIANT" = "baseline" ]; then
+    EVAL_CSV="${DATASET_TAG}_eval_m4_${SHOT_SUFFIX}_${MODEL_SUFFIX}.csv"
+  else
+    EVAL_CSV="${DATASET_TAG}_eval_m4_${SHOT_SUFFIX}_prompt_${PROMPT_VARIANT}_${MODEL_SUFFIX}.csv"
+  fi
+fi
 
 if [ "$SKIP_OCR" != "1" ]; then
   PYLAIA_ROOT="${PYLAIA_ROOT:?Must set PYLAIA_ROOT to the PyLaia asset directory.}"
@@ -203,6 +216,7 @@ RUN_ARGS=(
   --ocr-lines-dir "$OCR_LINES_DIR"
   --checkpoint-dir "$CHECKPOINT_DIR"
   --max-new-tokens "$MAX_NEW_TOKENS"
+  --prompt-variant "$PROMPT_VARIANT"
 )
 if [ -n "$TRANSCRIPTION_DIR" ]; then
   RUN_ARGS+=(--transcription-dir "$TRANSCRIPTION_DIR")

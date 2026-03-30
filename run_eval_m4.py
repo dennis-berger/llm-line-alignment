@@ -43,7 +43,12 @@ from utils.m4 import (
     project_boundaries_to_transcription,
     render_ocr_line_hints,
 )
-from utils.prompts import PROMPT_TEMPLATE_M4, format_few_shot_examples_m4
+from utils.prompts import (
+    M4_PROMPT_VARIANTS,
+    build_m4_repair_prompt,
+    format_few_shot_examples_m4,
+    get_m4_prompt_template,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -55,14 +60,16 @@ logger = logging.getLogger(__name__)
 class VLMMethod4Combiner:
     """Use an LLM to align exact transcription text to ordered PyLaia line hints."""
 
-    def __init__(self, cfg: VLMConfig, backend=None):
+    def __init__(self, cfg: VLMConfig, backend=None, prompt_variant: str = "baseline"):
         self.backend = backend or get_backend(cfg)
         self.few_shot_examples = cfg.few_shot_examples or []
+        self.prompt_variant = prompt_variant
 
     def _build_prompt(self, transcription: str, ocr_lines_payload: dict[str, Any]) -> str:
         expected_num_lines = len(ocr_lines_payload.get("lines", []))
         examples_str = format_few_shot_examples_m4(self.few_shot_examples)
-        return PROMPT_TEMPLATE_M4.format(
+        prompt_template = get_m4_prompt_template(self.prompt_variant)
+        return prompt_template.format(
             examples=examples_str,
             transcription=transcription,
             num_lines=expected_num_lines,
@@ -78,13 +85,13 @@ class VLMMethod4Combiner:
     ) -> str:
         expected_num_lines = len(ocr_lines_payload.get("lines", []))
         line_hints = render_ocr_line_hints(ocr_lines_payload["lines"])
-        return (
-            "Your previous response was invalid.\n"
-            f"Error: {error_message}\n"
-            f"Return only strict JSON with exactly {expected_num_lines} strings in the 'lines' array.\n\n"
-            f"Correct transcription:\n{transcription}\n\n"
-            f"Ordered PyLaia line hypotheses ({expected_num_lines} lines):\n{line_hints}\n\n"
-            f"Previous invalid response:\n{previous_response}"
+        return build_m4_repair_prompt(
+            variant=self.prompt_variant,
+            error_message=error_message,
+            num_lines=expected_num_lines,
+            transcription=transcription,
+            line_hints=line_hints,
+            previous_response=previous_response,
         )
 
     def _generate_one(
@@ -212,6 +219,12 @@ def main():
                     help="Random seed for selecting few-shot examples (optional)")
     ap.add_argument("--checkpoint-dir", default="checkpoints",
                     help="Directory for checkpoint files (for resuming interrupted runs)")
+    ap.add_argument(
+        "--prompt-variant",
+        default="baseline",
+        choices=M4_PROMPT_VARIANTS,
+        help="Prompt variant for M4 alignment (default: baseline).",
+    )
     args = ap.parse_args()
 
     shot_suffix = f"_{args.n_shots}shot" if args.n_shots > 0 else "_0shot"
@@ -223,7 +236,7 @@ def main():
     checkpoint_path = get_checkpoint_path(
         method="m4",
         dataset=args.data_dir,
-        model=args.model,
+        model=f"{args.model}:{args.prompt_variant}" if args.prompt_variant != "baseline" else args.model,
         n_shots=args.n_shots,
         checkpoint_dir=args.checkpoint_dir,
         ids=args.ids,
@@ -233,7 +246,7 @@ def main():
         checkpoint = EvalCheckpoint(
             method="m4",
             dataset=args.data_dir,
-            model=args.model,
+            model=f"{args.model}:{args.prompt_variant}" if args.prompt_variant != "baseline" else args.model,
             n_shots=args.n_shots,
             checkpoint_path=str(checkpoint_path),
         )
@@ -244,7 +257,8 @@ def main():
             device=args.device,
             max_new_tokens=args.max_new_tokens,
             few_shot_examples=[],
-        )
+        ),
+        prompt_variant=args.prompt_variant,
     )
 
     gt_dir = os.path.join(args.data_dir, "gt")

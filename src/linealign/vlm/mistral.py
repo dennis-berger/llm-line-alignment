@@ -31,12 +31,16 @@ class MistralBackend(VLMBackend):
         
         # Import here to avoid requiring mistralai when using other backends
         try:
-            from mistralai import Mistral
-            self._Mistral = Mistral
+            from mistralai import Mistral as mistral_client_cls
         except ImportError:
-            raise ImportError(
-                "Mistral AI package not installed. Run: pip install mistralai>=1.0.0"
-            )
+            try:
+                from mistralai.client import Mistral as mistral_client_cls
+            except ImportError as exc:
+                raise ImportError(
+                    "Mistral AI package not installed or incompatible. "
+                    "Run: pip install mistralai>=1.0.0"
+                ) from exc
+        self._Mistral = mistral_client_cls
         
         api_key = os.environ.get("MISTRAL_API_KEY")
         if not api_key:
@@ -45,7 +49,7 @@ class MistralBackend(VLMBackend):
                 "Set it with: export MISTRAL_API_KEY='your-api-key'"
             )
         
-        self.client = Mistral(api_key=api_key)
+        self.client = self._Mistral(api_key=api_key)
         self.model_name = config.model_name
         
         logger.info(f"Initialized Mistral backend with model: {self.model_name}")

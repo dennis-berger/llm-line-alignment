@@ -59,16 +59,30 @@ Return only the correct transcription with inserted line breaks matching the HTR
 HTR/OCR output with line breaks:
 {htr}"""
 
-PROMPT_TEMPLATE_M4 = """# Role and Objective
-Align a correct transcription (no line breaks) to an ordered list of PyLaia line hypotheses.
-
-# Instructions
-- The transcription is the only source of characters.
+M4_PROMPT_INSTRUCTION_BLOCKS = {
+    "baseline": """- The transcription is the only source of characters.
 - The PyLaia line hypotheses are structural hints only; they may contain OCR errors.
 - Produce exactly {num_lines} output lines in reading order.
 - Do not add, remove, or alter transcription characters.
 - Do not copy page or line metadata into the output.
-- The concatenation of your output lines must exactly equal the transcription.
+- The concatenation of your output lines must exactly equal the transcription.""",
+    "boundary_anchored_v1": """- The transcription is the only source of characters.
+- The PyLaia line hypotheses are structural hints only; they may contain OCR errors.
+- Produce exactly {num_lines} output lines in reading order.
+- Treat PyLaia hint line i as the anchor for output line i.
+- Do not reflow the text into cleaner, more semantic, or more balanced lines than the hints suggest.
+- Preserve short, odd, or fragmentary standalone lines when the hints suggest them, including headers, dates, page numbers, symbols, and brief tail fragments.
+- When uncertain between two nearby split points, prefer the split that minimizes boundary drift into neighboring lines.
+- Do not add, remove, or alter transcription characters.
+- Do not copy page or line metadata into the output.
+- The concatenation of your output lines must exactly equal the transcription.""",
+}
+
+PROMPT_TEMPLATE_M4 = """# Role and Objective
+Align a correct transcription (no line breaks) to an ordered list of PyLaia line hypotheses.
+
+# Instructions
+{instruction_block}
 
 # Output Format
 Return strict JSON only, with no code fences or extra text:
@@ -79,6 +93,76 @@ Return strict JSON only, with no code fences or extra text:
 
 Ordered PyLaia line hypotheses ({num_lines} lines):
 {line_hints}"""
+
+PROMPT_TEMPLATE_M4_BASELINE = PROMPT_TEMPLATE_M4.replace(
+    "{instruction_block}",
+    M4_PROMPT_INSTRUCTION_BLOCKS["baseline"],
+)
+PROMPT_TEMPLATE_M4_BOUNDARY_ANCHORED_V1 = PROMPT_TEMPLATE_M4.replace(
+    "{instruction_block}",
+    M4_PROMPT_INSTRUCTION_BLOCKS["boundary_anchored_v1"],
+)
+M4_PROMPT_TEMPLATES = {
+    "baseline": PROMPT_TEMPLATE_M4_BASELINE,
+    "boundary_anchored_v1": PROMPT_TEMPLATE_M4_BOUNDARY_ANCHORED_V1,
+}
+M4_PROMPT_VARIANTS = tuple(M4_PROMPT_TEMPLATES)
+PROMPT_TEMPLATE_M4 = PROMPT_TEMPLATE_M4_BASELINE
+
+M4_REPAIR_PROMPT_TEMPLATE = """Your previous response was invalid.
+Error: {error_message}
+
+Follow these rules:
+{instruction_block}
+- Return only strict JSON with exactly {num_lines} strings in the "lines" array.
+
+Correct transcription:
+{transcription}
+
+Ordered PyLaia line hypotheses ({num_lines} lines):
+{line_hints}
+
+Previous invalid response:
+{previous_response}"""
+
+
+def get_m4_prompt_template(variant: str = "baseline") -> str:
+    """Return the full M4 prompt template for one variant."""
+
+    try:
+        return M4_PROMPT_TEMPLATES[variant]
+    except KeyError as exc:
+        raise ValueError(
+            f"Unknown M4 prompt variant '{variant}'. Expected one of {', '.join(M4_PROMPT_VARIANTS)}."
+        ) from exc
+
+
+def build_m4_repair_prompt(
+    *,
+    variant: str,
+    error_message: str,
+    num_lines: int,
+    transcription: str,
+    line_hints: str,
+    previous_response: str,
+) -> str:
+    """Build the M4 repair prompt for one variant."""
+
+    try:
+        instruction_block = M4_PROMPT_INSTRUCTION_BLOCKS[variant].format(num_lines=num_lines)
+    except KeyError as exc:
+        raise ValueError(
+            f"Unknown M4 prompt variant '{variant}'. Expected one of {', '.join(M4_PROMPT_VARIANTS)}."
+        ) from exc
+
+    return M4_REPAIR_PROMPT_TEMPLATE.format(
+        error_message=error_message,
+        instruction_block=instruction_block,
+        num_lines=num_lines,
+        transcription=transcription,
+        line_hints=line_hints,
+        previous_response=previous_response,
+    )
 
 PROMPT_TEMPLATE_M5 = """# Role and Objective
 Align a correct transcription (no line breaks) to an ordered set of line images.
