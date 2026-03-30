@@ -1,0 +1,13 @@
+{
+  "id": "f04-074",
+  "dataset": "IAM_handwritten",
+  "segmenter": "none",
+  "recognizer": "pylaia",
+  "recognizer_model": "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-iam/weights.ckpt",
+  "num_pages": 12,
+  "num_lines": 12,
+  "timestamp_utc": "2026-03-28T15:00:02.210443+00:00",
+  "cache_root": "outputs/cache/iam_handwritten_rwth_test_representative_20/lines",
+  "ocr_path": "datasets/IAM_handwritten_rwth_test_representative_20/ocr/f04-074.txt",
+  "transcription_path": "datasets/IAM_handwritten_rwth_test_representative_20/transcription/f04-074.txt"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "f07-006",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 7,
+  "num_lines": 7,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Plow many centurses later did the mercenary in",
+      "crop_path": "line_images/f07-006/f07-006-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "the Roman wan thus impal on pike or lanee his",
+      "crop_path": "line_images/f07-006/f07-006-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "evening meal . Yater cou the thrifty peasant ,",
+      "crop_path": "line_images/f07-006/f07-006-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "later still the young Victorian buck adventuring",
+      "crop_path": "line_images/f07-006/f07-006-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "in bans , and even later our alttractive young",
+      "crop_path": "line_images/f07-006/f07-006-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "ladier toging with these promitive mrrsels in the",
+      "crop_path": "line_images/f07-006/f07-006-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "Ggleam and glitter of our latter-dag restarronb .",
+      "crop_path": "line_images/f07-006/f07-006-06.png"
+    }
+  ]
+}

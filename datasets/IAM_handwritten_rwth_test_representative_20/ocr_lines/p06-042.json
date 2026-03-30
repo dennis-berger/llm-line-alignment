@@ -1,0 +1,75 @@
+{
+  "id": "p06-042",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 11,
+  "num_lines": 11,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "And as he ppoke , the thought",
+      "crop_path": "line_images/p06-042/p06-042-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "of Phillip lyin g, in the other",
+      "crop_path": "line_images/p06-042/p06-042-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "roomfilled him with a re-",
+      "crop_path": "line_images/p06-042/p06-042-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "youlation that washomocidal .",
+      "crop_path": "line_images/p06-042/p06-042-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "Even in that , his hands were",
+      "crop_path": "line_images/p06-042/p06-042-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "tied . Tle dare not precpitate",
+      "crop_path": "line_images/p06-042/p06-042-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "what might well beanother",
+      "crop_path": "line_images/p06-042/p06-042-06.png"
+    },
+    {
+      "page_index": 7,
+      "line_index": 0,
+      "text": "coronary . And inthat second",
+      "crop_path": "line_images/p06-042/p06-042-07.png"
+    },
+    {
+      "page_index": 8,
+      "line_index": 0,
+      "text": "he put ack hisprofessional",
+      "crop_path": "line_images/p06-042/p06-042-08.png"
+    },
+    {
+      "page_index": 9,
+      "line_index": 0,
+      "text": "mantle , and said with such",
+      "crop_path": "line_images/p06-042/p06-042-09.png"
+    },
+    {
+      "page_index": 10,
+      "line_index": 0,
+      "text": "ccy politeness , such withdrar",
+      "crop_path": "line_images/p06-042/p06-042-10.png"
+    }
+  ]
+}

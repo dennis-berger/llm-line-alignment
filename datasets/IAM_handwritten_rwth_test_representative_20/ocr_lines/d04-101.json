@@ -1,0 +1,45 @@
+{
+  "id": "d04-101",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 6,
+  "num_lines": 6,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "We dip into both , at the seder . And we wot to undertrand",
+      "crop_path": "line_images/d04-101/d04-101-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "more of the Rorah and the Oral Rradition , our inheritance .",
+      "crop_path": "line_images/d04-101/d04-101-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "hiving the life of the Rorah ( \" dipping-in \" ) maves us",
+      "crop_path": "line_images/d04-101/d04-101-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "meek : ' But the meex staall in herit the earth ; and shalll",
+      "crop_path": "line_images/d04-101/d04-101-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "delight theuselves in the abundance of feace ( Psalm 37 ,",
+      "crop_path": "line_images/d04-101/d04-101-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "ail . Chat gives us freedom from woud .",
+      "crop_path": "line_images/d04-101/d04-101-05.png"
+    }
+  ]
+}

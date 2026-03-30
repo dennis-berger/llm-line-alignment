@@ -1,0 +1,33 @@
+{
+  "id": "d01-016",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 4,
+  "num_lines": 4,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "the second said that Hhe problemes which anse from th comporisons with",
+      "crop_path": "line_images/d01-016/d01-016-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "te Sinepties oann be roasonably soloed by ponping due regard to the time and",
+      "crop_path": "line_images/d01-016/d01-016-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "plon and to the difterent public for outich , or aganinat wulish , th aallor wrok .",
+      "crop_path": "line_images/d01-016/d01-016-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "ble third outich excluded any oullegorical inbupretation of He 6ogodt .",
+      "crop_path": "line_images/d01-016/d01-016-03.png"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "m03-118",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 6,
+  "num_lines": 6,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Butafter what Mrs Canhe had waid it was newer",
+      "crop_path": "line_images/m03-118/m03-118-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "far from our minds that at any mament we were",
+      "crop_path": "line_images/m03-118/m03-118-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "to receiise a summans . D caned see that Mr Septhns",
+      "crop_path": "line_images/m03-118/m03-118-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "was impatient for it . This afterroon , then , we chinbed",
+      "crop_path": "line_images/m03-118/m03-118-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "a promontany , a mas of clean rod cranssed with",
+      "crop_path": "line_images/m03-118/m03-118-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "trees and busnes , tat tood weel out oer the labe-",
+      "crop_path": "line_images/m03-118/m03-118-05.png"
+    }
+  ]
+}

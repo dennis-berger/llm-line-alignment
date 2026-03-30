@@ -1,0 +1,13 @@
+{
+  "id": "279",
+  "dataset": "washington_handwritten",
+  "segmenter": "none",
+  "recognizer": "pylaia",
+  "recognizer_model": "/HOME/bergerd/projects/llm-line-alignment/third_party/pylaia-iam/weights.ckpt",
+  "num_pages": 1,
+  "num_lines": 30,
+  "timestamp_utc": "2026-03-28T15:52:29.484089+00:00",
+  "cache_root": "outputs/cache/washington_handwritten/lines",
+  "ocr_path": "datasets/washington_handwritten/ocr/279.txt",
+  "transcription_path": "datasets/washington_handwritten/transcription/279.txt"
+}

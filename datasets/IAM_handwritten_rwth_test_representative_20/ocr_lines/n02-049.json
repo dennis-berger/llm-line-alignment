@@ -1,0 +1,45 @@
+{
+  "id": "n02-049",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 6,
+  "num_lines": 6,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "nt's pur supsior attitude that piles me . ' Beryl was",
+      "crop_path": "line_images/n02-049/n02-049-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "scaret with annoyance . \" Aw I Iuppened to be mavened",
+      "crop_path": "line_images/n02-049/n02-049-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "at falicon dreint isteest you in the faintesrt degee has",
+      "crop_path": "line_images/n02-049/n02-049-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "lok ar thayh it was only chal you ayetd of me",
+      "crop_path": "line_images/n02-049/n02-049-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "ar thayt I ditct care a hot abud leting tulet",
+      "crop_path": "line_images/n02-049/n02-049-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "and his pals down . '",
+      "crop_path": "line_images/n02-049/n02-049-05.png"
+    }
+  ]
+}

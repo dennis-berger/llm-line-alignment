@@ -1,0 +1,195 @@
+{
+  "id": "307",
+  "dataset": "washington_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 31,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "",
+      "crop_path": "line_images/307/307_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "tEHs ,08, ,B50,56B05D5d en",
+      "crop_path": "line_images/307/307_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "c",
+      "crop_path": "line_images/307/307_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Een",
+      "crop_path": "line_images/307/307_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "o .",
+      "crop_path": "line_images/307/307_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "E0E ,J0C0CE9",
+      "crop_path": "line_images/307/307_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Ernldnncce .",
+      "crop_path": "line_images/307/307_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "aacaecgntsenddl.",
+      "crop_path": "line_images/307/307_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "EEccln EecE0",
+      "crop_path": "line_images/307/307_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "tecesc",
+      "crop_path": "line_images/307/307_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "caadamachitlmntleaurns",
+      "crop_path": "line_images/307/307_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "tealjcr-buite uoierile",
+      "crop_path": "line_images/307/307_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Cddclnd ntncee",
+      "crop_path": "line_images/307/307_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "Nnchate . Se veon a yo cice at connchute g",
+      "crop_path": "line_images/307/307_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "ac tlea th tiocdermfoy che r.",
+      "crop_path": "line_images/307/307_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "cac chloiecsElln",
+      "crop_path": "line_images/307/307_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "Ecnhdicat-Iil",
+      "crop_path": "line_images/307/307_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "n0n",
+      "crop_path": "line_images/307/307_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Eeveaidkien .",
+      "crop_path": "line_images/307/307_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "EEEETTOTOCTEaSS",
+      "crop_path": "line_images/307/307_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "COadccnlid",
+      "crop_path": "line_images/307/307_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "EcSt tchdennRnsri",
+      "crop_path": "line_images/307/307_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "El ceeece",
+      "crop_path": "line_images/307/307_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Eiseseae tnscr",
+      "crop_path": "line_images/307/307_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "EccT0",
+      "crop_path": "line_images/307/307_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "Esccescace",
+      "crop_path": "line_images/307/307_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "cncc",
+      "crop_path": "line_images/307/307_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "En",
+      "crop_path": "line_images/307/307_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "cd",
+      "crop_path": "line_images/307/307_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "tcn nn",
+      "crop_path": "line_images/307/307_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "#se",
+      "crop_path": "line_images/307/307_line030.png"
+    }
+  ]
+}

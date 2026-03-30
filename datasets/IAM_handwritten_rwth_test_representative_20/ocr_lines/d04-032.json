@@ -1,0 +1,75 @@
+{
+  "id": "d04-032",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 11,
+  "num_lines": 11,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "She Shanyir's daily like writes the Decalogue ,",
+      "crop_path": "line_images/d04-032/d04-032-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "which is writhey ay two plates , the hard facts",
+      "crop_path": "line_images/d04-032/d04-032-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "of life , and all facts are ' oye . We have all",
+      "crop_path": "line_images/d04-032/d04-032-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "roye arross humay shamirs and they leave",
+      "crop_path": "line_images/d04-032/d04-032-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "a deep impressioy oy our feelings and sapses .",
+      "crop_path": "line_images/d04-032/d04-032-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "Shey make us the utltar for God to eylt",
+      "crop_path": "line_images/d04-032/d04-032-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "the light which cay be read ly eveny",
+      "crop_path": "line_images/d04-032/d04-032-06.png"
+    },
+    {
+      "page_index": 7,
+      "line_index": 0,
+      "text": "lauguage . The shamlr is the ' seveth ' and",
+      "crop_path": "line_images/d04-032/d04-032-07.png"
+    },
+    {
+      "page_index": 8,
+      "line_index": 0,
+      "text": "mast importayt creature , that was created af",
+      "crop_path": "line_images/d04-032/d04-032-08.png"
+    },
+    {
+      "page_index": 9,
+      "line_index": 0,
+      "text": "the eve of the sabbath , to bring the",
+      "crop_path": "line_images/d04-032/d04-032-09.png"
+    },
+    {
+      "page_index": 10,
+      "line_index": 0,
+      "text": "Sabbath , real peace to the whole world .",
+      "crop_path": "line_images/d04-032/d04-032-10.png"
+    }
+  ]
+}

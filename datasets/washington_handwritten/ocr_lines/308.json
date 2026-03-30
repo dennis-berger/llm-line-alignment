@@ -1,0 +1,207 @@
+{
+  "id": "308",
+  "dataset": "washington_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 33,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "5ennnn n n n n ese.",
+      "crop_path": "line_images/308/308_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "ccncolccs",
+      "crop_path": "line_images/308/308_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "Escasancenncc",
+      "crop_path": "line_images/308/308_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Eccn axned",
+      "crop_path": "line_images/308/308_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "cridcdniecennl",
+      "crop_path": "line_images/308/308_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Ecre rnbur ofensose cnchenctto",
+      "crop_path": "line_images/308/308_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "chal whicha thoccetndede",
+      "crop_path": "line_images/308/308_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Ecal  tilsnncaclt .",
+      "crop_path": "line_images/308/308_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "FEache . Thoo takng tcer mene",
+      "crop_path": "line_images/308/308_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "He which net c apdEcancbade.",
+      "crop_path": "line_images/308/308_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "E-acbkry cuhul itice he",
+      "crop_path": "line_images/308/308_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "ting dlicud t che inggons and sitd",
+      "crop_path": "line_images/308/308_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "a shih buard 's kpl we chon chal nwh",
+      "crop_path": "line_images/308/308_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "slment is made . Af your mer can not te",
+      "crop_path": "line_images/308/308_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "comeniecebuckied on thin malrptoc",
+      "crop_path": "line_images/308/308_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "willtea nenler of tcrh amongthtould",
+      "crop_path": "line_images/308/308_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "mut be made we of Mars tch hears",
+      "crop_path": "line_images/308/308_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "should doat from this plac it wild beppe",
+      "crop_path": "line_images/308/308_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "t sond a Degeant arid one atac hrt rn",
+      "crop_path": "line_images/308/308_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "inpusuid ofthems.",
+      "crop_path": "line_images/308/308_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Ecenalecanchia tc.",
+      "crop_path": "line_images/308/308_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Clclnisns .",
+      "crop_path": "line_images/308/308_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "TIETr Bocdor Sames Eaik o Che Faginica",
+      "crop_path": "line_images/308/308_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "legimal",
+      "crop_path": "line_images/308/308_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "to soon as the Cfce cich the",
+      "crop_path": "line_images/308/308_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "P and medicine anive jou eemts",
+      "crop_path": "line_images/308/308_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "chefart eppotancechat ffer o conisc",
+      "crop_path": "line_images/308/308_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "cnbborand poolnng yurreallade",
+      "crop_path": "line_images/308/308_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "Fer . Afer onretomct uetecied",
+      "crop_path": "line_images/308/308_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "wld sou chk aclensttt",
+      "crop_path": "line_images/308/308_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "Wteankiong chon whgo tkng",
+      "crop_path": "line_images/308/308_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "cacdinee",
+      "crop_path": "line_images/308/308_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "Ehsrredie",
+      "crop_path": "line_images/308/308_line032.png"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "g03-043",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 11,
+  "num_lines": 11,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "One of the students was young",
+      "crop_path": "line_images/g03-043/g03-043-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "George , and another the clark-hained",
+      "crop_path": "line_images/g03-043/g03-043-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "little granddaughter of EaChanlie grant .",
+      "crop_path": "line_images/g03-043/g03-043-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "Georgeotten spokeat the funday schood.",
+      "crop_path": "line_images/g03-043/g03-043-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "e chrlctened the babies . Aleo , when",
+      "crop_path": "line_images/g03-043/g03-043-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "called upon to do so , he would officiate",
+      "crop_path": "line_images/g03-043/g03-043-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "at funerals . Religion was one of his pet",
+      "crop_path": "line_images/g03-043/g03-043-06.png"
+    },
+    {
+      "page_index": 7,
+      "line_index": 0,
+      "text": "subjects , for being well acquainted",
+      "crop_path": "line_images/g03-043/g03-043-07.png"
+    },
+    {
+      "page_index": 8,
+      "line_index": 0,
+      "text": "with the Bible , which he had",
+      "crop_path": "line_images/g03-043/g03-043-08.png"
+    },
+    {
+      "page_index": 9,
+      "line_index": 0,
+      "text": "creach in privon where it was the",
+      "crop_path": "line_images/g03-043/g03-043-09.png"
+    },
+    {
+      "page_index": 10,
+      "line_index": 0,
+      "text": "only book they were allowed.",
+      "crop_path": "line_images/g03-043/g03-043-10.png"
+    }
+  ]
+}

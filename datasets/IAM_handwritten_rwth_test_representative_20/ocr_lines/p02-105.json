@@ -1,0 +1,57 @@
+{
+  "id": "p02-105",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 8,
+  "num_lines": 8,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "As he swung her on to the floor Gay sow Gavin",
+      "crop_path": "line_images/p02-105/p02-105-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "and Simone go through the dorrwray that led",
+      "crop_path": "line_images/p02-105/p02-105-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "down to the beach . Gay closed ' her eyes for a",
+      "crop_path": "line_images/p02-105/p02-105-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "moment in disqust . She was full aware that havin",
+      "crop_path": "line_images/p02-105/p02-105-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "would make love to the French girl on the sand,",
+      "crop_path": "line_images/p02-105/p02-105-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "and no doubt he would cane back soon and",
+      "crop_path": "line_images/p02-105/p02-105-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "after Simone had left expect her to accept his",
+      "crop_path": "line_images/p02-105/p02-105-06.png"
+    },
+    {
+      "page_index": 7,
+      "line_index": 0,
+      "text": "lrisses on the way back to the hakel .",
+      "crop_path": "line_images/p02-105/p02-105-07.png"
+    }
+  ]
+}

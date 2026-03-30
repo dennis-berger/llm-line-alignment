@@ -1,0 +1,69 @@
+{
+  "id": "n04-048",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 10,
+  "num_lines": 10,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "So he put up for the night at the Admiral's Head , that",
+      "crop_path": "line_images/n04-048/n04-048-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "famous Partsmanth hostelry , secand only in historic",
+      "crop_path": "line_images/n04-048/n04-048-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "interest to The George , unhappily destrayed by German",
+      "crop_path": "line_images/n04-048/n04-048-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "lomls during the last war . Having deposited his",
+      "crop_path": "line_images/n04-048/n04-048-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "laggage and unparhed his overnight-bag he",
+      "crop_path": "line_images/n04-048/n04-048-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "went in search of a drinle . The lower bar was",
+      "crop_path": "line_images/n04-048/n04-048-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "empty , save for thelady known by all hahitue",
+      "crop_path": "line_images/n04-048/n04-048-06.png"
+    },
+    {
+      "page_index": 7,
+      "line_index": 0,
+      "text": "A 29s as ' Seaweed ' , and a youngish , sharp-eyed",
+      "crop_path": "line_images/n04-048/n04-048-07.png"
+    },
+    {
+      "page_index": 8,
+      "line_index": 0,
+      "text": "man who was storing moodily into a gir",
+      "crop_path": "line_images/n04-048/n04-048-08.png"
+    },
+    {
+      "page_index": 9,
+      "line_index": 0,
+      "text": "and tanic .",
+      "crop_path": "line_images/n04-048/n04-048-09.png"
+    }
+  ]
+}

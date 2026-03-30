@@ -1,0 +1,69 @@
+{
+  "id": "e06-015",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 10,
+  "num_lines": 10,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "the jount evidence of echo-saunders",
+      "crop_path": "line_images/e06-015/e06-015-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "and firking gear leads to an averall",
+      "crop_path": "line_images/e06-015/e06-015-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "though somewhet dim picture .",
+      "crop_path": "line_images/e06-015/e06-015-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "The details are harder still to see .",
+      "crop_path": "line_images/e06-015/e06-015-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "Wrift Elfects . At East Anglin for inlance",
+      "crop_path": "line_images/e06-015/e06-015-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "shoals that gather at the knall on",
+      "crop_path": "line_images/e06-015/e06-015-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "other bankss are mast of them",
+      "crop_path": "line_images/e06-015/e06-015-06.png"
+    },
+    {
+      "page_index": 7,
+      "line_index": 0,
+      "text": "gung to tranl a hundred",
+      "crop_path": "line_images/e06-015/e06-015-07.png"
+    },
+    {
+      "page_index": 8,
+      "line_index": 0,
+      "text": "miles farther south before they",
+      "crop_path": "line_images/e06-015/e06-015-08.png"
+    },
+    {
+      "page_index": 9,
+      "line_index": 0,
+      "text": "spawn . Some will spawn cut hhe",
+      "crop_path": "line_images/e06-015/e06-015-09.png"
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "id": "303",
+  "dataset": "washington_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 34,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "Ennncannn",
+      "crop_path": "line_images/303/303_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Knccccsc",
+      "crop_path": "line_images/303/303_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "asec",
+      "crop_path": "line_images/303/303_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "Saisalfuneeiice ae",
+      "crop_path": "line_images/303/303_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "CEleE0ceeEt",
+      "crop_path": "line_images/303/303_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Ecccni",
+      "crop_path": "line_images/303/303_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "Ascamton dro cnndr ScEr0",
+      "crop_path": "line_images/303/303_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "Ecdetaroin'ca uldajcre ad",
+      "crop_path": "line_images/303/303_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "dsinet thonficie cortang ueee",
+      "crop_path": "line_images/303/303_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "eenices uahd grltt Ecit,",
+      "crop_path": "line_images/303/303_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Cerngticar Bacl",
+      "crop_path": "line_images/303/303_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "Rarlain Mecspay os anrseearp",
+      "crop_path": "line_images/303/303_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Earyt ducde , dinceclighif purttic",
+      "crop_path": "line_images/303/303_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "culd foc it soo boploin Paiar . Af Erplante",
+      "crop_path": "line_images/303/303_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "as serucaed ewpor ee n canntead",
+      "crop_path": "line_images/303/303_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "E tist ton mil aped ahare ttlanny",
+      "crop_path": "line_images/303/303_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "tedade Ecanetetir - ased",
+      "crop_path": "line_images/303/303_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "ccedan incencionl s a 1 beae",
+      "crop_path": "line_images/303/303_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Edelnn tho cnt . SodEinbo",
+      "crop_path": "line_images/303/303_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "Rethadng suclort . Ee0",
+      "crop_path": "line_images/303/303_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "Ece-anceneen",
+      "crop_path": "line_images/303/303_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "cheting . Semaieienncd",
+      "crop_path": "line_images/303/303_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "EECLE OA EEEERT",
+      "crop_path": "line_images/303/303_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "Eoad cbecntnceed",
+      "crop_path": "line_images/303/303_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Etnndicicciss",
+      "crop_path": "line_images/303/303_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "TEEEnerndet .",
+      "crop_path": "line_images/303/303_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "Snnenecd",
+      "crop_path": "line_images/303/303_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "cerrrccese",
+      "crop_path": "line_images/303/303_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "tdnddd",
+      "crop_path": "line_images/303/303_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "F Fnerre",
+      "crop_path": "line_images/303/303_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "(dddsm",
+      "crop_path": "line_images/303/303_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "axerrc",
+      "crop_path": "line_images/303/303_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "t",
+      "crop_path": "line_images/303/303_line032.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 33,
+      "text": "#rree",
+      "crop_path": "line_images/303/303_line033.png"
+    }
+  ]
+}

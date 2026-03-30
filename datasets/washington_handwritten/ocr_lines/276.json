@@ -1,0 +1,207 @@
+{
+  "id": "276",
+  "dataset": "washington_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 1,
+  "num_lines": 33,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "XqVXVXBXqBVdnVB5dBqB6qBVBVdVFVB6VdBJVJqVBVB5an Bnnnn",
+      "crop_path": "line_images/276/276_line000.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 1,
+      "text": "Tac",
+      "crop_path": "line_images/276/276_line001.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 2,
+      "text": "a",
+      "crop_path": "line_images/276/276_line002.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 3,
+      "text": "ceecceddn",
+      "crop_path": "line_images/276/276_line003.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 4,
+      "text": "tene ddd",
+      "crop_path": "line_images/276/276_line004.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 5,
+      "text": "Edescesd",
+      "crop_path": "line_images/276/276_line005.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 6,
+      "text": "EtE h",
+      "crop_path": "line_images/276/276_line006.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 7,
+      "text": "tnltd",
+      "crop_path": "line_images/276/276_line007.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 8,
+      "text": "nn",
+      "crop_path": "line_images/276/276_line008.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 9,
+      "text": "bacberccda9",
+      "crop_path": "line_images/276/276_line009.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 10,
+      "text": "Ea",
+      "crop_path": "line_images/276/276_line010.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 11,
+      "text": "nTaconcclrssss .",
+      "crop_path": "line_images/276/276_line011.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 12,
+      "text": "Pdlccad",
+      "crop_path": "line_images/276/276_line012.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 13,
+      "text": "tederbrecd",
+      "crop_path": "line_images/276/276_line013.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 14,
+      "text": "Cenecesantis",
+      "crop_path": "line_images/276/276_line014.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 15,
+      "text": "EdencchoonE",
+      "crop_path": "line_images/276/276_line015.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 16,
+      "text": "Edereadntdcd",
+      "crop_path": "line_images/276/276_line016.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 17,
+      "text": "eearcds",
+      "crop_path": "line_images/276/276_line017.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 18,
+      "text": "Cenltceccbfbiic",
+      "crop_path": "line_images/276/276_line018.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 19,
+      "text": "bedd",
+      "crop_path": "line_images/276/276_line019.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 20,
+      "text": "bdeintc",
+      "crop_path": "line_images/276/276_line020.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 21,
+      "text": "Ectdddd",
+      "crop_path": "line_images/276/276_line021.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 22,
+      "text": "Cecdaec",
+      "crop_path": "line_images/276/276_line022.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 23,
+      "text": "jeets",
+      "crop_path": "line_images/276/276_line023.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 24,
+      "text": "Eesc",
+      "crop_path": "line_images/276/276_line024.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 25,
+      "text": "Esd",
+      "crop_path": "line_images/276/276_line025.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 26,
+      "text": "Eed",
+      "crop_path": "line_images/276/276_line026.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 27,
+      "text": "E",
+      "crop_path": "line_images/276/276_line027.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 28,
+      "text": "#",
+      "crop_path": "line_images/276/276_line028.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 29,
+      "text": "Eee",
+      "crop_path": "line_images/276/276_line029.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 30,
+      "text": "aen",
+      "crop_path": "line_images/276/276_line030.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 31,
+      "text": "t",
+      "crop_path": "line_images/276/276_line031.png"
+    },
+    {
+      "page_index": 0,
+      "line_index": 32,
+      "text": "E",
+      "crop_path": "line_images/276/276_line032.png"
+    }
+  ]
+}

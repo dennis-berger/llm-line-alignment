@@ -1,0 +1,75 @@
+{
+  "id": "m01-136",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 11,
+  "num_lines": 11,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "His whole attitule was a mixture of",
+      "crop_path": "line_images/m01-136/m01-136-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "impatience pending an avaited",
+      "crop_path": "line_images/m01-136/m01-136-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "communication and of a vague",
+      "crop_path": "line_images/m01-136/m01-136-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "perplexity respecting his surroundings",
+      "crop_path": "line_images/m01-136/m01-136-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "and the purpose he was to serve .",
+      "crop_path": "line_images/m01-136/m01-136-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "Finally , being so obviously on their own ,",
+      "crop_path": "line_images/m01-136/m01-136-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "Heather and Sleve tried to make themselves",
+      "crop_path": "line_images/m01-136/m01-136-06.png"
+    },
+    {
+      "page_index": 7,
+      "line_index": 0,
+      "text": "at home . Stere switched on Dan's",
+      "crop_path": "line_images/m01-136/m01-136-07.png"
+    },
+    {
+      "page_index": 8,
+      "line_index": 0,
+      "text": "power ful , workd-wicle rodio and systematically",
+      "crop_path": "line_images/m01-136/m01-136-08.png"
+    },
+    {
+      "page_index": 9,
+      "line_index": 0,
+      "text": "turned the tuing hnob through all the",
+      "crop_path": "line_images/m01-136/m01-136-09.png"
+    },
+    {
+      "page_index": 10,
+      "line_index": 0,
+      "text": "tuning points of the world's great raclio",
+      "crop_path": "line_images/m01-136/m01-136-10.png"
+    }
+  ]
+}

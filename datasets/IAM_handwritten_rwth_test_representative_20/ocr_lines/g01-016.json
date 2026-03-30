@@ -1,0 +1,57 @@
+{
+  "id": "g01-016",
+  "dataset": "IAM_handwritten",
+  "recognizer": "pylaia",
+  "num_pages": 8,
+  "num_lines": 8,
+  "lines": [
+    {
+      "page_index": 0,
+      "line_index": 0,
+      "text": "These dreary years of ineffective fighting provide",
+      "crop_path": "line_images/g01-016/g01-016-00.png"
+    },
+    {
+      "page_index": 1,
+      "line_index": 0,
+      "text": "obvios morsls for those who are judges long",
+      "crop_path": "line_images/g01-016/g01-016-01.png"
+    },
+    {
+      "page_index": 2,
+      "line_index": 0,
+      "text": "after the event . It seems obvious that , though",
+      "crop_path": "line_images/g01-016/g01-016-02.png"
+    },
+    {
+      "page_index": 3,
+      "line_index": 0,
+      "text": "the loughows of yeomen could pierce the",
+      "crop_path": "line_images/g01-016/g01-016-03.png"
+    },
+    {
+      "page_index": 4,
+      "line_index": 0,
+      "text": "plate and cuail of Frauch kuighto , a brillout",
+      "crop_path": "line_images/g01-016/g01-016-04.png"
+    },
+    {
+      "page_index": 5,
+      "line_index": 0,
+      "text": "battle was no subotitule for a vound policy .",
+      "crop_path": "line_images/g01-016/g01-016-05.png"
+    },
+    {
+      "page_index": 6,
+      "line_index": 0,
+      "text": "and that , if ardes had us terget , compaigus",
+      "crop_path": "line_images/g01-016/g01-016-06.png"
+    },
+    {
+      "page_index": 7,
+      "line_index": 0,
+      "text": "became mee marsuding route marches .",
+      "crop_path": "line_images/g01-016/g01-016-07.png"
+    }
+  ]
+}
