@@ -4,6 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../common_eval_env.sh"
 common_eval_bootstrap "run_eval_m4.py"
+EVAL_PYTHON="$(command -v python)"
 
 DATASET_KEY="${DATASET_KEY:?Must set DATASET_KEY to a supported dataset name.}"
 DATA_DIR="${DATA_DIR:?Must set DATA_DIR to a dataset directory.}"
@@ -174,7 +175,7 @@ EOF
   fi
 
   OCR_ARGS=(
-    python scripts/make_ocr_outputs.py
+    "$EVAL_PYTHON" scripts/make_ocr_outputs.py
     --dataset "$DATASET_KEY"
     --data-dir "$DATA_DIR"
     --segmenter "$SEGMENTER"
@@ -206,7 +207,7 @@ if [ "$SKIP_EVAL" = "1" ]; then
 fi
 
 RUN_ARGS=(
-  python run_eval_m4.py
+  "$EVAL_PYTHON" run_eval_m4.py
   --data-dir "$DATA_DIR"
   --model "$MODEL"
   --device "$DEVICE"

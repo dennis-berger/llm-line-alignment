@@ -313,3 +313,48 @@ def test_m5_combiner_uses_ocr_text_fallback_for_both_packaging_modes(
     assert prediction == "ab\ncd"
     assert len(backend.prompts) == 2
     assert backend.cleanup_calls == 1
+
+
+@pytest.mark.parametrize("line_image_mode", ["separate", "stacked"])
+def test_m5_combiner_uses_hidden_ocr_text_as_last_resort_fallback(
+    tmp_path: Path,
+    line_image_mode: str,
+):
+    """Non-OCR-text mode should still recover from repeated invalid responses."""
+
+    save_image(tmp_path / "line_images" / "sample" / "line0.png")
+    save_image(tmp_path / "line_images" / "sample" / "line1.png")
+    payload = build_ocr_lines_payload(
+        [
+            {
+                "page_index": 0,
+                "line_index": 0,
+                "text": "ab",
+                "crop_path": "line_images/sample/line0.png",
+            },
+            {
+                "page_index": 0,
+                "line_index": 1,
+                "text": "xd",
+                "crop_path": "line_images/sample/line1.png",
+            },
+        ]
+    )
+
+    backend = ScriptedVisionBackend([
+        "still not json",
+        "also not json",
+    ])
+    combiner = VLMMethod5Combiner(
+        VLMConfig(model_id="hf/dummy"),
+        dataset_root=tmp_path,
+        line_image_mode=line_image_mode,
+        use_ocr_text=False,
+        backend=backend,
+    )
+
+    prediction = combiner.infer_line_breaks("abcd", payload)
+
+    assert prediction == "ab\ncd"
+    assert len(backend.prompts) == 2
+    assert backend.cleanup_calls == 1

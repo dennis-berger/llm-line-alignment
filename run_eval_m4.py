@@ -296,6 +296,7 @@ def main():
 
     if n > 0:
         logger.info(f"Resuming from checkpoint: {n} samples already processed")
+    failed_ids: List[str] = []
 
     for gt_path in gt_files:
         sample_id = os.path.splitext(os.path.basename(gt_path))[0]
@@ -339,6 +340,7 @@ def main():
             sys.exit(EXIT_CODE_DAILY_QUOTA)
         except Exception as exc:
             logger.error(f"Failure for {sample_id}: {exc}", exc_info=True)
+            failed_ids.append(sample_id)
             continue
 
         write_text(Path(args.out_dir) / f"{sample_id}.txt", pred)
@@ -459,6 +461,15 @@ def main():
             )
 
     logger.info(f"Wrote {args.eval_csv} with {n} samples.")
+    if failed_ids:
+        checkpoint.save()
+        logger.error(
+            "Evaluation finished with %d failed samples; keeping checkpoint for resume: %s",
+            len(failed_ids),
+            ", ".join(failed_ids),
+        )
+        sys.exit(1)
+
     checkpoint.delete()
 
 

@@ -117,6 +117,41 @@ PY
 
   which python
   python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+  if [ "$DEVICE" = "cuda" ] && ! python - <<'PY'
+import torch
+
+raise SystemExit(0 if torch.cuda.is_available() else 1)
+PY
+  then
+    python - <<'PY'
+import torch
+
+print("ERROR: DEVICE=cuda but torch.cuda.is_available() is False")
+print("torch version:", torch.__version__)
+print("torch CUDA build:", torch.version.cuda)
+PY
+    exit 1
+  fi
+  if [ "$DEVICE" = "cuda" ]; then
+    if ! python - <<'PY'
+import torch
+
+try:
+    device_name = torch.cuda.get_device_name(0)
+    capability = torch.cuda.get_device_capability(0)
+    probe = torch.tensor([0, 1], device="cuda")
+    torch.isin(probe, probe).all().item()
+except Exception as exc:  # pragma: no cover - shell bootstrap probe
+    print("ERROR: CUDA kernel probe failed:", exc)
+    raise SystemExit(1)
+
+print("CUDA device:", device_name)
+print("CUDA capability:", capability)
+PY
+    then
+      exit 1
+    fi
+  fi
 }
 
 
