@@ -22,6 +22,8 @@ CHECKPOINT_DIR="${CHECKPOINT_DIR:-checkpoints}"
 IDS="${IDS:-}"
 N_SHOTS="${N_SHOTS:-0}"
 SHOTS_SEED="${SHOTS_SEED:-42}"
+SHOTS_DATASET_SCOPE="${SHOTS_DATASET_SCOPE:-same}"
+TRACE_DIR="${TRACE_DIR:-}"
 
 SHOT_SUFFIX="${N_SHOTS}shot"
 PROMPT_VARIANT="${PROMPT_VARIANT:-baseline}"
@@ -212,6 +214,7 @@ RUN_ARGS=(
   --model "$MODEL"
   --device "$DEVICE"
   --n-shots "$N_SHOTS"
+  --shots-dataset-scope "$SHOTS_DATASET_SCOPE"
   --out-dir "$OUT_DIR"
   --eval-csv "$EVAL_CSV"
   --ocr-lines-dir "$OCR_LINES_DIR"
@@ -227,6 +230,9 @@ if [ "$N_SHOTS" -gt 0 ]; then
 fi
 if [ -n "$IDS" ]; then
   RUN_ARGS+=(--ids "$IDS")
+fi
+if [ -n "$TRACE_DIR" ]; then
+  RUN_ARGS+=(--trace-dir "$TRACE_DIR")
 fi
 
 set +e

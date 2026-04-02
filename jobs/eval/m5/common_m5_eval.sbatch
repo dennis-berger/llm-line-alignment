@@ -21,8 +21,11 @@ CHECKPOINT_DIR="${CHECKPOINT_DIR:-checkpoints}"
 IDS="${IDS:-}"
 N_SHOTS="${N_SHOTS:-0}"
 SHOTS_SEED="${SHOTS_SEED:-42}"
+SHOTS_DATASET_SCOPE="${SHOTS_DATASET_SCOPE:-same}"
 LINE_IMAGE_MODE="${LINE_IMAGE_MODE:-separate}"
 USE_OCR_TEXT="${USE_OCR_TEXT:-0}"
+PROMPT_VARIANT="${PROMPT_VARIANT:-baseline}"
+TRACE_DIR="${TRACE_DIR:-}"
 
 SHOT_SUFFIX="${N_SHOTS}shot"
 MODE_SUFFIX="${LINE_IMAGE_MODE}"
@@ -30,8 +33,12 @@ OCR_HINT_SUFFIX=""
 if [ "$USE_OCR_TEXT" = "1" ]; then
   OCR_HINT_SUFFIX="_ocrtext"
 fi
-OUT_DIR="${OUT_DIR:-${DATASET_TAG}_predictions_m5_${MODE_SUFFIX}${OCR_HINT_SUFFIX}_${SHOT_SUFFIX}_${MODEL_SUFFIX}}"
-EVAL_CSV="${EVAL_CSV:-${DATASET_TAG}_eval_m5_${MODE_SUFFIX}${OCR_HINT_SUFFIX}_${SHOT_SUFFIX}_${MODEL_SUFFIX}.csv}"
+PROMPT_SUFFIX=""
+if [ "$PROMPT_VARIANT" != "baseline" ]; then
+  PROMPT_SUFFIX="_prompt_${PROMPT_VARIANT}"
+fi
+OUT_DIR="${OUT_DIR:-${DATASET_TAG}_predictions_m5_${MODE_SUFFIX}${OCR_HINT_SUFFIX}_${SHOT_SUFFIX}${PROMPT_SUFFIX}_${MODEL_SUFFIX}}"
+EVAL_CSV="${EVAL_CSV:-${DATASET_TAG}_eval_m5_${MODE_SUFFIX}${OCR_HINT_SUFFIX}_${SHOT_SUFFIX}${PROMPT_SUFFIX}_${MODEL_SUFFIX}.csv}"
 
 if [ "$SKIP_OCR" != "1" ]; then
   PYLAIA_ROOT="${PYLAIA_ROOT:?Must set PYLAIA_ROOT to the PyLaia asset directory.}"
@@ -200,12 +207,14 @@ RUN_ARGS=(
   --model "$MODEL"
   --device "$DEVICE"
   --n-shots "$N_SHOTS"
+  --shots-dataset-scope "$SHOTS_DATASET_SCOPE"
   --out-dir "$OUT_DIR"
   --eval-csv "$EVAL_CSV"
   --ocr-lines-dir "$OCR_LINES_DIR"
   --checkpoint-dir "$CHECKPOINT_DIR"
   --max-new-tokens "$MAX_NEW_TOKENS"
   --line-image-mode "$LINE_IMAGE_MODE"
+  --prompt-variant "$PROMPT_VARIANT"
 )
 if [ -n "$TRANSCRIPTION_DIR" ]; then
   RUN_ARGS+=(--transcription-dir "$TRANSCRIPTION_DIR")
@@ -218,6 +227,9 @@ if [ -n "$IDS" ]; then
 fi
 if [ "$USE_OCR_TEXT" = "1" ]; then
   RUN_ARGS+=(--use-ocr-text)
+fi
+if [ -n "$TRACE_DIR" ]; then
+  RUN_ARGS+=(--trace-dir "$TRACE_DIR")
 fi
 
 set +e

@@ -20,6 +20,7 @@ Goal:
 import argparse
 import csv
 import glob
+import json
 import logging
 import os
 import sys
@@ -64,6 +65,21 @@ class VLMMethod4Combiner:
         self.backend = backend or get_backend(cfg)
         self.few_shot_examples = cfg.few_shot_examples or []
         self.prompt_variant = prompt_variant
+        self.last_trace: Optional[dict[str, Any]] = None
+
+    def _build_trace(
+        self,
+        transcription: str,
+        ocr_lines_payload: dict[str, Any],
+    ) -> dict[str, Any]:
+        return {
+            "prompt_variant": self.prompt_variant,
+            "expected_num_lines": len(ocr_lines_payload.get("lines", [])),
+            "transcription": transcription,
+            "line_hints": list(ocr_lines_payload.get("lines", [])),
+            "few_shot_ids": [example.sample_id for example in self.few_shot_examples],
+            "attempts": [],
+        }
 
     def _build_prompt(self, transcription: str, ocr_lines_payload: dict[str, Any]) -> str:
         expected_num_lines = len(ocr_lines_payload.get("lines", []))
@@ -100,7 +116,7 @@ class VLMMethod4Combiner:
         ocr_lines_payload: dict[str, Any],
         repair_error: Optional[str] = None,
         previous_response: Optional[str] = None,
-    ) -> str:
+    ) -> tuple[str, str]:
         if repair_error is None:
             prompt = self._build_prompt(transcription, ocr_lines_payload)
         else:
@@ -110,7 +126,7 @@ class VLMMethod4Combiner:
                 repair_error,
                 previous_response or "",
             )
-        return self.backend.generate(prompt, images=None)
+        return self.backend.generate(prompt, images=None), prompt
 
     def infer_line_breaks(
         self,
@@ -119,19 +135,44 @@ class VLMMethod4Combiner:
     ) -> str:
         expected_num_lines = len(ocr_lines_payload.get("lines", []))
         if expected_num_lines == 0:
+            self.last_trace = {
+                "prompt_variant": self.prompt_variant,
+                "expected_num_lines": 0,
+                "transcription": transcription,
+                "line_hints": list(ocr_lines_payload.get("lines", [])),
+                "attempts": [],
+                "resolution": {"mode": "empty_input"},
+                "final_lines": [],
+            }
             return ""
 
+        trace = self._build_trace(transcription, ocr_lines_payload)
         fallback_hint_lines = extract_ocr_line_texts(ocr_lines_payload)
 
-        response = self._generate_one(transcription, ocr_lines_payload)
+        response, prompt = self._generate_one(transcription, ocr_lines_payload)
+        trace["attempts"].append(
+            {
+                "kind": "initial",
+                "prompt": prompt,
+                "response": response,
+            }
+        )
         try:
             parsed_lines = parse_m4_response(response, expected_num_lines)
         except ValueError as exc:
-            repair_response = self._generate_one(
+            repair_response, repair_prompt = self._generate_one(
                 transcription,
                 ocr_lines_payload,
                 repair_error=str(exc),
                 previous_response=response,
+            )
+            trace["attempts"].append(
+                {
+                    "kind": "repair",
+                    "trigger_error": str(exc),
+                    "prompt": repair_prompt,
+                    "response": repair_response,
+                }
             )
             try:
                 parsed_lines = parse_m4_response(repair_response, expected_num_lines)
@@ -145,16 +186,33 @@ class VLMMethod4Combiner:
                     fallback_hint_lines,
                     expected_num_lines,
                 )
+                trace["resolution"] = {
+                    "mode": "fallback_projection",
+                    "initial_parse_error": str(exc),
+                    "repair_parse_error": str(repair_exc),
+                    "fallback_source": "ocr_text",
+                    "fallback_hint_lines": fallback_hint_lines,
+                }
+                trace["final_lines"] = final_lines
+                self.last_trace = trace
                 self.backend.cleanup()
                 return "\n".join(final_lines)
 
         if "".join(parsed_lines) != transcription:
+            trace["resolution"] = {
+                "mode": "projection_from_model_lines",
+                "parsed_lines_before_projection": parsed_lines,
+            }
             parsed_lines = project_boundaries_to_transcription(
                 transcription,
                 parsed_lines,
                 expected_num_lines,
             )
+        else:
+            trace["resolution"] = {"mode": "parsed_json_exact"}
 
+        trace["final_lines"] = parsed_lines
+        self.last_trace = trace
         self.backend.cleanup()
         return "\n".join(parsed_lines)
 
@@ -220,6 +278,11 @@ def main():
     ap.add_argument("--checkpoint-dir", default="checkpoints",
                     help="Directory for checkpoint files (for resuming interrupted runs)")
     ap.add_argument(
+        "--trace-dir",
+        default=None,
+        help="Optional directory where per-sample prompt/response traces are written as JSON.",
+    )
+    ap.add_argument(
         "--prompt-variant",
         default="baseline",
         choices=M4_PROMPT_VARIANTS,
@@ -276,6 +339,7 @@ def main():
         logger.error(f"No ground-truth files found in {gt_dir}")
         sys.exit(1)
     active_ids = [path.stem for path in gt_files]
+    few_shot_allowed_ids = active_ids if args.shots_dataset_scope == "same" else None
 
     rows: List[list] = checkpoint.rows.copy()
     n = len(checkpoint.processed_ids)
@@ -311,7 +375,7 @@ def main():
                 exclude_ids=[sample_id],
                 method="m4",
                 seed=args.shots_seed,
-                allowed_ids=active_ids,
+                allowed_ids=few_shot_allowed_ids,
             )
             combiner.few_shot_examples = few_shot_examples
 
@@ -344,6 +408,13 @@ def main():
             continue
 
         write_text(Path(args.out_dir) / f"{sample_id}.txt", pred)
+        if args.trace_dir and combiner.last_trace is not None:
+            trace_path = Path(args.trace_dir) / f"{sample_id}.json"
+            trace_path.parent.mkdir(parents=True, exist_ok=True)
+            trace_path.write_text(
+                json.dumps(combiner.last_trace, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
 
         gt = read_text(Path(gt_path))
         result = evaluate_prediction(gt, pred, sample_id)

@@ -228,6 +228,89 @@ def test_m5_combiner_repairs_malformed_json_and_projects_exact_text(tmp_path: Pa
     assert backend.cleanup_calls == 1
 
 
+def test_m5_boundary_prompt_variant_mentions_anchor_lines(tmp_path: Path):
+    """Boundary-anchored M5 prompts should preserve short standalone lines explicitly."""
+
+    save_image(tmp_path / "line_images" / "sample" / "line0.png")
+    save_image(tmp_path / "line_images" / "sample" / "line1.png")
+    payload = build_ocr_lines_payload(
+        [
+            {
+                "page_index": 0,
+                "line_index": 0,
+                "crop_path": "line_images/sample/line0.png",
+            },
+            {
+                "page_index": 0,
+                "line_index": 1,
+                "crop_path": "line_images/sample/line1.png",
+            },
+        ]
+    )
+
+    backend = ScriptedVisionBackend(['{"lines":["ab","cd"]}'])
+    combiner = VLMMethod5Combiner(
+        VLMConfig(model_id="hf/dummy"),
+        dataset_root=tmp_path,
+        prompt_variant="boundary_anchored_v1",
+        backend=backend,
+    )
+
+    prediction = combiner.infer_line_breaks("abcd", payload)
+
+    assert prediction == "ab\ncd"
+    assert "Treat line image i as the anchor for output line i." in backend.prompts[0]
+    assert "Preserve short, odd, or fragmentary standalone lines" in backend.prompts[0]
+
+
+def test_m5_structural_repair_retries_when_short_hint_is_merged(tmp_path: Path):
+    """Very short leading hints should trigger one extra repair attempt when merged."""
+
+    save_image(tmp_path / "line_images" / "sample" / "line0.png")
+    save_image(tmp_path / "line_images" / "sample" / "line1.png")
+    save_image(tmp_path / "line_images" / "sample" / "line2.png")
+    payload = build_ocr_lines_payload(
+        [
+            {
+                "page_index": 0,
+                "line_index": 0,
+                "text": "16.",
+                "crop_path": "line_images/sample/line0.png",
+            },
+            {
+                "page_index": 0,
+                "line_index": 1,
+                "text": ".",
+                "crop_path": "line_images/sample/line1.png",
+            },
+            {
+                "page_index": 0,
+                "line_index": 2,
+                "text": "body",
+                "crop_path": "line_images/sample/line2.png",
+            },
+        ]
+    )
+
+    backend = ScriptedVisionBackend([
+        '{"lines":["116.","1 body text","tail"]}',
+        '{"lines":["116.","1 ","body texttail"]}',
+    ])
+    combiner = VLMMethod5Combiner(
+        VLMConfig(model_id="hf/dummy"),
+        dataset_root=tmp_path,
+        use_ocr_text=True,
+        backend=backend,
+    )
+
+    prediction = combiner.infer_line_breaks("116.1 body texttail", payload)
+
+    assert prediction == "116.\n1 \nbody texttail"
+    assert len(backend.prompts) == 2
+    assert combiner.last_trace["structural_repair_applied"] is True
+    assert combiner.last_trace["attempts"][1]["kind"] == "structural_repair"
+
+
 @pytest.mark.parametrize(
     ("line_image_mode", "expected_image_count"),
     [("separate", 2), ("stacked", 1)],
@@ -313,6 +396,8 @@ def test_m5_combiner_uses_ocr_text_fallback_for_both_packaging_modes(
     assert prediction == "ab\ncd"
     assert len(backend.prompts) == 2
     assert backend.cleanup_calls == 1
+    assert combiner.last_trace["resolution"]["mode"] == "fallback_projection"
+    assert combiner.last_trace["resolution"]["fallback_source"] == "ocr_text"
 
 
 @pytest.mark.parametrize("line_image_mode", ["separate", "stacked"])

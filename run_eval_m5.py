@@ -22,6 +22,7 @@ Goal:
 import argparse
 import csv
 import glob
+import json
 import logging
 import os
 import sys
@@ -53,7 +54,12 @@ from utils.m5 import (
     render_ocr_text_hints_from_line_images,
     resolve_line_images,
 )
-from utils.prompts import PROMPT_TEMPLATE_M5, format_few_shot_examples_m5
+from utils.prompts import (
+    M5_PROMPT_VARIANTS,
+    build_m5_repair_prompt,
+    format_few_shot_examples_m5,
+    get_m5_prompt_template,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -71,6 +77,7 @@ class VLMMethod5Combiner:
         dataset_root: Path,
         line_image_mode: str = "separate",
         use_ocr_text: bool = False,
+        prompt_variant: str = "baseline",
         backend=None,
     ):
         self.backend = backend or get_backend(cfg)
@@ -78,6 +85,80 @@ class VLMMethod5Combiner:
         self.few_shot_examples = cfg.few_shot_examples or []
         self.line_image_mode = line_image_mode
         self.use_ocr_text = use_ocr_text
+        self.prompt_variant = prompt_variant
+        self.last_trace: Optional[dict[str, Any]] = None
+
+    def _build_trace(
+        self,
+        transcription: str,
+        line_images: list,
+    ) -> dict[str, Any]:
+        return {
+            "prompt_variant": self.prompt_variant,
+            "line_image_mode": self.line_image_mode,
+            "use_ocr_text": self.use_ocr_text,
+            "expected_num_lines": len(line_images),
+            "transcription": transcription,
+            "line_images": [
+                {
+                    "page_index": item.page_index,
+                    "line_index": item.line_index,
+                    "crop_path": str(item.crop_path),
+                    "text": item.text,
+                }
+                for item in line_images
+            ],
+            "few_shot_ids": [example.sample_id for example in self.few_shot_examples],
+            "attempts": [],
+        }
+
+    @staticmethod
+    def _find_structural_mismatch(
+        parsed_lines: list[str],
+        line_images: list,
+    ) -> Optional[str]:
+        """Return a conservative structural error for suspicious short leading hints."""
+
+        for index, item in enumerate(line_images[: min(3, len(line_images))]):
+            hint = (item.text or "").strip()
+            pred = parsed_lines[index].strip()
+            if not hint or not pred:
+                continue
+
+            hint_alnum = "".join(ch for ch in hint if ch.isalnum())
+            hint_has_letters = any(ch.isalpha() for ch in hint)
+            pred_has_letters = any(ch.isalpha() for ch in pred)
+
+            if not hint_has_letters and pred_has_letters:
+                return (
+                    f"Output line {index + 1} contains letters even though hint line {index + 1} "
+                    f"looks like punctuation or numerals only ({hint!r}). Keep isolated short "
+                    "leading lines separate."
+                )
+
+            if hint_alnum and len(hint_alnum) <= 4 and len(pred) > max(8, len(hint_alnum) * 2 + 2):
+                return (
+                    f"Output line {index + 1} is too long for very short hint line {index + 1} "
+                    f"({hint!r}). Preserve very short leading lines as their own output lines."
+                )
+
+        return None
+
+    def _ocr_text_instruction(self) -> str:
+        if not self.use_ocr_text:
+            return ""
+        return (
+            "- If OCR line-text hints are provided below, use them only as a secondary "
+            "structural hint. They may contain recognition errors."
+        )
+
+    def _ocr_text_section(self, line_images: list) -> str:
+        if not self.use_ocr_text:
+            return ""
+        return (
+            "\nOptional OCR line hints:\n"
+            + render_ocr_text_hints_from_line_images(line_images)
+        )
 
     def _build_prompt(self, transcription: str, ocr_lines_payload: dict[str, Any]) -> str:
         line_images = resolve_line_images(ocr_lines_payload, self.dataset_root)
@@ -87,19 +168,8 @@ class VLMMethod5Combiner:
             use_ocr_text=self.use_ocr_text,
         )
 
-        ocr_text_instruction = ""
-        ocr_text_section = ""
-        if self.use_ocr_text:
-            ocr_text_instruction = (
-                "- If OCR line-text hints are provided below, use them only as a secondary "
-                "structural hint. They may contain recognition errors."
-            )
-            ocr_text_section = (
-                "\nOptional OCR line hints:\n"
-                + render_ocr_text_hints_from_line_images(line_images)
-            )
-
-        return PROMPT_TEMPLATE_M5.format(
+        prompt_template = get_m5_prompt_template(self.prompt_variant)
+        return prompt_template.format(
             examples=examples_str,
             transcription=transcription,
             num_lines=expected_num_lines,
@@ -108,8 +178,8 @@ class VLMMethod5Combiner:
                 self.line_image_mode,
                 expected_num_lines,
             ),
-            ocr_text_instruction=ocr_text_instruction,
-            ocr_text_section=ocr_text_section,
+            ocr_text_instruction=self._ocr_text_instruction(),
+            ocr_text_section=self._ocr_text_section(line_images),
         )
 
     def _build_repair_prompt(
@@ -121,22 +191,20 @@ class VLMMethod5Combiner:
     ) -> str:
         line_images = resolve_line_images(ocr_lines_payload, self.dataset_root)
         expected_num_lines = len(line_images)
-        prompt = (
-            "Your previous response was invalid.\n"
-            f"Error: {error_message}\n"
-            f"Return only strict JSON with exactly {expected_num_lines} strings in the 'lines' array.\n\n"
-            f"Correct transcription:\n{transcription}\n\n"
-            f"Ordered line-image manifest ({expected_num_lines} lines):\n"
-            f"{render_line_image_manifest(line_images)}\n\n"
-            f"{build_line_image_description(self.line_image_mode, expected_num_lines)}\n"
+        return build_m5_repair_prompt(
+            variant=self.prompt_variant,
+            error_message=error_message,
+            num_lines=expected_num_lines,
+            transcription=transcription,
+            line_image_manifest=render_line_image_manifest(line_images),
+            image_mode_description=build_line_image_description(
+                self.line_image_mode,
+                expected_num_lines,
+            ),
+            ocr_text_instruction=self._ocr_text_instruction(),
+            ocr_text_section=self._ocr_text_section(line_images),
+            previous_response=previous_response,
         )
-        if self.use_ocr_text:
-            prompt += (
-                "\nOptional OCR line hints:\n"
-                f"{render_ocr_text_hints_from_line_images(line_images)}\n"
-            )
-        prompt += f"\nPrevious invalid response:\n{previous_response}"
-        return prompt
 
     def _load_example_images(self) -> list:
         images = []
@@ -174,7 +242,7 @@ class VLMMethod5Combiner:
         ocr_lines_payload: dict[str, Any],
         repair_error: Optional[str] = None,
         previous_response: Optional[str] = None,
-    ) -> str:
+    ) -> tuple[str, str]:
         line_images = resolve_line_images(ocr_lines_payload, self.dataset_root)
         all_images = self._load_example_images()
         all_images.extend(
@@ -194,7 +262,7 @@ class VLMMethod5Combiner:
                 repair_error,
                 previous_response or "",
             )
-        return self.backend.generate(prompt, images=all_images)
+        return self.backend.generate(prompt, images=all_images), prompt
 
     def infer_line_breaks(
         self,
@@ -203,22 +271,49 @@ class VLMMethod5Combiner:
     ) -> str:
         expected_num_lines = len(ocr_lines_payload.get("lines", []))
         if expected_num_lines == 0:
+            self.last_trace = {
+                "prompt_variant": self.prompt_variant,
+                "line_image_mode": self.line_image_mode,
+                "use_ocr_text": self.use_ocr_text,
+                "expected_num_lines": 0,
+                "transcription": transcription,
+                "attempts": [],
+                "resolution": {"mode": "empty_input"},
+                "final_lines": [],
+            }
             return ""
 
+        line_images = resolve_line_images(ocr_lines_payload, self.dataset_root)
+        trace = self._build_trace(transcription, line_images)
         fallback_hint_lines = default_fallback_hint_lines(
             ocr_lines_payload,
             use_ocr_text=self.use_ocr_text,
         )
 
-        response = self._generate_one(transcription, ocr_lines_payload)
+        response, prompt = self._generate_one(transcription, ocr_lines_payload)
+        trace["attempts"].append(
+            {
+                "kind": "initial",
+                "prompt": prompt,
+                "response": response,
+            }
+        )
         try:
             parsed_lines = parse_m4_response(response, expected_num_lines)
         except ValueError as exc:
-            repair_response = self._generate_one(
+            repair_response, repair_prompt = self._generate_one(
                 transcription,
                 ocr_lines_payload,
                 repair_error=str(exc),
                 previous_response=response,
+            )
+            trace["attempts"].append(
+                {
+                    "kind": "repair",
+                    "trigger_error": str(exc),
+                    "prompt": repair_prompt,
+                    "response": repair_response,
+                }
             )
             try:
                 parsed_lines = parse_m4_response(repair_response, expected_num_lines)
@@ -235,6 +330,7 @@ class VLMMethod5Combiner:
                         fallback_hint_lines = extract_ocr_line_texts(ocr_lines_payload)
                     except ValueError:
                         fallback_hint_lines = None
+                fallback_source = "ocr_text"
                 if fallback_hint_lines is None:
                     fallback_hint_lines = fallback_line_hints_from_response(
                         repair_response,
@@ -243,7 +339,14 @@ class VLMMethod5Combiner:
                         response,
                         expected_num_lines,
                     )
+                    fallback_source = "response_lines"
                 if fallback_hint_lines is None:
+                    trace["resolution"] = {
+                        "mode": "error",
+                        "initial_parse_error": str(exc),
+                        "repair_parse_error": str(repair_exc),
+                    }
+                    self.last_trace = trace
                     self.backend.cleanup()
                     raise ValueError(
                         "Method 5 could not recover valid line boundaries after two invalid responses"
@@ -253,16 +356,56 @@ class VLMMethod5Combiner:
                     fallback_hint_lines,
                     expected_num_lines,
                 )
+                trace["resolution"] = {
+                    "mode": "fallback_projection",
+                    "initial_parse_error": str(exc),
+                    "repair_parse_error": str(repair_exc),
+                    "fallback_source": fallback_source,
+                    "fallback_hint_lines": fallback_hint_lines,
+                }
+                trace["final_lines"] = final_lines
+                self.last_trace = trace
                 self.backend.cleanup()
                 return "\n".join(final_lines)
 
+        structural_error = self._find_structural_mismatch(parsed_lines, line_images)
+        if structural_error is not None:
+            structural_response, structural_prompt = self._generate_one(
+                transcription,
+                ocr_lines_payload,
+                repair_error=structural_error,
+                previous_response=json.dumps({"lines": parsed_lines}, ensure_ascii=False),
+            )
+            trace["attempts"].append(
+                {
+                    "kind": "structural_repair",
+                    "trigger_error": structural_error,
+                    "prompt": structural_prompt,
+                    "response": structural_response,
+                }
+            )
+            try:
+                parsed_lines = parse_m4_response(structural_response, expected_num_lines)
+                trace["structural_repair_applied"] = True
+            except ValueError as structural_exc:
+                trace["structural_repair_applied"] = False
+                trace["structural_repair_error"] = str(structural_exc)
+
         if "".join(parsed_lines) != transcription:
+            trace["resolution"] = {
+                "mode": "projection_from_model_lines",
+                "parsed_lines_before_projection": parsed_lines,
+            }
             parsed_lines = project_boundaries_to_transcription(
                 transcription,
                 parsed_lines,
                 expected_num_lines,
             )
+        else:
+            trace["resolution"] = {"mode": "parsed_json_exact"}
 
+        trace["final_lines"] = parsed_lines
+        self.last_trace = trace
         self.backend.cleanup()
         return "\n".join(parsed_lines)
 
@@ -328,6 +471,12 @@ def main():
         action="store_true",
         help="Use OCR line text from ocr_lines/<ID>.json as an additional structural hint.",
     )
+    ap.add_argument(
+        "--prompt-variant",
+        default="baseline",
+        choices=M5_PROMPT_VARIANTS,
+        help="Prompt variant for M5 alignment (default: baseline).",
+    )
     ap.add_argument("--ids", default=None,
                     help="Comma-separated IDs or a file with one ID per line.")
     ap.add_argument("--n-shots", type=int, default=0,
@@ -338,20 +487,28 @@ def main():
                     help="Random seed for selecting few-shot examples (optional)")
     ap.add_argument("--checkpoint-dir", default="checkpoints",
                     help="Directory for checkpoint files (for resuming interrupted runs)")
+    ap.add_argument(
+        "--trace-dir",
+        default=None,
+        help="Optional directory where per-sample prompt/response traces are written as JSON.",
+    )
     args = ap.parse_args()
 
     shot_suffix = f"_{args.n_shots}shot" if args.n_shots > 0 else "_0shot"
     mode_suffix = f"_{args.line_image_mode}"
     hint_suffix = "_ocrtext" if args.use_ocr_text else ""
+    prompt_suffix = ""
+    if args.prompt_variant != "baseline":
+        prompt_suffix = f"_prompt_{args.prompt_variant}"
     if args.out_dir == "predictions_m5":
-        args.out_dir = f"predictions_m5{mode_suffix}{hint_suffix}{shot_suffix}"
+        args.out_dir = f"predictions_m5{mode_suffix}{hint_suffix}{shot_suffix}{prompt_suffix}"
     if args.eval_csv == "evaluation_m5.csv":
-        args.eval_csv = f"evaluation_m5{mode_suffix}{hint_suffix}{shot_suffix}.csv"
+        args.eval_csv = f"evaluation_m5{mode_suffix}{hint_suffix}{shot_suffix}{prompt_suffix}.csv"
 
     checkpoint_path = get_checkpoint_path(
         method=f"m5_{args.line_image_mode}{'_ocrtext' if args.use_ocr_text else ''}",
         dataset=args.data_dir,
-        model=args.model,
+        model=f"{args.model}:{args.prompt_variant}" if args.prompt_variant != "baseline" else args.model,
         n_shots=args.n_shots,
         checkpoint_dir=args.checkpoint_dir,
         ids=args.ids,
@@ -361,7 +518,7 @@ def main():
         checkpoint = EvalCheckpoint(
             method=f"m5_{args.line_image_mode}{'_ocrtext' if args.use_ocr_text else ''}",
             dataset=args.data_dir,
-            model=args.model,
+            model=f"{args.model}:{args.prompt_variant}" if args.prompt_variant != "baseline" else args.model,
             n_shots=args.n_shots,
             checkpoint_path=str(checkpoint_path),
         )
@@ -376,6 +533,7 @@ def main():
         dataset_root=Path(args.data_dir),
         line_image_mode=args.line_image_mode,
         use_ocr_text=args.use_ocr_text,
+        prompt_variant=args.prompt_variant,
     )
 
     gt_dir = os.path.join(args.data_dir, "gt")
@@ -393,6 +551,7 @@ def main():
         logger.error(f"No ground-truth files found in {gt_dir}")
         sys.exit(1)
     active_ids = [path.stem for path in gt_files]
+    few_shot_allowed_ids = active_ids if args.shots_dataset_scope == "same" else None
 
     rows: List[list] = checkpoint.rows.copy()
     n = len(checkpoint.processed_ids)
@@ -428,7 +587,7 @@ def main():
                 exclude_ids=[sample_id],
                 method="m5",
                 seed=args.shots_seed,
-                allowed_ids=active_ids,
+                allowed_ids=few_shot_allowed_ids,
             )
             combiner.few_shot_examples = few_shot_examples
 
@@ -461,6 +620,13 @@ def main():
             continue
 
         write_text(Path(args.out_dir) / f"{sample_id}.txt", pred)
+        if args.trace_dir and combiner.last_trace is not None:
+            trace_path = Path(args.trace_dir) / f"{sample_id}.json"
+            trace_path.parent.mkdir(parents=True, exist_ok=True)
+            trace_path.write_text(
+                json.dumps(combiner.last_trace, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
 
         gt = read_text(Path(gt_path))
         result = evaluate_prediction(gt, pred, sample_id)
