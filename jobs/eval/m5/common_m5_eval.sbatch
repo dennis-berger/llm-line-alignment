@@ -24,7 +24,15 @@ SHOTS_SEED="${SHOTS_SEED:-42}"
 SHOTS_DATASET_SCOPE="${SHOTS_DATASET_SCOPE:-same}"
 LINE_IMAGE_MODE="${LINE_IMAGE_MODE:-separate}"
 USE_OCR_TEXT="${USE_OCR_TEXT:-0}"
+INCLUDE_PAGE_IMAGES="${INCLUDE_PAGE_IMAGES:-0}"
+STRIP_LINES_PER_IMAGE="${STRIP_LINES_PER_IMAGE:-12}"
+SPLIT_BY_PAGE="${SPLIT_BY_PAGE:-0}"
+SPLIT_MIN_LINES="${SPLIT_MIN_LINES:-0}"
 PROMPT_VARIANT="${PROMPT_VARIANT:-baseline}"
+TEMPERATURE="${TEMPERATURE:-0.0}"
+JUDGE_CANDIDATES="${JUDGE_CANDIDATES:-0}"
+JUDGE_PRIMARY_REPEATS="${JUDGE_PRIMARY_REPEATS:-1}"
+JUDGE_SECONDARY_REPEATS="${JUDGE_SECONDARY_REPEATS:-1}"
 TRACE_DIR="${TRACE_DIR:-}"
 
 SHOT_SUFFIX="${N_SHOTS}shot"
@@ -37,8 +45,22 @@ PROMPT_SUFFIX=""
 if [ "$PROMPT_VARIANT" != "baseline" ]; then
   PROMPT_SUFFIX="_prompt_${PROMPT_VARIANT}"
 fi
-OUT_DIR="${OUT_DIR:-${DATASET_TAG}_predictions_m5_${MODE_SUFFIX}${OCR_HINT_SUFFIX}_${SHOT_SUFFIX}${PROMPT_SUFFIX}_${MODEL_SUFFIX}}"
-EVAL_CSV="${EVAL_CSV:-${DATASET_TAG}_eval_m5_${MODE_SUFFIX}${OCR_HINT_SUFFIX}_${SHOT_SUFFIX}${PROMPT_SUFFIX}_${MODEL_SUFFIX}.csv}"
+SPLIT_SUFFIX=""
+if [ "$SPLIT_BY_PAGE" = "1" ]; then
+  SPLIT_SUFFIX="_pagewise"
+  if [ "$SPLIT_MIN_LINES" != "0" ]; then
+    SPLIT_SUFFIX="${SPLIT_SUFFIX}min${SPLIT_MIN_LINES}"
+  fi
+fi
+JUDGE_SUFFIX=""
+if [ "$JUDGE_CANDIDATES" = "1" ]; then
+  JUDGE_SUFFIX="_judgectx"
+  if [ "$JUDGE_PRIMARY_REPEATS" != "1" ] || [ "$JUDGE_SECONDARY_REPEATS" != "1" ]; then
+    JUDGE_SUFFIX="${JUDGE_SUFFIX}_p${JUDGE_PRIMARY_REPEATS}s${JUDGE_SECONDARY_REPEATS}"
+  fi
+fi
+OUT_DIR="${OUT_DIR:-${DATASET_TAG}_predictions_m5_${MODE_SUFFIX}${OCR_HINT_SUFFIX}_${SHOT_SUFFIX}${SPLIT_SUFFIX}${PROMPT_SUFFIX}${JUDGE_SUFFIX}_${MODEL_SUFFIX}}"
+EVAL_CSV="${EVAL_CSV:-${DATASET_TAG}_eval_m5_${MODE_SUFFIX}${OCR_HINT_SUFFIX}_${SHOT_SUFFIX}${SPLIT_SUFFIX}${PROMPT_SUFFIX}${JUDGE_SUFFIX}_${MODEL_SUFFIX}.csv}"
 
 if [ "$SKIP_OCR" != "1" ]; then
   PYLAIA_ROOT="${PYLAIA_ROOT:?Must set PYLAIA_ROOT to the PyLaia asset directory.}"
@@ -213,7 +235,9 @@ RUN_ARGS=(
   --ocr-lines-dir "$OCR_LINES_DIR"
   --checkpoint-dir "$CHECKPOINT_DIR"
   --max-new-tokens "$MAX_NEW_TOKENS"
+  --temperature "$TEMPERATURE"
   --line-image-mode "$LINE_IMAGE_MODE"
+  --strip-lines-per-image "$STRIP_LINES_PER_IMAGE"
   --prompt-variant "$PROMPT_VARIANT"
 )
 if [ -n "$TRANSCRIPTION_DIR" ]; then
@@ -227,6 +251,15 @@ if [ -n "$IDS" ]; then
 fi
 if [ "$USE_OCR_TEXT" = "1" ]; then
   RUN_ARGS+=(--use-ocr-text)
+fi
+if [ "$INCLUDE_PAGE_IMAGES" = "1" ]; then
+  RUN_ARGS+=(--include-page-images)
+fi
+if [ "$SPLIT_BY_PAGE" = "1" ]; then
+  RUN_ARGS+=(--split-by-page --split-min-lines "$SPLIT_MIN_LINES")
+fi
+if [ "$JUDGE_CANDIDATES" = "1" ]; then
+  RUN_ARGS+=(--judge-candidates --judge-primary-repeats "$JUDGE_PRIMARY_REPEATS" --judge-secondary-repeats "$JUDGE_SECONDARY_REPEATS")
 fi
 if [ -n "$TRACE_DIR" ]; then
   RUN_ARGS+=(--trace-dir "$TRACE_DIR")

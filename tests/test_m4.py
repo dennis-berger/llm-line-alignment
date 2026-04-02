@@ -21,7 +21,14 @@ from linealign.recognition.recognizer import Recognizer
 from run_eval_m4 import VLMMethod4Combiner
 from src.linealign.vlm import VLMConfig
 from utils.common import read_json, read_text
-from utils.m4 import parse_m4_response, project_boundaries_to_transcription
+from utils.m4 import (
+    merge_lines_to_reference,
+    parse_m4_response,
+    parse_m4_response_loose,
+    project_boundaries_to_transcription,
+    reconcile_lines_to_reference,
+    score_lines_against_reference,
+)
 
 
 def save_image(path: Path, size: tuple[int, int] = (100, 40)) -> None:
@@ -152,6 +159,14 @@ def test_parse_m4_response_accepts_valid_json():
     assert parsed == ["ab", "cd"]
 
 
+def test_parse_m4_response_loose_allows_wrong_line_count():
+    """Loose parsing should preserve near-valid JSON for fallback reconciliation."""
+
+    parsed = parse_m4_response_loose('{"lines":["ab","c","d"]}')
+
+    assert parsed == ["ab", "c", "d"]
+
+
 def test_m4_combiner_repairs_malformed_json():
     """A malformed first response should trigger a single repair retry."""
 
@@ -198,6 +213,49 @@ def test_project_boundaries_to_transcription_preserves_exact_text():
     assert projected == ["hello", "world"]
     assert "".join(projected) == "helloworld"
     assert len(projected) == 2
+
+
+def test_reconcile_lines_to_reference_restores_expected_line_count():
+    """Reference boundaries should re-slice a near-valid line plan."""
+
+    reconciled = reconcile_lines_to_reference(
+        ["ab", "c", "def"],
+        ["ab", "cd", "ef"],
+        expected_num_lines=3,
+    )
+
+    assert reconciled == ["ab", "cd", "ef"]
+
+
+def test_merge_lines_to_reference_merges_extra_source_lines_locally():
+    """Extra source lines should be merged against the closest reference line."""
+
+    merged = merge_lines_to_reference(
+        ["ab", "cd", "e", "fg"],
+        ["ab", "cd", "efg"],
+        expected_num_lines=3,
+    )
+
+    assert merged == ["ab", "cd", "efg"]
+
+
+def test_score_lines_against_reference_prefers_better_structural_candidate():
+    """Alignment scoring should favor the candidate that reconciles to cleaner line boundaries."""
+
+    reference_lines = ["ab", "cd", "ef", "gh"]
+
+    initial_score = score_lines_against_reference(
+        ["abcx", "d", "e", "f", "gh"],
+        reference_lines,
+        expected_num_lines=4,
+    )
+    repair_score = score_lines_against_reference(
+        ["ab", "c", "d", "e", "f", "gh"],
+        reference_lines,
+        expected_num_lines=4,
+    )
+
+    assert repair_score < initial_score
 
 
 def test_passthrough_segmenter_uses_sample_aware_page_prefixes(tmp_path: Path):
