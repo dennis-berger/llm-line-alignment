@@ -47,6 +47,7 @@ PYLAIA_CONDA_ENV="${PYLAIA_CONDA_ENV:-pylaia-htr}"
 PYLAIA_PYTHON_VERSION="${PYLAIA_PYTHON_VERSION:-3.10}"
 PYLAIA_PIP_SPEC="${PYLAIA_PIP_SPEC:-pylaia==1.1.2}"
 PYLAIA_SOURCE_URL="${PYLAIA_SOURCE_URL:-https://github.com/jpuigcerver/PyLaia/archive/refs/heads/master.tar.gz}"
+PYLAIA_NUM_WORKERS="${PYLAIA_NUM_WORKERS:-1}"
 PYLAIA_CONDA_PREFIX="$(conda_env_prefix "$PYLAIA_CONDA_ENV" 2>/dev/null || printf '%s\n' "$HOME/.conda/envs/$PYLAIA_CONDA_ENV")"
 if ! conda_env_exists "$PYLAIA_CONDA_ENV"; then
   echo "Creating dedicated PyLaia environment '$PYLAIA_CONDA_ENV' with Python $PYLAIA_PYTHON_VERSION..."
@@ -102,11 +103,6 @@ import sys
 print(Path(sys.executable).resolve().parent)
 PY
 )"
-export PATH="$PYLAIA_ENV_BIN:$PATH"
-if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
-  echo "ERROR: pylaia-htr-netout not found in '$PYLAIA_CONDA_ENV'."
-  exit 1
-fi
 
 DATA_DIR="${DATA_DIR:-datasets/children_handwritten}"
 MANIFEST_DIR="${MANIFEST_DIR:-outputs/manifests/children_handwritten_pylaia_cv}"
@@ -116,6 +112,40 @@ PYLAIA_WORK_DIR="${PYLAIA_WORK_DIR:-outputs/cache/children_handwritten/pylaia}"
 BATCH_SIZE="${BATCH_SIZE:-8}"
 FOLD="${FOLD:-all}"
 FORCE_OCR="${FORCE_OCR:-0}"
+
+WRAPPER_DIR="$PYLAIA_WORK_DIR/job-bin"
+mkdir -p "$WRAPPER_DIR"
+cat > "$WRAPPER_DIR/run_pylaia_netout.py" <<'PY'
+import os
+import sys
+
+from laia.scripts.htr import common_main
+from laia.scripts.htr.netout import get_args, run
+
+
+def main() -> None:
+    args = get_args(sys.argv[1:])
+    args = common_main(args)
+    args["num_workers"] = max(1, int(os.environ.get("PYLAIA_NUM_WORKERS", "1")))
+    run(**args)
+
+
+if __name__ == "__main__":
+    main()
+PY
+cat > "$WRAPPER_DIR/pylaia-htr-netout" <<EOF
+#!/bin/bash
+exec "$PYLAIA_PYTHON" "$WRAPPER_DIR/run_pylaia_netout.py" "\$@"
+EOF
+chmod +x "$WRAPPER_DIR/pylaia-htr-netout"
+export PYLAIA_NUM_WORKERS
+export PATH="$WRAPPER_DIR:$PYLAIA_ENV_BIN:$PATH"
+hash -r
+
+if ! command -v pylaia-htr-netout >/dev/null 2>&1; then
+  echo "ERROR: pylaia-htr-netout not found in '$PYLAIA_CONDA_ENV'."
+  exit 1
+fi
 
 RUN_ARGS=(
   python scripts/run_children_crossfit_ocr.py

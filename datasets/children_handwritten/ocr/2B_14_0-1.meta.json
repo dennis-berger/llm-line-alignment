@@ -6,7 +6,7 @@
   "recognizer_model": "/HOME/bergerd/projects/llm-line-alignment/outputs/pylaia/children_handwritten/fold_b/best.ckpt",
   "num_pages": 1,
   "num_lines": 4,
-  "timestamp_utc": "2026-03-28T12:41:05.496888+00:00",
+  "timestamp_utc": "2026-04-03T09:25:02.389516+00:00",
   "cache_root": "outputs/cache/children_handwritten/lines",
   "ocr_path": "datasets/children_handwritten/ocr/2B_14_0-1.txt",
   "transcription_path": "datasets/children_handwritten/transcription/2B_14_0-1.txt"
