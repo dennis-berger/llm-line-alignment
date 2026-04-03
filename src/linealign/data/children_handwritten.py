@@ -57,6 +57,19 @@ def resolve_source_sample_id(sample_id: str) -> str:
     return SOURCE_ID_ALIASES.get(sample_id, sample_id)
 
 
+def iter_aligned_lines(row: dict[str, str]) -> Iterable[str]:
+    """Yield non-empty aligned line fragments in source CSV order."""
+
+    # Preserve the header order from the alignment export. Sorting keys
+    # lexicographically would place `_10` before `_2`.
+    for key, value in row.items():
+        if not key.startswith("_"):
+            continue
+        value = (value or "").strip()
+        if value:
+            yield value
+
+
 def iter_children_samples(source_dir: Path) -> list[ChildrenSample]:
     """Parse all aligned CSV rows into normalized sample records."""
 
@@ -70,11 +83,7 @@ def iter_children_samples(source_dir: Path) -> list[ChildrenSample]:
             reader = csv.DictReader(handle)
             for row in reader:
                 sample_id = row["ID"].strip()
-                gt_lines = tuple(
-                    row[key].strip()
-                    for key in sorted(row)
-                    if key.startswith("_") and (row[key] or "").strip()
-                )
+                gt_lines = tuple(iter_aligned_lines(row))
                 if not gt_lines:
                     continue
                 samples.append(

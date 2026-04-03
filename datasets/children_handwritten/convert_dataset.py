@@ -17,6 +17,19 @@ import shutil
 from pathlib import Path
 
 
+def iter_aligned_lines(row):
+    """Yield non-empty aligned line fragments in CSV column order."""
+
+    # Keep the header order from the CSV. Lexicographic sorting would place
+    # `_10` before `_2` and scramble longer samples.
+    for key, value in row.items():
+        if not key.startswith("_"):
+            continue
+        value = value.strip() if value else ""
+        if value:
+            yield value
+
+
 def convert_dataset():
     # Paths
     base_dir = Path(__file__).parent
@@ -50,13 +63,8 @@ def convert_dataset():
             for row in reader:
                 doc_id = row["ID"]
                 
-                # Extract text lines (columns starting with _), skip empty ones
-                lines = []
-                for key in sorted(row.keys()):
-                    if key.startswith("_"):
-                        value = row[key].strip() if row[key] else ""
-                        if value:  # Skip empty cells
-                            lines.append(value)
+                # Extract text lines (columns starting with _) in CSV order.
+                lines = list(iter_aligned_lines(row))
                 
                 if not lines:
                     print(f"  Warning: No text found for {doc_id}, skipping")

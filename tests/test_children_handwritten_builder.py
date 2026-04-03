@@ -20,7 +20,11 @@ from linealign.data.children_handwritten import build_children_handwritten_datas
 
 def _write_aligned_csv(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fieldnames = sorted({key for row in rows for key in row}, key=lambda key: (not key.startswith("_"), key))
+    fieldnames: list[str] = []
+    for row in rows:
+        for key in row:
+            if key not in fieldnames:
+                fieldnames.append(key)
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
@@ -80,8 +84,16 @@ def test_builder_materializes_alias_and_numeric_line_order(tmp_path: Path) -> No
     assert [path.name for path in numeric_lines] == [
         f"2A_11_16-17_line{index:03d}.png" for index in range(11)
     ]
+    assert (out_dir / "gt" / "2A_11_16-17.txt").read_text(encoding="utf-8") == "\n".join(
+        f"line {index}" for index in range(11)
+    ) + "\n"
+    assert (out_dir / "transcription" / "2A_11_16-17.txt").read_text(encoding="utf-8") == " ".join(
+        f"line {index}" for index in range(11)
+    ) + "\n"
 
     written_meta = json.loads((out_dir / "metadata.json").read_text(encoding="utf-8"))
     alias_meta = next(sample for sample in written_meta["samples"] if sample["sample_id"] == "3B-16_16-17")
     assert alias_meta["doc_id"] == "3B_16"
     assert alias_meta["source_sample_id"] == "3B_16_16-17"
+    numeric_meta = next(sample for sample in written_meta["samples"] if sample["sample_id"] == "2A_11_16-17")
+    assert numeric_meta["gt_lines"] == [f"line {index}" for index in range(11)]

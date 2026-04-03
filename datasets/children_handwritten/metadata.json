@@ -1139,7 +1139,6 @@
       "gt_lines": [
         "es war ein mal ein Mann",
         "der wonte in einem kleinen",
-        "haus und der andere",
         "Haus am Statrand eines Tages",
         "Wolte er mit seiner Tante",
         "Telefoniren und ging ins",
@@ -1147,7 +1146,8 @@
         "dan komt ein & anderen Mann",
         "der nicht sit ob in Telefon",
         "haus ein Mann ist und baute",
-        "ein Schnemann for das"
+        "ein Schnemann for das",
+        "haus und der andere"
       ],
       "dataset_line_images": [
         "datasets/children_handwritten/line_images/2B_14_16-17/2B_14_16-17_line000.png",
@@ -1176,7 +1176,6 @@
       "gt_lines": [
         "es War ein Mal ein",
         "Kleinen Mann der wonte",
-        "gibtes file Muscheln.",
         "in einem Kleinen",
         "haus aber er Möchte lieber",
         "ans meer da Steigt",
@@ -1184,7 +1183,8 @@
         "ans Meer Am Meer get",
         "er in ein Hotel gerade &",
         "am Meer da nach geter",
-        "an ein Strand da"
+        "an ein Strand da",
+        "gibtes file Muscheln."
       ],
       "dataset_line_images": [
         "datasets/children_handwritten/line_images/2B_14_18-19/2B_14_18-19_line000.png",
@@ -1616,9 +1616,6 @@
       "gt_lines": [
         "Zuerst wolte Sabrina es",
         "zurück bringen aber der",
-        "das Paket auf. Im Paket",
-        "war ein gutschein für",
-        "in die",
         "Postbote war schon über",
         "alle Berge. Also nahm",
         "Sabrina das Paket und",
@@ -1626,7 +1623,10 @@
         "wolte Sabrina & das Paket ihrer",
         "Mutter zeigen aber die",
         "Mutter war nich da.",
-        "Also machte Sabrina"
+        "Also machte Sabrina",
+        "das Paket auf. Im Paket",
+        "war ein gutschein für",
+        "in die"
       ],
       "dataset_line_images": [
         "datasets/children_handwritten/line_images/3B_19_12-13/3B_19_12-13_line000.png",
