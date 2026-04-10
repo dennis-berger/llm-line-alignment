@@ -63,7 +63,7 @@ from importlib.metadata import version
 version("pylaia")
 PY
 then
-  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "pip<24.1" setuptools wheel
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "pip<24.1" "setuptools<81" wheel
   "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install "$PYLAIA_PIP_SPEC"
 fi
 "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
@@ -100,6 +100,42 @@ for pkg_dir in (scripts_dir, models_dir):
       encoding="utf-8",
     )
 PY
+"$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install -q "setuptools<81" wheel
+if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+from importlib.metadata import version
+import pkg_resources
+import laia
+import laia.models.htr
+import laia.scripts.htr.netout
+
+print("setuptools pkg_resources OK:", pkg_resources.__file__)
+print("PyLaia package version:", version("pylaia"))
+print("PyLaia import OK:", laia.__file__)
+print("PyLaia models import OK:", laia.models.htr.__file__)
+print("PyLaia netout import OK:", laia.scripts.htr.netout.__file__)
+PY
+then
+  echo "Reinstalling PyLaia bootstrap dependencies in '$PYLAIA_CONDA_ENV'..."
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install --force-reinstall "pip<24.1" "setuptools<81" wheel
+  "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python -m pip install --force-reinstall "$PYLAIA_PIP_SPEC"
+fi
+if ! "$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
+from importlib.metadata import version
+import pkg_resources
+import laia
+import laia.models.htr
+import laia.scripts.htr.netout
+
+print("setuptools pkg_resources OK:", pkg_resources.__file__)
+print("PyLaia package version:", version("pylaia"))
+print("PyLaia import OK:", laia.__file__)
+print("PyLaia models import OK:", laia.models.htr.__file__)
+print("PyLaia netout import OK:", laia.scripts.htr.netout.__file__)
+PY
+then
+  echo "ERROR: PyLaia import validation failed in '$PYLAIA_CONDA_ENV'."
+  exit 1
+fi
 PYLAIA_ENV_BIN="$("$CONDA_EXE" run --no-capture-output -n "$PYLAIA_CONDA_ENV" python - <<'PY'
 from pathlib import Path
 import sys

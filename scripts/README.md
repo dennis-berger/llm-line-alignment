@@ -238,6 +238,35 @@ The committed canonical dataset already lives at `datasets/washington_handwritte
 
 Extract macro-average rows from evaluation CSVs.
 
+---
+
+## bundle_thesis_handwritten_predictions.py
+
+Assemble the accepted handwritten thesis artifacts into one dated bundle under the thesis
+predictions root.
+
+The script is designed for the outputs of:
+
+- `jobs/orchestrators/eval_thesis_handwritten_completion.sbatch`
+- the existing valid April 2, 2026 `gpt-5.4` `M5 context100` bundles for Bullinger, Washington, and IAM representative 20
+
+### Basic Usage
+
+```bash
+python scripts/bundle_thesis_handwritten_predictions.py \
+  --run-root /path/to/synced/thesis_handwritten_completion_2026-04-09 \
+  --bundle-name handwritten_thesis_bundle_2026-04-09
+```
+
+### Output
+
+Creates a new bundle with:
+
+- `children_handwritten/nntp/` - per-fold predictions, per-fold eval CSVs, and the merged CV summary CSV
+- `children_handwritten/m2|m3|m4/<model>/` - rerun predictions, evaluation CSVs, and checkpoints
+- `<dataset>/m5_context100/<model>/` - predictions, evaluation CSVs, checkpoints, and traces
+- `manifest.json` - source paths, copied destinations, and count checks
+
 ### Basic Usage
 
 ```bash

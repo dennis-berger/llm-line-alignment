@@ -143,6 +143,7 @@ class VLMMethod5Combiner:
         self.split_min_lines = max(0, split_min_lines)
         self.prompt_variant = prompt_variant
         self.last_trace: Optional[dict[str, Any]] = None
+        self._last_image_plan: Optional[dict[str, Any]] = None
 
     def _build_trace(
         self,
@@ -593,8 +594,142 @@ class VLMMethod5Combiner:
                     self.line_image_mode,
                     strip_lines_per_image=self.strip_lines_per_image,
                 )
-            )
+                )
         return images
+
+    @staticmethod
+    def _close_images(images: list) -> None:
+        for image in images:
+            close = getattr(image, "close", None)
+            if callable(close):
+                try:
+                    close()
+                except Exception:
+                    pass
+
+    @staticmethod
+    def _ceil_div(numerator: int, denominator: int) -> int:
+        return max(1, (numerator + denominator - 1) // denominator)
+
+    def _fit_numbered_strip_images(
+        self,
+        line_images: list,
+        image_slot_budget: int,
+        respect_page_boundaries: bool,
+    ) -> tuple[list, int]:
+        strip_lines_per_image = max(
+            self.strip_lines_per_image,
+            self._ceil_div(len(line_images), max(1, image_slot_budget)),
+        )
+        packaged_images = load_packaged_line_images(
+            line_images,
+            self.backend,
+            self.line_image_mode,
+            strip_lines_per_image=strip_lines_per_image,
+            respect_page_boundaries=respect_page_boundaries,
+        )
+        return packaged_images, strip_lines_per_image
+
+    def _build_prompt_images(
+        self,
+        sample_id: Optional[str],
+        line_images: list,
+    ) -> tuple[list, dict[str, Any]]:
+        example_images = self._load_example_images()
+        page_images = self._load_page_images(sample_id, line_images)
+        packaged_images = load_packaged_line_images(
+            line_images,
+            self.backend,
+            self.line_image_mode,
+            strip_lines_per_image=self.strip_lines_per_image,
+        )
+
+        image_plan: dict[str, Any] = {
+            "example_images": len(example_images),
+            "page_images": len(page_images),
+            "line_context_images": len(packaged_images),
+            "line_image_mode": self.line_image_mode,
+            "strip_lines_per_image": self.strip_lines_per_image,
+        }
+        max_images = getattr(self.backend, "max_images_per_request", None)
+        total_images = len(example_images) + len(page_images) + len(packaged_images)
+        if max_images is not None:
+            image_plan["max_images_per_request"] = max_images
+
+        if max_images is not None and total_images > max_images:
+            if self.line_image_mode == "numbered_strips" and line_images:
+                available_slots = max(1, max_images - len(example_images) - len(page_images))
+                repacked_images, repacked_strip_size = self._fit_numbered_strip_images(
+                    line_images,
+                    available_slots,
+                    respect_page_boundaries=True,
+                )
+                if len(repacked_images) < len(packaged_images):
+                    self._close_images(packaged_images)
+                    packaged_images = repacked_images
+                    image_plan["strip_lines_per_image"] = repacked_strip_size
+                    image_plan["respect_page_boundaries_in_strips"] = True
+                else:
+                    self._close_images(repacked_images)
+
+                total_images = len(example_images) + len(page_images) + len(packaged_images)
+                if total_images > max_images:
+                    repacked_images, repacked_strip_size = self._fit_numbered_strip_images(
+                        line_images,
+                        available_slots,
+                        respect_page_boundaries=False,
+                    )
+                    if len(repacked_images) < len(packaged_images):
+                        self._close_images(packaged_images)
+                        packaged_images = repacked_images
+                        image_plan["strip_lines_per_image"] = repacked_strip_size
+                        image_plan["respect_page_boundaries_in_strips"] = False
+                    else:
+                        self._close_images(repacked_images)
+
+            total_images = len(example_images) + len(page_images) + len(packaged_images)
+            if total_images > max_images and page_images:
+                self._close_images(page_images)
+                page_images = []
+                image_plan["dropped_page_images_for_budget"] = True
+                if self.line_image_mode == "numbered_strips" and line_images:
+                    repacked_images, repacked_strip_size = self._fit_numbered_strip_images(
+                        line_images,
+                        max(1, max_images - len(example_images)),
+                        respect_page_boundaries=False,
+                    )
+                    self._close_images(packaged_images)
+                    packaged_images = repacked_images
+                    image_plan["strip_lines_per_image"] = repacked_strip_size
+                    image_plan["respect_page_boundaries_in_strips"] = False
+
+            total_images = len(example_images) + len(page_images) + len(packaged_images)
+            if total_images > max_images and example_images:
+                keep_examples = max(0, max_images - len(page_images) - len(packaged_images))
+                self._close_images(example_images[keep_examples:])
+                image_plan["dropped_example_images_for_budget"] = len(example_images) - keep_examples
+                example_images = example_images[:keep_examples]
+
+            total_images = len(example_images) + len(page_images) + len(packaged_images)
+            if total_images > max_images:
+                keep_packaged = max(1, max_images - len(example_images) - len(page_images))
+                self._close_images(packaged_images[keep_packaged:])
+                image_plan["clipped_line_context_images_for_budget"] = len(packaged_images) - keep_packaged
+                packaged_images = packaged_images[:keep_packaged]
+
+            logger.warning(
+                "Adjusted prompt image budget for %s: total=%d max=%d final=%d",
+                sample_id or "<unknown>",
+                total_images,
+                max_images,
+                len(example_images) + len(page_images) + len(packaged_images),
+            )
+
+        image_plan["final_example_images"] = len(example_images)
+        image_plan["final_page_images"] = len(page_images)
+        image_plan["final_line_context_images"] = len(packaged_images)
+        image_plan["final_total_images"] = len(example_images) + len(page_images) + len(packaged_images)
+        return example_images + page_images + packaged_images, image_plan
 
     def _generate_one(
         self,
@@ -604,16 +739,8 @@ class VLMMethod5Combiner:
         previous_response: Optional[str] = None,
     ) -> tuple[str, str]:
         line_images = resolve_line_images(ocr_lines_payload, self.dataset_root)
-        all_images = self._load_example_images()
-        all_images.extend(self._load_page_images(ocr_lines_payload.get("id"), line_images))
-        all_images.extend(
-            load_packaged_line_images(
-                line_images,
-                self.backend,
-                self.line_image_mode,
-                strip_lines_per_image=self.strip_lines_per_image,
-            )
-        )
+        all_images, image_plan = self._build_prompt_images(ocr_lines_payload.get("id"), line_images)
+        self._last_image_plan = image_plan
 
         if repair_error is None:
             prompt = self._build_prompt(transcription, ocr_lines_payload)
@@ -660,6 +787,8 @@ class VLMMethod5Combiner:
         )
 
         response, prompt = self._generate_one(transcription, ocr_lines_payload)
+        if self._last_image_plan is not None:
+            trace["image_plan"] = self._last_image_plan
         trace["attempts"].append(
             {
                 "kind": "initial",

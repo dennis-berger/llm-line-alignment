@@ -10,7 +10,10 @@ jobs/
 ├── orchestrators/                # Master submission scripts
 │   ├── eval_all_0shot.sbatch    # Submit all zero-shot jobs (18 jobs)
 │   ├── eval_all_1shot.sbatch    # Submit all 1-shot jobs (18 jobs)
-│   └── eval_all_2shot.sbatch    # Submit all 2-shot jobs (18 jobs)
+│   ├── eval_all_2shot.sbatch    # Submit all 2-shot jobs (18 jobs)
+│   ├── eval_children_ocr_dependent_0shot.sbatch
+│   ├── eval_handwritten_m5_context100_api_models.sbatch
+│   └── eval_thesis_handwritten_completion.sbatch
 ├── eval/                         # Evaluation jobs organized by method
 │   ├── common_eval_env.sh        # Shared runtime/bootstrap helper for M1-M4
 │   ├── m1/                       # Method 1: Image + Transcription
@@ -61,6 +64,7 @@ jobs/
 │   │   └── ... 2-shot variants
 │   └── nntp/                     # NNTP baselines
 │       ├── bullinger_handwritten.sbatch
+│       ├── children_handwritten.sbatch
 │       ├── iam_handwritten.sbatch
 │       └── washington_handwritten.sbatch
 ├── training/                     # Training / fine-tuning jobs
@@ -189,12 +193,50 @@ Washington zero-adaptation NNTP baseline:
 sbatch jobs/eval/nntp/washington_handwritten.sbatch
 ```
 
+Children cross-fit NNTP evaluation reuses the prepared manifests and fold checkpoints:
+
+```bash
+sbatch jobs/eval/nntp/children_handwritten.sbatch
+```
+
 Washington PyLaia 2-fold fine-tuning plus opposite-fold NNTP evaluation:
 
 ```bash
 TRAIN_FOLD=train_a sbatch jobs/training/train_washington_handwritten_pylaia_cv.sbatch
 TRAIN_FOLD=train_b sbatch jobs/training/train_washington_handwritten_pylaia_cv.sbatch
 ```
+
+## Thesis Handwritten Completion
+
+For the thesis completion pass, the new orchestrators keep the stale-children reruns and the
+`M5 context100` sweep isolated in a dedicated run root instead of mixing them into older result
+folders.
+
+Submit the whole completion plan on the cluster:
+
+```bash
+sbatch jobs/orchestrators/eval_thesis_handwritten_completion.sbatch
+```
+
+Useful building blocks:
+
+```bash
+sbatch jobs/orchestrators/eval_children_ocr_dependent_0shot.sbatch
+sbatch jobs/orchestrators/eval_handwritten_m5_context100_api_models.sbatch
+sbatch jobs/eval/m5/bullinger_handwritten_context100_0shot.sbatch
+```
+
+Default thesis run root:
+
+```bash
+cluster_runs/thesis_handwritten_completion_YYYY-MM-DD
+```
+
+The thesis completion flow now does three things by default:
+
+- reruns the stale children `M2` / `M3` / `M4` zero-shot cells against the fixed April 3, 2026 OCR
+- runs the missing children NNTP cross-fit evaluation from existing manifests and fold checkpoints
+- submits `M5 context100` for `openai/gpt-5.4`, `gemini/gemini-2.5-pro`, and `mistral/mistral-large-2512` with explicit `TRACE_DIR` output
 
 ## Few-Shot Configuration
 

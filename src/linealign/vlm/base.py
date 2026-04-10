@@ -63,6 +63,11 @@ class VLMBackend(ABC):
     def __init__(self, config: VLMConfig):
         self.config = config
         self.few_shot_examples = config.few_shot_examples or []
+
+    @property
+    def max_images_per_request(self) -> Optional[int]:
+        """Optional hard cap for the number of images a backend accepts."""
+        return None
     
     @abstractmethod
     def generate(

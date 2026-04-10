@@ -42,6 +42,7 @@ datasets/*/line_images/
 datasets/*/previews/
 datasets/IAM_original/forms/
 datasets/children_handwritten/raw_data/
+cluster_runs/
 
 # Generated predictions and evaluations
 predictions_*/

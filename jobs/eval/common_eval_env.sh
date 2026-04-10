@@ -112,11 +112,21 @@ PY
   fi
   export MODEL
   export MODEL_SUFFIX="${MODEL_SUFFIX:-qwen3-vl-8b-instruct}"
-  export DEVICE="${DEVICE:-cuda}"
+  local default_device="cuda"
+  case "$MODEL" in
+    openai/*|gemini/*|mistral/*)
+      default_device="auto"
+      ;;
+  esac
+  export DEVICE="${DEVICE:-$default_device}"
   export MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-1600}"
 
   which python
-  python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+  if [ "$default_device" = "auto" ]; then
+    echo "Skipping CUDA validation for API model '$MODEL'."
+  else
+    python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+  fi
   if [ "$DEVICE" = "cuda" ] && ! python - <<'PY'
 import torch
 

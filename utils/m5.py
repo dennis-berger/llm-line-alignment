@@ -163,6 +163,7 @@ def build_numbered_strip_images(
     label_width: int = 72,
     separator_height: int = 8,
     page_gap_height: int = 18,
+    respect_page_boundaries: bool = True,
 ) -> list[Image.Image]:
     """Create numbered strip composites that keep local context readable."""
 
@@ -234,7 +235,10 @@ def build_numbered_strip_images(
     current_page_index = line_images[0].page_index
     for global_index, item in enumerate(line_images):
         page_changed = item.page_index != current_page_index
-        if current_chunk and (len(current_chunk) >= lines_per_strip or page_changed):
+        if current_chunk and (
+            len(current_chunk) >= lines_per_strip
+            or (respect_page_boundaries and page_changed)
+        ):
             strips.append(_build_strip(current_chunk))
             current_chunk = []
         current_chunk.append((global_index, item))
@@ -252,6 +256,7 @@ def load_packaged_line_images(
     line_image_mode: str,
     separator_height: int = 12,
     strip_lines_per_image: int = 12,
+    respect_page_boundaries: bool = True,
 ) -> list[Image.Image]:
     """Load line images for the requested packaging mode."""
 
@@ -268,6 +273,7 @@ def load_packaged_line_images(
             line_images,
             lines_per_strip=strip_lines_per_image,
             separator_height=separator_height,
+            respect_page_boundaries=respect_page_boundaries,
         )
         downscale = getattr(backend, "downscale_image", None)
         if callable(downscale):
