@@ -98,6 +98,18 @@ PY
   fi
 
   python -m pip install -q "openai>=1.0.0" "google-genai>=0.3.0" "mistralai>=1.0.0"
+  if [ -n "${EXTRA_PIP_PACKAGES:-}" ]; then
+    read -r -a extra_pip_packages <<<"$EXTRA_PIP_PACKAGES"
+    python -m pip install -q "${extra_pip_packages[@]}"
+  fi
+  if [ -n "${TORCH_PIP_PACKAGES:-}" ]; then
+    read -r -a torch_pip_packages <<<"$TORCH_PIP_PACKAGES"
+    if [ -n "${TORCH_WHL_INDEX_URL:-}" ]; then
+      python -m pip install -q --upgrade --force-reinstall --no-cache-dir --index-url "$TORCH_WHL_INDEX_URL" "${torch_pip_packages[@]}"
+    else
+      python -m pip install -q --upgrade --force-reinstall --no-cache-dir "${torch_pip_packages[@]}"
+    fi
+  fi
 
   export HF_HOME="${HF_HOME:-$PWD/.hf}"
   export TRANSFORMERS_CACHE="${TRANSFORMERS_CACHE:-$HF_HOME/transformers}"

@@ -20,6 +20,12 @@ EXPECTED_DATASET_COUNTS = {
     "washington_handwritten": 20,
     "iam_handwritten_rwth_test_representative_20": 20,
 }
+DEFAULT_M5_MODELS = [
+    "gpt-5.4",
+    "gemini-2.5-pro",
+    "mistral-large-2512",
+    "qwen3-vl-32b-instruct",
+]
 DEFAULT_EXISTING_M5_SOURCES = {
     "bullinger_handwritten": THESIS_PREDICTIONS_ROOT / "bullinger_full_context100_2026-04-02",
     "washington_handwritten": THESIS_PREDICTIONS_ROOT / "washington_handwritten_context100_2026-04-02",
@@ -290,7 +296,7 @@ def main() -> None:
     )
 
     for dataset in EXPECTED_DATASET_COUNTS:
-        for model_suffix in ["gpt-5.4", "gemini-2.5-pro", "mistral-large-2512"]:
+        for model_suffix in DEFAULT_M5_MODELS:
             exclusion_key = f"{dataset}:{model_suffix}"
             if exclusion_key in excluded_m5:
                 continue

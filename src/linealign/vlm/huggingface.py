@@ -39,6 +39,7 @@ def build_model_load_kwargs(
     has_accelerate: bool | None = None,
     has_bitsandbytes: bool | None = None,
     torch_module=torch,
+    transformers_module=transformers,
 ) -> tuple[dict, str]:
     """Choose a model loading strategy compatible with the local HF stack."""
 
@@ -54,16 +55,31 @@ def build_model_load_kwargs(
         has_bitsandbytes = importlib.util.find_spec("bitsandbytes") is not None
 
     if has_accelerate and has_bitsandbytes:
-        load_kwargs.update(
-            {
-                "device_map": "auto",
-                "load_in_4bit": True,
-                "bnb_4bit_compute_dtype": torch_module.float16,
-                "bnb_4bit_quant_type": "nf4",
-                "bnb_4bit_use_double_quant": True,
-            }
-        )
-        strategy = "cuda-4bit-auto-device-map"
+        quantization_config_cls = getattr(transformers_module, "BitsAndBytesConfig", None)
+        if quantization_config_cls is not None:
+            load_kwargs.update(
+                {
+                    "device_map": "auto",
+                    "quantization_config": quantization_config_cls(
+                        load_in_4bit=True,
+                        bnb_4bit_compute_dtype=torch_module.float16,
+                        bnb_4bit_quant_type="nf4",
+                        bnb_4bit_use_double_quant=True,
+                    ),
+                }
+            )
+            strategy = "cuda-4bit-bnb-config-auto-device-map"
+        else:
+            load_kwargs.update(
+                {
+                    "device_map": "auto",
+                    "load_in_4bit": True,
+                    "bnb_4bit_compute_dtype": torch_module.float16,
+                    "bnb_4bit_quant_type": "nf4",
+                    "bnb_4bit_use_double_quant": True,
+                }
+            )
+            strategy = "cuda-4bit-auto-device-map-legacy"
     else:
         # Single-GPU fp16 fallback keeps M3/M4 usable even when accelerate or
         # bitsandbytes are unavailable in a cluster environment.

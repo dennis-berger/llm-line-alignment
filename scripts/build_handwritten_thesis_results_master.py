@@ -24,16 +24,10 @@ THESIS_BUNDLE = THESIS_PREDICTIONS_ROOT / "handwritten_thesis_bundle_2026-04-10"
 THESIS_RUN_ROOT = Path(
     "/Users/dennisberger/Documents/Privat/llm-line-alignment/cluster_runs/thesis_handwritten_completion_2026-04-09"
 )
+QWEN_RUN_ROOT = Path(
+    "/Users/dennisberger/Documents/Privat/llm-line-alignment/cluster_runs/handwritten_m5_context100_qwen3_32b_2026-04-17"
+)
 CLUSTER_RESULTS_MAR31 = THESIS_PREDICTIONS_ROOT / "cluster_results_2026-03-31_15-10-05"
-OLDER_BUCKETS = {
-    "legacy_jan_all_methods": THESIS_PREDICTIONS_ROOT / "2026_01_14_evalualation_all_methods",
-    "legacy_children_jan21": THESIS_PREDICTIONS_ROOT / "2026_01_21_evaluation_children_hw",
-    "legacy_gpt52_feb11": THESIS_PREDICTIONS_ROOT / "2026_02_11_evaluation_gpt5-2",
-    "legacy_mistral_feb16": THESIS_PREDICTIONS_ROOT / "2026_02_16_evaluation_mistral-large",
-    "legacy_gemini_mar02": THESIS_PREDICTIONS_ROOT / "2026_03_02_evaluation_gemini-3-pro",
-    "legacy_nntp_mar16": THESIS_PREDICTIONS_ROOT / "2026_03_16_nntp_first_run",
-    "legacy_nntp_mar20": THESIS_PREDICTIONS_ROOT / "2026_03_20_nntp_cluster_results",
-}
 BULLINGER_SUBSETS_MANIFEST = Path("datasets/bullinger_handwritten/subsets/manifest.json")
 CORE_DATASETS = {
     "bullinger_handwritten",
@@ -207,7 +201,50 @@ def parse_args() -> argparse.Namespace:
         default=str(DEFAULT_OUTPUT),
         help="Output XLSX path.",
     )
+    ap.add_argument(
+        "--thesis-predictions-root",
+        default=str(THESIS_PREDICTIONS_ROOT),
+        help="Predictions root containing legacy dated result folders.",
+    )
+    ap.add_argument(
+        "--thesis-bundle",
+        default=str(THESIS_BUNDLE),
+        help="Primary handwritten bundle root.",
+    )
+    ap.add_argument(
+        "--thesis-run-root",
+        default=str(THESIS_RUN_ROOT),
+        help="Primary handwritten rerun root.",
+    )
+    ap.add_argument(
+        "--qwen-run-root",
+        default=str(QWEN_RUN_ROOT),
+        help="Optional Qwen handwritten M5 run root.",
+    )
+    ap.add_argument(
+        "--cluster-results-mar31",
+        default=str(CLUSTER_RESULTS_MAR31),
+        help="March 31 cluster results root for the handwritten 0-shot matrix.",
+    )
+    ap.add_argument(
+        "--allow-partial-m5",
+        action="append",
+        default=[],
+        help="Allow an incomplete M5 row as partial, e.g. bullinger_handwritten:qwen3-vl-32b-instruct.",
+    )
     return ap.parse_args()
+
+
+def make_older_buckets(predictions_root: Path) -> dict[str, Path]:
+    return {
+        "legacy_jan_all_methods": predictions_root / "2026_01_14_evalualation_all_methods",
+        "legacy_children_jan21": predictions_root / "2026_01_21_evaluation_children_hw",
+        "legacy_gpt52_feb11": predictions_root / "2026_02_11_evaluation_gpt5-2",
+        "legacy_mistral_feb16": predictions_root / "2026_02_16_evaluation_mistral-large",
+        "legacy_gemini_mar02": predictions_root / "2026_03_02_evaluation_gemini-3-pro",
+        "legacy_nntp_mar16": predictions_root / "2026_03_16_nntp_first_run",
+        "legacy_nntp_mar20": predictions_root / "2026_03_20_nntp_cluster_results",
+    }
 
 
 def normalize_dataset(raw: str) -> str:
@@ -378,10 +415,12 @@ def load_bullinger_subset_map() -> dict[str, str]:
     return subset_map
 
 
-def collect_bundle_candidates() -> list[Candidate]:
+def collect_bundle_candidates(bundle_root: Path, source_bucket: str = "thesis_bundle_2026-04-10") -> list[Candidate]:
     candidates: list[Candidate] = []
-    for csv_path in sorted(THESIS_BUNDLE.rglob("evaluation.csv")):
-        rel = csv_path.relative_to(THESIS_BUNDLE)
+    if not bundle_root.is_dir():
+        return candidates
+    for csv_path in sorted(bundle_root.rglob("evaluation.csv")):
+        rel = csv_path.relative_to(bundle_root)
         parts = rel.parts
         if len(parts) != 4:
             continue
@@ -400,7 +439,7 @@ def collect_bundle_candidates() -> list[Candidate]:
             continue
         candidates.append(
             candidate_from_df(
-                source_bucket="thesis_bundle_2026-04-10",
+                source_bucket=source_bucket,
                 source_path=csv_path,
                 dataset=dataset,
                 method=method,
@@ -414,10 +453,12 @@ def collect_bundle_candidates() -> list[Candidate]:
     return candidates
 
 
-def collect_runroot_candidates() -> list[Candidate]:
+def collect_runroot_candidates(run_root: Path, source_bucket: str = "thesis_run_root_2026-04-09") -> list[Candidate]:
     candidates: list[Candidate] = []
-    for csv_path in sorted(THESIS_RUN_ROOT.rglob("evaluation.csv")):
-        rel = csv_path.relative_to(THESIS_RUN_ROOT)
+    if not run_root.is_dir():
+        return candidates
+    for csv_path in sorted(run_root.rglob("evaluation.csv")):
+        rel = csv_path.relative_to(run_root)
         parts = rel.parts
         if len(parts) != 4:
             continue
@@ -434,7 +475,7 @@ def collect_runroot_candidates() -> list[Candidate]:
             continue
         candidates.append(
             candidate_from_df(
-                source_bucket="thesis_run_root_2026-04-09",
+                source_bucket=source_bucket,
                 source_path=csv_path,
                 dataset=dataset,
                 method=method,
@@ -445,11 +486,11 @@ def collect_runroot_candidates() -> list[Candidate]:
                 run_date_bucket="2026-04-09_runroot",
             )
         )
-    nntp_path = THESIS_RUN_ROOT / "children_handwritten" / "nntp" / "children_handwritten_eval_nntp_cv.csv"
+    nntp_path = run_root / "children_handwritten" / "nntp" / "children_handwritten_eval_nntp_cv.csv"
     if nntp_path.exists():
         candidates.append(
             candidate_from_df(
-                source_bucket="thesis_run_root_2026-04-09",
+                source_bucket=source_bucket,
                 source_path=nntp_path,
                 dataset="children_handwritten",
                 method="nntp",
@@ -458,6 +499,37 @@ def collect_runroot_candidates() -> list[Candidate]:
                 shots=None,
                 baseline_type="nntp",
                 run_date_bucket="2026-04-09_runroot",
+            )
+        )
+    return candidates
+
+
+def collect_qwen_runroot_candidates(
+    qwen_root: Path,
+    source_bucket: str = "qwen_run_root_2026-04-17",
+) -> list[Candidate]:
+    candidates: list[Candidate] = []
+    if not qwen_root.is_dir():
+        return candidates
+    for csv_path in sorted(qwen_root.rglob("evaluation.csv")):
+        rel = csv_path.relative_to(qwen_root)
+        parts = rel.parts
+        if len(parts) != 4:
+            continue
+        dataset, method_dir, model, _ = parts
+        if method_dir != "m5_context100" or "smoke" in model:
+            continue
+        candidates.append(
+            candidate_from_df(
+                source_bucket=source_bucket,
+                source_path=csv_path,
+                dataset=dataset,
+                method="m5",
+                method_variant="context100",
+                model=model,
+                shots=0,
+                baseline_type="llm",
+                run_date_bucket="2026-04-17_qwen_runroot",
             )
         )
     return candidates
@@ -495,15 +567,20 @@ def parse_cluster_eval_name(name: str) -> tuple[str, str, str, str, int | None] 
     return None
 
 
-def collect_cluster_results_candidates() -> list[Candidate]:
+def collect_cluster_results_candidates(
+    cluster_results_root: Path,
+    source_bucket: str = "cluster_results_2026-03-31_15-10-05",
+) -> list[Candidate]:
     candidates: list[Candidate] = []
-    for csv_path in sorted(CLUSTER_RESULTS_MAR31.glob("*.csv")):
+    if not cluster_results_root.is_dir():
+        return candidates
+    for csv_path in sorted(cluster_results_root.glob("*.csv")):
         parsed = parse_cluster_eval_name(csv_path.name)
         if not parsed:
             if csv_path.name.startswith("smoke_"):
                 candidates.append(
                     candidate_from_df(
-                        source_bucket="cluster_results_2026-03-31_15-10-05",
+                        source_bucket=source_bucket,
                         source_path=csv_path,
                         dataset="unknown",
                         method="unknown",
@@ -519,7 +596,7 @@ def collect_cluster_results_candidates() -> list[Candidate]:
         dataset, method, variant, model, shots = parsed
         candidates.append(
             candidate_from_df(
-                source_bucket="cluster_results_2026-03-31_15-10-05",
+                source_bucket=source_bucket,
                 source_path=csv_path,
                 dataset=dataset,
                 method=method,
@@ -533,10 +610,10 @@ def collect_cluster_results_candidates() -> list[Candidate]:
     return candidates
 
 
-def collect_legacy_candidates() -> list[Candidate]:
+def collect_legacy_candidates(older_buckets: dict[str, Path]) -> list[Candidate]:
     candidates: list[Candidate] = []
 
-    for csv_path in sorted((OLDER_BUCKETS["legacy_gpt52_feb11"]).glob("*_eval_*.csv")):
+    for csv_path in sorted((older_buckets["legacy_gpt52_feb11"]).glob("*_eval_*.csv")):
         parsed = parse_cluster_eval_name(csv_path.name)
         if not parsed:
             continue
@@ -555,7 +632,7 @@ def collect_legacy_candidates() -> list[Candidate]:
             )
         )
 
-    for csv_path in sorted((OLDER_BUCKETS["legacy_mistral_feb16"]).glob("*_eval_*.csv")):
+    for csv_path in sorted((older_buckets["legacy_mistral_feb16"]).glob("*_eval_*.csv")):
         parsed = parse_cluster_eval_name(csv_path.name)
         if not parsed:
             continue
@@ -574,7 +651,7 @@ def collect_legacy_candidates() -> list[Candidate]:
             )
         )
 
-    for csv_path in sorted((OLDER_BUCKETS["legacy_gemini_mar02"]).glob("*_eval_*.csv")):
+    for csv_path in sorted((older_buckets["legacy_gemini_mar02"]).glob("*_eval_*.csv")):
         parsed = parse_cluster_eval_name(csv_path.name)
         if not parsed:
             continue
@@ -593,7 +670,7 @@ def collect_legacy_candidates() -> list[Candidate]:
             )
         )
 
-    for csv_path in sorted((OLDER_BUCKETS["legacy_children_jan21"]).glob("*.csv")):
+    for csv_path in sorted((older_buckets["legacy_children_jan21"]).glob("*.csv")):
         if not csv_path.name.startswith("children_handwritten_eval_"):
             continue
         m = re.fullmatch(r"children_handwritten_eval_(m[1-3])_(0shot|1shot)\.csv", csv_path.name)
@@ -615,7 +692,7 @@ def collect_legacy_candidates() -> list[Candidate]:
             )
         )
 
-    jan_root = OLDER_BUCKETS["legacy_jan_all_methods"]
+    jan_root = older_buckets["legacy_jan_all_methods"]
     for subdir_name in ["0shot", "1shot"]:
         subdir = jan_root / subdir_name
         if not subdir.is_dir():
@@ -654,7 +731,7 @@ def collect_legacy_candidates() -> list[Candidate]:
                 )
             )
 
-    for csv_path in sorted((OLDER_BUCKETS["legacy_nntp_mar16"]).glob("*_eval_nntp.csv")):
+    for csv_path in sorted((older_buckets["legacy_nntp_mar16"]).glob("*_eval_nntp.csv")):
         parsed = parse_cluster_eval_name(csv_path.name)
         if not parsed:
             continue
@@ -673,7 +750,7 @@ def collect_legacy_candidates() -> list[Candidate]:
             )
         )
 
-    for csv_path in sorted((OLDER_BUCKETS["legacy_nntp_mar20"]).glob("*_eval_nntp*.csv")):
+    for csv_path in sorted((older_buckets["legacy_nntp_mar20"]).glob("*_eval_nntp*.csv")):
         parsed = parse_cluster_eval_name(csv_path.name)
         if not parsed:
             continue
@@ -734,29 +811,45 @@ def paper_bullinger_candidate() -> Candidate:
 
 
 def precedence_rank(candidate: Candidate) -> int:
-    if candidate.source_bucket == "thesis_bundle_2026-04-10":
+    if candidate.source_bucket == "qwen_run_root_2026-04-17":
         return 0
     if candidate.source_bucket == "thesis_run_root_2026-04-09":
         return 1
-    if candidate.source_bucket == "cluster_results_2026-03-31_15-10-05":
+    if candidate.source_bucket == "thesis_bundle_2026-04-10":
         return 2
-    return 3
+    if candidate.source_bucket == "cluster_results_2026-03-31_15-10-05":
+        return 3
+    return 4
 
 
-def hard_exclusion_reason(candidate: Candidate) -> str | None:
+def partial_m5_key(candidate: Candidate) -> str:
+    return f"{candidate.dataset}:{candidate.model}"
+
+
+def expected_samples_note(candidate: Candidate) -> str:
+    expected = EXPECTED_COUNTS.get(candidate.dataset)
+    actual = candidate.n_samples
+    if expected is None or actual is None:
+        return "Partial run"
+    return f"Partial run: {actual}/{expected} samples completed"
+
+
+def hard_exclusion_reason(candidate: Candidate, allow_partial_m5: set[str]) -> str | None:
     if candidate.method_variant == "smoke":
         return "smoke_run"
     if candidate.method_variant.startswith("0shot_prompt_") or "prompt_" in candidate.method_variant:
         return "prompt_ablation"
     if candidate.method == "m5" and candidate.method_variant == "separate_0shot":
         return "m5_separate_excluded"
+    if candidate.method == "m5" and candidate.dataset in EXPECTED_COUNTS:
+        expected = EXPECTED_COUNTS[candidate.dataset]
+        if candidate.n_samples is None or candidate.n_samples != expected:
+            if partial_m5_key(candidate) in allow_partial_m5:
+                return None
+            return f"incomplete_m5_{candidate.model}"
     if candidate.dataset == "children_handwritten" and candidate.method in {"m2", "m3", "m4"}:
         if candidate.source_bucket == "cluster_results_2026-03-31_15-10-05":
             return "stale_children_ocr_pre_apr03"
-    if candidate.dataset == "bullinger_handwritten" and candidate.method == "m5" and candidate.model == "mistral-large-2512":
-        expected = EXPECTED_COUNTS["bullinger_handwritten"]
-        if candidate.n_samples is None or candidate.n_samples != expected:
-            return "incomplete_bullinger_m5_mistral"
     if candidate.dataset == "washington_handwritten" and candidate.method == "m4" and candidate.model == "gemini-3.1-pro-preview":
         if candidate.n_samples != EXPECTED_COUNTS["washington_handwritten"]:
             return "incomplete_washington_gemini_m4"
@@ -765,6 +858,7 @@ def hard_exclusion_reason(candidate: Candidate) -> str | None:
 
 def qualifies_for_main(candidate: Candidate) -> bool:
     allowed_main_sources = {
+        "qwen_run_root_2026-04-17",
         "thesis_bundle_2026-04-10",
         "thesis_run_root_2026-04-09",
         "cluster_results_2026-03-31_15-10-05",
@@ -802,11 +896,18 @@ def appendix_bucket(candidate: Candidate) -> bool:
     }
 
 
-def select_rows(candidates: list[Candidate]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def select_rows(
+    candidates: list[Candidate],
+    *,
+    allow_partial_m5: set[str],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     selected_main: dict[tuple[str, str, str, str], Candidate] = {}
     audit: list[dict[str, Any]] = []
 
-    exclusions = {candidate.source_csv: hard_exclusion_reason(candidate) for candidate in candidates}
+    exclusions = {
+        candidate.source_csv: hard_exclusion_reason(candidate, allow_partial_m5)
+        for candidate in candidates
+    }
 
     for candidate in candidates:
         if exclusions[candidate.source_csv]:
@@ -822,7 +923,14 @@ def select_rows(candidates: list[Candidate]) -> tuple[list[dict[str, Any]], list
     selected_sources = {candidate.source_csv: candidate for candidate in selected_main.values()}
 
     for candidate in sorted(selected_main.values(), key=lambda c: (c.dataset, c.method, c.model, c.method_variant)):
-        row = candidate_to_row(candidate, scope="main", thesis_status="include_main")
+        thesis_status = "include_main"
+        notes_suffix = ""
+        if candidate.method == "m5" and candidate.dataset in EXPECTED_COUNTS:
+            expected = EXPECTED_COUNTS[candidate.dataset]
+            if candidate.n_samples != expected:
+                thesis_status = "partial"
+                notes_suffix = expected_samples_note(candidate)
+        row = candidate_to_row(candidate, scope="main", thesis_status=thesis_status, notes_suffix=notes_suffix)
         selected_rows.append(row)
 
     for candidate in candidates:
@@ -832,9 +940,15 @@ def select_rows(candidates: list[Candidate]) -> tuple[list[dict[str, Any]], list
         notes = candidate.notes
 
         if candidate.source_csv in selected_sources:
-            decision = "selected"
+            selected_candidate = selected_sources[candidate.source_csv]
+            is_partial = (
+                selected_candidate.method == "m5"
+                and selected_candidate.dataset in EXPECTED_COUNTS
+                and selected_candidate.n_samples != EXPECTED_COUNTS[selected_candidate.dataset]
+            )
+            decision = "selected_partial" if is_partial else "selected"
             scope = "main"
-            reason = "selected_main_preferred_source"
+            reason = "selected_main_allowed_partial" if is_partial else "selected_main_preferred_source"
         elif reason:
             decision = "excluded"
         elif appendix_bucket(candidate):
@@ -1066,14 +1180,24 @@ def make_subset_row(
     return row
 
 
-def build_main_and_appendix_rows() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def build_main_and_appendix_rows(
+    *,
+    thesis_predictions_root: Path,
+    thesis_bundle: Path,
+    thesis_run_root: Path,
+    qwen_run_root: Path,
+    cluster_results_mar31: Path,
+    allow_partial_m5: set[str],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    older_buckets = make_older_buckets(thesis_predictions_root)
     candidates = []
-    candidates.extend(collect_bundle_candidates())
-    candidates.extend(collect_runroot_candidates())
-    candidates.extend(collect_cluster_results_candidates())
-    candidates.extend(collect_legacy_candidates())
+    candidates.extend(collect_qwen_runroot_candidates(qwen_run_root))
+    candidates.extend(collect_runroot_candidates(thesis_run_root))
+    candidates.extend(collect_bundle_candidates(thesis_bundle))
+    candidates.extend(collect_cluster_results_candidates(cluster_results_mar31))
+    candidates.extend(collect_legacy_candidates(older_buckets))
     candidates.append(paper_bullinger_candidate())
-    return select_rows(candidates)
+    return select_rows(candidates, allow_partial_m5=allow_partial_m5)
 
 
 def sort_master_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -1126,7 +1250,9 @@ def build_summary_tables(
     master_df = pd.DataFrame(master_rows, columns=MASTER_COLUMNS)
     subset_df = pd.DataFrame(subset_rows, columns=SUBSET_COLUMNS)
     core_main = master_df[
-        (master_df["scope"] == "main") & (master_df["dataset_group"] == "handwritten_core")
+        (master_df["scope"] == "main")
+        & (master_df["dataset_group"] == "handwritten_core")
+        & (master_df["thesis_status"] == "include_main")
     ].copy()
     core_llm = core_main[core_main["baseline_type"] == "llm"].copy()
 
@@ -1211,7 +1337,9 @@ def build_summary_tables(
 
     bullinger_rows: list[dict[str, Any]] = []
     bullinger_main_subsets = subset_df[
-        (subset_df["scope"] == "main") & (subset_df["dataset"] == "bullinger_handwritten")
+        (subset_df["scope"] == "main")
+        & (subset_df["dataset"] == "bullinger_handwritten")
+        & (subset_df["thesis_status"] == "include_main")
     ].copy()
     for subset_name in ["Subset1", "Subset2", "overall"]:
         rows = bullinger_main_subsets[bullinger_main_subsets["subset_group"] == subset_name]
@@ -1342,7 +1470,14 @@ def write_workbook(
 def main() -> None:
     args = parse_args()
     out_path = Path(args.out).expanduser().resolve()
-    master_rows, audit_rows = build_main_and_appendix_rows()
+    master_rows, audit_rows = build_main_and_appendix_rows(
+        thesis_predictions_root=Path(args.thesis_predictions_root).expanduser().resolve(),
+        thesis_bundle=Path(args.thesis_bundle).expanduser().resolve(),
+        thesis_run_root=Path(args.thesis_run_root).expanduser().resolve(),
+        qwen_run_root=Path(args.qwen_run_root).expanduser().resolve(),
+        cluster_results_mar31=Path(args.cluster_results_mar31).expanduser().resolve(),
+        allow_partial_m5=set(args.allow_partial_m5),
+    )
     subset_rows = build_bullinger_subset_rows(master_rows)
     write_workbook(master_rows, subset_rows, audit_rows, out_path)
     print(f"Wrote workbook to {out_path}")
