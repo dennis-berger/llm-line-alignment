@@ -1,5 +1,10 @@
 # Scripts Guide
 
+These scripts are the reproducibility layer around the thesis experiments. They
+build canonical dataset layouts, generate OCR/HTR hints, run baselines, and
+assemble result bundles. Most scripts write generated artifacts; method
+definitions remain in the `run_eval_m*.py` entrypoints and shared utilities.
+
 ## make_ocr_outputs.py
 
 Generate OCR/HTR outputs for datasets.
@@ -35,7 +40,7 @@ For datasets that include `line_images/`, the script can reuse those presegmente
 `--segmenter none --existing-lines-dir ...`. For IAM handwritten datasets, it automatically switches to
 `--segmenter none` and `--recognizer pylaia` unless you override those flags.
 
-See [docs/ocr_pipeline.md](docs/ocr_pipeline.md) for technical details.
+See [../docs/ocr_pipeline.md](../docs/ocr_pipeline.md) for technical details.
 
 ---
 
@@ -238,6 +243,10 @@ The committed canonical dataset already lives at `datasets/washington_handwritte
 
 Extract macro-average rows from evaluation CSVs.
 
+This is useful when comparing many run folders because the evaluation scripts
+write one per-sample CSV plus a final `macro_avg` row. The script does not
+recompute metrics; it collects already-written summaries.
+
 ---
 
 ## bundle_thesis_handwritten_predictions.py
@@ -257,6 +266,25 @@ python scripts/bundle_thesis_handwritten_predictions.py \
   --run-root /path/to/synced/thesis_handwritten_completion_2026-04-09 \
   --bundle-name handwritten_thesis_bundle_2026-04-09
 ```
+
+## assemble_final_thesis_results_release.py
+
+Assemble the final thesis-facing release layout from retained prediction,
+evaluation, trace, and source artifacts. Use this after the relevant evaluation
+runs have completed and been inspected, not as a substitute for running the
+underlying method scripts.
+
+## package_handwritten_thesis_results_master.py
+
+Package a master copy of handwritten result artifacts for thesis-side analysis.
+This is an archival/organization step; it should preserve existing prediction
+and CSV contents rather than editing them.
+
+## build_handwritten_thesis_results_master.py
+
+Build the handwritten result-master directory from known source locations. The
+script exists to keep the thesis result inventory reproducible when several
+cluster run roots and retained older artifacts must be combined.
 
 ### Output
 
@@ -392,7 +420,7 @@ python scripts/run_nntp_eval.py \
 - **CSV metrics:** dataset-specific `*_eval_nntp.csv`
 - **Intermediates:** dataset-specific `outputs/nntp/<dataset_name>/`
 
-See [docs/nntp_pipeline.md](docs/nntp_pipeline.md) for stage details and caveats.
+See [../docs/nntp_pipeline.md](../docs/nntp_pipeline.md) for stage details and caveats.
 
 ---
 
@@ -489,6 +517,6 @@ Located in `scripts/` and `utils/`:
 
 ## Related Documentation
 
-- **[docs/ocr_pipeline.md](docs/ocr_pipeline.md)** - OCR generation details
-- **[datasets/README.md](datasets/README.md)** - Dataset structure
-- **[METRICS.md](METRICS.md)** - Metrics in CSV output
+- **[../docs/ocr_pipeline.md](../docs/ocr_pipeline.md)** - OCR generation details
+- **[../datasets/README.md](../datasets/README.md)** - Dataset structure
+- **[../METRICS.md](../METRICS.md)** - Metrics in CSV output

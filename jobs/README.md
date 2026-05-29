@@ -2,6 +2,10 @@
 
 This directory contains SLURM batch jobs for running line alignment evaluations on the cluster with various methods, datasets, and few-shot configurations.
 
+For thesis readers, these jobs are the execution scaffolding rather than the
+method definition. The method logic lives in `run_eval_m1.py` through
+`run_eval_m5.py`, with NNTP in `scripts/run_nntp_eval.py` and related helpers.
+
 ## Directory Structure
 
 ```
@@ -62,6 +66,13 @@ jobs/
 │   │   ├── iam_handwritten_0shot.sbatch
 │   │   ├── iam_handwritten_1shot.sbatch
 │   │   └── ... 2-shot variants
+│   ├── m5/                       # Method 5: ordered line-image alignment
+│   │   ├── common_m5_eval.sbatch
+│   │   ├── bullinger_handwritten_0shot.sbatch
+│   │   ├── bullinger_handwritten_context100_0shot.sbatch
+│   │   ├── children_handwritten_context100_0shot.sbatch
+│   │   ├── iam_handwritten_rep20_context100_0shot.sbatch
+│   │   └── ... context and model variants
 │   └── nntp/                     # NNTP baselines
 │       ├── bullinger_handwritten.sbatch
 │       ├── children_handwritten.sbatch
@@ -143,6 +154,14 @@ sbatch jobs/eval/m3/iam_print_1shot.sbatch
 - **Jobs:** `jobs/eval/m4/*_{0,1,2}shot.sbatch`; current defaults match the other eval jobs and start with `Qwen3-VL-8B-Instruct`
 - **Note:** IAM/Washington `M4` jobs refresh `ocr_lines/<id>.json` inline; Bullinger expects that preprocessing to be done ahead of time
 
+### Method 5 (M5): Ordered Line-Image Alignment
+- **Input:** Correct transcription + ordered line-image crops resolved from `ocr_lines/<id>.json`
+- **Task:** Align the transcription to one output line per supplied line image
+- **Jobs:** `jobs/eval/m5/*`; context-rich thesis runs use the `context100` wrappers
+- **Note:** The `context100` configuration is a recipe label for M5 runs that
+  include richer line-image/page-context settings and trace output. It is not a
+  separate method from M5.
+
 Bullinger is now split more explicitly:
 
 - import or refresh the canonical ICCV export with `python scripts/import_bullinger_iccv_testset.py --source-dir ../iccv-testset --out-dir datasets/bullinger_handwritten --overwrite`
@@ -158,16 +177,17 @@ The canonical Bullinger dataset stays flat under `datasets/bullinger_handwritten
 All `jobs/eval/m{1,2,3,4}/*shot.sbatch` leaf wrappers now share the same core env override pattern:
 
 - shared: `REPO_ROOT`, `RESUBMIT_SCRIPT`, `DATA_DIR`, `DATASET_TAG`, `OUT_DIR`, `EVAL_CSV`, `CHECKPOINT_DIR`, `IDS`, `N_SHOTS`, `SHOTS_SEED`, `MODEL_NAME`, `MODEL_LOCAL`, `MODEL_SUFFIX`, `MAX_NEW_TOKENS`, `DEVICE`
-- `M1`-`M4`: `TRANSCRIPTION_DIR`
+- `M1`-`M5`: `TRANSCRIPTION_DIR`
 - `M2` / `M3`: `OCR_DIR`
 - `M4`: `OCR_LINES_DIR`, `SKIP_OCR`, `FORCE_OCR`, `SKIP_EVAL`, `DATASET_KEY`, `SEGMENTER`, `EXISTING_LINES_DIR`, and `PYLAIA_*`
+- `M5`: `OCR_LINES_DIR`, `LINE_IMAGE_MODE`, `USE_OCR_TEXT`, `INCLUDE_PAGE_IMAGES`, `SPLIT_BY_PAGE`, `PROMPT_VARIANT`, `TRACE_DIR`, and candidate-judge settings
 
 That means Bullinger subset reruns can reuse the same job files without editing them:
 
 ```bash
 IDS=datasets/bullinger_handwritten/subsets/subset1_ids.txt \
 OUT_DIR=predictions_m1/bullinger_subset1 \
-EVAL_CSV=evaluation_qwen_m1_subset1.csv \
+EVAL_CSV=evaluation_m1_subset1.csv \
 sbatch jobs/eval/m1/bullinger_handwritten_0shot.sbatch
 ```
 
@@ -237,6 +257,16 @@ The thesis completion flow now does three things by default:
 - reruns the stale children `M2` / `M3` / `M4` zero-shot cells against the fixed April 3, 2026 OCR
 - runs the missing children NNTP cross-fit evaluation from existing manifests and fold checkpoints
 - submits `M5 context100` for `openai/gpt-5.4`, `gemini/gemini-2.5-pro`, and `mistral/mistral-large-2512` with explicit `TRACE_DIR` output
+
+## Result-Provenance Notes
+
+- Leaf jobs usually expose environment-variable overrides (`DATA_DIR`, `IDS`,
+  `MODEL_NAME`, `OUT_DIR`, `EVAL_CSV`, `TRACE_DIR`, and method-specific inputs)
+  so subset reruns can be made without editing committed job files.
+- M4/M5 trace directories are especially useful for thesis audit because they
+  record prompt attempts, parse/repair outcomes, and projection modes.
+- Checkpoint directories are generated state. Keep them for interrupted runs, but
+  do not treat them as the canonical method definition.
 
 ## Few-Shot Configuration
 
@@ -330,10 +360,10 @@ Orchestrator jobs use minimal resources (1GB RAM, 10 minutes).
 
 ## Key Parameters
 
-All jobs use:
-- `--hf-model` - Qwen3-VL-8B-Instruct (local or HuggingFace)
-- `--hf-device cuda` - Use GPU acceleration
-- `--max-new-tokens 800` - Maximum output length
+Common job parameters:
+- `MODEL_NAME` / `--model` - provider-prefixed model ID, for example `hf/Qwen/Qwen3-VL-8B-Instruct`
+- `DEVICE` / `--device` - `cuda`, `cpu`, or `auto`
+- `MAX_NEW_TOKENS` / `--max-new-tokens` - maximum output length
 
 Few-shot specific:
 - `--n-shots N` - Number of examples (0, 1, 2, ...)

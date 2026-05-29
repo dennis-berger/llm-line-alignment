@@ -122,7 +122,7 @@ Final comparison artifacts are dataset-specific:
 
 NNTP labels are filtered to the provided PyLaia `syms.txt` character set. Unsupported characters are stripped before alignment and are not reconstructed afterward.
 
-This means the NNTP CSV can be compared directly to M1-M3, but it is not a perfectly apples-to-apples text comparison. The stripped-character report is written under the active work directory:
+This means the NNTP CSV uses the same metric schema as M1-M5, but it is not a perfectly apples-to-apples text comparison. The stripped-character report is written under the active work directory:
 
 ```text
 outputs/nntp/<dataset_name>/prepare/stripped_chars.json

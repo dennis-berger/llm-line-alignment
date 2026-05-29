@@ -4,7 +4,18 @@ This document describes the test suite structure, how to run tests, and guidelin
 
 ## Overview
 
-The test suite focuses primarily on **metric correctness**, ensuring that evaluation metrics produce expected values for known inputs. Tests are written using `pytest`.
+The test suite focuses on small, reproducible checks around the thesis
+implementation:
+
+- metric correctness for line-level and character-level evaluation
+- dataset-builder behavior for canonical dataset layouts
+- OCR/HTR pipeline plumbing with mocked or tiny inputs
+- structured M4/M5 response handling and helper logic
+- backend/provider edge cases that can be tested without expensive full runs
+
+Tests are written with `pytest`. They are intended as smoke and regression
+coverage for implementation claims, not as a substitute for full evaluation
+runs.
 
 ## Running Tests
 
@@ -37,9 +48,32 @@ pytest tests/ --cov=metrics --cov=utils --cov-report=html
 ```
 tests/
 ├── __init__.py
-├── test_exact_line_metrics.py    # Exact line matching tests (21 tests)
-└── __pycache__/
+├── test_exact_line_metrics.py
+├── test_m4.py
+├── test_m5.py
+├── test_make_ocr_pipeline.py
+├── test_huggingface_backend.py
+├── test_bullinger_import.py
+├── test_children_handwritten_builder.py
+├── test_children_pylaia_cv.py
+├── test_washington_handwritten_nntp_builder.py
+├── test_washington_pylaia_cv.py
+├── test_nntp_pipeline.py
+└── ...
 ```
+
+The exact set of tests changes as thesis support utilities are added. Use
+`rg --files tests` for the current inventory.
+
+## Reader-Facing Coverage Map
+
+- **Metric interpretation:** `test_exact_line_metrics.py`
+- **Structured output control:** `test_m4.py`, `test_m5.py`
+- **OCR/HTR artifact generation:** `test_make_ocr_pipeline.py`
+- **Dataset reproducibility:** builder and import tests for Bullinger, Children,
+  Washington, and IAM/PyLaia cross-validation helpers
+- **Backend safety:** `test_huggingface_backend.py`
+- **NNTP preparation/evaluation flow:** `test_nntp_pipeline.py`
 
 ## Exact Line Metrics Tests
 
@@ -151,20 +185,9 @@ Boundary conditions:
 
 ## Test Results
 
-All 21 tests pass successfully.
-
-**Example output:**
-```
-tests/test_exact_line_metrics.py::test_example_from_discussion PASSED
-tests/test_exact_line_metrics.py::test_duplicate_lines PASSED
-tests/test_exact_line_metrics.py::test_empty_predictions PASSED
-tests/test_exact_line_metrics.py::test_empty_ground_truth PASSED
-tests/test_exact_line_metrics.py::test_perfect_match PASSED
-tests/test_exact_line_metrics.py::test_no_match PASSED
-tests/test_exact_line_metrics.py::test_reordered_lines PASSED
-...
-====================== 21 passed in 0.15s ======================
-```
+Run the relevant test command for the current checkout rather than relying on a
+stored pass count in this document. The repository evolves with thesis support
+scripts, and the authoritative result is the latest `pytest` output.
 
 ## Adding New Tests
 
@@ -346,11 +369,14 @@ assert result["f1"] == pytest.approx(0.667, abs=1e-3)  # Allow small error
 
 ```bash
 # Quick smoke test on one sample
-python run_eval_m1.py --ids 0001 --shots 0
+python run_eval_m1.py \
+  --data-dir datasets/bullinger_handwritten \
+  --ids 10069 \
+  --n-shots 0
 
 # Check output
-cat predictions_m1/0001.txt
-head -n 2 evaluation_qwen_m1.csv
+cat predictions_m1_0shot/10069.txt
+head -n 2 evaluation_m1_0shot.csv
 ```
 
 ## Performance Testing
@@ -392,6 +418,6 @@ tests/
 
 ## Related Documentation
 
-- **[METRICS.md](METRICS.md)** - Metric definitions being tested
-- **[docs/architecture.md](docs/architecture.md)** - System components
+- **[../METRICS.md](../METRICS.md)** - Metric definitions being tested
+- **[../docs/thesis_reader_guide.md](../docs/thesis_reader_guide.md)** - Thesis-facing artifact map
 - **pytest documentation:** https://docs.pytest.org/

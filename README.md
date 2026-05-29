@@ -14,6 +14,12 @@ Five methods (M1-M5) align line breaks using different input combinations: page 
 - Comprehensive metrics: WER/CER, line accuracy, exact line matching (P/R/F1)
 - Support for multi-page documents and various writing styles
 
+## For Thesis Readers
+
+Start with [docs/thesis_reader_guide.md](docs/thesis_reader_guide.md) if you are reading this repository alongside the thesis. It maps thesis labels (`M1`-`M5`, `NNTP`) to the scripts, inputs, generated artifacts, and caveats that matter for interpreting the result tables.
+
+The central contract is shared across all prompt-based methods: the supplied transcription is the character source, and the system should only insert newline characters. The implementation strength of that contract differs by method. `M1`-`M3` score raw prompt outputs, while `M4` and `M5` add structured JSON parsing, repair prompts, and deterministic projection back to the exact transcription before scoring.
+
 ## Quick Start
 
 **1. Install dependencies:**
@@ -84,7 +90,8 @@ python scripts/run_children_crossfit_ocr.py
 
 ## Documentation
 
-- **[METHODS.md](METHODS.md)** - Detailed explanation of M1, M2, and M3 approaches
+- **[docs/thesis_reader_guide.md](docs/thesis_reader_guide.md)** - Companion map from thesis claims to repository artifacts
+- **[METHODS.md](METHODS.md)** - Detailed explanation of M1-M5 and NNTP approaches
 - **[METRICS.md](METRICS.md)** - All evaluation metrics with formulas and interpretation
 - **[datasets/README.md](datasets/README.md)** - Dataset structure and characteristics
 - **[docs/ocr_pipeline.md](docs/ocr_pipeline.md)** - OCR/HTR generation pipeline details
@@ -109,9 +116,11 @@ python scripts/run_children_crossfit_ocr.py
 ## Outputs
 
 Evaluation scripts produce:
-- **Predictions:** `predictions_m1/`, `predictions_m2/`, `predictions_m3/`
-- **CSV metrics:** `evaluation_qwen_m1.csv` (per-sample and macro-average)
-- **Generated OCR:** `datasets/*/ocr/` (cached for reproducibility)
+- **Predictions:** `predictions_m1*/`, `predictions_m2*/`, `predictions_m3*/`, `predictions_m4*/`, `predictions_m5*/`
+- **CSV metrics:** `evaluation_m*.csv` files with per-sample rows plus a `macro_avg` row
+- **Generated OCR text:** `datasets/*/ocr/<id>.txt` for M2/M3
+- **Structured OCR/line hints:** `datasets/*/ocr_lines/<id>.json` for M4/M5 and line-image workflows
+- **Optional traces:** per-sample JSON under `--trace-dir` for M4/M5 prompt, repair, and projection audit
 
 ## Testing
 
@@ -127,4 +136,4 @@ pytest tests/ -v
 
 ## License & Citation
 
-This is research code for a Master's thesis on line alignment in document transcription. If you use this code, please cite the associated thesis (details TBD).
+This is research code for my Master's thesis, *Newline-Only Transcription Alignment for Historical and Modern Documents with Vision-Language Models*, University of Fribourg, June 2026.

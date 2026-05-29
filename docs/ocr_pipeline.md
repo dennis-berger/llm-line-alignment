@@ -1,12 +1,29 @@
 # OCR/HTR Generation Pipeline
 
-This pipeline produces `ocr/<id>.txt` for all datasets so Method 2 and 3 can run uniformly.
+This pipeline produces line-structured recognition artifacts used by the OCR/HTR
+conditioned methods. The plain text output `ocr/<id>.txt` supports M2 and M3.
+The structured output `ocr_lines/<id>.json` supports M4 and M5 by preserving the
+ordered line list, page/line indices, and available crop paths.
 
 ## What it does
 - Segments each page image into line crops (Kraken by default, caching crops).
 - Recognizes each line with a selectable backend (TrOCR presets by default, PyLaia for IAM when presegmented line images are available).
 - Reassembles page text with one line per visual line; multi-page letters join pages with a blank line.
-- Writes outputs to `<data-dir>/ocr/<id>.txt` and an optional `<id>.meta.json` sidecar.
+- Writes OCR text to `<data-dir>/ocr/<id>.txt`.
+- Writes structured line records to `<data-dir>/ocr_lines/<id>.json` when line
+  crops or line-level metadata are available.
+- Writes an optional `<id>.meta.json` sidecar with recognizer/segmenter metadata.
+
+## Relationship To Thesis Methods
+
+- **M2** uses `ocr/<id>.txt` as a noisy structural hint alongside page images.
+- **M3** uses `ocr/<id>.txt` as the only structural hint.
+- **M4** uses ordered `ocr_lines/<id>.json` text hypotheses and the expected line
+  count.
+- **M5** uses the `crop_path` entries in `ocr_lines/<id>.json` to load ordered
+  line images, optionally using the OCR text fields as secondary hints.
+- **NNTP** can reuse the same presegmented line-image assets, but it has its own
+  pipeline described in [nntp_pipeline.md](nntp_pipeline.md).
 
 ## Dependencies
 - Required: `pillow`, `torch`, `transformers` (already in requirements.txt).
@@ -46,6 +63,8 @@ Key flags:
 
 ## Dataset notes
 - Paths are unified: `<data-dir>/ocr/<id>.txt` for every dataset.
+- Structured line artifacts, when generated, live at
+  `<data-dir>/ocr_lines/<id>.json`.
 - IDs:
   - Bullinger (handwritten/print): `<id>` is a letter; may span multiple page images under `images/<id>/`.
   - washington_handwritten: treat `<id>` as a single page (e.g., `270`).

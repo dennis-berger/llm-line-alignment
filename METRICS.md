@@ -1,6 +1,13 @@
 # Evaluation Metrics
 
-All metrics are computed both with raw text and with normalized text (whitespace collapsed).
+The metrics measure two related questions:
+
+1. Did the prediction preserve the transcription characters?
+2. Did it place line breaks in the same positions as the ground truth?
+
+Most metrics are computed both with raw text and with normalized text
+(whitespace collapsed). The thesis gives most weight to line-level structure,
+especially normalized forward and reverse line accuracy.
 
 ## Character-Level Metrics
 
@@ -166,6 +173,8 @@ F1        = 0.667
 - **Raw:** Exact whitespace preserved
 - **Normalized:** Whitespace collapsed to single spaces
 - Use normalized for fair method comparison
+- Normalization is applied for scoring only; prediction files are written as the
+  method produced them.
 
 ## CSV Output
 
@@ -176,7 +185,7 @@ exact_line_precision,exact_line_recall,exact_line_f1,
 exact_line_precision_norm,exact_line_recall_norm,exact_line_f1_norm
 ```
 
-Last row: Macro-averages (id = "MACRO_AVG")
+Last row: Macro-averages (id = `macro_avg`)
 
 ## Usage
 
