@@ -1,0 +1,214 @@
+% Chapter 2 provides the minimal theory needed to understand newline-only alignment.
+% Focus: problem formulation, what "a line" means in layout, recognition background,
+% and conceptual LLM/VLM output-control background.
+% Implementation-specific pipeline details belong to later chapters.
+
+\chapter{Theory and Background}
+\label{cha:theory_background}
+
+Newline-only alignment sits close to handwriting recognition, page segmentation, and transcript alignment \thesiscite{fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment,vidal2023pageLevelAssessment}, but it follows a more specific task definition: The transcription remains fixed, and newline positions are predicted while keeping the character stream unchanged. This chapter therefore begins with the document-analysis setting, then introduces the formal notation, recognition concepts, and Large Language Model (LLM) / Vision-Language Model (VLM) output-control concepts needed later to compare regimes without changing that task definition.
+
+\section{Document Analysis, Transcription, and Alignment}
+\label{sec:theory_task_context}
+
+Document analysis turns page images into usable structure: Text regions, reading order, line geometry, and eventually textual representations \thesiscite{Bulacu2007LayoutAnalysisCabinetQueen,binmakhashen2019dlaSurvey}. In historical and handwritten material, this is difficult because layout, degradation, writing style, and page conventions interact before any recognizer or downstream alignment method sees a clean sequence \thesiscite{likformansulem2006textLineSurvey}.
+
+Transcription is the textual counterpart of that visual evidence. In OCR/HTR, the system usually has to recover the characters themselves from an image; in transcript alignment, a transcription is already available and the task is to connect that known text back to page evidence. Prior alignment systems therefore use the supplied transcript as a constraint while estimating how words, regions, or page evidence correspond to positions in the document image \thesiscite{tomai2002transcriptMapping,kornfield2004textAlignment,fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment}.
+
+OCR/HTR output should therefore be treated as document evidence rather than as a perfect substitute for transcription. Recognition and segmentation systems can introduce content, ordering, or boundary errors in historical material \thesiscite{LombardiMarinai2020HDASurvey,vidal2023pageLevelAssessment}, while expert, editorial, or otherwise curated transcriptions may already encode the intended character sequence at a chosen level of detail \thesiscite{DriscollLevelsTranscription}. Newline-only alignment is useful in this situation because it treats the available transcription as the trusted character stream and recovers the line structure that connects it back to the page \thesiscite{tomai2002transcriptMapping,hassner2013ocrFreeAlignment}.
+
+Line-level alignment is useful because many scholarly and technical workflows need more than a page-level text string. Lineation connects a transcription to image crops, supports inspection of local errors, preserves reading-order structure, and lets evaluation distinguish content recognition errors from structural line-placement errors. Page-level HTR assessment and historical line-detection protocols already show that text content, ordering, and line structure can fail in different ways; newline-only alignment isolates the text-side boundary placement part of that problem \thesiscite{gruning2018readbad,vidal2023pageLevelAssessment}.
+
+\section{Document Layout and Text Lines}
+\label{sec:theory_layout_lines}
+
+In document analysis, a ``text line'' is not a single object type but a stack of related representations used at different stages of processing. At least three views are operationally relevant: A \emph{baseline} (a curve approximating where characters rest), a \emph{line region} (pixels or polygons containing ascenders and descenders around that baseline), and a \emph{logical line unit} in reading order (a sequence element in a transcription) \thesiscite{likformansulem2006textLineSurvey,gruning2018readbad}.
+
+\paragraph{Baseline view.}
+Baseline-centered formulations encode each line as a polyline rather than a full mask, which makes annotations compact and robust to moderate stroke thickness variation. This representation is dominant in historical baseline-detection benchmarks and is directly tied to tolerance-aware matching schemes for slightly displaced predictions \thesiscite{gruning2018readbad,gruning2019twoStageTextLine}.
+
+\paragraph{Region view.}
+Region-oriented formulations treat a line as a 2D support set (rectangle, polygon, or binary mask). This is convenient for crop extraction and recognition pre-processing, but boundaries become sensitive to script style, ascender/descender overlap, and local skew, so two systems can disagree on region contours while remaining semantically close \thesiscite{likformansulem2006textLineSurvey,diem2013textLineDetection}.
+
+\paragraph{Logical-sequence view.}
+For transcription and downstream Natural Language Processing (NLP), a line is an ordered textual unit. Here, the key question is not only ``which pixels belong together'' but also ``where this unit appears in reading order'' relative to neighboring lines or blocks, especially under multi-column layouts or marginal additions \thesiscite{binmakhashen2019dlaSurvey,vidal2023pageLevelAssessment}.
+
+\paragraph{Why line boundaries matter.}
+Line boundaries are the smallest structural decisions that connect a continuous transcription stream to the visual line units of a page. If a boundary is misplaced, the character sequence may still be correct while the recovered line sequence, crop correspondence, and local error attribution become wrong. This is why the thesis treats boundary placement as its own object of evaluation rather than as a side effect of page-level recognition quality \thesiscite{fischer2011icdarInaccurateAlignment,vidal2023pageLevelAssessment}.
+
+\paragraph{Why boundaries are ambiguous.}
+Historical pages often contain curved writing, touching components across adjacent lines, nonuniform spacing, bleed-through, and degradation. Under these conditions, multiple nearby separators can each be plausible, and split/merge decisions are partly convention-dependent rather than uniquely determined by local pixels \thesiscite{likformansulem2006textLineSurvey,gruning2019twoStageTextLine}.
+
+Ambiguity also appears at annotation level: Different ground-truth policies may differ on whether short interlinear marks, ornaments, or marginal notes belong to a main line, a separate line, or no line at all. Competition protocols therefore use geometry-aware matching with tolerance rather than exact point coincidence, reflecting that ``line correctness'' is graded rather than strictly binary at page level \thesiscite{diem2017cbad,gruning2018readbad}.
+
+For this thesis, these ambiguities motivate a focused operational choice: Line structure is represented only by newline insertion points in a fixed character stream, as formalized in \autoref{sec:theory_problem_definition}. This preserves a single textual sequence while making line hypotheses explicit as boundary decisions, without committing to one specific pixel-level line geometry \thesiscite{fischer2011icdarInaccurateAlignment,vidal2023pageLevelAssessment}.
+
+\section{Problem Definition and Notation}
+\label{sec:theory_problem_definition}
+
+The formal definition below treats line-structure recovery as a constrained segmentation task over a known transcription stream. Prior document analysis work typically recovers line structure through visual line detection and structural alignment, especially in heterogeneous historical material where robust line geometry estimation is difficult \thesiscite{likformansulem2006textLineSurvey,fischer2011icdarInaccurateAlignment}.
+
+Let $\Sigma$ denote the character alphabet excluding the newline token $\texttt{\textbackslash n}$. For one sample, let
+\[
+x=(x_1,\dots,x_n)\in\Sigma^n
+\]
+be the supplied transcription without line breaks. A line-break hypothesis is represented by a boundary vector
+\[
+b=(b_1,\dots,b_{n-1})\in\{0,1\}^{n-1},
+\]
+where $b_i=1$ means ``insert a newline after character $x_i$''.
+
+Define the insertion operator $\mathcal{I}$ as
+\begin{equation}
+\mathcal{I}(x,b)=x_1\eta_1x_2\eta_2\cdots x_{n-1}\eta_{n-1}x_n,\qquad
+\eta_i=
+\begin{cases}
+\texttt{\textbackslash n}, & b_i=1,\\
+\epsilon, & b_i=0.
+\end{cases}
+\label{eq:newline_insertion_operator}
+\end{equation}
+Let $\pi(\cdot)$ remove all newline tokens. The newline-only constraint is
+\begin{equation}
+\pi\!\left(\mathcal{I}(x,b)\right)=x,
+\label{eq:newline_projection_constraint}
+\end{equation}
+which enforces that character identity and order are unchanged.
+
+The feasible output set induced by the boundary-vector representation is therefore
+\begin{equation}
+\mathcal{Y}(x)=\left\{\mathcal{I}(x,b)\mid b\in\{0,1\}^{n-1}\right\}.
+\label{eq:feasible_set}
+\end{equation}
+This is the ideal newline-only task space. Raw prompt generations, by contrast, may temporarily occupy the broader string space $(\Sigma\cup\{\texttt{\textbackslash n}\})^\star$ before parser-side validation or projection maps them back to a boundary plan.
+Given conditioning evidence $c$ (method-dependent in \autoref{cha:method}), an ideal boundary selector predicts
+\begin{equation}
+\hat{b}=\arg\max_{b\in\{0,1\}^{n-1}} p_\theta(b\mid x,c),\qquad
+\hat{y}=\mathcal{I}(x,\hat{b}).
+\label{eq:boundary_prediction_objective}
+\end{equation}
+This notation is a conceptual formalization of preference over boundary plans under conditioning evidence. For the LLM/VLM-based regimes M1--M5, it should not be read as a claim that the implementation explicitly estimates a calibrated probability distribution over boundary vectors; the implemented systems instead generate outputs and then parse, validate, repair, or project them as described in Chapter~\ref{cha:method}. More generally, \autoref{eq:boundary_prediction_objective} is literal only for methods that actually score candidate boundary plans in that form.
+In the implemented thesis method set, this abstract conditioning variable expands to the high-level bundles
+\[
+\begin{aligned}
+c_{\mathrm{M1}}&=(v,x), &
+c_{\mathrm{M2}}&=(v,o,x), &
+c_{\mathrm{M3}}&=(o,x), \\
+c_{\mathrm{M4}}&=(s,N,x), &
+c_{\mathrm{M5}}&=(g,s,p,N,x), &
+c_{\mathrm{NNTP}}&=(g,\lambda,x),
+\end{aligned}
+\]
+where $v$ denotes ordered page-image evidence, $o$ Optical Character Recognition / Handwritten Text Recognition (OCR/HTR) text, $s$ an ordered OCR-line scaffold, $g$ ordered line-image crops, $p$ page-level visual context, $N$ the expected line count, and $\lambda$ recognizer-side line observations used by NNTP. For M5, $s$ denotes the structured line record from which both the ordered crop references and the OCR/HTR line text are available; in the evaluated M5 configuration, that OCR/HTR line text and page-level visual context are supplied as secondary evidence around the primary line-image anchors. For NNTP, $\lambda$ should be read as Connectionist Temporal Classification (CTC)-style line evidence produced by an HTR recognizer and consumed by a forced-alignment algorithm; the algorithm searches for boundary placements under the fixed transcription rather than sampling or generating a rewritten string, in line with the Bullinger CTC alignment baseline \thesiscite{peer2025ctcBullingerAlignment}. Chapter~\ref{cha:method} makes the provenance of these artifacts explicit; most importantly for later interpretation, $N$ is supplied to M4 and M5 from stored OCR-line metadata in the evaluated handwritten datasets rather than predicted from page evidence.
+
+Across all regimes, the output target and constraint remain fixed: Only newline boundaries are predicted while character content is preserved.
+
+This makes the task a structured insertion problem in the specific thesis sense: Generate only separators while preserving the source sequence.
+
+The boundary vector induces a line segmentation. Let
+\[
+0=t_0<t_1<\cdots<t_m=n
+\]
+with $b_{t_j}=1$ for $j=1,\dots,m-1$. The reconstructed lines are contiguous spans
+\begin{equation}
+\ell_j = x_{(t_{j-1}+1):t_j},\qquad j=1,\dots,m,\qquad
+m=1+\sum_{i=1}^{n-1} b_i.
+\label{eq:induced_lines}
+\end{equation}
+Hence the newline-only alignment problem is equivalent to predicting the ordered set of split indices.
+
+\paragraph{Toy example.}
+Let $x=\texttt{ABCDEFG}$ and $b=(0,1,0,0,1,0)$. Then
+\[
+\hat{y}=\mathcal{I}(x,b)=\texttt{AB\textbackslash nCDE\textbackslash nFG},
+\]
+with induced lines $(\texttt{AB},\texttt{CDE},\texttt{FG})$. This example illustrates that only boundary positions change; the underlying character sequence remains fixed.
+
+Figure~\ref{fig:theory_newline_only_schematic} gives the same newline-only insertion logic as a compact schematic: The fixed transcription stays unchanged, the boundary vector marks split positions, and the insertion operator produces the ordered line sequence.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    font=\scriptsize,
+    >={Latex[length=2mm]},
+    box/.style={rectangle, rounded corners=2pt, draw=black, thick, align=left, inner sep=6pt, text width=0.84\linewidth},
+    flow/.style={->, thick}
+  ]
+    \node[box, fill=gray!10] (xbox) {\textbf{Fixed transcription} \(x=\texttt{ABCDEFGH}\)};
+    \node[box, fill=blue!8, below=0.55cm of xbox] (bbox) {\textbf{Boundary vector} \(b=(0,1,0,1,0,1,0)\)\\Insert a newline after characters \(2,4,6\).};
+    \node[box, fill=orange!12, below=0.55cm of bbox] (ibox) {\textbf{Insertion operator} \(\mathcal{I}(x,b)=\texttt{AB\textbackslash nCD\textbackslash nEF\textbackslash nGH}\)};
+    \node[box, fill=green!10, below=0.55cm of ibox] (lbox) {\textbf{Induced line sequence} \((\texttt{AB},\texttt{CD},\texttt{EF},\texttt{GH})\)};
+    \draw[flow] (xbox) -- (bbox);
+    \draw[flow] (bbox) -- (ibox);
+    \draw[flow] (ibox) -- (lbox);
+  \end{tikzpicture}
+  \caption{Schematic of the newline-only task. The character stream stays fixed and only the boundary vector changes, so the operator \(\mathcal{I}\) inserts line breaks without rewriting the transcription.}
+  \label{fig:theory_newline_only_schematic}
+\end{figure}
+
+
+% Note: implementation-specific OCR/HTR pipeline details are described in later chapters (Method/Experimentation).
+
+\section{Encoder--Decoder Recognition Background}
+\label{sec:theory_encoder_decoder}
+
+This section summarizes recognition architectures that appear as auxiliary components in document pipelines. Given a line image $I$, recognition predicts a character sequence
+\[
+\hat{y}=\arg\max_{y} p_\phi(y\mid I).
+\]
+In modern OCR/HTR, two families are central for this mapping: Connectionist Temporal Classification (CTC)-based recognizers and encoder--decoder recognizers with attention \thesiscite{graves2006ctc,li2023trocr}.
+
+\paragraph{Connectionist Temporal Classification (CTC)-based recognition.}
+Let an encoder produce a feature sequence $h_{1:T}=f_{\text{enc}}(I)$. CTC introduces an alignment space over $\Sigma\cup\{\varnothing\}$ (blank symbol) and defines
+\begin{equation}
+p(y\mid I)=\sum_{\pi\in\mathcal{B}^{-1}(y)}\prod_{t=1}^{T} p(\pi_t\mid h_t),
+\label{eq:ctc_objective}
+\end{equation}
+where $\mathcal{B}$ collapses repeated labels and blanks. This yields alignment-free training under a monotonic left-to-right assumption and is widely used in HTR baselines \thesiscite{graves2006ctc,puigcerver2017icdar}.
+
+\paragraph{Encoder--decoder attention recognition.}
+Encoder--decoder models factorize the output autoregressively as
+\begin{equation}
+p(y\mid I)=\prod_{i=1}^{|y|} p(y_i\mid y_{<i},h_{1:T}),
+\label{eq:enc_dec_objective}
+\end{equation}
+with a decoder that conditions on previous tokens and attends to encoder features through cross-attention. Transformer instantiations use masked self-attention in the decoder and multi-head cross-attention to visual states \thesiscite{vaswani2017transformer,li2023trocr}.
+
+\paragraph{TrOCR as an OCR/HTR example.}
+TrOCR instantiates this design with a vision encoder and a Transformer text decoder, pretrained on large synthetic corpora and then fine-tuned on downstream OCR/HTR datasets. The model therefore combines visual representation learning with autoregressive token generation in a single sequence-to-sequence objective \thesiscite{li2023trocr}.
+
+\paragraph{CTC vs encoder--decoder: Practical trade-off.}
+CTC provides a strong monotonic alignment prior and non-autoregressive frame scoring. Encoder--decoder systems instead model output-token dependencies explicitly through decoder state and cross-attention. In practice, this yields a trade-off between simpler decoding assumptions (CTC) and richer sequence modeling with sequential inference cost (encoder--decoder) \thesiscite{graves2006ctc,li2023trocr}.
+
+For this thesis, recognition is background context rather than the main prediction target: The evaluated newline-only alignment task predicts newline positions while keeping the character stream fixed (\autoref{sec:theory_problem_definition}). Recognition outputs are relevant when OCR/HTR is used as auxiliary structural evidence in later methods, not as the primary quantity to be generated. In NNTP-style CTC transcription alignment, these recognition outputs become posterior evidence for a deterministic token-passing or dynamic-programming alignment step that places the known transcription against line images and recovers newline positions \thesiscite{fischer2011icdarInaccurateAlignment,li2023trocr,peer2025ctcBullingerAlignment}.
+
+\section{LLM/VLM Basics for Constrained Structured Output}
+\label{sec:theory_llm_vlm_structured_output}
+
+Large Language Models (LLMs) and Vision-Language Models (VLMs) are useful background for this thesis because all five LLM/VLM-based regimes ask a general-purpose model to infer line breaks from textual or visual evidence. At the architectural level, most current systems are built from Transformer blocks. A Transformer represents an input sequence through self-attention: Each token can weight information from other tokens, and multi-head attention lets the model combine several such relations in parallel. This made it possible to train sequence models without recurrence or convolution as the central sequence mechanism, and it remains the standard conceptual basis for modern language and multimodal decoders \thesiscite{vaswani2017transformer}.
+
+An autoregressive language model generates text one token at a time. At decoding step \(t\), the next token is predicted from the already generated prefix and the conditioning input:
+\[
+p(y\mid u)=\prod_{t=1}^{|y|}p(y_t\mid y_{<t},u).
+\]
+For a text-only LLM, \(u\) may be the prompt and any supplied transcription. For a VLM, \(u\) can additionally include image-derived representations that are connected to the text decoder through cross-attention or related multimodal fusion mechanisms. OCR/HTR encoder--decoder systems such as TrOCR instantiate the same basic sequence-to-sequence idea at document scale: A visual encoder represents the image and a Transformer decoder produces the text sequence autoregressively \thesiscite{vaswani2017transformer,li2023trocr}.
+
+Document-understanding models extend this setup because document images contain more than word identity. Layout, reading order, regions, tables, handwriting style, and local image evidence all influence the intended output. Layout-aware and OCR-free models therefore combine visual appearance, textual tokens, and spatial or structural cues in different ways. Donut, for example, maps document images directly to structured textual outputs without a separate OCR stage, while LayoutLMv3 and DocLLM represent document-specific text, image, and layout information for downstream document tasks. These models motivate using multimodal evidence for line-structure recovery, but their usual task definition is broader than the one studied here because they often generate or classify content rather than preserving a supplied transcription exactly \thesiscite{kim2022donut,huang2022layoutlmv3,wang2024docllm}.
+
+The exact-preservation requirement is the central difficulty for applying generative models to newline-only alignment. A prompt can ask a model to ``copy this text and add line breaks'', but autoregressive decoding still chooses each output token from a large vocabulary, and LLM performance can be sensitive to the requested output format even when task content is otherwise unchanged. In this setting, a malformed response may normalize spelling, alter punctuation, omit a repeated word, repair what looks like an OCR error, or introduce visually plausible text that is not present in the fixed transcription \thesiscite{ravikumar2026lostFormatting,liu2024ocrbench}. Such behavior can be useful in open transcription or correction tasks, but it violates the feasible set \(\mathcal{Y}(x)\) in \autoref{eq:feasible_set}: For this thesis, the text is already fixed and only separator positions may change.
+
+This makes the thesis task a form of constrained generation or constrained sequence segmentation. The admissible output is not any fluent string; it is a boundary plan \(b\in\{0,1\}^{n-1}\) over a known character stream. In an ideal token-level constrained decoder, decoding could be restricted to
+\begin{equation}
+\hat{y}=\arg\max_{y\in\mathcal{C}(u)} p_\theta(y\mid u),
+\label{eq:generic_constrained_decoding}
+\end{equation}
+where \(u\) is the text-only or multimodal input and \(\mathcal{C}(u)=\mathcal{Y}(x)\). This separates the model's preference over likely outputs from the hard validity rule that the non-newline character sequence must stay unchanged. Work on structured outputs and constrained decoding treats such output validity as a first-class problem, often using grammars, schemas, token masks, or post-generation validation to keep generated text inside a target format \thesiscite{geng2023grammar,geng2025jsonschemabench}.
+
+Insertion-based generation is conceptually close to the newline-only formulation because it begins with an existing canvas and inserts material into it \thesiscite{stern2019insertionTransformer,zhang2020pointer}:
+\begin{equation}
+y^{(t+1)}=\operatorname{Insert}\!\left(y^{(t)}, c_t, \ell_t\right),
+\label{eq:insertion_update}
+\end{equation}
+where token \(c_t\) is inserted at location \(\ell_t\) in the current sequence. The thesis does not implement an insertion Transformer, but the abstraction is helpful: Newline-only alignment is the special case where the only insertable token is \(\texttt{\textbackslash n}\), and all original characters must remain in order. This is why validation, repair, fallback, and projection matter. They convert an unconstrained or weakly constrained model response into an inspectable boundary plan, or reject it when the response cannot be reconciled with the fixed transcription.
+
+The distinction between prompted generation and deterministic or forced-alignment approaches follows from this output-validity requirement. LLM/VLM-based regimes ask a model to infer the line structure from instructions plus evidence such as page images, OCR/HTR text, ordered OCR lines, or line crops; unless additional checks are applied, their first output is still a generated string that may omit, normalize, or restructure the supplied text. Deterministic or forced-alignment approaches instead treat the known transcription as a constraint from the start and align recognizer or image-derived observations to that fixed sequence \thesiscite{fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment,peer2025ctcBullingerAlignment}. The former family tests whether a general-purpose generative model can use rich context and satisfy that validity requirement; the latter supplies a non-prompt baseline whose errors are more directly tied to alignment evidence and preprocessing assumptions.

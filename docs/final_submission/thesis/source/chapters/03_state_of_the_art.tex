@@ -1,0 +1,149 @@
+% Chapter 3 positions newline-only alignment against prior work on
+% layout analysis, transcript alignment, OCR/HTR pipelines, and modern document models.
+% The emphasis is analytical positioning rather than an exhaustive survey of OCR or VLM research.
+
+\chapter{Related Work and Positioning}
+\label{cha:state_of_the_art}
+
+Document-processing methods are difficult to compare when they solve different task definitions. The related-work discussion positions newline-only alignment against neighboring fields rather than attempting an exhaustive survey of Optical Character Recognition (OCR), Handwritten Text Recognition (HTR), Large Language Model (LLM), or Vision-Language Model (VLM) research. The main organizing question is which prior families share the thesis input/output assumptions: A fixed transcription, line-boundary recovery as the central objective, and evaluation that separates structural error from lexical error \thesiscite{fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment,vidal2023pageLevelAssessment}. Broad document-processing work remains important context, but it is directly comparable only when those assumptions are similar.
+
+\section{Task Definitions in Prior Work}
+\label{sec:sota_task_definitions}
+
+Prior work on line structure can be organised more clearly by \emph{task definition} than by model chronology alone. The key dimensions for this thesis are whether the transcription is fixed or must still be recognized, whether the expected line count is inferred or externally scaffolded, whether structure is predicted geometrically on the image side or inserted as newlines on the text side, whether inference uses deterministic alignment or prompted model generation, and whether the output is constrained to preserve known text. These dimensions determine whether a method is a direct comparator, a close predecessor under broader alignment assumptions, or contextual background \thesiscite{fischer2011icdarInaccurateAlignment,kim2022donut,wang2024docllm}.
+
+\begin{table}[t]
+    \centering
+    \scriptsize
+    \setlength{\tabcolsep}{2.5pt}
+    \renewcommand{\arraystretch}{1.08}
+    \caption{Task-definition view of prior-work families relevant to newline-only alignment, with representative sources for each family.}
+    \label{tab:sota_task_definitions}
+    \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.20\linewidth}Y@{}}
+        \toprule
+        Prior-work family & Representative sources & Transcription / output assumptions & Main structure strategy & Difference from this thesis \\
+        \midrule
+        Layout analysis / page segmentation &
+        \thesiscite{Bulacu2007LayoutAnalysisCabinetQueen,xu2018multitaskLayoutAnalysis,binmakhashen2019dlaSurvey} &
+        No fixed transcription; output is page geometry or logical regions &
+        Detect regions, reading order, and separators on the image side &
+        Context only: Recovers page structure before text-side newline insertion \\
+        \addlinespace[0.2em]
+        Baseline detection / text-line segmentation &
+        \thesiscite{likformansulem2006textLineSurvey,rabaev2026textLineSegmentationReview,gruning2018readbad} &
+        No fixed transcription; output is line or baseline geometry &
+        Localize line geometry on the image side &
+        Context only: Estimates latent line structure, but does not insert newlines into known text \\
+        \addlinespace[0.2em]
+        Transcript alignment / forced alignment &
+        \thesiscite{tomai2002transcriptMapping,kornfield2004textAlignment,rothfeder2006aligningTranscripts,fischer2011icdarInaccurateAlignment} &
+        Known transcript constrains alignment; output links text units to image evidence &
+        Transfer image-side word, region, or page correspondences onto transcript positions &
+        Direct predecessor: Shares the known-transcript assumption, but the thesis restricts output to a newline-boundary vector \\
+        \addlinespace[0.2em]
+        Modular OCR/HTR pipelines &
+        \thesiscite{marti2001statisticalLanguageModelHMM,puigcerver2017icdar,li2023trocr} &
+        Recognize text from segmented images; output characters or words are not fixed in advance &
+        Detect lines first, then recognize text per line or crop &
+        Useful evidence source for this thesis, but standard scores mix recognition and structure errors \\
+        \addlinespace[0.2em]
+        End-to-end page transcription models &
+        \thesiscite{wigington2018sfr,coquenet2023dan,kim2022donut} &
+        Generate page or paragraph text; line count and text content emerge during decoding &
+        Learn recognition and structure jointly or implicitly &
+        Context only: Mixes content recovery with structural formatting instead of fixing the character sequence \\
+        \addlinespace[0.2em]
+        Layout-aware document models &
+        \thesiscite{huang2022layoutlmv3,wang2024docllm,wang2024qwen2vl} &
+        Usually consume OCR/layout cues or multimodal inputs for document-understanding outputs &
+        Use multimodal structure cues for downstream labels or structured output &
+        Contextual neighbor: Shares layout evidence types, but not the fixed-transcription newline-only target \\
+        \addlinespace[0.2em]
+        LLM/VLM prompting / formatting &
+        \thesiscite{mathew2021docvqa,liu2024ocrbench,wang2024qwen2vl} &
+        Prompt-conditioned generation; preservation of supplied text is requested or checked externally &
+        Generate formatted text from page images and prompts &
+        Adapted in the LLM/VLM-based regimes, but broad benchmark results remain contextual unless output is projected to newline-only form \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\noindent \autoref{tab:sota_task_definitions} makes explicit why broad OCR or VLM results should not be read as direct baselines for this thesis. As soon as a method is still responsible for recovering unknown text, inferring its own line count implicitly, or generating unconstrained output, content error and line-structure error become entangled. The thesis instead fixes the non-newline character sequence and evaluates only where newline boundaries are placed. Layout analysis, baseline detection, OCR/HTR pipelines, and document foundation models remain informative mainly as neighboring evidence regimes or upstream structure providers, while transcript alignment is the closest prior task family \thesiscite{kornfield2004textAlignment,fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment,kim2022donut,wang2024docllm}.
+
+\section{Transcription Alignment and Forced Alignment}
+\label{sec:sota_transcription_alignment}
+
+The closest task family and direct predecessor is transcript alignment, especially work that maps known transcripts to handwritten page evidence without requiring line breaks in the supplied text. That family already shares the known-transcript alignment assumptions; the specific contribution here is to collapse the admissible output to newline positions in a fixed character stream rather than to the richer word-image, region-image, or page-image correspondences usually produced by alignment systems \thesiscite{kornfield2004textAlignment,fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment}.
+
+Once a transcription is known, the central question becomes how image-derived line evidence is transferred back onto text positions. Early handwritten-document transcript mapping and dynamic time warping / hidden Markov model alignment work already treats the transcription as a constraining object rather than as text to be recognized from scratch \thesiscite{tomai2002transcriptMapping,kornfield2004textAlignment,rothfeder2006aligningTranscripts}. Fischer \etal formulate this as forced alignment under recognition uncertainty, using hidden Markov model correspondence between transcript elements and page evidence \thesiscite{fischer2011icdarInaccurateAlignment,fischer2011latinManuscriptsHMM}; Hassner \etal pursue OCR-free transcript alignment directly against the document image \thesiscite{hassner2013ocrFreeAlignment}. In these cases, the transcription is no longer generated freely, and the task shifts from recognizing content to placing known content correctly against visual structure.
+
+This bridge from geometry to transcript positions is exactly where the thesis methods enter. The thesis focuses the established alignment assumptions further: The character sequence is fixed, only newline separators may be inserted, and alternative evidence regimes are compared under one downstream metric family. This restriction makes line-structure recovery analyzable without attributing lexical substitutions, deletions, or hallucinated insertions to the same score. It also limits the novelty claim: Transcript alignment and known-transcript forced alignment are not new tasks, and prior systems already align supplied text to page evidence \thesiscite{kornfield2004textAlignment,fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment}. What is more specific here is the output representation and evaluation target: Richer word-image, region-image, or page-image correspondences are reduced to an isolated newline-boundary vector over a fixed transcription. \needspace{4\baselineskip}The result is a controlled evaluation problem rather than a claim that known-transcript alignment itself is new.
+
+\section{Layout Analysis and Line Segmentation as Upstream Tasks}
+\label{sec:sota_layout_upstream}
+
+Classical document layout analysis and text-line segmentation provide the image-side half of the problem. Page segmentation methods decompose documents into blocks, columns, and reading order \thesiscite{Bulacu2007LayoutAnalysisCabinetQueen,xu2018multitaskLayoutAnalysis,binmakhashen2019dlaSurvey,ha1995recursiveXYCut,shafait2008benchmarkingSeg}, while handwritten-text research concentrates on line and baseline extraction under skew, curvature, overlap, and degradation \thesiscite{likformansulem2006textLineSurvey,rabaev2026textLineSegmentationReview,gruning2018readbad}. These families are highly relevant because they estimate the latent line structure that any later alignment method must exploit. Their native evaluation protocols, however, score geometric objects such as regions, separators, or baselines rather than newline placement in a fixed transcription \thesiscite{clausner2011scenarioDrivenEval,gruning2018readbad}.
+
+The upstream relation matters for the thesis methods because several regimes use structural evidence produced before newline insertion: Page images, OCR/HTR text, ordered OCR lines, expected line counts, and line-image crops. Layout-analysis and line-segmentation systems are therefore not direct newline-only baselines, but they define the evidence types and error sources that a text-side alignment method inherits \thesiscite{Bulacu2007LayoutAnalysisCabinetQueen,likformansulem2006textLineSurvey,gruning2018readbad}.
+
+\section{Encoder--Decoder and Sequence-Based Neural Document Processing}
+\label{sec:sota_sequence_neural}
+
+Modern neural pipelines still often preserve an explicit structure-recognition interface. Systems built from line detectors or segmenters plus recognizers such as Kraken, docTR, or TrOCR make line evidence operational and reusable, but they also expose the thesis-relevant dependency that segmentation mistakes propagate into any downstream text transfer step. For the present thesis, such systems matter less as direct benchmarks than as sources of structured evidence regimes: Page images alone, \OCRHTR text, ordered OCR lines, or line-image crops. Their ordinary objective is still recognition, whereas the thesis objective begins after the transcription has been fixed \thesiscite{marti2001statisticalLanguageModelHMM,puigcerver2017icdar,kiessling2025kraken,mindee2026doctr,li2023trocr}.
+
+Other neural work pushes line structure inside the recognizer. Start, Follow, Read and Document Attention Network (DAN) reduce the explicit interface between line detection and transcription by letting attention or sequence modeling absorb more of the ordering problem. These systems are important context because they show how sequence models can combine recognition and structure, but their standard objectives usually evaluate content recovery and structure recovery together rather than isolating newline placement over a fixed transcription \thesiscite{wigington2018sfr,coquenet2023dan,kim2022donut}.
+
+\section{LLM/VLM-Based Document Processing and Structured Output}
+\label{sec:sota_llm_vlm_structured}
+
+Document foundation models extend neural document processing by combining visual appearance, text, layout, and task instructions. LayoutLMv3 learns joint text-image representations, Donut and Nougat generate document text or markup directly from page images, and DocLLM or general-purpose VLMs operate over mixed textual, spatial, and visual cues. These systems are important context because they demonstrate strong multimodal priors, but their standard evaluations usually combine content recovery, structure recovery, and task-specific formatting into one broader objective \thesiscite{huang2022layoutlmv3,kim2022donut,nougat2023,wang2024docllm,wang2024qwen2vl}.
+
+That distinction matters for claims of comparability. OCR-heavy and VLM-heavy benchmarks document useful failure modes, especially on handwriting, non-semantic text, and layout-sensitive reasoning, but they do not usually ask whether a known transcription can be restored to the correct lineation without changing its character content. Their results should therefore be read as contextual evidence about the strengths and weaknesses of modern document models, not as direct state-of-the-art numbers for newline-only alignment \thesiscite{liu2024ocrbench,mathew2021docvqa,wang2024qwen2vl}.
+
+Structured-output and constrained-decoding work is relevant because the LLM/VLM-based regimes in this thesis ask a generative model to produce a string that must remain valid under a hard preservation rule. Grammars, schemas, token masks, validation, repair, and projection all address the same general problem of keeping generated text inside an admissible output space, although the thesis applies that idea to newline insertion rather than to a general document-understanding schema \thesiscite{geng2023grammar}.
+
+\section{Deterministic Baselines and Evaluation Differences}
+\label{sec:sota_deterministic_baselines}
+
+Deterministic forced-alignment baselines are relevant in this thesis because they operationalize the fixed-transcription assumption under stronger output control than free generation \thesiscite{fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment,peer2025ctcBullingerAlignment}. When line hypotheses, OCR-derived anchors, or recognizer-side alignments are converted into newline decisions without allowing arbitrary text rewriting, errors can be interpreted more cleanly as failures of structure transfer rather than of open-ended decoding. LLM/VLM-based regimes are different: They can combine visual, textual, and instruction-level evidence flexibly, but their raw decoder output is a string-generation process whose validity must be requested, checked, repaired, or projected after generation \thesiscite{geng2023grammar}. NNTP-style CTC alignment belongs to the forced-alignment side of this divide: It uses recognizer posteriors and dynamic programming over a fixed transcription to recover line boundaries, so it does not create new lexical content \thesiscite{graves2006ctc,peer2025ctcBullingerAlignment}. This makes deterministic baselines analytically valuable even when their upstream evidence differs from LLM/VLM-based regimes: They help separate the effect of scaffolding from the effect of unconstrained generation.
+
+Within the method set of this thesis, that is why NNTP is not just an engineering baseline but a positioning device. It continues the transcript-alignment tradition by preserving the downstream focus on correspondence and boundary placement, while the LLM/VLM-based regimes M1--M5 show what happens when the same problem is delegated to increasingly structured multimodal generation. The comparison is bounded in ways the method and experimentation chapters make explicit: Recognizer-specific preprocessing, staged line-image inventories, and denominator availability affect how directly NNTP rows can be compared with the LLM/VLM rows. Even with those qualifications, a deterministic forced-alignment baseline remains the most informative non-prompt anchor for interpreting whether improvements come from stronger structural evidence, stronger output control, or broader generative capability \thesiscite{fischer2011icdarInaccurateAlignment,hassner2013ocrFreeAlignment,peer2025ctcBullingerAlignment}.
+
+\enlargethispage{4\baselineskip}
+Quantitative prior work is fragmented because different families score different objects. Baseline competitions measure geometric localization; transcript-alignment studies come closer to text-to-line correspondence but still use their own task definitions; and page-level HTR assessment separates content and order effects without turning newline insertion into the primary prediction target. Reported numbers are therefore best treated as protocol-specific context rather than as a single cross-paper leaderboard \thesiscite{diem2017cbad,gruning2018readbad,degregorio2023moccia,vidal2023pageLevelAssessment}.
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.02}
+    \caption{Representative quantitative context for line-structure quality. Values remain informative within their original protocols, not as one shared newline-only benchmark.}
+    \label{tab:sota_line_baseline_landscape}
+    \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.21\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.31\linewidth}@{}}
+        \toprule
+        Work / protocol family & Scored object & Representative reported result & Why it is not a thesis-style newline benchmark \\
+        \midrule
+        cBAD baseline detection competition \thesiscite{diem2017cbad} &
+        Baseline $P/R/F$ &
+        $F=0.971$ (simple); $F=0.859$ (complex) &
+        Measures geometric localization only; it does not transfer a fixed transcription into newline positions \\
+        \addlinespace[0.2em]
+        READ-BAD baseline detection \thesiscite{gruning2018readbad} &
+        Baseline $P/R/F$ &
+        $F=0.912$ (simple); $F=0.728$ (complex) &
+        Scores historical baseline geometry under tolerance-based matching, not text-side boundary insertion \\
+        \addlinespace[0.2em]
+        End-to-end transcript alignment (Moccia Code) \thesiscite{degregorio2023moccia} &
+        Line segmentation and alignment accuracy &
+        92\% correctly segmented lines; $>$68\% alignment accuracy &
+        Closest transcript-to-line comparator, but still defined on a different alignment protocol and metric set \\
+        \addlinespace[0.2em]
+        Page-level HTR assessment \thesiscite{vidal2023pageLevelAssessment} &
+        Word Error Rate (WER), bWER/hWER, NSFD &
+        No single line-break score &
+        Useful because it separates content and ordering effects, but it still does not score newline insertion directly \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\noindent The main use of \autoref{tab:sota_line_baseline_landscape} is therefore interpretive: Prior quantitative evidence either evaluates geometry, correspondence under another task definition, or broader recognition tasks. The thesis contribution is more specific and more controlled. LLM/VLM-based regimes and deterministic alignment baselines are compared under one fixed-transcription, newline-only target, with line accuracy as the primary outcome and precision, recall, and raw/normalized Character Error Rate (CER) and Word Error Rate (WER) variants used as supporting diagnostics in \autoref{cha:experimentation} \thesiscite{degregorio2023moccia,vidal2023pageLevelAssessment}.

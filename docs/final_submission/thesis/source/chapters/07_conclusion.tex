@@ -1,0 +1,94 @@
+% Chapter 7 concludes the thesis.
+% Content: summary of findings about LLM/VLM line alignment performance, answers to the research
+% questions, key limitations, and concrete directions for future work.
+
+\chapter{Conclusion}
+\label{cha:conclusion}
+
+Newline-only transcription alignment is more than a formatting problem: It is a controlled way to test how well systems recover line structure when the transcription itself is fixed. By preserving the non-newline character sequence, the evaluation separates boundary recovery from OCR/HTR recognition and makes different alignment setups comparable under one target. Within the handwritten scope, the context-rich M5 setup has the highest reported macro score among the evaluated LLM/VLM configurations, while NNTP remains a close deterministic reference on the matched datasets. The thesis therefore contributes a task definition, an evaluation protocol, a documented benchmark, and practical evidence about the role of structured output control.
+
+\section{Contribution and Completed Work}
+\label{sec:conclusion_summary}
+
+This thesis addressed newline-only alignment as defined in \autoref{sec:theory_problem_definition} and instantiated as a shared evaluation target in \autoref{sec:method_common_contract}. In operational terms, the task is to recover line boundaries for supplied transcriptions while preserving character identity and order exactly. That separation is the central methodological contribution: Boundary recovery is evaluated as layout reconstruction behavior, not as generic text generation quality.
+
+The implementation contribution is a six-way comparison against that shared target, with M1--M5 as LLM/VLM-based methods and NNTP as the deterministic forced-alignment baseline. NNTP is used in that role because it aligns a fixed transcription to recognizer-derived line evidence instead of freely generating a new transcription, following the forced-alignment family discussed in \autoref{sec:sota_deterministic_baselines}. Around this comparison, the project also implemented the \OCRHTR pipeline, line-image preparation, resumable evaluation workflows, and artifact packaging that keeps the comparison inspectable beyond isolated examples; the reproducibility registry is kept in Appendix~\ref{cha:appendix_audit}.
+
+The empirical focus of the thesis is a handwritten comparison layer over Bullinger Handwritten, Children Handwritten, IAM Handwritten as a fixed 20-form IAM subset, and Washington Handwritten. Within that scope, all reported dataset scores are macro-averages over sample IDs, and reporting prioritizes \LANormForward{} and \LANormReverse{} together with their combined normalized view \LANormCombined, while \LineFOneNorm, \CERNorm, and \WERNorm remain complementary diagnostics rather than primary indicators; \autoref{sec:experimentation_protocol} defines this reporting protocol, including the Levenshtein-based CER/WER diagnostics \thesiscite{levenshtein1966binaryCodes}.
+
+\section{Answers to the Research Questions}
+\label{sec:conclusion_rq_answers}
+
+\begin{table}[H]
+  \centering
+  \caption{Compact answers to the three research questions. The detailed prose below expands the evidence and caveats behind each row.}
+  \label{tab:conclusion_rq_compact_answers}
+  \footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \renewcommand{\arraystretch}{1.12}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.28\linewidth}>{\raggedright\arraybackslash}p{0.31\linewidth}Y@{}}
+    \toprule
+    \textbf{Research question} & \textbf{Short answer} & \textbf{Main evidence} & \textbf{Main limitation} \\
+    \midrule
+    RQ1 & M5 in the context-rich structured setup has the highest reported macro score among evaluated LLM/VLM handwritten configurations. & Descriptive overview of evaluated setups, method overview, and complete exact-model control where available (\autoref{fig:exp_handwritten_llm_model_overview}; \autoref{tab:exp_handwritten_main_overview}; \autoref{tab:exp_handwritten_controlled_model}). & Intermediate steps are non-monotonic; method availability is unequal; component-level attribution remains bounded. \\
+    RQ2 & M5 and NNTP are close/tie-dominated on the matched handwritten comparison sets. & Matched dataset-level table and paired win/tie/loss counts (\autoref{tab:exp_best_vs_nntp}). & Differences are dataset-dependent; Bullinger is handled through a published-baseline subset comparison, with Subset~1 direct and Subset~2 contextual; NNTP retains the preprocessing caveat. \\
+    RQ3 & Structured output control, repair, fallback, and projection make LLM/VLM outputs compatible with the fixed-transcription requirement. & Structured output-validity analysis and event-count audit (\autoref{sec:experimentation_output_control_audit}; \autoref{tab:app_m5_trace_event_counts}). & Evidence supports the structured setup rather than isolated components separated from evidence, staging, and provider effects. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+Line-level correspondence also gives the result a Digital Humanities value beyond the score tables. For collections where a transcription already exists, newline-only alignment can connect that trusted text back to local line positions without asking a system to rewrite the scholarly transcription. That makes the output useful for inspection, training-data preparation, and local error analysis, because analysts can compare a text span, its proposed line boundary, and the relevant image evidence under one fixed character sequence. The same constraint also bounds the contribution: This task does not replace scholarly transcription, and it does not solve blind page segmentation or line-count inference from images alone \thesiscite{DriscollLevelsTranscription,Muehlberger2019TransformingScholarship,vidal2023pageLevelAssessment}.
+
+Because the contribution is methodological as well as empirical, the conclusions are framed by the available evidence and its controls. Table~\ref{tab:conclusion_rq_compact_answers} gives the compact answer layer; the following subsections unpack the supporting evidence and limits for each research question.
+
+\subsection{RQ1: Which input-evidence configurations most improve newline-boundary accuracy for fixed transcriptions?}
+\label{sec:conclusion_rq1}
+
+RQ1 gives the main LLM/VLM-side finding: Across the handwritten comparison, M5 has the highest reported macro score among evaluated LLM/VLM-based setups on all four datasets in the provider-mixed descriptive overview, and the controlled LLM/VLM-based checks support the same result wherever the evaluation records contain a complete five-method comparison (\autoref{fig:exp_handwritten_llm_model_overview}; \autoref{tab:exp_handwritten_main_overview}; \autoref{tab:exp_handwritten_controlled_model}). This makes the context-rich structured setup the clearest positive result of the LLM/VLM experiments. The supported reading remains configuration-level: M5 combines ordered line-image context, OCR/HTR line text, page context, structured line metadata, validation, fallback, and projection. The evidence therefore supports M5 as the highest-scoring evaluated LLM/VLM-based setup, not a monotonic M1--M5 ladder or an isolated causal estimate for line-image evidence alone.
+
+\subsection{RQ2: How does the highest-scoring reported LLM/VLM-based regime compare with NNTP, a deterministic forced-alignment baseline, under the same newline-only evaluation target?}
+\label{sec:conclusion_rq2}
+
+RQ2 places that M5 result beside a deterministic aligner, and the supported reading is close and tie-dominated rather than one-sided. The matched set is Children Handwritten, IAM Handwritten, and Washington Handwritten. Bullinger is handled separately through the published Bullinger baseline: Subset~1 supports a direct subset-level comparison, while Subset~2 remains contextual because the inventories differ. Within that matched set, Children slightly favors M5, IAM is tied, and Washington slightly favors NNTP; paired counts from available prediction texts reinforce the close reading with 4 LLM/VLM wins, 2 NNTP wins, and 57 ties on Children, 20 ties on IAM, and 2 LLM/VLM wins, 4 NNTP wins, and 14 ties on Washington (\autoref{tab:exp_best_vs_nntp}). The comparison is useful precisely because both regimes are strong in different ways: M5 is a structured VLM regime whose generated response is checked, repaired, or projected, whereas NNTP is a fixed-transcription forced aligner over recognizer evidence. Character-level interpretations keep the NNTP preprocessing boundary explicit for both the matched rows and the Bullinger-specific comparison \thesiscite{peer2025ctcBullingerAlignment}.
+
+\subsection{RQ3: To what extent do structured output control, repair, fallback, and projection make LLM/VLM outputs valid under the fixed-transcription newline-only requirement?}
+\label{sec:conclusion_rq3}
+
+RQ3 explains why output form is central to the fixed-transcription task. Raw-output LLM/VLM methods can request newline-only behavior, but they do not guarantee preservation of the fixed non-newline character sequence. The structured methods add line-count checks, repair attempts, fallback behavior, and projection to the supplied transcription, making the final scored outputs compatible with the fixed-transcription requirement rather than merely prompt-compliant.
+
+The RQ3 claim is therefore about the structured evaluated setup. Validation, repair, fallback, and projection turn malformed or character-drifting generations into inspectable boundary plans or reject them through fallback paths. The available records keep those controls coupled with known-count staging, crop provenance, provider choice, and richer input evidence, so isolated effects of repair, fallback, or projection remain future ablation questions.
+
+\section{Limits of the Current Evidence}
+\label{sec:conclusion_limits}
+
+Chapter~\ref{cha:experimentation} gives the detailed validity account, especially in Table~\ref{tab:exp_validity_boundaries}. The limits summarized here are therefore not separate weaknesses of the task formulation, but the boundaries within which the research-question answers should be read. The strongest claims are claims about evaluated alignment setups. Evidence inputs, prompt and output format, validation, repair, fallback, projection, provider or model behavior, and line-image preparation are bundled in the reported configurations. The results therefore compare practical alignment setups rather than isolating the contribution of any single component.
+
+\paragraph{Staging, data, and reproducibility.}
+M4 and M5 use known-count structured staging in the evaluated handwritten setup: The stored ordered line metadata supplies a line count that matches the ground truth. These rows therefore test boundary assignment when an ordered line inventory is available, not blind line-count inference from a page image alone. The line-image sources also differ across datasets. Children Handwritten and IAM use dataset-provided line images, Bullinger uses PAGE/XML-derived crops, and Washington uses curated Kraken crops. Reproducibility is strongest for the public or fully disclosed parts of the pipeline; for Children Handwritten, external reproduction depends on access to the controlled AIBEX source export.
+
+\paragraph{Compared outputs and baselines.}
+The LLM/VLM overview is descriptive and provider-mixed, so it supports the reported M5 result rather than a provider-stable model ranking. The scored outputs also differ by method family: M1--M3 score raw returned model strings, whereas M4 and M5 may validate, repair, recover, fall back, and project a boundary plan onto the supplied transcription before scoring. NNTP remains a strong deterministic comparator at the shared line-metric level, while its PyLaia symbol-inventory preprocessing should be kept in mind for character-level interpretations.
+
+Bullinger contributes to the NNTP comparison through the published Bullinger baseline rather than through a new thesis-side full-\(59\)-sample NNTP run. This is still useful evidence. Subset~1 gives a direct subset-level comparison because the thesis subset matches the published inventory at the letter and line level. Subset~2 remains contextual because the thesis and paper inventories differ. For this reason, the sample-level tie-dominance claim is restricted to Children, IAM, and Washington, while Bullinger is used as an external published-baseline check.
+
+\paragraph{Missing evaluation layers.}
+The thesis does not include deterministic scaffold baselines, no-projection ablations, cost/runtime analysis, or human-in-the-loop correction studies. These are natural next steps rather than prerequisites for the present contribution. Within the current scope, the evidence supports three main conclusions: M5 has the highest reported macro score among the evaluated LLM/VLM-based handwritten setups; M5 and NNTP are close on the same-sample handwritten comparison sets; and structured output control is important for fixed-transcription validity. These boundaries make the contribution clearer: Newline-only alignment is a practical benchmark for comparing alignment setups today, and a basis for more component-level and operational evaluations in future work.
+
+\section{Future Work}
+\label{sec:conclusion_future_work}
+
+The most important next steps are those that keep the newline-only constraint central rather than treating it as a by-product of general OCR, HTR, or document-understanding systems. Three directions follow most directly from the results of this thesis.
+
+\paragraph{Dedicated newline-boundary prediction.}
+A first direction is to train a model specifically for newline-only alignment rather than relying on a general-purpose LLM or VLM to produce a corrected copy of the transcription. Such a model could represent the supplied transcription as a character or token sequence, combine it with visual page evidence, OCR/HTR hints, and ordered line context, and predict a boundary vector over the admissible insertion positions. This would move the problem from prompting toward a dedicated boundary predictor whose output space matches \(\mathcal{Y}(x)\) from \autoref{sec:theory_problem_definition}. It would also make it easier to test which signals are useful under a single trained objective, for example through ablations of line-count access, OCR scaffolding, image crops, and projection \thesiscite{likformansulem2006textLineSurvey,huang2022layoutlmv3,li2023trocr}.
+
+\paragraph{Constrained decoding and boundary search.}
+A second direction is to develop decoding or search methods that guarantee exact preservation of the fixed transcription while optimizing boundary placement. Rather than generating text first and projecting a usable line plan afterward, a decoder could operate directly over boundary vectors, dynamic-programming states, finite-state constraints, or token masks that admit only newline insertions between existing characters. This would connect the thesis task to constrained decoding and forced-alignment research while keeping the target explicit: The output should be a scored boundary plan, not a free string that later happens to be repairable \thesiscite{geng2023grammar,hokamp2017gridBeam,post2018fast,fischer2011icdarInaccurateAlignment,peer2025ctcBullingerAlignment}.
+
+\paragraph{Human-in-the-loop scholarly correction.}
+A third direction is an interactive correction workflow for scholarly transcription environments. Such a system could highlight uncertain newline-boundary decisions, show the relevant page crop, OCR/HTR line hint, neighboring text span, and alternative boundary plans, and let human experts approve or correct the proposed alignment. The research question would not only be whether automatic scores improve, but also how much expert time is saved, which uncertainty signals are interpretable, and how corrected decisions should be stored so that later editions can distinguish machine suggestions from scholarly approval. This direction connects the technical boundary-recovery task back to the Digital Humanities setting in which line structure supports inspection, citation, training data preparation, and editorial work \thesiscite{DriscollLevelsTranscription,Muehlberger2019TransformingScholarship,vidal2023pageLevelAssessment}.
+
+\section{Final Remarks}
+\label{sec:conclusion_final_remarks}
+
+This thesis establishes newline-only transcription alignment as a focused document-analysis task: Recover line boundaries while preserving the supplied transcription. The experiments show that structured LLM/VLM setups can be effective under this constraint, especially when line-image evidence is combined with validation and projection, but they also show that deterministic forced alignment remains a strong reference point. The contribution is a controlled task formulation, a documented benchmark, and a reproducible basis for future work on dedicated boundary prediction, constrained decoding, and human-in-the-loop scholarly correction.

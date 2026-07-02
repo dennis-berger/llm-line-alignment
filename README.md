@@ -18,6 +18,8 @@ Five methods (M1-M5) align line breaks using different input combinations: page 
 
 Start with [docs/thesis_reader_guide.md](docs/thesis_reader_guide.md) if you are reading this repository alongside the thesis. It maps thesis labels (`M1`-`M5`, `NNTP`) to the scripts, inputs, generated artifacts, and caveats that matter for interpreting the result tables.
 
+Final submission artifacts are included under [docs/final_submission/](docs/final_submission/): the thesis PDF, the LaTeX source tree needed to build it, and the defense presentation as both PDF and PowerPoint.
+
 The central contract is shared across all prompt-based methods: the supplied transcription is the character source, and the system should only insert newline characters. The implementation strength of that contract differs by method. `M1`-`M3` score raw prompt outputs, while `M4` and `M5` add structured JSON parsing, repair prompts, and deterministic projection back to the exact transcription before scoring.
 
 ## Quick Start
@@ -91,6 +93,7 @@ python scripts/run_children_crossfit_ocr.py
 ## Documentation
 
 - **[docs/thesis_reader_guide.md](docs/thesis_reader_guide.md)** - Companion map from thesis claims to repository artifacts
+- **[docs/final_submission/](docs/final_submission/)** - Final thesis PDF, thesis LaTeX source files, and defense presentation files
 - **[METHODS.md](METHODS.md)** - Detailed explanation of M1-M5 and NNTP approaches
 - **[METRICS.md](METRICS.md)** - All evaluation metrics with formulas and interpretation
 - **[datasets/README.md](datasets/README.md)** - Dataset structure and characteristics
@@ -110,7 +113,7 @@ python scripts/run_children_crossfit_ocr.py
 ├── utils/              # Shared helpers and prompts
 ├── tests/              # Unit tests
 ├── jobs/               # HPC cluster batch scripts
-└── docs/               # Technical documentation
+└── docs/               # Technical documentation and final submission artifacts
 ```
 
 ## Outputs

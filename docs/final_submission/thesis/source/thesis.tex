@@ -1,0 +1,66 @@
+
+\documentclass[oneside,a4paper]{book}
+%\pagestyle{headings}
+
+\input{preamble}
+\begin{document}
+\hypersetup{pageanchor=false}
+\input{frontmatter_titlepage}
+\clearpage
+\hypersetup{pageanchor=true}
+\frontmatter
+
+% A B S T R A C T
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\chapter*{\centering Abstract}
+\begin{quotation}
+\noindent
+Digitisation helps preserve fragile historical documents and makes them easier to access, search, and reuse. Transcriptions are central to this process: They allow humanities scholars to locate and inspect textual evidence, and they provide computer scientists with the text-image pairs needed to train, validate, and diagnose recognition and document-analysis models.
+
+For many workflows, a page-level transcription is not enough. Line-level transcriptions connect textual content to the visual organisation of the page, making it possible to compare text with line images, inspect local errors, and prepare line-based training or evaluation material. This thesis studies this problem as newline-only line-level transcription alignment: Given a document image and an already available transcription, the system inserts newline characters at positions corresponding to document lines while preserving all non-newline characters.
+
+The task is challenging because historical and handwritten documents vary in layout, writing style, degradation, spacing, hyphenation, and transcription conventions. Optical Character Recognition (OCR) and Handwritten Text Recognition (HTR) evidence can help identify line structure, but it may contain recognition or segmentation errors. Alignment therefore requires useful visual or textual evidence together with output control, because the supplied transcription must not be rewritten.
+
+This thesis evaluates five Large Language Model (LLM)- and Vision-Language Model (VLM)-based alignment configurations on four handwritten datasets, namely Bullinger Handwritten, Children Handwritten, IAM Handwritten, and Washington Handwritten. The printed versions of Bullinger and IAM provide supporting printed-context results. The results show that both evidence and control matter: The strongest reported LLM/VLM-based setting on the handwritten datasets is the context-rich structured configuration with ordered line-image evidence, and its comparison with NNTP, a deterministic forced-alignment baseline, remains close on the datasets where both systems were evaluated.
+
+The thesis contributes a newline-only evaluation protocol, a benchmark of contemporary LLM/VLM configurations under documented evidence and output-control settings, and an empirical basis for future work on dedicated boundary prediction or constrained decoding for transcription alignment.
+\end{quotation}
+\clearpage
+
+
+% C O N T E N T S 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\tableofcontents
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% NEW CHAPTERS %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/01_introduction}
+\input{chapters/02_theory_background}
+\input{chapters/03_state_of_the_art}
+\input{chapters/04_data}
+\input{chapters/05_method}
+\input{chapters/06_experimentation}
+\input{chapters/07_conclusion}
+\input{chapters/use_of_ai_tools}
+
+\begingroup
+\sloppy
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{thesis}
+\endgroup
+\bibliographystyle{plainnat}
+
+\appendix
+\input{chapters/appendix_audit}
+\cleardoublepage
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}},fitpaper=true]{included_pdfs/declaration_2_E.pdf}
+
+
+%END Doc
+%-------------------------------------------------------
+
+\end{document}

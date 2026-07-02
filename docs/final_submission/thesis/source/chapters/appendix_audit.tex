@@ -1,0 +1,921 @@
+% Supplementary appendix material for structured-method auditability and supporting tables.
+
+\chapter{Supplementary Method and Evaluation Details}
+\label{cha:appendix_audit}
+
+\section{Prompt Templates and Raw-Output LLM/VLM Regimes}
+\label{sec:appendix_prompt_templates}
+
+Chapter~\ref{cha:method} gives the thesis-level prompt requirements needed to understand the evaluated regimes directly in the main text. This appendix keeps the corresponding reproducibility registry. Table~\ref{tab:app_prompt_template_registry} preserves the archived implementation identifiers, run-configuration details, and companion-repository paths for the retained prompt family so that the reported handwritten rows can be traced back to concrete implementation artifacts. The registry does not imply provider-independent reproducibility, because backend behavior, image-budget handling, and unlogged provider-side settings still affect the realized requests and responses.
+
+\begin{table}[H]
+  \centering
+  \caption{Prompt-template reproducibility registry for the retained prompt family. Exact constants and companion-repository paths are preserved because they anchor the archived implementation identifiers discussed in Chapter~\ref{cha:method}.}
+  \label{tab:app_prompt_template_registry}
+  \footnotesize
+  \renewcommand{\arraystretch}{1.08}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.28\linewidth}Y@{}}
+    \toprule
+    \textbf{Method} & \textbf{Thesis-level prompt name} & \textbf{Archived implementation identifier(s) and run-configuration detail} & \textbf{Companion-repository path / note} \\
+    \midrule
+    M1 & M1 image-transcription prompt & \path{PROMPT_TEMPLATE_M1}; no retained prompt-variant override & prompt source: \path{utils/prompts.py}; evaluation entry point: \path{jobs/eval/m1/common_m1_eval.sbatch} \\
+    M2 & M2 image-transcription-\OCRHTR prompt & \path{PROMPT_TEMPLATE_M2}; no retained prompt-variant override & prompt source: \path{utils/prompts.py}; evaluation entry point: \path{jobs/eval/m2/common_m2_eval.sbatch} \\
+    M3 & M3 transcription-\OCRHTR prompt & \path{PROMPT_TEMPLATE_M3}; no retained prompt-variant override & prompt source: \path{utils/prompts.py}; evaluation entry point: \path{jobs/eval/m3/common_m3_eval.sbatch} \\
+    M4 & M4 structured OCR-line prompt; M4 repair prompt & \path{PROMPT_TEMPLATE_M4_BASELINE}; \path{M4_REPAIR_PROMPT_TEMPLATE}; run-configuration detail \path{PROMPT_VARIANT=baseline} & prompt source: \path{utils/prompts.py}; evaluation entry point: \path{jobs/eval/m4/common_m4_eval.sbatch} \\
+    M5 & retained context-rich M5 boundary-context prompt; M5 repair prompt & \path{PROMPT_TEMPLATE_M5_BOUNDARY_CONTEXT_V2}; \path{M5_REPAIR_PROMPT_TEMPLATE}; run-configuration detail \path{PROMPT_VARIANT=boundary_context_v2} for the \contextHundred{} rows & prompt source: \path{utils/prompts.py}; evaluation entry point: \path{jobs/eval/m5/common_m5_eval.sbatch}; see note for archived handwritten batch files \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.35em}
+
+  \parbox{0.96\linewidth}{\footnotesize\raggedright \textit{Note.} Exact constants and companion-repository paths are preserved verbatim because this table functions as a reproducibility registry rather than as a conceptual method summary. For M1--M3, few-shot examples are injected only through the method-specific formatter when \(n\)\nobreakdash-shot \(>0\). The limited 1-shot pilot in \autoref{sec:experimentation_one_shot_exploratory} is historical diagnostic evidence only and does not alter the retained prompt-family registry or the main M1--M5 maxima. For reproducibility, the one-example prompt used deterministic same-dataset example selection with random seed 42. The Washington runs were stored under the earlier internal \texttt{easy\_historical} label and are reported in the thesis as Washington Handwritten. For M4, the boundary-anchored alternative remains present in code but is not the retained default configuration. For M5, the archived handwritten batch files are \path{jobs/eval/m5/bullinger_handwritten_context100_0shot.sbatch}, \path{jobs/eval/m5/children_handwritten_context100_0shot.sbatch}, \path{jobs/eval/m5/washington_handwritten_context100_0shot.sbatch}, and \path{jobs/eval/m5/iam_handwritten_rep20_context100_0shot.sbatch}; the companion orchestration path is \path{jobs/orchestrators/eval_handwritten_m5_context100_api_models.sbatch}. Judge templates exist in code, but the retained recipe disables candidate judging.}
+\end{table}
+
+\subsection{Task-Critical Prompt Excerpts}
+\label{sec:appendix_prompt_excerpts}
+
+The following excerpts preserve the task-critical wording from the retained templates while omitting repeated headings, few-shot material, and long per-sample payloads. The evaluation runners fill the placeholders for the transcription, OCR/HTR text, expected line count, ordered line hints, and line-image manifest. M4 and M5 use the literal instruction that the transcription is the only source of characters; M1--M3 express the same constraint through the correct-transcription, exact-wording, and no-character-alteration instructions quoted below. M1--M3 use raw text prompts and are evaluated directly; M4 and M5 use strict JSON templates, repair prompts, and projection before scoring. There is no separate M5 recovery prompt constant in the retained code: loose recovery is implemented in the runner, while structural and quality repair calls reuse \path{M5_REPAIR_PROMPT_TEMPLATE} with generated error messages. Candidate-judge prompt constants are present in code, but the retained \contextHundred{} recipe disables judging.
+
+\paragraph{\texttt{PROMPT\_TEMPLATE\_M1}.}
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily,breaklines=true,columns=fullflexible]
+# Role and Objective
+Process a scanned page image and its transcription (continuous text; no line breaks) to reconstruct line breaks that match the page's visual line layout.
+
+# Instructions
+- Locate the exact wording for each visible line within the transcription.
+- Insert newline characters at precise locations matching the visual end of each line in the image.
+- Do not add, remove, or alter any characters other than adding newlines.
+- Output only the visible text from the provided page, segmented precisely by these line breaks.
+- Ignore image lines that do not have an exact transcriptional match.
+
+Transcription:
+{transcription}
+\end{lstlisting}
+
+\paragraph{\texttt{PROMPT\_TEMPLATE\_M2}.}
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily,breaklines=true,columns=fullflexible]
+# Role and Objective
+Align the correct transcription of a scanned page to match the visual line structure, using the page image as the primary reference and HTR/OCR output as a structural guide.
+
+# Instructions
+- Use the page image as the main reference for true visual line breaks.
+- Use the HTR/OCR output to help identify line boundaries, especially where the image is ambiguous.
+- Insert newline characters into the correct transcription at positions matching visual line ends.
+- Do not add, remove, or alter any characters other than adding newlines.
+- Each visual line in the image should correspond to one line in your output.
+
+Correct transcription:
+{transcription}
+
+HTR/OCR output with line breaks:
+{htr}
+\end{lstlisting}
+
+\paragraph{\texttt{PROMPT\_TEMPLATE\_M3}.}
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily,breaklines=true,columns=fullflexible]
+# Role and Objective
+Align a correct transcription (no line breaks) to match the line structure indicated by an HTR/OCR output (which has line breaks but may contain character errors).
+
+# Instructions
+- Use the HTR/OCR output to determine where line breaks should be inserted in the correct transcription.
+- Do not add, remove, or alter any characters in the transcription other than inserting newlines.
+- Handle HTR/OCR character errors by finding the best alignment between corresponding text segments.
+- Each line in the HTR/OCR should correspond to one line in your output.
+
+Correct transcription:
+{transcription}
+
+HTR/OCR output with line breaks:
+{htr}
+\end{lstlisting}
+
+\paragraph{\texttt{PROMPT\_TEMPLATE\_M4\_BASELINE}.}
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily,breaklines=true,columns=fullflexible]
+# Role and Objective
+Align a correct transcription (no line breaks) to an ordered list of PyLaia line hypotheses.
+
+# Instructions
+- The transcription is the only source of characters.
+- The PyLaia line hypotheses are structural hints only; they may contain OCR errors.
+- Produce exactly {num_lines} output lines in reading order.
+- Do not add, remove, or alter transcription characters.
+- Do not copy page or line metadata into the output.
+- The concatenation of your output lines must exactly equal the transcription.
+
+# Output Format
+Return strict JSON only, with no code fences or extra text:
+{"lines": ["...", "..."]}
+
+Correct transcription:
+{transcription}
+
+Ordered PyLaia line hypotheses ({num_lines} lines):
+{line_hints}
+\end{lstlisting}
+
+\paragraph{\texttt{M4\_REPAIR\_PROMPT\_TEMPLATE}.}
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily,breaklines=true,columns=fullflexible]
+Your previous response was invalid.
+Error: {error_message}
+
+Follow these rules:
+{instruction_block}
+- Return only strict JSON with exactly {num_lines} strings in the "lines" array.
+
+Correct transcription:
+{transcription}
+
+Ordered PyLaia line hypotheses ({num_lines} lines):
+{line_hints}
+
+Previous invalid response:
+{previous_response}
+\end{lstlisting}
+
+\paragraph{\texttt{PROMPT\_TEMPLATE\_M5\_BOUNDARY\_CONTEXT\_V2}.}
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily,breaklines=true,columns=fullflexible]
+# Role and Objective
+Align a correct transcription (no line breaks) to an ordered set of line images.
+
+# Instructions
+- The transcription is the only source of characters.
+- Use the supplied line-level images as the primary anchors for line boundaries.
+- Produce exactly {num_lines} output lines in the same reading order as the supplied line images.
+- Treat line image i as the hard local anchor for output line i.
+- Keep uncertainty local: if one line is ambiguous, do not absorb text from its neighbors unless the images clearly require it.
+- Preserve short, odd, or fragmentary standalone lines when the images suggest them, including page numbers, dates, headings, salutations, symbols, addresses, and brief tail fragments.
+- If a line image appears much shorter than its neighbors, prefer assigning it a shorter transcription span instead of smoothing the boundary away.
+- Use the global page context only to prevent long-range drift, not to override a clear local line image anchor.
+- When uncertain between two nearby split points, prefer the earlier split that avoids pushing text into later lines.
+- Do not leave the first or last output line empty unless the corresponding line image is genuinely blank.
+- Do not add, remove, or alter transcription characters.
+- Do not copy metadata into the output.
+- The concatenation of your output lines must exactly equal the transcription.
+- You will receive one or more numbered strip images. Each strip contains consecutive line crops in reading order, separated by black bars, and each row is labeled with its output line number in the left gutter.
+- If full page images are provided, use them only as global layout context for indentation, relative line length, page transitions, and short header or signature blocks.
+- If OCR line-text hints are provided below, use them only as a secondary structural hint. They may contain recognition errors.
+
+# Output Format
+Return strict JSON only, with no code fences or extra text:
+{"lines": ["...", "..."]}
+
+Correct transcription:
+{transcription}
+
+Ordered line-image manifest ({num_lines} lines):
+{line_image_manifest}
+
+Optional OCR line hints:
+{ocr_text_section}
+\end{lstlisting}
+
+\paragraph{\texttt{M5\_REPAIR\_PROMPT\_TEMPLATE}.}
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily,breaklines=true,columns=fullflexible]
+Your previous response was invalid.
+Error: {error_message}
+
+Follow these rules:
+{instruction_block}
+- Return only strict JSON with exactly {num_lines} strings in the "lines" array.
+
+Correct transcription:
+{transcription}
+
+Ordered line-image manifest ({num_lines} lines):
+{line_image_manifest}
+{ocr_text_section}
+
+Previous invalid response:
+{previous_response}
+\end{lstlisting}
+
+\paragraph{M5 recovery path.}
+No separate recovery prompt is present for M5. After an invalid first response and invalid repair response, the retained runner first tries to parse loose JSON line arrays from the initial or repair response, scores them against OCR fallback hint lines when those hints are available, reconciles or merges them to the expected \texttt{\{num\_lines\}}, and projects the reconciled plan to the untouched transcription. If that recovery fails, it uses OCR hint lines or exact-count plain response lines as fallback boundary hints before projection; if no usable line hints remain, the runner raises an error rather than fabricating a final transcription.
+
+\subsection{Raw-Output LLM/VLM Skeletons}
+\label{sec:appendix_prompt_only_pseudocode}
+
+The raw-output LLM/VLM regimes M1--M3 share one reproducibility-relevant property that is absent from M4 and M5: The first backend response is evaluated directly, without parser-backed repair or boundary projection afterward. The following skeletons supplement the main-text summaries and keep the generation loop explicit without any recovery stage.
+
+\paragraph{M1.}
+{\footnotesize
+\begin{alltt}
+Input: Ordered page images I_1..I_k,
+       fixed transcription x, optional few-shot examples
+1. load I_1..I_k and the untouched transcription x
+2. if k > 1, split x heuristically into
+   k contiguous word-respecting chunks
+3. for each non-empty chunk i:
+     Build the prompt with PROMPT_TEMPLATE_M1
+     send (I_i, chunk_i) to the multimodal backend
+4. concatenate the page responses in page order
+5. evaluate the raw returned text directly
+\end{alltt}
+}
+
+\paragraph{M2.}
+{\footnotesize
+\begin{alltt}
+Input: Ordered page images I_1..I_k,
+       fixed transcription x, OCR/HTR text h
+1. load I_1..I_k, x, and the OCR/HTR hint text h
+2. if k > 1, split x and h independently into
+   k contiguous word-respecting chunks
+3. for each non-empty page chunk i:
+     Build the prompt with PROMPT_TEMPLATE_M2
+     send (I_i, x_i, h_i) to the multimodal backend
+4. concatenate the page responses in page order
+5. evaluate the raw returned text directly
+\end{alltt}
+}
+
+\paragraph{M3.}
+{\footnotesize
+\begin{alltt}
+Input: Fixed transcription x,
+       OCR/HTR text h, optional few-shot examples
+1. load x and the OCR/HTR hint text h
+2. build the prompt with PROMPT_TEMPLATE_M3
+3. send (x, h) to the text backend in one call
+4. store the raw returned text as the prediction
+5. evaluate the raw returned text directly
+\end{alltt}
+}
+
+\subsection{Expanded Comparability Matrix}
+\label{sec:appendix_method_comparability}
+
+Table~\ref{tab:app_method_comparability_matrix_full} expands the compact validity summary from Table~\ref{tab:method_comparability_matrix}. It keeps the fuller appendix-only registry form needed for interpretation: Evidence inputs, line-count source, output-control regime, projection or fallback behavior, provider dependence, and the NNTP symbol-filter caveat. The goal is readability for later appendix consultation rather than compactness for the main argument.
+
+\begin{table}[p]
+  \centering
+  \caption{Expanded comparability matrix for the implemented handwritten regimes. The table keeps the appendix-only interpretation registry in one place: Evidence inputs, stored line-count provenance, output-control regime, projection or fallback behavior, provider dependence, and the NNTP PyLaia symbol-filter caveat.}
+  \label{tab:app_method_comparability_matrix_full}
+  \scriptsize
+  \renewcommand{\arraystretch}{1.08}
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.08\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}Y@{}}
+    \toprule
+    \textbf{Method} & \textbf{Evidence} & \textbf{Line-count source} & \textbf{Output control} & \textbf{Projection} & \textbf{Fallback} & \textbf{Provider dependence} & \textbf{Caveat} \\
+    \midrule
+    M1 & ordered page image(s) + fixed transcription & none; length emerges from raw backend output & prompt instructions only & no & none & high; raw multimodal output is scored directly & multi-page chunking is heuristic rather than ground-truth page aligned \\
+    M2 & ordered page image(s) + OCR/HTR hint text + fixed transcription & none; length emerges from raw backend output & prompt instructions only & no & none & high; raw output and OCR-conditioned prompting both matter & inherits OCR noise and the same heuristic multi-page chunking as M1 \\
+    M3 & OCR/HTR hint text + fixed transcription & none; length emerges from raw backend output & prompt instructions only & no & none & high; raw text output is scored directly & no visual evidence remains to correct OCR-side ordering or line-break mistakes \\
+    M4 & ordered OCR lines + fixed transcription & stored \texttt{ocr\_lines} count; matches ground truth in the reported evaluation set & strict JSON, one repair prompt, parser validation & yes & deterministic OCR-line projection after failed repair & moderate; parser-side recovery reduces backend variation in the final string & count is not page-predicted and the scaffold inherits OCR quality \\
+    M5 & ordered line crops + OCR/HTR line text + page images + fixed transcription in the evaluated configuration & stored \texttt{ocr\_lines} count; matches ground truth in the reported evaluation set & strict JSON, repair, recovery, structural and quality checks & yes & loose model-line recovery, otherwise deterministic projection & high; backend image budgets affect the realized prompt bundle & mixed crop provenance and stored count remain part of the regime \\
+    NNTP & staged line images + recognizer output + fixed transcription & staged line-image set after dataset-specific preparation & deterministic forced alignment & no & not applicable & no API provider; recognizer and checkpoint still matter & labels are filtered to the active PyLaia symbol inventory before alignment \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.35em}
+
+  \parbox{0.95\linewidth}{\footnotesize\raggedright \textit{Note.} The matrix stays in the appendix because it is interpretively important but too dense for the main text. It preserves the same variables used throughout the thesis to separate direct comparisons from contextual ones: Evidence, line-count provenance, output control, projection, fallback, provider dependence, and the NNTP symbol-filter caveat.}
+\end{table}
+
+\FloatBarrier
+
+\section{Expanded Error-Mechanism Evidence}
+\label{sec:appendix_method_weakness_evidence}
+
+Table~\ref{tab:app_method_weakness_evidence} expands the compact weakness summary in Table~\ref{tab:exp_method_weakness_mechanisms}. It keeps the counts, named sample IDs, trace evidence, and longer mechanism explanations in the appendix so that the Chapter~\ref{cha:experimentation} discussion can remain readable without losing audit detail. Counts are row counts rather than sample-ID macro-averages, and metric examples or trace averages use whitespace-normalized values where \LANormCombined{}, \CERNorm{}, or \WERNorm{} is named.
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{Expanded evidence behind the method weakness and mechanism summary in Table~\ref{tab:exp_method_weakness_mechanisms}. Counts summarize auditable rows in the documented prediction- and trace-level analysis; named samples are illustrative cases only. For NNTP, character-level interpretation preserves the preprocessing caveat.}
+  \label{tab:app_method_weakness_evidence}
+  \scriptsize
+  \renewcommand{\arraystretch}{1.10}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.065\linewidth}>{\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}p{0.29\linewidth}Y@{}}
+    \toprule
+    \textbf{Method} & \textbf{Detailed counts and comparisons} & \textbf{Sample IDs and trace evidence} & \textbf{Longer mechanism and implication} \\
+    \midrule
+    M1 & In the auditable scan, M1 has non-space transcription drift in \(452/648\) rows, \(295\) under-segmented rows, \(78\) over-segmented rows, and \(83\) rows with forward/reverse order-sensitive line-accuracy divergence of at least \(0.25\). & Bullinger 11084 illustrates a missing opening line with high tail realignment. & The model must both copy and segment in one raw generation. An early omission or insertion shifts the order-sensitive line metric even when later lines realign. For RQ1, image evidence alone is useful but not sufficient evidence of boundary recovery unless the fixed-transcription requirement is obeyed; for RQ3, M1 motivates stronger output control. \\
+    \addlinespace[0.45em]
+    M2 & Same-model M2 minus M1 is better in \(129/506\) auditable pairs, worse in \(233/506\), and tied in \(144/506\). & Washington 279 is an M2-help case; Children \texttt{2A\_11\_18-19} is an illustrative M2-hurt case where M1 is exact and M2 collapses to one metric line. & The prompt must reconcile page image, fixed transcription, OCR/HTR hint, and heuristic page chunks. If the hint text or its chunk boundary is misleading, the model can follow the noisy scaffold rather than the fixed transcription. RQ1 should treat OCR/HTR as a noisy structural hint, not monotonic extra information. M2 can fail to improve over M1 for artifact-observed reasons without implying that OCR/HTR is always harmful. \\
+    \addlinespace[0.45em]
+    M3 & IAM reaches \(0.948\) for M3 in Table~\ref{tab:exp_handwritten_main_overview}. In the scan, M3 has \(271/506\) under-segmented rows and a mixed M3-minus-M1 pairing: \(189\) better, \(211\) worse, and \(106\) tied. & IAM \texttt{p06-042} is tied at \(1.000\) across M3, M4, M5, and NNTP. & When OCR lineation is close, the text hint is already an adequate boundary scaffold. When it is wrong, M3 has no image-side signal to correct it. RQ1 is about evidence quality, not only evidence quantity: M3 can be near-ceiling on OCR-friendly material while remaining limited on harder or noisier cases. \\
+    \addlinespace[0.45em]
+    M4 & M4 has the correct line count in \(399/423\) auditable rows and improves over M2 in \(301/423\) same-model pairs, but M4 is worse than M3 in \(103/423\) same-model pairs. & Washington 307 is illustrative: M3 is exact, while M4 has \(\LANormCombinedToken=0.000\) despite normalized exact-line F1 \(=0.839\). & Stronger structure constrains the output form, but it can also lock the answer to a flawed OCR-line scaffold. Header/date splits can preserve many line strings while shifting their sequence positions. RQ3 gains validity from structured output, but RQ1 cannot read M4 as a guaranteed accuracy improvement over OCR-only prompting. \\
+    \addlinespace[0.45em]
+    M5 & M5 is strongest in Tables~\ref{tab:exp_handwritten_main_overview} and~\ref{tab:exp_handwritten_controlled_model}. The scan finds \(17\) M5 line-end hyphen mismatches and \(19/103\) same-model Mistral cases where M5 is not the best M1--M4/M5 row. & In trace-backed rows, fallback averages \(\LANormCombinedToken=0.573\) versus \(0.920\) for projection rows, and repair-attempt rows average \(0.651\) versus \(0.938\) without repair attempts; these are associative diagnostics. Washington 270 is an illustrative counterexample. & The evaluated context-rich line-image configuration usually provides strong anchors, but difficult local boundaries can still be misplaced. Trace modes are entangled with dataset and provider behavior, so they indicate failure contexts rather than causal components. RQ1 supports M5 as the strongest evaluated configuration, not as an every-sample winner or proof of line-image evidence by itself. RQ3 remains a complete-regime claim, not a component-level control ablation. \\
+    \addlinespace[0.45em]
+    NNTP & The matched comparison is close and tie-dominated: Children \(4/2/57\) LLM/VLM wins/NNTP wins/ties, IAM \(20\) ties, and Washington \(2/4/14\). All \(103\) auditable NNTP rows have equal predicted and ground-truth line counts. & Children \texttt{2A\_12\_8-9} illustrates \(\LANormCombinedToken=0.000\) with \(\CERNormToken=\WERNormToken=0\). & Fixed count and CTC-style recognizer evidence strongly constrain the search, but local alignments can place a boundary on the wrong side of a neighboring word or short line. RQ2 should be read as close and dataset-dependent rather than as clear domination by either paradigm; line accuracy remains the primary comparison surface. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+\end{landscape}
+
+\FloatBarrier
+
+\section{Structured-Method Control Paths}
+\label{sec:appendix_structured_audit}
+
+Unlike the raw-output skeletons above, M4 and M5 include parser-side control branches that are part of the scored end-to-end regime. This appendix records the fuller audit form that sits behind the now self-contained main-text descriptions. Both methods request strict JSON of the form \texttt{\{"lines": ["...", "..."]\}}, and both validate the returned array length against the ordered scaffold size before any output is accepted.
+
+The two methods differ in what constitutes the scaffold. M4 consumes ordered OCR-line hints with page index, line index, OCR text, and crop metadata. M5 resolves the same payload into ordered line-image anchors; in the evaluated M5 configuration, OCR/HTR line text and page images are also supplied as secondary context. In both cases, the stored prediction is not simply the raw model text; it is the result of validation, bounded recovery, and, when needed, projection back to the untouched transcription.
+
+Table~\ref{tab:app_structured_pseudocode} records the shared branch structure, while Table~\ref{tab:app_structured_method_audit} separates the M4 and M5 stage-level differences.
+
+\subsection{Shared M4/M5 Pseudocode}
+\label{sec:appendix_structured_pseudocode}
+
+\begin{table}[t]
+  \centering
+  \caption{Shared pseudocode for the structured M4/M5 pipeline. Step~3 reflects the current handwritten implementation: The expected line count is read from disk rather than predicted from the page.}
+  \label{tab:app_structured_pseudocode}
+  \begin{minipage}{0.94\linewidth}
+    \footnotesize
+\begin{alltt}
+Input: Untouched transcription x, structured payload p, method M in \{M4, M5\}
+1. load fixed transcription x from transcription/<id>.txt
+2. load structured line evidence p from ocr_lines/<id>.json
+3. set N <- len(p.lines)   % read from disk; not predicted from the page
+4. if M = M5:
+     Resolve crop_path values to ordered line images
+     load OCR text hints and page images in the evaluated M5 configuration
+5. build a strict-JSON prompt with x, the ordered evidence, and N
+6. r0 <- model(prompt)
+7. attempt strict parse of {"lines": [...]} with exactly N strings
+8. if the parse fails and repair is enabled:
+     r1 <- model(repair_prompt(error, r0))
+     attempt the strict parse again
+9. if no strict JSON survives and loose recovery is enabled:
+     Recover exact-count line hints from free-form response lines when possible
+10. if no usable model lines remain and fallback is enabled:
+      Use deterministic hint lines from p (OCR text or equivalent scaffold)
+11. choose the boundary plan b from the accepted, recovered, or fallback lines
+12. project b back onto the untouched transcription x
+    when the regime requires exact-character preservation after projection
+13. write prediction I(x,b)
+14. evaluate with the shared metric stack
+\end{alltt}
+  \end{minipage}
+\end{table}
+
+\begin{table}[t]
+  \centering
+  \caption{Audit summary of the structured-output control used in the reported M4 and M5 runs.}
+  \label{tab:app_structured_method_audit}
+  \footnotesize
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}Y Y@{}}
+    \toprule
+    \textbf{Stage} & \textbf{M4} & \textbf{M5} \\
+    \midrule
+    Primary scaffold & ordered OCR lines with explicit page and line indices & ordered line-image crops; OCR/HTR text hints and page images enabled as secondary context in the evaluated M5 configuration \\
+    Expected line count & \(N=\lvert\texttt{ocr\_lines.lines}\rvert\) from the stored payload; matches ground truth in the reported evaluation set & resolved line-image count from the stored payload; matches ground truth in the reported evaluation set \\
+    First validation & parse strict JSON, require one string per expected line & parse strict JSON, require one string per expected line \\
+    First recovery & one repair prompt using the error message and previous response & one repair prompt using the error message and previous response \\
+    If still invalid & deterministic projection from OCR hint lines & loose-response recovery from model text when possible; otherwise projection from OCR or response-derived fallback lines \\
+    Additional checks after valid JSON & projection back to the transcription if copied characters drift & structural and OCR-backed quality repair may run before selecting the final boundary plan \\
+    Final stored output & untouched transcription re-sliced by the selected boundary plan & untouched transcription re-sliced by the selected boundary plan \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\FloatBarrier
+
+\subsection{Projection Back to the Exact Transcription}
+\label{sec:appendix_projection}
+
+Projection uses the hinted or selected line plan only as boundary evidence. The chosen hint lines are concatenated, their boundary offsets are aligned monotonically to the untouched transcription via matching blocks and boundary interpolation, and the transcription is then re-sliced at the projected offsets. Copied character errors therefore disappear from the stored output, while the line plan itself is retained.
+
+\subsection{Schematic Worked Example}
+\label{sec:appendix_projection_example}
+
+\needlines{9}
+Suppose the untouched transcription is \texttt{The Bearer, Captain John Mercer}. A valid parsed response might return
+\begin{alltt}
+["The Bearer, Caplain ",
+ "John Mercer"]
+\end{alltt}
+The copied typo in \texttt{Caplain} is not trusted as content. Instead, the system keeps only the two-line boundary plan and projects that plan back onto the untouched transcription, yielding
+\needlines{6}
+\begin{alltt}
+["The Bearer, Captain ",
+ "John Mercer"]
+\end{alltt}
+The copied character error disappears, while the trailing blank after \texttt{Captain} is preserved because the character stream itself is never edited.
+
+\subsection{Archived Output-Control Event Counts}
+\label{sec:appendix_structured_event_coverage}
+
+A single same-recipe structured trace layer covers the full denominator across all four reported handwritten datasets in the archived evaluation records: The zero-shot \GPTFiveShort{} M5 \contextHundred{} rows. The main-text audit table, Table~\ref{tab:app_m5_trace_event_counts}, aggregates the sample-level events recorded in those traces as an output-validity audit, not as an additional accuracy table. This archived layer is complete, so the missing column records absent traces within that layer rather than exclusions from a broader result registry. The counts are not mutually exclusive. A sample can parse valid JSON on the first try and still be projected back onto the untouched transcription, and Bullinger includes two page-split samples whose subcalls are merged back to one sample-level event summary.
+
+Within this archived same-recipe layer, the non-strict recovery and fallback events cluster in Bullinger: All recorded repair successes, loose recoveries, and deterministic fallback events occur in the Bullinger row, while the Children, IAM, and Washington rows have zero counts in those event columns. This supports a focused audit statement about where output-validity recovery branches were used; it is not an independent proof that Bullinger is harder, nor a causal estimate of those branches' accuracy effect.
+
+Equivalent M4 event totals are not reported from traces in the archived evaluation records. Those records preserve four exploratory \texttt{children\_handwritten} M4 traces for \MistralLargeShort{} inherited from the 2026-04-09 completion run, which is insufficient for a same-sample per-dataset audit table. The thesis can therefore describe the M4 control logic from code, but comparable M4 event totals remain an evidence gap.
+
+\FloatBarrier
+
+\section{M5 Recipe and Reproducibility Notes}
+\label{sec:appendix_m5_recipe_repro}
+
+Table~\ref{tab:method_m5_context_rich_config} records the archived zero-shot \contextHundred{} recipe used by the complete handwritten M5 rows that are interpreted in the main text. It is included here as an audit aid rather than as a main-text method claim because the chapter-level argument in \autoref{cha:method} is about comparability, not every runtime knob.
+
+\begin{table}[t]
+  \centering
+  \caption{Configuration of the archived zero-shot M5 \contextHundred{} recipe.}
+  \label{tab:method_m5_context_rich_config}
+  \footnotesize
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabularx}{\linewidth}{@{}p{0.29\linewidth}Y@{}}
+    \toprule
+    \textbf{Field} & \textbf{Archived setting} \\
+    \midrule
+    Run label / archived batch files & method variant \texttt{m5\_context100}; archived handwritten batch files: \path{jobs/eval/m5/bullinger_handwritten_context100_0shot.sbatch}, \path{jobs/eval/m5/children_handwritten_context100_0shot.sbatch}, \path{jobs/eval/m5/washington_handwritten_context100_0shot.sbatch}, and \path{jobs/eval/m5/iam_handwritten_rep20_context100_0shot.sbatch}; orchestration entry point: \path{jobs/orchestrators/eval_handwritten_m5_context100_api_models.sbatch} \\
+    Shot setting & zero-shot (\texttt{N\_SHOTS}=0); the sampling seed is inactive in the reported rows \\
+    Prompt variant / template constant & \texttt{boundary\_context\_v2} \(\rightarrow\) \texttt{PROMPT\_TEMPLATE\_M5\_BOUNDARY\_CONTEXT\_V2} \\
+    Primary line-image packaging & \texttt{numbered\_strips} \\
+    Strip size & 12 ordered crops per strip before any budget-driven repacking \\
+    OCR hint enabled & yes (\texttt{USE\_OCR\_TEXT}=1) \\
+    Page image enabled & yes (\texttt{INCLUDE\_PAGE\_IMAGES}=1), as global layout context \\
+    Page-wise recursion & enabled only when a sample has at least 100 ordered line hints (\texttt{SPLIT\_BY\_PAGE}=1, \texttt{SPLIT\_MIN\_LINES}=100) \\
+    Candidate judge enabled & no in the archived recipe (\texttt{JUDGE\_CANDIDATES}=0) \\
+    Generation cap and decoding & wrapper default \texttt{MAX\_NEW\_TOKENS}=1600 unless explicitly overridden; \texttt{TEMPERATURE}=0.0; no \texttt{top\_p} argument is exposed by the retained M5 wrapper \\
+    Retry / resume behavior & per-sample checkpoints support resume; Gemini and Mistral backends implement explicit retry/backoff for transient API errors, while the OpenAI backend does not add a project-specific retry loop \\
+    Strict JSON repair & one repair prompt after an invalid first response \\
+    Projection enabled & yes; accepted, recovered, or fallback boundary plans may be re-sliced onto the untouched transcription \\
+    Expected line count source & \(\lvert\texttt{ocr\_lines.lines}\rvert\) read from disk; matches ground truth in the reported evaluation set \\
+    Line-crop provenance & dataset-provided line images for Children and IAM, PAGE/XML-derived crops for Bullinger, curated Kraken crops for Washington; see \autoref{tab:method_line_evidence_sources} \\
+    Image resizing before request & loaded page, crop, stacked, or numbered-strip images are converted to RGB and downscaled so the longest side is at most 1280 pixels before provider-specific encoding \\
+    Provider image-budget fallback & if a backend caps images, the code first repacks numbered strips, then drops page images, then drops example images, and finally clips remaining line-context images \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+Table~\ref{tab:method_reproducibility_artifacts} complements that recipe with the reusable artifact chain. The key point is not full from-scratch determinism on every rerun, but persistent intermediate artifacts, resumable checkpoints, and staged outputs that keep the archived comparisons inspectable.
+
+\begin{table}[t]
+  \centering
+  \caption{Reproducibility mechanisms by stage.}
+  \label{tab:method_reproducibility_artifacts}
+  \footnotesize
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.19\linewidth}Y Y Y@{}}
+    \toprule
+    \textbf{Stage} & \textbf{Persistent artifacts} & \textbf{Reuse / resume} & \textbf{Main caveat} \\
+    \midrule
+    OCR/HTR preprocessing & \texttt{ocr/<id>.txt}, \texttt{ocr\_lines/<id>.json}, metadata sidecars & existing artifacts are reused unless explicit overwrite is requested & cache configuration is not hashed before reuse \\
+    LLM/VLM evaluation M1--M5 & prediction texts, evaluation CSVs, resumable checkpoints, optional trace JSON & deterministic checkpoint path supports resume; the few-shot seed matters only when \(n\)\nobreakdash-shot \(>0\) & zero-shot bypasses the sampling seed; provider behavior may still drift \\
+    NNTP evaluation & prepared line images, stripped-character reports, netout metadata, boundary maps, evaluation CSVs & expensive stages can be stopped and resumed from staged outputs & requires external PyLaia/Java tooling and filtered label inventory \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\FloatBarrier
+
+\section{NNTP Symbol-Filter Auditability}
+\label{sec:appendix_nntp_symbol_filter_audit}
+
+The NNTP symbol-filter caveat is partly auditable from archived preparation outputs. NNTP filters labels to the active PyLaia \texttt{syms.txt} symbol inventory before alignment; Table~\ref{tab:app_nntp_symbol_filter_audit} records what is actually archived for that preprocessing step. Within a matched thesis-row regime, Children Handwritten is the only full-denominator case: Its cross-validation preparation workspaces preserve \path{stripped_chars.json} for all 63 held-out samples and record no unsupported-symbol removals. Bullinger preserves a contextual single-sample preparation report outside the archived 2026-04-20 evaluation records, while matched IAM and Washington rows do not preserve comparable stripped-character reports.
+
+\begin{table}[t]
+  \centering
+  \caption{Archived support for quantifying NNTP symbol filtering on the reported handwritten datasets.}
+  \label{tab:app_nntp_symbol_filter_audit}
+  \footnotesize
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabularx}{\linewidth}{@{}p{0.23\linewidth}Y p{0.16\linewidth}p{0.11\linewidth}p{0.12\linewidth}@{}}
+    \toprule
+    \textbf{Dataset} & \textbf{Report scope} & \textbf{Unsupported / total} & \textbf{Share} & \textbf{Top symbol} \\
+    \midrule
+    Children Handwritten & 63/63 held-out CV samples & 0 / 10\,655 & 0.00\% & none \\
+    Bullinger Handwritten & contextual single sample outside the archived evaluation records & 1 / 1\,231 & 0.08\% & \texttt{Y} \\
+    IAM (20-form) & no matched stripped-character report archived & -- & -- & -- \\
+    Washington Handwritten & a nonmatched smoke workspace is archived; the matched report is unavailable & -- & -- & -- \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.35em}
+
+  \parbox{0.93\linewidth}{\footnotesize In the Children CV reports, \(\texttt{original\_length} - \texttt{filtered\_length} = 65\) comes from whitespace normalization inside \texttt{filter\_transcription\_text}, not from unsupported-symbol stripping, because every archived \texttt{stripped\_counts} dictionary is empty. The Bullinger row is contextual and must not be read as a comparable thesis-row statistic.}
+\end{table}
+
+\FloatBarrier
+
+\section{Qualitative Excerpt Blocks}
+\label{sec:appendix_qualitative_excerpts}
+
+Tables~\ref{tab:app_qualitative_excerpt_blocks} and~\ref{tab:app_qualitative_ocr_excerpt} preserve the full excerpt blocks summarized compactly in Table~\ref{tab:exp_linebreak_comparison}. They are kept in the appendix so that the main qualitative section can remain readable while the exact line-break evidence remains available for inspection.
+
+\providecommand{\excerptnl}{\mbox{\texttt{\textbackslash n}}}
+\begin{table}[p]
+  \centering
+  \caption{Full excerpt blocks for three excerpt-backed qualitative cases summarized in Table~\ref{tab:exp_linebreak_comparison}. Metric values in the case column are whitespace-normalized per-sample values, not macro-averages over sample IDs; explicit \texttt{\textbackslash n} markers show true line boundaries, ellipses mark omitted within-line context, and apparent spelling anomalies are reproduced verbatim from the archived transcriptions or predictions rather than silently corrected.}
+  \label{tab:app_qualitative_excerpt_blocks}
+  \scriptsize
+  \renewcommand{\arraystretch}{1.08}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.22\linewidth}Y@{}}
+    \toprule
+    \textbf{Case} & \textbf{Excerpt comparison} \\
+    \midrule
+    {\raggedright
+    \textbf{Washington 304}\\
+    M3 / \GPTFiveMarchShort\\
+    \(\LANormCombinedToken=0.338\), \(\LineFOneNormToken=0.708\), \(\CERNormToken=0.000\)\\
+    M5 / \GPTFiveShort\\
+    \(\LANormCombinedToken=1.000\), \(\LineFOneNormToken=1.000\), \(\CERNormToken=0.000\)\\
+    Mechanism: M3 preserves content but collapses the opening partition.\par}
+    &
+    \begin{minipage}[t]{\hsize}
+      \textbf{Ground truth}\par
+      {\raggedright\ttfamily
+      304. Letters Orders and Instructions. December 1755.\excerptnl\\
+      be sure of idemnity. If your Honor would\excerptnl\\
+      be kind enough to intimate this to General\excerptnl\\
+      Shirley, or the Colonels of those Regiments,- it\excerptnl\\
+      would be of service to us: without leave we\par}
+      \vspace{0.3em}
+      \textbf{Contrasting LLM/VLM row}\par
+      {\raggedright\ttfamily
+      304. Letters Orders and Instructions. December 1755. be\excerptnl\\
+      sure of idemnity. If your Honor would be kind enough\excerptnl\\
+      to intimate this to General Shirley, or the Colonels\excerptnl\\
+      of those Regiments,- it would be of service to us:\excerptnl\\
+      without leave we dare not receive them. c. GW\par}
+      \vspace{0.3em}
+      \textbf{M5 row}\par
+      {\raggedright\ttfamily
+      304. Letters Orders and Instructions. December 1755.\excerptnl\\
+      be sure of idemnity. If your Honor would\excerptnl\\
+      be kind enough to intimate this to General\excerptnl\\
+      Shirley, or the Colonels of those Regiments,- it\excerptnl\\
+      would be of service to us: without leave we\par}
+    \end{minipage}
+    \\
+    \addlinespace[0.45em]
+    {\raggedright
+    \textbf{Bullinger 12517}\\
+    M1 / \GPTFiveMarchShort\\
+    \(\LANormCombinedToken=0.000\), \(\LineFOneNormToken=0.909\), \(\CERNormToken=0.006\)\\
+    M5 / \GPTFiveShort\\
+    \(\LANormCombinedToken=1.000\), \(\LineFOneNormToken=1.000\), \(\CERNormToken=0.000\)\\
+    Mechanism: Omitted opening identifier shifts the positional sequence.\par}
+    &
+    \begin{minipage}[t]{\hsize}
+      \textbf{Ground truth}\par
+      {\raggedright\ttfamily
+      234\excerptnl\\
+      S. Wie ich ich zu geschriben vergangner nacht, ...\excerptnl\\
+      capio, quia tuarii nihil tam breui accpi. ...\par}
+      \vspace{0.3em}
+      \textbf{Contrasting LLM/VLM row}\par
+      {\raggedright\ttfamily
+      S. Wie ich ich zu geschriben vergangner nacht, ...\excerptnl\\
+      capio, quia tuarii nihil tam breui accpi. ...\par}
+      \vspace{0.3em}
+      \textbf{M5 row}\par
+      {\raggedright\ttfamily
+      234\excerptnl\\
+      S. Wie ich ich zu geschriben vergangner nacht, ...\excerptnl\\
+      capio, quia tuarii nihil tam breui accpi. ...\par}
+    \end{minipage}
+    \\
+    \addlinespace[0.45em]
+    {\raggedright
+    \textbf{Washington 270}\\
+    M3 / \GPTFiveMarchShort\\
+    \(\LANormCombinedToken=0.935\), \(\LineFOneNormToken=0.935\), \(\CERNormToken=0.002\)\\
+    M5 / \QwenThirtyTwoShort\\
+    \(\LANormCombinedToken=0.871\), \(\LineFOneNormToken=0.871\), \(\CERNormToken=0.002\)\\
+    NNTP / NNTP\\
+    \(\LANormCombinedToken=1.000\), \(\LineFOneNormToken=1.000\), \(\CERNormToken=0.000\)\\
+    Mechanism: M5 fallback after repair locally over-splits hyphenated words.\par}
+    &
+    \begin{minipage}[t]{\hsize}
+      \textbf{Ground truth}\par
+      {\raggedright\ttfamily
+      28th Winchester: October 28th, 1755.\excerptnl\\
+      Parole Hampton.\excerptnl\\
+      The Officers who came down\excerptnl\\
+      from Fort Cumberland with Colonel\excerptnl\\
+      Washington, are immediately to go Recrui-\excerptnl\\
+      ting; and they are allowed until the 1st. of De-\par}
+      \vspace{0.3em}
+      \textbf{Contrasting LLM/VLM row}\par
+      {\raggedright\ttfamily
+      28th. Winchester: October 28th, 1755.\excerptnl\\
+      Parole Hampton.\excerptnl\\
+      The Officers who came down\excerptnl\\
+      from Fort Cumberland with Colonel\excerptnl\\
+      Washington, are immediately to go Recrui-\excerptnl\\
+      ting; and they are allowed until the 1st. of De-\par}
+      \vspace{0.3em}
+	      \textbf{M5 row}\par
+	      {\raggedright\ttfamily
+	      28th Winchester: October 28th, 1755.\excerptnl\\
+      Parole Hampton.\excerptnl\\
+      The Officers who came down\excerptnl\\
+	      from Fort Cumberland with Colonel\excerptnl\\
+	      Washington, are immediately to go Recrui\excerptnl\\
+	      - ting; and they are allowed until the 1st. of De-\par}
+	      \vspace{0.3em}
+	      \textbf{NNTP row}\par
+	      {\raggedright\ttfamily
+	      28th Winchester: October 28th, 1755.\excerptnl\\
+	      Parole Hampton.\excerptnl\\
+	      The Officers who came down\excerptnl\\
+	      from Fort Cumberland with Colonel\excerptnl\\
+	      Washington, are immediately to go Recrui-\excerptnl\\
+	      ting; and they are allowed until the 1st. of De-\par}
+	    \end{minipage}
+	    \\
+	    \bottomrule
+	  \end{tabularx}
+	\end{table}
+
+\begin{table}[p]
+  \centering
+  \caption{Full excerpt block for the Children Handwritten OCR-noise recovery case from Table~\ref{tab:exp_linebreak_comparison}. Metric values in the case column are whitespace-normalized per-sample values, not macro-averages over sample IDs; explicit \texttt{\textbackslash n} markers show true line boundaries. The excerpt preserves the diplomatic \texttt{\&} annotation and apparent spelling anomalies verbatim.}
+  \label{tab:app_qualitative_ocr_excerpt}
+  \scriptsize
+  \renewcommand{\arraystretch}{1.08}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.23\linewidth}Y@{}}
+    \toprule
+    \textbf{Case} & \textbf{Excerpt comparison} \\
+    \midrule
+    {\raggedright
+    \textbf{Children \texttt{3B\_19\_2-3}}\\
+    M2 / \GPTFiveMarchShort\\
+    \(\LANormCombinedToken=0.286\), \(\LineFOneNormToken=0.286\), \(\CERNormToken=0.190\)\\
+    M3 / \GPTFiveMarchShort\\
+    \(\LANormCombinedToken=0.714\), \(\LineFOneNormToken=0.714\), \(\CERNormToken=0.164\)\\
+    M5 / \GPTFiveShort\\
+    \(\LANormCombinedToken=1.000\), \(\LineFOneNormToken=1.000\), \(\CERNormToken=0.000\)\\
+    Mechanism: OCR-conditioned rows lose or normalize the \texttt{\&} annotation; M5 restores the fixed transcription.\par}
+    &
+    \begin{minipage}[t]{\hsize}
+      \textbf{Ground truth}\par
+      {\raggedright\ttfamily
+      ... Eine Hexe gesehen hat sie zauberte\excerptnl\\
+      das das Schulhaus auseinander fält.\excerptnl\\
+      Alle haben die Hexe angestart\excerptnl\\
+      aber das gefälte der Hexe garnicht. \&\excerptnl\\
+      Sie verhexte alle Kinder in Würmer\excerptnl\\
+      Frösche \&(hier hat das Kind ein ""\&"" geschrieben) Maden. Und da war das ganze\excerptnl\\
+      Scvhulhaus foler.\par}
+      \vspace{0.3em}
+      \textbf{M2 row}\par
+      {\raggedright\ttfamily
+      Eine Hexe gesehen hat sie zauberte\excerptnl\\
+      das das Schulhaus auseinander fält.\excerptnl\\
+      Alle haben die Hexe angestart\excerptnl\\
+      aber das gefälte der Hexe garnicht.\excerptnl\\
+      Sie verhexte alle Kinder in Würmer,\excerptnl\\
+      Frösche\&Maden. Und da war das ganze\excerptnl\\
+      Schulhaus foler,\par}
+      \vspace{0.3em}
+      \textbf{M3 row}\par
+      {\raggedright\ttfamily
+      Eine Hexe gesehen hat sie zauberte\excerptnl\\
+      das das Schulhaus auseinander fält.\excerptnl\\
+      Alle haben die Hexe angestart\excerptnl\\
+      aber das gefälte der Hexe garnicht. \&\excerptnl\\
+      Sie verhexte alle Kinder in Würmer\excerptnl\\
+      Frösche \& Maden. Und da war das ganze\excerptnl\\
+      Scvhulhaus foler.\par}
+      \vspace{0.3em}
+      \textbf{M5 row}\par
+      {\raggedright\ttfamily
+      ... Eine Hexe gesehen hat sie zauberte\excerptnl\\
+      das das Schulhaus auseinander fält.\excerptnl\\
+      Alle haben die Hexe angestart\excerptnl\\
+      aber das gefälte der Hexe garnicht. \&\excerptnl\\
+      Sie verhexte alle Kinder in Würmer\excerptnl\\
+      Frösche \&(hier hat das Kind ein ""\&"" geschrieben) Maden. Und da war das ganze\excerptnl\\
+      Scvhulhaus foler.\par}
+    \end{minipage}
+    \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\FloatBarrier
+
+\section{Provider Composition of the LLM/VLM Matrix}
+\label{sec:appendix_provider_mix}
+
+The handwritten LLM/VLM-based matrix in \autoref{tab:exp_handwritten_prompt_matrix} compares the strongest complete available row for each dataset-method cell using whitespace-normalized \LANormCombined{} macro-averages over sample IDs. It is kept in the appendix because Chapter~\ref{cha:experimentation} treats it as a descriptive best-row overview rather than as the primary controlled LLM/VLM-based table or a causal method comparison. Table~\ref{tab:app_model_provider_aliases} centralizes the display names, archived provider/model identifiers, reported appearances, denominator status, and special alias notes used by the LLM/VLM rows; Table~\ref{tab:app_handwritten_prompt_provenance} then lists the contributing provider rows so that the mixed-provider nature of the matrix remains explicit.
+
+The method/provider audit in Figure~\ref{fig:exp_handwritten_llm_model_overview} uses a wider audit layer than the best-row matrix. It admits comparable handwritten LLM/VLM rows from the archived result set and selected earlier CSV bundles only when the dataset, provider/model identifier, method, and zero-shot or \contextHundred{} regime can be resolved; it also admits NNTP where a comparable thesis row or aggregate exists. Table~\ref{tab:app_handwritten_model_method_overview_values} gives the exact per-dataset values behind the plotted bars and mean column, and records additional partial rows that are not shown in the figure. Legacy Washington internal labels are mapped internally to Washington Handwritten in the generated audit, while the thesis text and figure display only the Washington Handwritten label. The same audit excludes printed-scope rows, one-shot rows, prompt-variant rows, smoke or test artifacts, superseded early exploratory result sets, denominator-mismatched rows, and the partial Bullinger \QwenThirtyTwoShort{} M5 row. The separately labeled 1-shot pilot in \autoref{sec:experimentation_one_shot_exploratory} is therefore outside this configuration-audit layer. NNTP is displayed in the figure but remains outside the LLM/VLM provider alias registry below.
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{Per-dataset values behind the configuration audit in Figure~\ref{fig:exp_handwritten_llm_model_overview}. Cells report whitespace-normalized \LANormCombined{} macro-averages for comparable included rows; dashes mark unavailable eligible rows under the audit rules. The mean column is the unweighted average of the non-dash dataset-level macro cells in that row and is descriptive rather than a new primary comparison.}
+  \label{tab:app_handwritten_model_method_overview_values}
+  \scriptsize
+  \renewcommand{\arraystretch}{1.03}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}l c c c c c c@{}}
+    \toprule
+    \textbf{Provider/method row} & \textbf{Datasets} & \textbf{Mean} & \textbf{Bullinger} & \textbf{Children} & \textbf{IAM} & \textbf{Washington} \\
+    \midrule
+    GPT-5.4-0305 / M5 & 4/4 & 0.940 & 0.843 & 0.948 & 1.000 & 0.970 \\
+    Gemini-2.5-Pro / M5 & 4/4 & 0.786 & 0.423 & 0.846 & 0.992 & 0.883 \\
+    GPT-5.4-0305 / M3 & 4/4 & 0.730 & 0.297 & 0.859 & 0.948 & 0.817 \\
+    GPT-5.4-0305 / M4 & 4/4 & 0.705 & 0.406 & 0.822 & 0.855 & 0.737 \\
+    Mistral-2512 / M4 & 4/4 & 0.610 & 0.380 & 0.351 & 0.830 & 0.876 \\
+    GPT-5.4-0305 / M2 & 4/4 & 0.590 & 0.120 & 0.777 & 0.752 & 0.711 \\
+    GPT-5.4-0305 / M1 & 4/4 & 0.554 & 0.300 & 0.804 & 0.458 & 0.653 \\
+    Mistral-2512 / M3 & 4/4 & 0.405 & 0.067 & 0.556 & 0.789 & 0.208 \\
+    Gemini-3.1 / M1 & 4/4 & 0.397 & 0.062 & 0.872 & 0.589 & 0.065 \\
+    Qwen3-VL-8B / M2 & 4/4 & 0.234 & 0.040 & 0.352 & 0.000 & 0.545 \\
+    Mistral-2512 / M2 & 4/4 & 0.234 & 0.027 & 0.401 & 0.246 & 0.263 \\
+    Qwen3-VL-8B / M1 & 4/4 & 0.225 & 0.108 & 0.485 & 0.003 & 0.305 \\
+    Mistral-2512 / M1 & 4/4 & 0.216 & 0.046 & 0.525 & 0.111 & 0.181 \\
+    Qwen3-VL-8B / M3 & 4/4 & 0.173 & 0.002 & 0.190 & 0.424 & 0.076 \\
+    \midrule
+    NNTP / NNTP & 3/4 & 0.976 & --- & 0.939 & 1.000 & 0.990 \\
+    Qwen3-VL-32B / M5 & 3/4 & 0.962 & --- & 0.923 & 0.982 & 0.980 \\
+    Mistral-2512 / M5 & 3/4 & 0.911 & --- & 0.846 & 0.930 & 0.957 \\
+    Qwen3-VL-8B / M4 & 3/4 & 0.672 & 0.398 & --- & 0.736 & 0.883 \\
+    \midrule
+    Gemini-2.5-Pro / M2 & 2/4 & 0.873 & --- & 0.868 & --- & 0.879 \\
+    Gemini-2.5-Pro / M1 & 2/4 & 0.867 & --- & 0.858 & --- & 0.876 \\
+    GPT-5.2 / M1 & 2/4 & 0.803 & --- & 0.846 & --- & 0.761 \\
+    GPT-5.2 / M2 & 2/4 & 0.795 & --- & 0.837 & --- & 0.752 \\
+    Gemini-2.5-Pro / M3 & 2/4 & 0.286 & --- & 0.095 & --- & 0.477 \\
+    GPT-5.2 / M3 & 2/4 & 0.226 & --- & 0.066 & --- & 0.386 \\
+    Gemini-3-Pro / M2 & 2/4 & 0.201 & --- & 0.377 & --- & 0.024 \\
+    Gemini-3-Pro / M1 & 2/4 & 0.190 & --- & 0.360 & --- & 0.019 \\
+    Gemini-3-Pro / M3 & 2/4 & 0.044 & --- & 0.066 & --- & 0.022 \\
+    Gemini-3.1 / M2 & 1/4 & 0.092 & --- & --- & --- & 0.092 \\
+    Gemini-3.1 / M3 & 1/4 & 0.073 & --- & --- & --- & 0.073 \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.35em}
+
+  \parbox{0.96\linewidth}{\footnotesize\raggedright Figure~\ref{fig:exp_handwritten_llm_model_overview} shows the \(4/4\) rows and the selected \(3/4\) context rows for NNTP, \QwenThirtyTwoShort{} M5, and \MistralLargeShort{} M5; this table also records the unplotted \QwenEightShort{} M4 row and the remaining partial rows for auditability. The plotted \(3/4\) rows omit Bullinger for different reasons: The \QwenThirtyTwoShort{} M5 row is partial at \(20/59\) after GPU-memory pressure, the \MistralLargeShort{} M5 row lacks a completed Bullinger run after API errors, and the NNTP row uses published Bullinger-baseline context rather than a full thesis-side \(59\)-sample NNTP run. The unplotted \QwenEightShort{} M4 row is instead missing Children. Context and partial rows are not directly comparable to complete four-dataset rows because their means omit unavailable datasets. NNTP rows preserve the PyLaia symbol-filtering caveat discussed in \autoref{sec:experimentation_direct_nntp}.}
+\end{table}
+\end{landscape}
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{Centralized provider/model alias registry for reported handwritten LLM/VLM rows. Display names are the names used in thesis prose, tables, and the model-level overview; archived identifiers are the provider/model strings or artifact-folder names preserved in the retained handwritten evaluation artifacts.}
+  \label{tab:app_model_provider_aliases}
+  \scriptsize
+  \renewcommand{\arraystretch}{1.08}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.16\linewidth}Y@{}}
+    \toprule
+    \textbf{Display name} & \textbf{Archived provider/model identifier} & \textbf{Methods/datasets where reported rows appear} & \textbf{Denominator status} & \textbf{Notes} \\
+    \midrule
+    \GPTFiveShort{} & \texttt{gpt-5.4-2026-03-05}; M5 OpenAI artifact folders use \texttt{gpt-5.4} & M1--M4 on Bullinger, Children, IAM, and Washington; M5 \contextHundred{} on the same four datasets via the OpenAI M5 folder alias & Full denominator for all listed rows: Bullinger \(59/59\), Children \(63/63\), IAM \(20/20\), Washington \(20/20\) & The thesis reports both the dated M1--M4 identifier and the M5 \texttt{gpt-5.4} folder alias as \GPTFiveShort{} to keep the OpenAI exact-model control readable. \\
+    \GeminiThreeShort{} & \texttt{gemini-3.1-pro-preview} & M1 on Bullinger, Children, IAM, and Washington; M2--M3 on Washington & Full denominator for all listed rows & Supplies the selected Children and IAM M1 rows in Table~\ref{tab:app_handwritten_prompt_provenance}; other archived appearances are contextual overview rows. \\
+    GPT-5.2; Gemini-3-Pro & \texttt{gpt-5.2}; \texttt{gemini-3-pro-preview} & Model-level overview only: M1--M3 on Children and Washington & Full denominator for admitted overview rows & Earlier zero-shot rows are retained only where the generated audit verifies the current handwritten denominator; they do not enter the best-row matrix or controlled exact-model table. \\
+    \GeminiTwoFiveProShort{} & \texttt{gemini-2.5-pro} & M5 \contextHundred{} on Bullinger, Children, IAM, and Washington; model-level overview also admits M1--M3 on Children and Washington & Full denominator for all admitted rows & Archived M5 overview row plus comparable earlier zero-shot overview rows; it is not selected in the best-row overview. \\
+    \QwenEightShort{} & \texttt{qwen3-vl-8b-instruct} & M1--M3 on Bullinger, Children, IAM, and Washington; M4 on Bullinger, IAM, and Washington & Full denominator for all listed rows & Supplies the selected Washington M4 row in Table~\ref{tab:app_handwritten_prompt_provenance}. \\
+    \QwenThirtyTwoShort{} & \texttt{qwen3-vl-32b-instruct} & M5 \contextHundred{} on Bullinger, Children, IAM, and Washington & Full denominator on Children, IAM, and Washington; partial \(20/59\) on Bullinger & Supplies the selected Washington M5 row. The Bullinger M5 row stopped under GPU-memory pressure on larger samples; it is preserved as an execution record and excluded from maxima, best-row, and best-model claims. The release packaging also contains one extra Bullinger prediction text for this partial row without a matching scored row; this is packaging context only and does not alter the reported denominator. \\
+    \MistralLargeShort{} & \texttt{mistral-large-2512} & M1--M4 on Bullinger, Children, IAM, and Washington; M5 \contextHundred{} on Children, IAM, and Washington & Full denominator for all listed rows; no full-denominator Bullinger M5 row is archived & Used for the secondary fixed-provider matrix in Table~\ref{tab:app_mistral_fixed_provider_matrix}; the Bullinger M5 run did not complete after API errors. \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.35em}
+
+  \parbox{0.96\linewidth}{\footnotesize\raggedright \textit{Note.} The table covers reported and overview-audited LLM/VLM provider/model identifiers, not the deterministic NNTP baseline. The exact Qwen3-VL family name is documented in the external model-family literature, while the thesis rows use the archived provider/model identifiers shown here \thesiscite{bai2025qwen3vl}.}
+\end{table}
+\end{landscape}
+
+\begin{table}[t]
+  \centering
+  \caption{Descriptive best-row overview for the four handwritten LLM/VLM-based datasets. Each cell reports whitespace-normalized \LANormCombined{} macro-averaged over sample IDs for the strongest complete reported row in that dataset-method cell. Because cells mix model configurations and the structured M4/M5 regimes still have stored line-count access, repair, and projection, the table is descriptive rather than causal.}
+  \label{tab:exp_handwritten_prompt_matrix}
+  \footnotesize
+  \begin{tabular}{@{}l c c c c c c@{}}
+    \toprule
+    \textbf{Dataset} & \textbf{Coverage} & \textbf{M1} & \textbf{M2} & \textbf{M3} & \textbf{M4} & \textbf{M5} \\
+    \midrule
+    Bullinger Handwritten & 59/59 & 0.300 & 0.120 & 0.297 & 0.406 & 0.843 \\
+    Children Handwritten & 63/63 & 0.872 & 0.777 & 0.859 & 0.822 & 0.948 \\
+    IAM & 20/20 & 0.589 & 0.752 & 0.948 & 0.855 & 1.000 \\
+    Washington Handwritten & 20/20 & 0.653 & 0.711 & 0.817 & 0.883 & 0.980 \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.35em}
+
+  \parbox{0.82\linewidth}{\footnotesize\raggedright The M5 column uses the reported zero-shot \contextHundred{} recipe.}\\[0.35em]
+  \parbox{0.82\linewidth}{\footnotesize\raggedright The matrix compares LLM/VLM-based regimes. NNTP is excluded because the available NNTP regimes are heterogeneous and Bullinger lacks a comparable NNTP summary generated for this thesis on the full 59-sample handwritten set. The partial Bullinger \QwenThirtyTwoShort{} M5 row listed in Table~\ref{tab:app_model_provider_aliases} is also excluded from best-row claims.}\\[0.35em]
+  \parbox{0.82\linewidth}{\footnotesize\raggedright All displayed cells are full-denominator evaluations on their reported rows. The release preserves evaluated denominators, but detailed per-sample failure categories and repair-mode counters are not logged uniformly across all selected rows.}\\[0.35em]
+  \parbox{0.82\linewidth}{\footnotesize\raggedright Because cells mix model configurations, this matrix is descriptive best-row evidence rather than the primary LLM/VLM-based method-progression table; Chapter~\ref{cha:experimentation} uses Table~\ref{tab:exp_handwritten_controlled_model} for the strongest complete exact-model progression claim.}\\[0.35em]
+  \parbox{0.82\linewidth}{\footnotesize\raggedright The contributing provider rows are listed in Table~\ref{tab:app_handwritten_prompt_provenance}; display names and archived identifiers are centralized in Table~\ref{tab:app_model_provider_aliases}.}
+\end{table}
+
+\begin{table}[t]
+  \centering
+  \caption{Provider/model composition of the best rows used in Table~\ref{tab:exp_handwritten_prompt_matrix}. This table reports row identities rather than metric values; each entry names the archived row that supplies the whitespace-normalized, sample-ID macro-averaged \LANormCombined{} maximum for one dataset-method cell, making provider mixing explicit.}
+  \label{tab:app_handwritten_prompt_provenance}
+  \footnotesize
+  \renewcommand{\arraystretch}{1.08}
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.26\linewidth}*{5}{>{\centering\arraybackslash}p{0.12\linewidth}}@{}}
+    \toprule
+    \textbf{Dataset} & \textbf{M1} & \textbf{M2} & \textbf{M3} & \textbf{M4} & \textbf{M5} \\
+    \midrule
+    Bullinger Handwritten & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \GPTFiveShort{} \\
+    Children Handwritten & \GeminiThreeShort{} & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \GPTFiveShort{} \\
+    IAM (20-form) & \GeminiThreeShort{} & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \GPTFiveShort{} \\
+    Washington Handwritten & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \GPTFiveMarchShort{} & \QwenEightShort{} & \QwenThirtyTwoShort{} \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.35em}
+
+  \parbox{0.92\linewidth}{\footnotesize Model-name shorthands match Table~\ref{tab:app_model_provider_aliases}. The table records composition; it does not change the metric values reported in Table~\ref{tab:exp_handwritten_prompt_matrix}.}
+\end{table}
+
+\begin{table}[t]
+  \centering
+  \caption{Secondary single-provider \MistralLargeShort{} control for the handwritten LLM/VLM comparison. Each cell reports whitespace-normalized \LANormCombined{} macro-averaged over sample IDs; all displayed rows use \MistralLargeShort{}, whose archived identifier is listed in Table~\ref{tab:app_model_provider_aliases}, and Bullinger M5 remains blank because no full-denominator row is archived for that cell.}
+  \label{tab:app_mistral_fixed_provider_matrix}
+  \footnotesize
+  \begin{tabular}{@{}l c c c c c c@{}}
+    \toprule
+    \textbf{Dataset} & \textbf{Coverage} & \textbf{M1} & \textbf{M2} & \textbf{M3} & \textbf{M4} & \textbf{M5} \\
+    \midrule
+    Bullinger Handwritten & 59/59 (M1--M4) & 0.046 & 0.027 & 0.067 & 0.380 & --- \\
+    Children Handwritten & 63/63 & 0.525 & 0.401 & 0.556 & 0.351 & 0.846 \\
+    IAM (20-form) & 20/20 & 0.111 & 0.246 & 0.789 & 0.830 & 0.930 \\
+    Washington Handwritten & 20/20 & 0.181 & 0.263 & 0.208 & 0.876 & 0.957 \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.35em}
+
+  \parbox{0.82\linewidth}{\footnotesize Each cell reports whitespace-normalized \LANormCombined{} from the archived \texttt{evaluation.csv} macro row for \MistralLargeShort{}. The Bullinger M5 cell is blank because the archived run did not complete after API errors. The table is therefore a secondary fixed-provider robustness check, not a complete five-method matrix.}
+\end{table}
+
+\FloatBarrier
+
+\section{Dataset-Level Result Audit}
+\label{sec:appendix_dataset_result_audit}
+
+Table~\ref{tab:app_result_synthesis_audit} preserves the dataset-level checklist of evaluated method coverage and verified main \LANormCombined{} values. It is an appendix audit table rather than an additional main-text comparison.
+
+\begin{table}[p]
+  \centering
+  \caption{Dataset-level synthesis of evaluated methods and reported values. Here \(n\) denotes the evaluated sample or form count for the row. Main metric values are whitespace-normalized \LANormCombined{} values rounded to three decimals. Handwritten LLM/VLM values are the highest-scoring complete rows from Table~\ref{tab:exp_handwritten_main_overview}; NNTP values are included where comparable dataset-level aggregates are reported; printed values are the highest-scoring complete zero-shot rows from Table~\ref{tab:exp_print_secondary}. Print datasets were evaluated with M1--M3; M4, M5, and NNTP were not run for the printed datasets.}
+  \label{tab:app_result_synthesis_audit}
+  \scriptsize
+  \renewcommand{\arraystretch}{1.10}
+  \setlength{\tabcolsep}{2pt}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}X@{}}
+    \toprule
+    \textbf{Dataset} & \textbf{Modality} & \textbf{Methods run} & \textbf{Reported result set} & \textbf{Verified main values} \\
+    \midrule
+    Bullinger Handwritten (\(n=59\)) & handwritten & M1--M5; NNTP contextual & M1--M5 complete; no full-sample thesis-side NNTP result; partial \QwenThirtyTwoShort{} M5 \(20/59\) excluded from highest-result comparisons & M1 0.300; M2 0.120; M3 0.297; M4 0.406; M5 0.843; no matched NNTP result \\
+    Children Handwritten (\(n=63\)) & handwritten & M1--M5; NNTP & M1--M5 complete; NNTP cross-validation macro reported & M1 0.872; M2 0.777; M3 0.859; M4 0.822; M5 0.948; NNTP 0.939 \\
+    IAM Handwritten (\(n=20\)) & handwritten & M1--M5; NNTP & M1--M5 complete; NNTP legacy single run reported & M1 0.589; M2 0.752; M3 0.948; M4 0.855; M5 1.000; NNTP 1.000 \\
+    Washington Handwritten (\(n=20\)) & handwritten & M1--M5; NNTP & M1--M5 complete; NNTP cross-validation macro reported & M1 0.653; M2 0.711; M3 0.817; M4 0.883; M5 0.980; NNTP 0.990 \\
+    Bullinger Print (\(n=10\)) & printed & M1--M3 & M1--M3 reported; M4, M5, and NNTP not run for printed datasets & M1 0.594; M2 0.566; M3 0.115; M4/M5/NNTP not run \\
+    IAM Print (\(n=30\)) & printed & M1--M3 & M1--M3 reported; M4, M5, and NNTP not run for printed datasets & M1 0.917; M2 0.896; M3 0.934; M4/M5/NNTP not run \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\FloatBarrier
+
+\section{Detailed Metrics for the Retained LLM/VLM Rows}
+\label{sec:appendix_prompt_detail_metrics}
+
+Table~\ref{tab:app_handwritten_prompt_detail_metrics} expands the 20 mixed-provider rows from Table~\ref{tab:exp_handwritten_prompt_matrix}. All score columns are whitespace-normalized macro-averages over sample IDs from the archived evaluation records: \LANormForward{}, \LANormReverse{}, and \LANormCombined{} are order-sensitive line-accuracy metrics, exact-line precision/recall/F1 are order-insensitive multiset metrics, and \CERNorm{}/\WERNorm{} are normalized character/word error rates. The line-count column reports \MeanAbsLineDelta{} derived from the bundled prediction texts and the ground-truth texts. The projection column is a regime-level flag: The selected rows do not archive one uniform per-sample projection counter across all methods, so the table records whether the evaluated regime may project boundaries back to the supplied transcription rather than how often that happened.
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{Detailed whitespace-normalized metric registry for the reported handwritten LLM/VLM-based rows from Table~\ref{tab:exp_handwritten_prompt_matrix}. The score columns are dataset-level macro-averages over sample IDs from the archived evaluation records; \LANormForward{}, \LANormReverse{}, and \LANormCombined{} are order-sensitive line-accuracy metrics, exact-line precision/recall/F1 are order-insensitive, \CERNorm{}/\WERNorm{} are normalized rather than raw CER/WER, and \MeanAbsLineDelta{} is derived separately from line-count differences. The final column records whether the evaluated regime may project boundaries back to the supplied transcription.}
+  \label{tab:app_handwritten_prompt_detail_metrics}
+  \scriptsize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{@{}l l l c c c c c c c c c c c@{}}
+    \toprule
+    \textbf{Dataset} & \textbf{Method} & \textbf{Model} & \textbf{\(n_{\mathrm{eval}}\)} & \(\mathbf{\LANormForwardToken}\) & \(\mathbf{\LANormReverseToken}\) & \(\mathbf{\LANormCombinedToken}\) & \(\mathbf{\LinePrecisionNormToken}\) & \(\mathbf{\LineRecallNormToken}\) & \(\mathbf{\LineFOneNormToken}\) & \(\mathbf{\CERNormToken}\) & \(\mathbf{\WERNormToken}\) & \(\mathbf{\MeanAbsLineDeltaToken}\) & \textbf{Projection} \\
+    \midrule
+    Bullinger & M1 & GPT-5.4-0305 & 59 & 0.264 & 0.336 & 0.300 & 0.672 & 0.579 & 0.615 & 0.150 & 0.197 & 5.237 & no \\
+    Bullinger & M2 & GPT-5.4-0305 & 59 & 0.121 & 0.119 & 0.120 & 0.235 & 0.207 & 0.218 & 0.212 & 0.413 & 4.373 & no \\
+    Bullinger & M3 & GPT-5.4-0305 & 59 & 0.312 & 0.283 & 0.297 & 0.613 & 0.592 & 0.601 & 0.035 & 0.037 & 7.203 & no \\
+    Bullinger & M4 & GPT-5.4-0305 & 59 & 0.402 & 0.410 & 0.406 & 0.445 & 0.445 & 0.445 & 0.002 & 0.021 & 0.017 & may \\
+    Bullinger & M5 & GPT-5.4-0305 & 59 & 0.854 & 0.831 & 0.843 & 0.860 & 0.859 & 0.859 & 0.000 & 0.006 & 0.034 & may \\
+    Children & M1 & Gemini-3.1 & 63 & 0.892 & 0.852 & 0.872 & 0.945 & 0.922 & 0.931 & 0.037 & 0.040 & 0.254 & no \\
+    Children & M2 & GPT-5.4-0305 & 63 & 0.778 & 0.775 & 0.777 & 0.779 & 0.778 & 0.778 & 0.018 & 0.051 & 0.032 & no \\
+    Children & M3 & GPT-5.4-0305 & 63 & 0.862 & 0.856 & 0.859 & 0.865 & 0.864 & 0.865 & 0.016 & 0.024 & 0.048 & no \\
+    Children & M4 & GPT-5.4-0305 & 63 & 0.822 & 0.822 & 0.822 & 0.828 & 0.828 & 0.828 & 0.001 & 0.006 & 0.000 & may \\
+    Children & M5 & GPT-5.4-0305 & 63 & 0.948 & 0.948 & 0.948 & 0.948 & 0.948 & 0.948 & 0.000 & 0.001 & 0.000 & may \\
+    IAM (20-form subset) & M1 & Gemini-3.1 & 20 & 0.684 & 0.494 & 0.589 & 0.792 & 0.692 & 0.725 & 0.179 & 0.220 & 1.950 & no \\
+    IAM (20-form subset) & M2 & GPT-5.4-0305 & 20 & 0.757 & 0.747 & 0.752 & 0.757 & 0.758 & 0.758 & 0.015 & 0.091 & 0.050 & no \\
+    IAM (20-form subset) & M3 & GPT-5.4-0305 & 20 & 0.948 & 0.948 & 0.948 & 0.948 & 0.948 & 0.948 & 0.001 & 0.003 & 0.000 & no \\
+    IAM (20-form subset) & M4 & GPT-5.4-0305 & 20 & 0.855 & 0.855 & 0.855 & 0.884 & 0.884 & 0.884 & 0.000 & 0.000 & 0.000 & may \\
+    IAM (20-form subset) & M5 & GPT-5.4-0305 & 20 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.000 & 0.000 & 0.000 & may \\
+    Washington & M1 & GPT-5.4-0305 & 20 & 0.597 & 0.708 & 0.653 & 0.813 & 0.822 & 0.817 & 0.005 & 0.029 & 0.600 & no \\
+    Washington & M2 & GPT-5.4-0305 & 20 & 0.697 & 0.725 & 0.711 & 0.782 & 0.784 & 0.783 & 0.008 & 0.039 & 0.200 & no \\
+    Washington & M3 & GPT-5.4-0305 & 20 & 0.830 & 0.803 & 0.817 & 0.947 & 0.935 & 0.941 & 0.001 & 0.002 & 0.450 & no \\
+    Washington & M4 & Qwen3-VL-8B & 20 & 0.883 & 0.883 & 0.883 & 0.884 & 0.884 & 0.884 & 0.001 & 0.015 & 0.000 & may \\
+    Washington & M5 & Qwen3-VL-32B & 20 & 0.980 & 0.980 & 0.980 & 0.982 & 0.982 & 0.982 & 0.000 & 0.001 & 0.000 & may \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.35em}
+
+  \parbox{0.96\linewidth}{\footnotesize\raggedright \textit{Note.} This appendix-only metric registry expands the overview in Table~\ref{tab:exp_handwritten_prompt_matrix}; Table~\ref{tab:app_handwritten_prompt_provenance} records the contributing provider rows, Table~\ref{tab:app_model_provider_aliases} centralizes display-name aliases and archived identifiers, and Table~\ref{tab:app_mistral_fixed_provider_matrix} gives the stricter single-provider \MistralLargeShort{} robustness control. All M5 rows use the reported zero-shot \contextHundred{} recipe. The line-count column reports \MeanAbsLineDelta{} derived from bundled \texttt{predictions/*.txt} files and the ground-truth texts. ``may'' in the projection column means that the evaluated regime allows projection to the supplied transcription; it is not a counted per-sample event total.}
+\end{table}
+\end{landscape}
